@@ -1,0 +1,9 @@
+com\tpi\rutas\entity\Ruta$TipoRuta.class
+com\tpi\rutas\entity\Ruta$PrioridadRuta.class
+com\tpi\rutas\entity\Ruta$EstadoRuta.class
+com\tpi\rutas\entity\Ruta.class
+com\tpi\rutas\entity\Ruta$RutaBuilder.class
+com\tpi\rutas\entity\Tramo$EstadoTramo.class
+com\tpi\rutas\entity\Tramo$TipoTramo.class
+com\tpi\rutas\entity\Tramo.class
+com\tpi\rutas\entity\Tramo$TramoBuilder.class

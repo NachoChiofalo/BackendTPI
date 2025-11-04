@@ -1,0 +1,8 @@
+com\tpi\precios\entity\CalculoPrecio.class
+com\tpi\precios\entity\Tarifa.class
+com\tpi\precios\entity\Tarifa$ModalidadCalculo.class
+com\tpi\precios\entity\Tarifa$TipoTarifa.class
+com\tpi\precios\entity\Tarifa$TarifaBuilder.class
+com\tpi\precios\entity\CalculoPrecio$TipoCalculo.class
+com\tpi\precios\entity\CalculoPrecio$EstadoCalculo.class
+com\tpi\precios\entity\CalculoPrecio$CalculoPrecioBuilder.class

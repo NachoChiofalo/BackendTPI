@@ -1,0 +1,11 @@
+com\tpi\solicitudes\entity\Cliente.class
+com\tpi\solicitudes\entity\Solicitud$PrioridadSolicitud.class
+com\tpi\solicitudes\entity\Contenedor$ContenedorBuilder.class
+com\tpi\solicitudes\entity\Contenedor$EstadoContenedor.class
+com\tpi\solicitudes\entity\Cliente$ClienteBuilder.class
+com\tpi\solicitudes\entity\Solicitud.class
+com\tpi\solicitudes\entity\Contenedor$TipoContenedor.class
+com\tpi\solicitudes\entity\Contenedor.class
+com\tpi\solicitudes\entity\Cliente$TipoDocumento.class
+com\tpi\solicitudes\entity\Solicitud$EstadoSolicitud.class
+com\tpi\solicitudes\entity\Solicitud$SolicitudBuilder.class

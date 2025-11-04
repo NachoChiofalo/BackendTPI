@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-flotas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-flotas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-localizaciones/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-localizaciones/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-precios/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-precios/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-rutas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-rutas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-solicitudes/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-solicitudes/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared-libs/common-dto/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared-libs/common-dto/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared-libs/database-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared-libs/database-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared-libs/security-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shared-libs/security-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests/integration/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests/integration/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
