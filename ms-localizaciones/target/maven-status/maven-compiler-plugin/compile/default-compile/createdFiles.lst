@@ -1,8 +1,8 @@
+com\tpi\localizaciones\entity\EstadoValidacion.class
 com\tpi\localizaciones\entity\Ubicacion.class
 com\tpi\localizaciones\entity\DistanciaCalculada.class
 com\tpi\localizaciones\entity\DistanciaCalculada$DistanciaCalculadaBuilder.class
 com\tpi\localizaciones\entity\Ubicacion$TipoUbicacion.class
-com\tpi\localizaciones\entity\Ciudad$CategoriaCiudad.class
 com\tpi\localizaciones\entity\Ubicacion$UbicacionBuilder.class
 com\tpi\localizaciones\entity\DistanciaCalculada$FuenteCalculo.class
 com\tpi\localizaciones\entity\Ubicacion$EstadoValidacion.class

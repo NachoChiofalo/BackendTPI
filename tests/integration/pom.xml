@@ -43,11 +43,30 @@
             <artifactId>junit-jupiter</artifactId>
         </dependency>
 
+
+        <!-- Testcontainers Core -->
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Testcontainers JUnit Jupiter -->
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Testcontainers PostgreSQL -->
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>postgresql</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
         </dependency>
-
 
         <!-- WireMock para mock de servicios externos -->
         <dependency>
@@ -151,6 +170,7 @@
                             <execution>
                                 <goals>
                                     <goal>integration-test</goal>
+
                                     <goal>verify</goal>
                                 </goals>
                             </execution>
@@ -158,8 +178,8 @@
                     </plugin>
                 </plugins>
             </build>
+
         </profile>
     </profiles>
 
 </project>
-

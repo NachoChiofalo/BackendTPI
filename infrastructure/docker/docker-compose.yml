@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: tpi-postgres
+    environment:
+      POSTGRES_DB: tpi_logistica
+      POSTGRES_USER: tpi_user
+      POSTGRES_PASSWORD: tpi_pass
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init-scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tpi_user -d tpi_logistica"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tpi-network
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0
+    container_name: tpi-keycloak
+    command: start-dev
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HTTP_PORT: 8080
+      KC_HOSTNAME_STRICT: false
+      KC_HOSTNAME_STRICT_HTTPS: false
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - tpi-network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: tpi-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@tpilogistica.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "8081:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - tpi-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  tpi-network:
+    driver: bridge
