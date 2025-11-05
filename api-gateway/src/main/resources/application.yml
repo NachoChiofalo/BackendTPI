@@ -1,0 +1,130 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: api-gateway
+
+  # Configuración de Spring Cloud Gateway
+  cloud:
+    gateway:
+      # Deshabilitamos el descubrimiento automático de Eureka
+      discovery:
+        locator:
+          enabled: false
+      routes:
+        # Las rutas se definen en GatewayConfig.java usando URLs directas
+      default-filters:
+        - name: Retry
+          args:
+            retries: 3
+            statuses: BAD_GATEWAY,SERVICE_UNAVAILABLE
+            methods: GET,POST,PUT,DELETE
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+
+  # Configuración de Security OAuth2 (JWT)
+  security:
+   oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/logistica
+          jwk-set-uri: http://localhost:8080/realms/logistica/protocol/openid-connect/certs
+
+# URLs de los microservicios (configuración estática)
+microservices:
+  flotas:
+    url: http://localhost:8081
+  solicitudes:
+    url: http://localhost:8082
+  rutas:
+    url: http://localhost:8083
+  precios:
+    url: http://localhost:8084
+  localizaciones:
+    url: http://localhost:8085
+
+# Configuración de Circuit Breaker (Resilience4j)
+resilience4j:
+  circuitbreaker:
+    instances:
+      flotas-circuit-breaker:
+        register-health-indicator: true
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        wait-duration-in-open-state: 30s
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 2s
+      solicitudes-circuit-breaker:
+        register-health-indicator: true
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        wait-duration-in-open-state: 30s
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 2s
+      rutas-circuit-breaker:
+        register-health-indicator: true
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        wait-duration-in-open-state: 30s
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 2s
+      precios-circuit-breaker:
+        register-health-indicator: true
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        wait-duration-in-open-state: 30s
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 2s
+      localizaciones-circuit-breaker:
+        register-health-indicator: true
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        permitted-number-of-calls-in-half-open-state: 3
+        wait-duration-in-open-state: 30s
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 2s
+
+# Configuración de Health Checks para microservicios
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,gateway
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+
+# Configuración de Logging
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    com.tpi.gateway: INFO
+    reactor.netty: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/gateway.log

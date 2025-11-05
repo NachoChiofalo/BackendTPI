@@ -1,13 +1,33 @@
--- Creación de esquemas para los diferentes microservicios
-CREATE SCHEMA IF NOT EXISTS flotas;
+-- Crear esquemas para organizar las tablas por microservicio
 CREATE SCHEMA IF NOT EXISTS solicitudes;
+CREATE SCHEMA IF NOT EXISTS flotas;
 CREATE SCHEMA IF NOT EXISTS rutas;
 CREATE SCHEMA IF NOT EXISTS precios;
 CREATE SCHEMA IF NOT EXISTS localizaciones;
 
--- Configurar el search_path para incluir todos los esquemas
-SET search_path TO public, flotas, solicitudes, rutas, precios, localizaciones;
+-- Crear usuario para la aplicación si no existe
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT FROM pg_catalog.pg_user WHERE usename = 'tpi_user') THEN
+        CREATE USER tpi_user WITH PASSWORD 'tpi_pass';
+    END IF;
+END
+$$;
 
--- Crear extensiones necesarias
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-CREATE EXTENSION IF NOT EXISTS "postgis" SCHEMA public;
+-- Otorgar permisos al usuario
+GRANT USAGE ON SCHEMA solicitudes, flotas, rutas, precios, localizaciones TO tpi_user;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA solicitudes, flotas, rutas, precios, localizaciones TO tpi_user;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA solicitudes, flotas, rutas, precios, localizaciones TO tpi_user;
+
+-- Otorgar permisos futuros
+ALTER DEFAULT PRIVILEGES IN SCHEMA solicitudes GRANT ALL ON TABLES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA flotas GRANT ALL ON TABLES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA rutas GRANT ALL ON TABLES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA precios GRANT ALL ON TABLES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA localizaciones GRANT ALL ON TABLES TO tpi_user;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA solicitudes GRANT ALL ON SEQUENCES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA flotas GRANT ALL ON SEQUENCES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA rutas GRANT ALL ON SEQUENCES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA precios GRANT ALL ON SEQUENCES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA localizaciones GRANT ALL ON SEQUENCES TO tpi_user;

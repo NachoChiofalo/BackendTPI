@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,59 +14,53 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Transportista {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 50)
-    private String username;
-
-    @Column(nullable = false, unique = true, length = 100)
-    private String email;
-
-    @Column(nullable = false, length = 100)
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = "apellido", nullable = false, length = 100)
     private String apellido;
 
-    @Column(length = 20)
+    @Column(name = "dni", unique = true, nullable = false, length = 20)
+    private String dni;
+
+    @Column(name = "telefono", length = 20)
     private String telefono;
 
-    @Column(name = "licencia_conducir", nullable = false, length = 20)
+    @Column(name = "email", length = 100)
+    private String email;
+
+    @Column(name = "licencia_conducir", nullable = false, length = 50)
     private String licenciaConducir;
 
-    @Column(name = "categoria_licencia", nullable = false, length = 10)
-    private String categoriaLicencia;
+    @Column(name = "fecha_vencimiento_licencia")
+    private LocalDate fechaVencimientoLicencia;
 
-    @Column(name = "fecha_vencimiento_licencia", nullable = false)
-    private LocalDateTime fechaVencimientoLicencia;
-
-    @Column(name = "fecha_ingreso")
-    private LocalDateTime fechaIngreso;
-
-    @Column(nullable = false)
+    @Column(name = "activo")
+    @Builder.Default
     private Boolean activo = true;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @Column(name = "fecha_creacion")
+    private LocalDateTime fechaCreacion;
 
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    @Column(name = "fecha_actualizacion")
+    private LocalDateTime fechaActualizacion;
 
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-        if (fechaIngreso == null) {
-            fechaIngreso = LocalDateTime.now();
-        }
+        fechaCreacion = LocalDateTime.now();
+        fechaActualizacion = LocalDateTime.now();
+        if (activo == null) activo = true;
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+        fechaActualizacion = LocalDateTime.now();
     }
 }

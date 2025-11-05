@@ -4,32 +4,34 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import java.time.LocalDateTime;
+import lombok.Builder;
+
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "camiones", schema = "flotas")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Camion {
 
     @Id
-    @Column(length = 20)
+    @Column(name = "dominio", length = 10)
     private String dominio;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "tipo_camion_id", nullable = false)
+    private Long tipoCamionId;
+
+    @Column(name = "marca", length = 50)
     private String marca;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "modelo", length = 50)
     private String modelo;
 
-    @Column(name = "año_fabricacion")
-    private Integer añoFabricacion;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_camion", nullable = false, length = 20)
-    private TipoCamion tipoCamion;
+    @Column(name = "anio")
+    private Integer anio;
 
     @Column(name = "capacidad_peso", nullable = false, precision = 10, scale = 2)
     private BigDecimal capacidadPeso;
@@ -37,86 +39,42 @@ public class Camion {
     @Column(name = "capacidad_volumen", nullable = false, precision = 10, scale = 2)
     private BigDecimal capacidadVolumen;
 
-    @Column(name = "consumo_combustible", nullable = false, precision = 8, scale = 2)
+    @Column(name = "consumo_combustible", nullable = false, precision = 5, scale = 2)
     private BigDecimal consumoCombustible;
 
-    @Column(name = "costo_base_km", nullable = false, precision = 8, scale = 2)
-    private BigDecimal costoBaseKm;
+    @Column(name = "costo_km", nullable = false, precision = 10, scale = 2)
+    private BigDecimal costoKm;
 
-    @Column(name = "costo_mantenimiento_diario", precision = 8, scale = 2)
-    private BigDecimal costoMantenimientoDiario;
+    @Column(name = "transportista_id")
+    private Long transportistaId;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 15)
-    private EstadoCamion estado = EstadoCamion.DISPONIBLE;
+    @Column(name = "deposito_actual_id")
+    private Long depositoActualId;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "condicion_mecanica", length = 15)
-    private CondicionMecanica condicionMecanica = CondicionMecanica.BUENA;
+    @Column(name = "disponible")
+    @Builder.Default
+    private Boolean disponible = true;
 
-    @Column(name = "numero_seguro", length = 50)
-    private String numeroSeguro;
-
-    @Column(name = "fecha_vencimiento_seguro")
-    private LocalDateTime fechaVencimientoSeguro;
-
-    @Column(name = "fecha_ultimo_service")
-    private LocalDateTime fechaUltimoService;
-
-    @Column(name = "kilometraje_actual")
-    private Long kilometrajeActual = 0L;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "transportista_id")
-    private Transportista transportista;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "deposito_base_id")
-    private Deposito depositoBase;
-
-    @Column(name = "deposito_base_id", insertable = false, updatable = false)
-    private Long depositoBaseId;
-
-    @Column(name = "ubicacion_actual_lat", precision = 10, scale = 7)
-    private BigDecimal ubicacionActualLat;
-
-    @Column(name = "ubicacion_actual_lng", precision = 10, scale = 7)
-    private BigDecimal ubicacionActualLng;
-
-    @Column(name = "ubicacion_descripcion", length = 200)
-    private String ubicacionDescripcion;
-
-    @Column(nullable = false)
+    @Column(name = "activo")
+    @Builder.Default
     private Boolean activo = true;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @Column(name = "fecha_creacion")
+    private LocalDateTime fechaCreacion;
 
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    @Column(name = "fecha_actualizacion")
+    private LocalDateTime fechaActualizacion;
 
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
+        fechaCreacion = LocalDateTime.now();
+        fechaActualizacion = LocalDateTime.now();
+        if (disponible == null) disponible = true;
+        if (activo == null) activo = true;
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
-
-    // Enums
-    public enum TipoCamion {
-        RIGIDO_PEQUEÑO, RIGIDO_MEDIANO, RIGIDO_GRANDE,
-        SEMI_REMOLQUE, CAMION_REMOLQUE, ESPECIAL
-    }
-
-    public enum EstadoCamion {
-        DISPONIBLE, EN_VIAJE, EN_MANTENIMIENTO, AVERIADO, INACTIVO
-    }
-
-    public enum CondicionMecanica {
-        EXCELENTE, BUENA, REGULAR, MALA, CRITICA
+        fechaActualizacion = LocalDateTime.now();
     }
 }

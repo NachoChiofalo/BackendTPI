@@ -5,27 +5,33 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
 public interface CamionRepository extends JpaRepository<Camion, String> {
 
+    // Buscar camiones activos
     List<Camion> findByActivoTrue();
 
-    List<Camion> findByEstado(Camion.EstadoCamion estado);
+    // Buscar camiones disponibles
+    List<Camion> findByActivoTrueAndDisponibleTrue();
 
-    List<Camion> findByTipoCamion(Camion.TipoCamion tipoCamion);
+    // Buscar por transportista
+    List<Camion> findByTransportistaIdAndActivoTrue(Long transportistaId);
 
-    List<Camion> findByTransportistaId(Long transportistaId);
+    // Buscar por tipo de camión
+    List<Camion> findByTipoCamionIdAndActivoTrue(Long tipoCamionId);
 
-    List<Camion> findByDepositoBaseId(Long depositoId);
+    // Buscar por depósito actual
+    List<Camion> findByDepositoActualIdAndActivoTrue(Long depositoId);
 
-    @Query("SELECT c FROM Camion c WHERE c.activo = true AND c.estado = 'DISPONIBLE'")
-    List<Camion> findDisponibles();
+    // Buscar por capacidad mínima
+    @Query("SELECT c FROM Camion c WHERE c.activo = true AND c.capacidadPeso >= :pesoMin AND c.capacidadVolumen >= :volumenMin")
+    List<Camion> findByCapacidadMinima(@Param("pesoMin") BigDecimal pesoMin, @Param("volumenMin") BigDecimal volumenMin);
 
-    @Query("SELECT c FROM Camion c WHERE c.capacidadPeso >= :pesoMinimo AND c.capacidadVolumen >= :volumenMinimo AND c.activo = true AND c.estado = 'DISPONIBLE'")
-    List<Camion> findByCapacidadMinimaDisponibles(@Param("pesoMinimo") Double pesoMinimo, @Param("volumenMinimo") Double volumenMinimo);
-
-    @Query("SELECT c FROM Camion c WHERE c.kilometrajeActual > :kilometraje")
-    List<Camion> findByKilometrajeSuperiora(@Param("kilometraje") Long kilometraje);
+    // Buscar camiones disponibles con capacidad suficiente
+    @Query("SELECT c FROM Camion c WHERE c.activo = true AND c.disponible = true AND c.capacidadPeso >= :pesoMin AND c.capacidadVolumen >= :volumenMin")
+    List<Camion> findDisponiblesConCapacidad(@Param("pesoMin") BigDecimal pesoMin, @Param("volumenMin") BigDecimal volumenMin);
 }

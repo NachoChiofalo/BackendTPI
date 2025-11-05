@@ -1,0 +1,12 @@
+com\tpi\gateway\config\SecurityConfig.class
+com\tpi\gateway\service\MicroserviceHealthService.class
+com\tpi\gateway\filter\AuthenticationFilter$Config.class
+com\tpi\gateway\config\WebClientConfig.class
+com\tpi\gateway\GatewayApplication.class
+com\tpi\gateway\config\CorsConfig.class
+com\tpi\gateway\controller\FallbackController.class
+com\tpi\gateway\controller\HealthController.class
+com\tpi\gateway\filter\LoggingFilter$Config.class
+com\tpi\gateway\filter\AuthenticationFilter.class
+com\tpi\gateway\filter\LoggingFilter.class
+com\tpi\gateway\config\GatewayConfig.class

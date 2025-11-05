@@ -1,69 +1,102 @@
--- Tablas del esquema de solicitudes
+-- ================================================
+-- ESQUEMA SOLICITUDES - Clientes, Contenedores y Solicitudes
+-- ================================================
+
+-- Tabla de Clientes
+CREATE TABLE solicitudes.clientes (
+    id BIGSERIAL PRIMARY KEY,
+    razon_social VARCHAR(200) NOT NULL,
+    cuit VARCHAR(15) UNIQUE NOT NULL,
+    email VARCHAR(100),
+    telefono VARCHAR(20),
+    direccion TEXT,
+    ciudad_id BIGINT REFERENCES localizaciones.ciudades(id),
+    activo BOOLEAN DEFAULT true,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla de Tipos de Contenedor
+CREATE TABLE solicitudes.tipos_contenedor (
+    id BIGSERIAL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
+    descripcion TEXT,
+    peso_maximo DECIMAL(10,2) NOT NULL,
+    volumen_maximo DECIMAL(10,2) NOT NULL,
+    dimensiones VARCHAR(100), -- ej: "20x8x8 pies"
+    activo BOOLEAN DEFAULT true
+);
+
+-- Tabla de Contenedores
+CREATE TABLE solicitudes.contenedores (
+    id BIGSERIAL PRIMARY KEY,
+    numero_contenedor VARCHAR(50) UNIQUE NOT NULL,
+    tipo_contenedor_id BIGINT NOT NULL REFERENCES solicitudes.tipos_contenedor(id),
+    peso_actual DECIMAL(10,2) DEFAULT 0,
+    volumen_actual DECIMAL(10,2) DEFAULT 0,
+    estado VARCHAR(50) DEFAULT 'DISPONIBLE', -- DISPONIBLE, EN_TRANSITO, EN_DEPOSITO
+    ubicacion_actual VARCHAR(200),
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla de Solicitudes de Transporte
 CREATE TABLE solicitudes.solicitudes (
     id BIGSERIAL PRIMARY KEY,
-    cliente_username VARCHAR(50) NOT NULL,
+    cliente_id BIGINT NOT NULL REFERENCES solicitudes.clientes(id),
     ciudad_origen_id BIGINT NOT NULL REFERENCES localizaciones.ciudades(id),
     ciudad_destino_id BIGINT NOT NULL REFERENCES localizaciones.ciudades(id),
-    direccion_retiro VARCHAR(200),
-    direccion_entrega VARCHAR(200),
-    fecha_retiro TIMESTAMP NOT NULL,
-    fecha_entrega_estimada TIMESTAMP,
-    fecha_entrega_real TIMESTAMP,
-    peso_kg DECIMAL(10,2) NOT NULL CHECK (peso_kg > 0),
-    volumen_m3 DECIMAL(10,2) NOT NULL CHECK (volumen_m3 > 0),
-    tipo_carga VARCHAR(50),
+    fecha_solicitud TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_retiro_deseada DATE NOT NULL,
+    fecha_entrega_deseada DATE NOT NULL,
+    direccion_retiro TEXT NOT NULL,
+    direccion_entrega TEXT NOT NULL,
+    peso_total DECIMAL(10,2) NOT NULL,
+    volumen_total DECIMAL(10,2) NOT NULL,
+    descripcion_carga TEXT,
+    estado VARCHAR(50) DEFAULT 'PENDIENTE', -- PENDIENTE, COTIZADA, ACEPTADA, EN_TRANSITO, ENTREGADA, CANCELADA
+    observaciones TEXT,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla de Detalle de Solicitudes (productos/contenedores)
+CREATE TABLE solicitudes.detalle_solicitudes (
+    id BIGSERIAL PRIMARY KEY,
+    solicitud_id BIGINT NOT NULL REFERENCES solicitudes.solicitudes(id) ON DELETE CASCADE,
+    contenedor_id BIGINT REFERENCES solicitudes.contenedores(id),
+    descripcion_producto VARCHAR(200) NOT NULL,
+    peso DECIMAL(10,2) NOT NULL,
+    volumen DECIMAL(10,2) NOT NULL,
+    cantidad INTEGER DEFAULT 1,
     valor_declarado DECIMAL(12,2),
-    requiere_seguro BOOLEAN DEFAULT FALSE,
-    estado VARCHAR(20) DEFAULT 'PENDIENTE' CHECK (estado IN (
-        'PENDIENTE', 'CONFIRMADA', 'EN_TRANSITO', 'ENTREGADA', 'CANCELADA'
-    )),
-    precio_calculado DECIMAL(10,2),
-    precio_final DECIMAL(10,2),
-    observaciones TEXT,
-    camion_asignado VARCHAR(20) REFERENCES flotas.camiones(dominio),
-    transportista_asignado BIGINT REFERENCES flotas.transportistas(id),
-    fecha_asignacion TIMESTAMP,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    CHECK (ciudad_origen_id != ciudad_destino_id),
-    CHECK (fecha_retiro > CURRENT_TIMESTAMP)
+    fragil BOOLEAN DEFAULT false,
+    peligroso BOOLEAN DEFAULT false,
+    temperatura_controlada BOOLEAN DEFAULT false
 );
 
--- Tabla para seguimiento de estados de solicitud
-CREATE TABLE solicitudes.seguimiento_solicitudes (
+-- Tabla de Historial de Estados de Solicitudes
+CREATE TABLE solicitudes.historial_estados (
     id BIGSERIAL PRIMARY KEY,
-    solicitud_id BIGINT NOT NULL REFERENCES solicitudes.solicitudes(id),
-    estado_anterior VARCHAR(20),
-    estado_nuevo VARCHAR(20) NOT NULL,
-    fecha_cambio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    solicitud_id BIGINT NOT NULL REFERENCES solicitudes.solicitudes(id) ON DELETE CASCADE,
+    estado_anterior VARCHAR(50),
+    estado_nuevo VARCHAR(50) NOT NULL,
     observaciones TEXT,
-    usuario_cambio VARCHAR(50),
-    ubicacion_lat DECIMAL(10,7),
-    ubicacion_lng DECIMAL(10,7),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    usuario VARCHAR(100),
+    fecha_cambio TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabla para documentos asociados a solicitudes
-CREATE TABLE solicitudes.documentos_solicitud (
-    id BIGSERIAL PRIMARY KEY,
-    solicitud_id BIGINT NOT NULL REFERENCES solicitudes.solicitudes(id),
-    tipo_documento VARCHAR(50) NOT NULL,
-    nombre_archivo VARCHAR(200) NOT NULL,
-    ruta_archivo VARCHAR(500) NOT NULL,
-    tamaño_bytes BIGINT,
-    tipo_mime VARCHAR(100),
-    subido_por VARCHAR(50),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Índices para mejorar rendimiento
-CREATE INDEX idx_solicitudes_cliente ON solicitudes.solicitudes(cliente_username);
+-- Índices para optimizar consultas
+CREATE INDEX idx_clientes_cuit ON solicitudes.clientes(cuit);
+CREATE INDEX idx_clientes_activo ON solicitudes.clientes(activo);
+CREATE INDEX idx_clientes_ciudad ON solicitudes.clientes(ciudad_id);
+CREATE INDEX idx_contenedores_numero ON solicitudes.contenedores(numero_contenedor);
+CREATE INDEX idx_contenedores_estado ON solicitudes.contenedores(estado);
+CREATE INDEX idx_contenedores_tipo ON solicitudes.contenedores(tipo_contenedor_id);
+CREATE INDEX idx_solicitudes_cliente ON solicitudes.solicitudes(cliente_id);
 CREATE INDEX idx_solicitudes_estado ON solicitudes.solicitudes(estado);
-CREATE INDEX idx_solicitudes_fecha_retiro ON solicitudes.solicitudes(fecha_retiro);
-CREATE INDEX idx_solicitudes_origen ON solicitudes.solicitudes(ciudad_origen_id);
-CREATE INDEX idx_solicitudes_destino ON solicitudes.solicitudes(ciudad_destino_id);
-CREATE INDEX idx_solicitudes_camion ON solicitudes.solicitudes(camion_asignado);
-CREATE INDEX idx_solicitudes_transportista ON solicitudes.solicitudes(transportista_asignado);
-CREATE INDEX idx_seguimiento_solicitud ON solicitudes.seguimiento_solicitudes(solicitud_id);
-CREATE INDEX idx_seguimiento_fecha ON solicitudes.seguimiento_solicitudes(fecha_cambio);
-CREATE INDEX idx_documentos_solicitud ON solicitudes.documentos_solicitud(solicitud_id);
+CREATE INDEX idx_solicitudes_fecha_retiro ON solicitudes.solicitudes(fecha_retiro_deseada);
+CREATE INDEX idx_solicitudes_origen_destino ON solicitudes.solicitudes(ciudad_origen_id, ciudad_destino_id);
+CREATE INDEX idx_detalle_solicitud ON solicitudes.detalle_solicitudes(solicitud_id);
+CREATE INDEX idx_historial_solicitud ON solicitudes.historial_estados(solicitud_id);
+CREATE INDEX idx_historial_fecha ON solicitudes.historial_estados(fecha_cambio);

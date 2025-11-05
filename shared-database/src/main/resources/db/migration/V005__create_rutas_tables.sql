@@ -1,83 +1,106 @@
--- Tablas del esquema de rutas
+-- ================================================
+-- ESQUEMA RUTAS - Rutas, Tramos y Planificación
+-- ================================================
+
+-- Tabla de Rutas
 CREATE TABLE rutas.rutas (
     id BIGSERIAL PRIMARY KEY,
+    solicitud_id BIGINT NOT NULL REFERENCES solicitudes.solicitudes(id),
+    camion_dominio VARCHAR(10) NOT NULL REFERENCES flotas.camiones(dominio),
     ciudad_origen_id BIGINT NOT NULL REFERENCES localizaciones.ciudades(id),
     ciudad_destino_id BIGINT NOT NULL REFERENCES localizaciones.ciudades(id),
-    distancia_km DECIMAL(8,2) NOT NULL CHECK (distancia_km > 0),
-    tiempo_estimado_horas DECIMAL(6,2) NOT NULL CHECK (tiempo_estimado_horas > 0),
-    dificultad VARCHAR(10) DEFAULT 'MEDIA' CHECK (dificultad IN ('BAJA', 'MEDIA', 'ALTA')),
-    tipo_ruta VARCHAR(20) DEFAULT 'DIRECTA' CHECK (tipo_ruta IN ('DIRECTA', 'CON_PARADAS', 'ALTERNATIVA')),
-    peajes_cantidad INTEGER DEFAULT 0,
-    costo_peajes DECIMAL(8,2) DEFAULT 0,
-    estado_ruta VARCHAR(20) DEFAULT 'ACTIVA' CHECK (estado_ruta IN ('ACTIVA', 'INACTIVA', 'EN_MANTENIMIENTO')),
+    distancia_total_km DECIMAL(10,2) NOT NULL,
+    tiempo_estimado_horas DECIMAL(5,2) NOT NULL,
+    costo_total DECIMAL(12,2) NOT NULL,
+    fecha_inicio_planificada TIMESTAMP NOT NULL,
+    fecha_fin_planificada TIMESTAMP NOT NULL,
+    fecha_inicio_real TIMESTAMP,
+    fecha_fin_real TIMESTAMP,
+    estado VARCHAR(50) DEFAULT 'PLANIFICADA', -- PLANIFICADA, EN_CURSO, COMPLETADA, CANCELADA
     observaciones TEXT,
-    activa BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(ciudad_origen_id, ciudad_destino_id),
-    CHECK (ciudad_origen_id != ciudad_destino_id)
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabla para puntos intermedios de las rutas
-CREATE TABLE rutas.puntos_ruta (
+-- Tabla de Tramos de Ruta
+CREATE TABLE rutas.tramos (
     id BIGSERIAL PRIMARY KEY,
     ruta_id BIGINT NOT NULL REFERENCES rutas.rutas(id) ON DELETE CASCADE,
-    orden_punto INTEGER NOT NULL,
-    ciudad_id BIGINT REFERENCES localizaciones.ciudades(id),
-    latitud DECIMAL(10,7),
-    longitud DECIMAL(10,7),
-    descripcion VARCHAR(200),
-    es_parada_obligatoria BOOLEAN DEFAULT FALSE,
-    tiempo_estimado_parada INTEGER DEFAULT 0, -- en minutos
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(ruta_id, orden_punto)
+    orden_tramo INTEGER NOT NULL,
+    ciudad_origen_id BIGINT NOT NULL REFERENCES localizaciones.ciudades(id),
+    ciudad_destino_id BIGINT NOT NULL REFERENCES localizaciones.ciudades(id),
+    deposito_intermedio_id BIGINT REFERENCES flotas.depositos(id),
+    distancia_km DECIMAL(10,2) NOT NULL,
+    tiempo_estimado_horas DECIMAL(5,2) NOT NULL,
+    costo_combustible DECIMAL(10,2) NOT NULL,
+    costo_peajes DECIMAL(10,2) DEFAULT 0,
+    costo_estadia DECIMAL(10,2) DEFAULT 0,
+    fecha_inicio_planificada TIMESTAMP NOT NULL,
+    fecha_fin_planificada TIMESTAMP NOT NULL,
+    fecha_inicio_real TIMESTAMP,
+    fecha_fin_real TIMESTAMP,
+    estado VARCHAR(50) DEFAULT 'PENDIENTE', -- PENDIENTE, EN_TRANSITO, COMPLETADO
+    observaciones TEXT,
+    UNIQUE(ruta_id, orden_tramo)
 );
 
--- Tabla para restricciones de rutas por tipo de vehículo
-CREATE TABLE rutas.restricciones_ruta (
-    id BIGSERIAL PRIMARY KEY,
-    ruta_id BIGINT NOT NULL REFERENCES rutas.rutas(id) ON DELETE CASCADE,
-    tipo_camion VARCHAR(20) NOT NULL,
-    peso_maximo_permitido DECIMAL(10,2),
-    altura_maxima_permitida DECIMAL(5,2),
-    ancho_maximo_permitido DECIMAL(5,2),
-    restriccion_horaria_inicio TIME,
-    restriccion_horaria_fin TIME,
-    dias_semana_restriccion VARCHAR(20), -- formato: 'L,M,X,J,V,S,D'
-    activa BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Tabla para historial de viajes realizados
-CREATE TABLE rutas.viajes (
+-- Tabla de Seguimiento de Ubicación
+CREATE TABLE rutas.seguimiento_ubicacion (
     id BIGSERIAL PRIMARY KEY,
     ruta_id BIGINT NOT NULL REFERENCES rutas.rutas(id),
-    solicitud_id BIGINT REFERENCES solicitudes.solicitudes(id),
-    camion_dominio VARCHAR(20) NOT NULL REFERENCES flotas.camiones(dominio),
-    transportista_id BIGINT NOT NULL REFERENCES flotas.transportistas(id),
-    fecha_inicio TIMESTAMP NOT NULL,
-    fecha_fin TIMESTAMP,
-    distancia_real_km DECIMAL(8,2),
-    tiempo_real_horas DECIMAL(6,2),
-    combustible_consumido_litros DECIMAL(8,2),
-    costo_combustible DECIMAL(10,2),
-    costo_peajes DECIMAL(8,2),
-    estado_viaje VARCHAR(20) DEFAULT 'EN_CURSO' CHECK (estado_viaje IN (
-        'PLANIFICADO', 'EN_CURSO', 'COMPLETADO', 'CANCELADO', 'INTERRUMPIDO'
-    )),
+    tramo_id BIGINT REFERENCES rutas.tramos(id),
+    latitud DECIMAL(10,8) NOT NULL,
+    longitud DECIMAL(11,8) NOT NULL,
+    velocidad_kmh DECIMAL(5,2),
+    direccion VARCHAR(100),
+    timestamp_ubicacion TIMESTAMP NOT NULL,
+    estado_vehiculo VARCHAR(50), -- EN_MOVIMIENTO, PARADO, DESCARGANDO, CARGANDO
     observaciones TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Índices para mejorar rendimiento
-CREATE INDEX idx_rutas_origen ON rutas.rutas(ciudad_origen_id);
-CREATE INDEX idx_rutas_destino ON rutas.rutas(ciudad_destino_id);
-CREATE INDEX idx_rutas_distancia ON rutas.rutas(distancia_km);
-CREATE INDEX idx_rutas_activa ON rutas.rutas(activa);
-CREATE INDEX idx_puntos_ruta_orden ON rutas.puntos_ruta(ruta_id, orden_punto);
-CREATE INDEX idx_restricciones_tipo ON rutas.restricciones_ruta(tipo_camion);
-CREATE INDEX idx_viajes_fecha_inicio ON rutas.viajes(fecha_inicio);
-CREATE INDEX idx_viajes_camion ON rutas.viajes(camion_dominio);
-CREATE INDEX idx_viajes_transportista ON rutas.viajes(transportista_id);
-CREATE INDEX idx_viajes_estado ON rutas.viajes(estado_viaje);
+-- Tabla de Eventos de Ruta
+CREATE TABLE rutas.eventos_ruta (
+    id BIGSERIAL PRIMARY KEY,
+    ruta_id BIGINT NOT NULL REFERENCES rutas.rutas(id),
+    tramo_id BIGINT REFERENCES rutas.tramos(id),
+    tipo_evento VARCHAR(50) NOT NULL, -- INICIO, FIN, PARADA, DEMORA, INCIDENTE
+    descripcion TEXT NOT NULL,
+    latitud DECIMAL(10,8),
+    longitud DECIMAL(11,8),
+    timestamp_evento TIMESTAMP NOT NULL,
+    impacto_tiempo_horas DECIMAL(5,2) DEFAULT 0,
+    impacto_costo DECIMAL(10,2) DEFAULT 0,
+    resuelto BOOLEAN DEFAULT false,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla de Optimización de Rutas (para algoritmos futuros)
+CREATE TABLE rutas.optimizacion_rutas (
+    id BIGSERIAL PRIMARY KEY,
+    ruta_original_id BIGINT NOT NULL REFERENCES rutas.rutas(id),
+    algoritmo_usado VARCHAR(50) NOT NULL,
+    distancia_original_km DECIMAL(10,2) NOT NULL,
+    distancia_optimizada_km DECIMAL(10,2) NOT NULL,
+    tiempo_original_horas DECIMAL(5,2) NOT NULL,
+    tiempo_optimizado_horas DECIMAL(5,2) NOT NULL,
+    costo_original DECIMAL(12,2) NOT NULL,
+    costo_optimizado DECIMAL(12,2) NOT NULL,
+    porcentaje_mejora DECIMAL(5,2),
+    aplicada BOOLEAN DEFAULT false,
+    fecha_calculo TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Índices para optimizar consultas
+CREATE INDEX idx_rutas_solicitud ON rutas.rutas(solicitud_id);
+CREATE INDEX idx_rutas_camion ON rutas.rutas(camion_dominio);
+CREATE INDEX idx_rutas_estado ON rutas.rutas(estado);
+CREATE INDEX idx_rutas_fecha_inicio ON rutas.rutas(fecha_inicio_planificada);
+CREATE INDEX idx_rutas_origen_destino ON rutas.rutas(ciudad_origen_id, ciudad_destino_id);
+CREATE INDEX idx_tramos_ruta ON rutas.tramos(ruta_id, orden_tramo);
+CREATE INDEX idx_tramos_estado ON rutas.tramos(estado);
+CREATE INDEX idx_seguimiento_ruta_timestamp ON rutas.seguimiento_ubicacion(ruta_id, timestamp_ubicacion);
+CREATE INDEX idx_seguimiento_ubicacion ON rutas.seguimiento_ubicacion(latitud, longitud);
+CREATE INDEX idx_eventos_ruta_timestamp ON rutas.eventos_ruta(ruta_id, timestamp_evento);
+CREATE INDEX idx_eventos_tipo ON rutas.eventos_ruta(tipo_evento);
+CREATE INDEX idx_optimizacion_ruta_original ON rutas.optimizacion_rutas(ruta_original_id);

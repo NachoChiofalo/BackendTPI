@@ -1,0 +1,10 @@
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\config\GatewayConfig.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\config\CorsConfig.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\config\WebClientConfig.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\filter\LoggingFilter.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\controller\FallbackController.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\controller\HealthController.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\GatewayApplication.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\service\MicroserviceHealthService.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\config\SecurityConfig.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\filter\AuthenticationFilter.java
