@@ -90,18 +90,6 @@
                 <version>${postgresql.version}</version>
             </dependency>
             
-            <dependency>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-core</artifactId>
-                <version>${flyway.version}</version>
-            </dependency>
-            
-            <dependency>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-database-postgresql</artifactId>
-                <version>${flyway.version}</version>
-            </dependency>
-            
             <!-- Herramientas de Desarrollo -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -234,21 +222,6 @@
                             </goals>
                         </execution>
                     </executions>
-                </plugin>
-                
-                <!-- Flyway para Migraciones -->
-                <plugin>
-                    <groupId>org.flywaydb</groupId>
-                    <artifactId>flyway-maven-plugin</artifactId>
-                    <version>${flyway.version}</version>
-                    <configuration>
-                        <url>jdbc:postgresql://localhost:5432/tpi_logistica</url>
-                        <user>postgres</user>
-                        <password>postgres</password>
-                        <locations>
-                            <location>filesystem:shared-database/src/main/resources/db/migration</location>
-                        </locations>
-                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

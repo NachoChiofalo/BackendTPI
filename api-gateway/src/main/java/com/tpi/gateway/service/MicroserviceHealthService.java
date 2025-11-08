@@ -35,10 +35,8 @@ public class MicroserviceHealthService {
     @Value("${microservices.localizaciones.url}")
     private String localizacionesUrl;
 
-    public MicroserviceHealthService() {
-        this.webClient = WebClient.builder()
-            .codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(1024 * 1024))
-            .build();
+    public MicroserviceHealthService(WebClient webClient) {
+        this.webClient = webClient;
     }
 
     /**

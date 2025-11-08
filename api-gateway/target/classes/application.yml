@@ -20,22 +20,10 @@ spring:
             retries: 3
             statuses: BAD_GATEWAY,SERVICE_UNAVAILABLE
             methods: GET,POST,PUT,DELETE
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOriginPatterns: "*"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-            allowedHeaders: "*"
-            allowCredentials: true
 
   # Configuración de Security OAuth2 (JWT)
   security:
-   oauth2:
+    oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8080/realms/logistica

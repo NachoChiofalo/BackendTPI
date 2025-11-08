@@ -46,7 +46,7 @@ public class GatewayConfig {
             .route("ms-solicitudes", r -> r
                 .path("/api/solicitudes/**")
                 .filters(f -> f
-                    .stripPrefix(2)  // Remueve /api/solicitudes
+                    .rewritePath("/api/solicitudes/(?<segment>.*)", "/api/${segment}")
                     .circuitBreaker(config -> config
                         .setName("solicitudes-circuit-breaker")
                         .setFallbackUri("forward:/fallback/solicitudes"))
@@ -57,7 +57,7 @@ public class GatewayConfig {
             .route("ms-rutas", r -> r
                 .path("/api/rutas/**")
                 .filters(f -> f
-                    .stripPrefix(2)  // Remueve /api/rutas
+                    .rewritePath("/api/rutas/(?<segment>.*)", "/api/${segment}")
                     .circuitBreaker(config -> config
                         .setName("rutas-circuit-breaker")
                         .setFallbackUri("forward:/fallback/rutas"))
@@ -68,7 +68,7 @@ public class GatewayConfig {
             .route("ms-precios", r -> r
                 .path("/api/precios/**")
                 .filters(f -> f
-                    .stripPrefix(2)  // Remueve /api/precios
+                    .rewritePath("/api/precios/(?<segment>.*)", "/api/${segment}")
                     .circuitBreaker(config -> config
                         .setName("precios-circuit-breaker")
                         .setFallbackUri("forward:/fallback/precios"))
@@ -79,7 +79,7 @@ public class GatewayConfig {
             .route("ms-localizaciones", r -> r
                 .path("/api/localizaciones/**")
                 .filters(f -> f
-                    .stripPrefix(2)  // Remueve /api/localizaciones
+                    .rewritePath("/api/localizaciones/(?<segment>.*)", "/api/${segment}")
                     .circuitBreaker(config -> config
                         .setName("localizaciones-circuit-breaker")
                         .setFallbackUri("forward:/fallback/localizaciones"))

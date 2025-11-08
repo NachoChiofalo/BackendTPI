@@ -39,18 +39,6 @@ services:
     networks:
       - tpi-network
 
-  # Servicio de migraciones Flyway
-  flyway:
-    image: flyway/flyway:latest
-    container_name: tpi-flyway
-    command: -url=jdbc:postgresql://postgres:5432/tpi_logistica -user=tpi_user -password=tpi_pass -connectRetries=60 migrate
-    volumes:
-      - ../../shared-database/src/main/resources/db/migration:/flyway/sql
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - tpi-network
 
   pgadmin:
     image: dpage/pgadmin4:latest
