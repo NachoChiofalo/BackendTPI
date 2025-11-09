@@ -24,10 +24,10 @@ public class SecurityConfig {
                 .pathMatchers("/health/**").permitAll()
                 .pathMatchers("/swagger-ui/**").permitAll()
                 .pathMatchers("/v3/api-docs/**").permitAll()
-                // Rutas de autenticación (cuando se implemente)
                 .pathMatchers("/auth/**").permitAll()
-                // Temporalmente permitir todas las rutas para testing
-                .anyExchange().permitAll())
+                // Todas las demás requieren autenticación
+                .anyExchange().authenticated())
+            .oauth2ResourceServer(ServerHttpSecurity.OAuth2ResourceServerSpec::jwt)
             .build();
     }
 }
