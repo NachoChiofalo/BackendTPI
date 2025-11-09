@@ -1,4 +1,3 @@
-com\tpi\flotas\entity\Deposito.class
 com\tpi\flotas\service\CamionService.class
 com\tpi\flotas\service\TransportistaService.class
 com\tpi\flotas\entity\Transportista.class
@@ -6,13 +5,12 @@ com\tpi\flotas\dto\CamionDto.class
 com\tpi\flotas\dto\TransportistaInfoDto.class
 com\tpi\flotas\entity\Camion$CamionBuilder.class
 com\tpi\flotas\dto\TransportistaDto.class
+com\tpi\flotas\dto\TransportistaDto$TransportistaDtoBuilder.class
 com\tpi\flotas\controller\TransportistaController.class
+com\tpi\flotas\dto\CamionDto$CamionDtoBuilder.class
 com\tpi\flotas\controller\CamionController.class
 com\tpi\flotas\repository\CamionRepository.class
-com\tpi\flotas\entity\Deposito$DepositoBuilder.class
-com\tpi\flotas\entity\TipoCamion.class
 com\tpi\flotas\FlotasApplication.class
 com\tpi\flotas\entity\Transportista$TransportistaBuilder.class
 com\tpi\flotas\repository\TransportistaRepository.class
-com\tpi\flotas\entity\TipoCamion$TipoCamionBuilder.class
 com\tpi\flotas\entity\Camion.class

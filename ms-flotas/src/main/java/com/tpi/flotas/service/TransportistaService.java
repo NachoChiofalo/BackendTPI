@@ -19,18 +19,18 @@ public class TransportistaService {
     private final TransportistaRepository transportistaRepository;
 
     public List<Transportista> obtenerTodos() {
-        log.info("Obteniendo todos los transportistas activos");
-        return transportistaRepository.findByActivoTrue();
+        log.info("Obteniendo todos los transportistas");
+        return transportistaRepository.findAll();
     }
 
-    public Optional<Transportista> obtenerPorId(Long id) {
+    public Optional<Transportista> obtenerPorId(Integer id) {
         log.info("Obteniendo transportista por ID: {}", id);
         return transportistaRepository.findById(id);
     }
 
-    public Optional<Transportista> obtenerPorDni(String dni) {
-        log.info("Obteniendo transportista por DNI: {}", dni);
-        return transportistaRepository.findByDniAndActivoTrue(dni);
+    public Optional<Transportista> obtenerPorTelefono(Long telefono) {
+        log.info("Obteniendo transportista por teléfono: {}", telefono);
+        return transportistaRepository.findByTelefono(telefono);
     }
 
     public List<Transportista> buscarPorTexto(String texto) {
@@ -45,47 +45,25 @@ public class TransportistaService {
     }
 
     @Transactional
-    public Transportista actualizar(Long id, Transportista transportistaActualizado) {
+    public Transportista actualizar(Integer id, Transportista transportistaActualizado) {
         log.info("Actualizando transportista: {}", id);
         return transportistaRepository.findById(id)
                 .map(transportista -> {
-                    // Actualizar campos permitidos
-                    if (transportistaActualizado.getNombre() != null) {
-                        transportista.setNombre(transportistaActualizado.getNombre());
-                    }
-                    if (transportistaActualizado.getApellido() != null) {
-                        transportista.setApellido(transportistaActualizado.getApellido());
-                    }
-                    if (transportistaActualizado.getTelefono() != null) {
-                        transportista.setTelefono(transportistaActualizado.getTelefono());
-                    }
-                    if (transportistaActualizado.getEmail() != null) {
-                        transportista.setEmail(transportistaActualizado.getEmail());
-                    }
-                    if (transportistaActualizado.getFechaVencimientoLicencia() != null) {
-                        transportista.setFechaVencimientoLicencia(transportistaActualizado.getFechaVencimientoLicencia());
-                    }
+                    transportista.setNombre(transportistaActualizado.getNombre());
+                    transportista.setApellido(transportistaActualizado.getApellido());
+                    transportista.setTelefono(transportistaActualizado.getTelefono());
                     return transportistaRepository.save(transportista);
                 })
-                .orElseThrow(() -> new RuntimeException("Transportista no encontrado: " + id));
+                .orElseThrow(() -> new RuntimeException("Transportista no encontrado con ID: " + id));
     }
 
     @Transactional
-    public void eliminar(Long id) {
-        log.info("Marcando como inactivo el transportista: {}", id);
-        transportistaRepository.findById(id)
-                .ifPresentOrElse(
-                        transportista -> {
-                            transportista.setActivo(false);
-                            transportistaRepository.save(transportista);
-                        },
-                        () -> {
-                            throw new RuntimeException("Transportista no encontrado: " + id);
-                        }
-                );
-    }
-
-    public long contarTransportistas() {
-        return transportistaRepository.countByActivoTrue();
+    public void eliminar(Integer id) {
+        log.info("Eliminando transportista: {}", id);
+        if (transportistaRepository.existsById(id)) {
+            transportistaRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Transportista no encontrado con ID: " + id);
+        }
     }
 }

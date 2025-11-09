@@ -1,5 +1,6 @@
 package com.tpi.flotas.controller;
 
+import com.tpi.flotas.dto.TransportistaDto;
 import com.tpi.flotas.entity.Transportista;
 import com.tpi.flotas.service.TransportistaService;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -27,18 +29,18 @@ public class TransportistaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Transportista> obtenerPorId(@PathVariable Long id) {
+    public ResponseEntity<Transportista> obtenerPorId(@PathVariable Integer id) {
         log.info("GET /api/transportistas/{} - Obteniendo transportista por ID", id);
         return transportistaService.obtenerPorId(id)
-                .map(transportista -> ResponseEntity.ok(transportista))
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/dni/{dni}")
-    public ResponseEntity<Transportista> obtenerPorDni(@PathVariable String dni) {
-        log.info("GET /api/transportistas/dni/{} - Obteniendo transportista por DNI", dni);
-        return transportistaService.obtenerPorDni(dni)
-                .map(transportista -> ResponseEntity.ok(transportista))
+    @GetMapping("/telefono/{telefono}")
+    public ResponseEntity<Transportista> obtenerPorTelefono(@PathVariable Long telefono) {
+        log.info("GET /api/transportistas/telefono/{} - Obteniendo transportista por teléfono", telefono);
+        return transportistaService.obtenerPorTelefono(telefono)
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
@@ -50,46 +52,48 @@ public class TransportistaController {
     }
 
     @PostMapping
-    public ResponseEntity<Transportista> crear(@RequestBody Transportista transportista) {
-        log.info("POST /api/transportistas - Creando nuevo transportista: {} {}",
-                transportista.getNombre(), transportista.getApellido());
-        try {
-            Transportista transportistaGuardado = transportistaService.guardar(transportista);
-            return ResponseEntity.status(HttpStatus.CREATED).body(transportistaGuardado);
-        } catch (Exception e) {
-            log.error("Error al crear transportista: {}", e.getMessage());
-            return ResponseEntity.badRequest().build();
-        }
+    public ResponseEntity<Transportista> crear(@Valid @RequestBody TransportistaDto transportistaDto) {
+        log.info("POST /api/transportistas - Creando nuevo transportista");
+
+        Transportista transportista = new Transportista();
+        transportista.setTransportistaId(transportistaDto.getTransportistaId());
+        transportista.setNombre(transportistaDto.getNombre());
+        transportista.setApellido(transportistaDto.getApellido());
+        transportista.setTelefono(transportistaDto.getTelefono());
+
+        Transportista transportistaGuardado = transportistaService.guardar(transportista);
+        return ResponseEntity.status(HttpStatus.CREATED).body(transportistaGuardado);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Transportista> actualizar(@PathVariable Long id, @RequestBody Transportista transportista) {
+    public ResponseEntity<Transportista> actualizar(@PathVariable Integer id,
+                                                   @Valid @RequestBody TransportistaDto transportistaDto) {
         log.info("PUT /api/transportistas/{} - Actualizando transportista", id);
+
         try {
-            Transportista transportistaActualizado = transportistaService.actualizar(id, transportista);
-            return ResponseEntity.ok(transportistaActualizado);
+            Transportista transportistaActualizado = new Transportista();
+            transportistaActualizado.setNombre(transportistaDto.getNombre());
+            transportistaActualizado.setApellido(transportistaDto.getApellido());
+            transportistaActualizado.setTelefono(transportistaDto.getTelefono());
+
+            Transportista resultado = transportistaService.actualizar(id, transportistaActualizado);
+            return ResponseEntity.ok(resultado);
         } catch (RuntimeException e) {
-            log.error("Error al actualizar transportista {}: {}", id, e.getMessage());
             return ResponseEntity.notFound().build();
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         log.info("DELETE /api/transportistas/{} - Eliminando transportista", id);
+
         try {
             transportistaService.eliminar(id);
             return ResponseEntity.noContent().build();
         } catch (RuntimeException e) {
-            log.error("Error al eliminar transportista {}: {}", id, e.getMessage());
             return ResponseEntity.notFound().build();
         }
     }
 
-    @GetMapping("/count")
-    public ResponseEntity<Long> contarTransportistas() {
-        log.info("GET /api/transportistas/count - Contando transportistas activos");
-        long count = transportistaService.contarTransportistas();
-        return ResponseEntity.ok(count);
-    }
+
 }

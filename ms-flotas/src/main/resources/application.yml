@@ -5,6 +5,7 @@ spring:
   application:
     name: ms-flotas
 
+
   # Deshabilitar seguridad temporalmente para pruebas
   security:
     enabled: false
@@ -27,7 +28,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-        default_schema: flotas
         jdbc:
           time_zone: UTC
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -43,6 +43,10 @@ spring:
       connection-timeout: 30000
       idle-timeout: 600000
       max-lifetime: 1800000
+
+  # Deshabilitar Flyway ya que usamos base de datos preexistente
+  flyway:
+    enabled: false
 
 # Eureka Client (Service Discovery)
 eureka:

@@ -10,28 +10,20 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TransportistaRepository extends JpaRepository<Transportista, Long> {
+public interface TransportistaRepository extends JpaRepository<Transportista, Integer> {
 
-    // Buscar transportistas activos
-    List<Transportista> findByActivoTrue();
+    // Buscar por teléfono
+    Optional<Transportista> findByTelefono(Long telefono);
 
-    // Buscar por DNI
-    Optional<Transportista> findByDniAndActivoTrue(String dni);
-
-    // Buscar por email
-    Optional<Transportista> findByEmailAndActivoTrue(String email);
-
-    // Buscar transportistas por texto (nombre, apellido, dni o email)
-    @Query("SELECT t FROM Transportista t WHERE t.activo = true AND " +
+    // Buscar transportistas por texto (nombre o apellido)
+    @Query("SELECT t FROM Transportista t WHERE " +
            "(LOWER(t.nombre) LIKE LOWER(CONCAT('%', :texto, '%')) OR " +
-           "LOWER(t.apellido) LIKE LOWER(CONCAT('%', :texto, '%')) OR " +
-           "LOWER(t.dni) LIKE LOWER(CONCAT('%', :texto, '%')) OR " +
-           "LOWER(t.email) LIKE LOWER(CONCAT('%', :texto, '%')))")
+           "LOWER(t.apellido) LIKE LOWER(CONCAT('%', :texto, '%')))")
     List<Transportista> buscarPorTexto(@Param("texto") String texto);
 
-    // Buscar por licencia de conducir
-    Optional<Transportista> findByLicenciaConducirAndActivoTrue(String licenciaConducir);
+    // Buscar por nombre completo
+    List<Transportista> findByNombreContainingIgnoreCaseOrApellidoContainingIgnoreCase(String nombre, String apellido);
 
-    // Contar transportistas activos
-    long countByActivoTrue();
+    // Contar todos los transportistas
+    long count();
 }

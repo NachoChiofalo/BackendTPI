@@ -12,26 +12,17 @@ import java.util.List;
 @Repository
 public interface CamionRepository extends JpaRepository<Camion, String> {
 
-    // Buscar camiones activos
-    List<Camion> findByActivoTrue();
-
     // Buscar camiones disponibles
-    List<Camion> findByActivoTrueAndDisponibleTrue();
+    List<Camion> findByDisponibleTrue();
 
-    // Buscar por transportista
-    List<Camion> findByTransportistaIdAndActivoTrue(Long transportistaId);
-
-    // Buscar por tipo de camión
-    List<Camion> findByTipoCamionIdAndActivoTrue(Long tipoCamionId);
-
-    // Buscar por depósito actual
-    List<Camion> findByDepositoActualIdAndActivoTrue(Long depositoId);
+    // Buscar camiones no disponibles
+    List<Camion> findByDisponibleFalse();
 
     // Buscar por capacidad mínima
-    @Query("SELECT c FROM Camion c WHERE c.activo = true AND c.capacidadPeso >= :pesoMin AND c.capacidadVolumen >= :volumenMin")
+    @Query("SELECT c FROM Camion c WHERE c.capacidadPeso >= :pesoMin AND c.capacidadVolumen >= :volumenMin")
     List<Camion> findByCapacidadMinima(@Param("pesoMin") BigDecimal pesoMin, @Param("volumenMin") BigDecimal volumenMin);
 
-    // Buscar camiones disponibles con capacidad suficiente
-    @Query("SELECT c FROM Camion c WHERE c.activo = true AND c.disponible = true AND c.capacidadPeso >= :pesoMin AND c.capacidadVolumen >= :volumenMin")
-    List<Camion> findDisponiblesConCapacidad(@Param("pesoMin") BigDecimal pesoMin, @Param("volumenMin") BigDecimal volumenMin);
+    // Buscar camiones disponibles con capacidad mínima
+    @Query("SELECT c FROM Camion c WHERE c.disponible = true AND c.capacidadPeso >= :pesoMin AND c.capacidadVolumen >= :volumenMin")
+    List<Camion> findDisponiblesConCapacidadMinima(@Param("pesoMin") BigDecimal pesoMin, @Param("volumenMin") BigDecimal volumenMin);
 }

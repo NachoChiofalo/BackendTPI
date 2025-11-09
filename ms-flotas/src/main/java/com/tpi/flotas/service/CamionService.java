@@ -20,13 +20,18 @@ public class CamionService {
     private final CamionRepository camionRepository;
 
     public List<Camion> obtenerTodos() {
-        log.info("Obteniendo todos los camiones activos");
-        return camionRepository.findByActivoTrue();
+        log.info("Obteniendo todos los camiones");
+        return camionRepository.findAll();
     }
 
     public List<Camion> obtenerDisponibles() {
         log.info("Obteniendo camiones disponibles");
-        return camionRepository.findByActivoTrueAndDisponibleTrue();
+        return camionRepository.findByDisponibleTrue();
+    }
+
+    public List<Camion> obtenerNoDisponibles() {
+        log.info("Obteniendo camiones no disponibles");
+        return camionRepository.findByDisponibleFalse();
     }
 
     public Optional<Camion> obtenerPorDominio(String dominio) {
@@ -34,19 +39,14 @@ public class CamionService {
         return camionRepository.findById(dominio);
     }
 
-    public List<Camion> obtenerPorTransportista(Long transportistaId) {
-        log.info("Obteniendo camiones del transportista: {}", transportistaId);
-        return camionRepository.findByTransportistaIdAndActivoTrue(transportistaId);
-    }
-
-    public List<Camion> obtenerPorTipo(Long tipoCamionId) {
-        log.info("Obteniendo camiones del tipo: {}", tipoCamionId);
-        return camionRepository.findByTipoCamionIdAndActivoTrue(tipoCamionId);
-    }
-
-    public List<Camion> obtenerConCapacidad(BigDecimal pesoMin, BigDecimal volumenMin) {
+    public List<Camion> obtenerConCapacidadMinima(BigDecimal pesoMin, BigDecimal volumenMin) {
         log.info("Obteniendo camiones con capacidad mínima - Peso: {}, Volumen: {}", pesoMin, volumenMin);
-        return camionRepository.findDisponiblesConCapacidad(pesoMin, volumenMin);
+        return camionRepository.findByCapacidadMinima(pesoMin, volumenMin);
+    }
+
+    public List<Camion> obtenerDisponiblesConCapacidad(BigDecimal pesoMin, BigDecimal volumenMin) {
+        log.info("Obteniendo camiones disponibles con capacidad mínima - Peso: {}, Volumen: {}", pesoMin, volumenMin);
+        return camionRepository.findDisponiblesConCapacidadMinima(pesoMin, volumenMin);
     }
 
     @Transactional
@@ -60,34 +60,36 @@ public class CamionService {
         log.info("Actualizando camión: {}", dominio);
         return camionRepository.findById(dominio)
                 .map(camion -> {
-                    // Actualizar solo los campos permitidos
-                    if (camionActualizado.getDisponible() != null) {
-                        camion.setDisponible(camionActualizado.getDisponible());
-                    }
-                    if (camionActualizado.getDepositoActualId() != null) {
-                        camion.setDepositoActualId(camionActualizado.getDepositoActualId());
-                    }
-                    if (camionActualizado.getTransportistaId() != null) {
-                        camion.setTransportistaId(camionActualizado.getTransportistaId());
-                    }
+                    camion.setDisponible(camionActualizado.getDisponible());
+                    camion.setCapacidadPeso(camionActualizado.getCapacidadPeso());
+                    camion.setCapacidadVolumen(camionActualizado.getCapacidadVolumen());
+                    camion.setCostoBaseKm(camionActualizado.getCostoBaseKm());
+                    camion.setConsumoPromedio(camionActualizado.getConsumoPromedio());
                     return camionRepository.save(camion);
                 })
-                .orElseThrow(() -> new RuntimeException("Camión no encontrado: " + dominio));
+                .orElseThrow(() -> new RuntimeException("Camión no encontrado con dominio: " + dominio));
+    }
+
+    @Transactional
+    public void cambiarDisponibilidad(String dominio, Boolean disponible) {
+        log.info("Cambiando disponibilidad del camión {} a: {}", dominio, disponible);
+        camionRepository.findById(dominio)
+                .ifPresentOrElse(
+                    camion -> {
+                        camion.setDisponible(disponible);
+                        camionRepository.save(camion);
+                    },
+                    () -> { throw new RuntimeException("Camión no encontrado con dominio: " + dominio); }
+                );
     }
 
     @Transactional
     public void eliminar(String dominio) {
-        log.info("Marcando como inactivo el camión: {}", dominio);
-        camionRepository.findById(dominio)
-                .ifPresentOrElse(
-                        camion -> {
-                            camion.setActivo(false);
-                            camion.setDisponible(false);
-                            camionRepository.save(camion);
-                        },
-                        () -> {
-                            throw new RuntimeException("Camión no encontrado: " + dominio);
-                        }
-                );
+        log.info("Eliminando camión: {}", dominio);
+        if (camionRepository.existsById(dominio)) {
+            camionRepository.deleteById(dominio);
+        } else {
+            throw new RuntimeException("Camión no encontrado con dominio: " + dominio);
+        }
     }
 }
