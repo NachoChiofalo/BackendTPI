@@ -1,2 +1,11 @@
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\dto\CalculoPrecioDto.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\dto\SolicitudCotizacionDto.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\service\TarifaService.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\PreciosApplication.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\repository\TarifaRepository.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\controller\CotizacionController.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\controller\TarifaController.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\dto\TarifaDto.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\entity\CalculoPrecio.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\entity\Tarifa.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-precios\src\main\java\com\tpi\precios\service\CalculoPrecioService.java

@@ -1,0 +1,88 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: ms-precios
+
+  # Deshabilitar completamente Spring Cloud y Eureka
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration
+      - org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
+      - org.springframework.cloud.client.discovery.DiscoveryClientAutoConfiguration
+      - org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration
+      - org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration
+
+  # Configuración de zona horaria
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  # Configuración JPA con timezone específico
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tpi_logistica
+    username: tpi_user
+    password: tpi_pass
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  # Deshabilitar Flyway ya que usamos base de datos preexistente
+  flyway:
+    enabled: false
+
+  # Deshabilitar completamente Spring Cloud
+  cloud:
+    discovery:
+      enabled: false
+    loadbalancer:
+      enabled: false
+
+# Eureka Client deshabilitado
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+
+# Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  health:
+    defaults:
+      enabled: true
+
+# Logging
+logging:
+  level:
+    com.tpi.precios: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
