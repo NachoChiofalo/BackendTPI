@@ -37,7 +37,7 @@ public class Ruta {
     private Long solicitudId;
 
     @Column(name = "cantidad_tramos", nullable = false)
-    private Integer cantidadTramos;
+    private Integer cantidadTramos = 0;
 
     @Column(name = "cantidad_depositos", nullable = false)
     @Builder.Default
@@ -154,8 +154,8 @@ public class Ruta {
         this.cantidadTramos = tramos.size();
         this.cantidadDepositos = (int) tramos.stream()
                 .filter(t -> t.getTipoTramo() == Tramo.TipoTramo.DEPOSITO_DEPOSITO ||
-                           t.getTipoTramo() == Tramo.TipoTramo.ORIGEN_DEPOSITO ||
-                           t.getTipoTramo() == Tramo.TipoTramo.DEPOSITO_DESTINO)
+                        t.getTipoTramo() == Tramo.TipoTramo.ORIGEN_DEPOSITO ||
+                        t.getTipoTramo() == Tramo.TipoTramo.DEPOSITO_DESTINO)
                 .count();
     }
 
@@ -176,8 +176,8 @@ public class Ruta {
 
     public void cancelarRuta(String motivo) {
         estado = EstadoRuta.CANCELADA;
-        observaciones = (observaciones != null ? observaciones + " | " : "") + 
-                       "CANCELADA: " + motivo;
+        observaciones = (observaciones != null ? observaciones + " | " : "") +
+                "CANCELADA: " + motivo;
     }
 
     private void calcularTiempoReal() {
@@ -215,11 +215,11 @@ public class Ruta {
 
     public double calcularPorcentajeCompletado() {
         if (tramos.isEmpty()) return 0.0;
-        
+
         long tramosCompletados = tramos.stream()
                 .filter(t -> t.getEstado() == Tramo.EstadoTramo.FINALIZADO)
                 .count();
-        
+
         return (tramosCompletados * 100.0) / tramos.size();
     }
 
@@ -238,8 +238,8 @@ public class Ruta {
     }
 
     public boolean estaCompletada() {
-        return estado == EstadoRuta.COMPLETADA || 
-               tramos.stream().allMatch(t -> t.getEstado() == Tramo.EstadoTramo.FINALIZADO);
+        return estado == EstadoRuta.COMPLETADA ||
+                tramos.stream().allMatch(t -> t.getEstado() == Tramo.EstadoTramo.FINALIZADO);
     }
 
     public boolean puedeSerModificada() {
@@ -251,24 +251,24 @@ public class Ruta {
     }
 
     public String getResumenRuta() {
-        return String.format("Ruta %s: %d tramos, %.2f km, %d min estimados (%s)", 
-                           codigo, cantidadTramos, 
-                           distanciaTotalKm != null ? distanciaTotalKm : BigDecimal.ZERO,
-                           tiempoEstimadoTotal != null ? tiempoEstimadoTotal : 0,
-                           estado);
+        return String.format("Ruta %s: %d tramos, %.2f km, %d min estimados (%s)",
+                codigo, cantidadTramos,
+                distanciaTotalKm != null ? distanciaTotalKm.doubleValue() : 0.0,
+                tiempoEstimadoTotal != null ? tiempoEstimadoTotal : 0,
+                estado);
     }
 
     // Validaciones de negocio
     public boolean validarSecuenciaTramos() {
         if (tramos.isEmpty()) return false;
-        
+
         for (int i = 0; i < tramos.size() - 1; i++) {
             Tramo actual = tramos.get(i);
             Tramo siguiente = tramos.get(i + 1);
-            
+
             // El destino del tramo actual debe coincidir con el origen del siguiente
             if (!actual.getDestinoLatitud().equals(siguiente.getOrigenLatitud()) ||
-                !actual.getDestinoLongitud().equals(siguiente.getOrigenLongitud())) {
+                    !actual.getDestinoLongitud().equals(siguiente.getOrigenLongitud())) {
                 return false;
             }
         }

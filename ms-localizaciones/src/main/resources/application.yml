@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: ms-localizaciones
+
+  # Configuración de base de datos
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tpi
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  # Configuración JPA
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: localizaciones
+
+  # Configuración de servidor
+server:
+  port: 8082
+  servlet:
+    context-path: /
+    
+# Actuator para health checks
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Logging
+logging:
+  level:
+    com.tpi.localizaciones: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

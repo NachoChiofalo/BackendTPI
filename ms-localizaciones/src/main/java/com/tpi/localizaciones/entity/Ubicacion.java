@@ -11,10 +11,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-/**
- * Entidad Ubicacion - Representa ubicaciones específicas con coordenadas
- * Esquema: localizaciones
- */
 @Entity
 @Table(name = "ubicaciones", schema = "localizaciones")
 @Data
@@ -143,25 +139,7 @@ public class Ubicacion {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    // Enums
-    public enum TipoUbicacion {
-        CLIENTE_ORIGEN,     // Punto de recogida del cliente
-        CLIENTE_DESTINO,    // Punto de entrega al cliente
-        DEPOSITO,          // Depósito/almacén
-        PUERTO,            // Puerto marítimo/fluvial
-        AEROPUERTO,        // Aeropuerto
-        TERMINAL_CARGAS,   // Terminal de cargas
-        ZONA_INDUSTRIAL,   // Zona industrial
-        CENTRO_LOGISTICO,  // Centro logístico
-        OTRO              // Otro tipo de ubicación
-    }
-
-    public enum EstadoValidacion {
-        PENDIENTE,         // Pendiente de validación
-        VALIDADA,         // Validada y verificada
-        RECHAZADA,        // Rechazada por errores
-        REQUIERE_REVISION // Requiere revisión adicional
-    }
+    // Enums (moved to top-level TipoUbicacion)
 
     // Métodos de conveniencia
     public String getDireccionCompleta() {
@@ -226,7 +204,7 @@ public class Ubicacion {
     }
 
     public void marcarParaRevision(String motivo) {
-        this.estadoValidacion = EstadoValidacion.REQUIERE_REVISION;
+        this.estadoValidacion = EstadoValidacion.EN_REVISION;
         this.observacionesValidacion = (this.observacionesValidacion != null ? 
                                       this.observacionesValidacion + " | " : "") + 
                                      "REQUIERE REVISIÓN: " + motivo;

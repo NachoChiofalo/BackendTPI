@@ -45,12 +45,14 @@ public class DistanciaCalculada {
     @Column(name = "longitud_destino", nullable = false, precision = 10, scale = 7)
     private BigDecimal longitudDestino;
 
+
     // Resultados del cálculo
     @Column(name = "distancia_km", nullable = false, precision = 10, scale = 3)
     private BigDecimal distanciaKm;
 
     @Column(name = "duracion_minutos", precision = 8, scale = 1)
     private BigDecimal duracionMinutos;
+
 
     @Column(name = "distancia_lineal_km", precision = 10, scale = 3)
     private BigDecimal distanciaLinealKm; // Distancia en línea recta (haversine)
@@ -117,6 +119,20 @@ public class DistanciaCalculada {
     @Builder.Default
     private Integer numeroUsos = 1;
 
+    // Relaciones a Ubicacion (origen/destino)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ubicacion_origen_id")
+    private Ubicacion ubicacionOrigen;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ubicacion_destino_id")
+    private Ubicacion ubicacionDestino;
+
+    // Estado de validación (usa enum compartido)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "estado_validacion", length = 20)
+    private EstadoValidacion estadoValidacion;
+
     // Información adicional
     @Column(name = "pais_origen", length = 3)
     private String paisOrigen; // Código ISO del país
@@ -159,6 +175,8 @@ public class DistanciaCalculada {
     public boolean estaVigente() {
         return fechaExpiracion == null || LocalDateTime.now().isBefore(fechaExpiracion);
     }
+
+    
 
     public void incrementarUso() {
         this.numeroUsos++;
@@ -211,6 +229,15 @@ public class DistanciaCalculada {
         // Convertir minutos a horas y calcular km/h
         BigDecimal horas = duracionMinutos.divide(new BigDecimal("60"), 3, BigDecimal.ROUND_HALF_UP);
         return distanciaKm.divide(horas, 2, BigDecimal.ROUND_HALF_UP);
+    }
+
+    // Compatibilidad con DTOs/servicios que usan 'tiempoEstimadoMinutos' como Integer
+    public Integer getTiempoEstimadoMinutos() {
+        return duracionMinutos == null ? null : duracionMinutos.intValue();
+    }
+
+    public void setTiempoEstimadoMinutos(Integer minutos) {
+        this.duracionMinutos = minutos == null ? null : new BigDecimal(minutos);
     }
 
     public boolean esRutaInternacional() {
