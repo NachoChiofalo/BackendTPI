@@ -8,6 +8,8 @@ services:
       POSTGRES_USER: tpi_user
       POSTGRES_PASSWORD: tpi_pass
       POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
+      TZ: UTC
+      PGTZ: UTC
     ports:
       - "5432:5432"
     volumes:
@@ -52,6 +54,24 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    networks:
+      - tpi-network
+
+  osrm:
+    image: ghcr.io/project-osrm/osrm-backend:latest
+    container_name: tpi-osrm
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../../osrm-data:/data
+    command: osrm-routed --algorithm mld /data/argentina-latest.osrm
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5000/route/v1/driving/-64.18105,-31.4135;-60.6985,-32.9471?overview=false"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
     networks:
       - tpi-network
 
