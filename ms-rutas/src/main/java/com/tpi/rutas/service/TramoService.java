@@ -23,45 +23,45 @@ public class TramoService {
         return tramoRepository.findAll();
     }
 
-    public Optional<Tramo> obtenerPorId(Long id) {
+    public Optional<Tramo> obtenerPorId(Integer id) {
         log.info("Obteniendo tramo por id: {}", id);
         return tramoRepository.findById(id);
     }
 
-    public List<Tramo> obtenerPorRuta(Long rutaId) {
+    public List<Tramo> obtenerPorRuta(Integer rutaId) {
         log.info("Obteniendo tramos por ruta: {}", rutaId);
-        return tramoRepository.findByRutaIdOrderByOrdenAsc(rutaId);
+        return tramoRepository.findByRutaId(rutaId);
     }
 
     @Transactional
     public Tramo guardar(Tramo tramo) {
-        log.info("Guardando tramo, orden: {}", tramo.getOrden());
+        log.info("Guardando tramo: {}", tramo.getTramoId());
         return tramoRepository.save(tramo);
     }
 
     @Transactional
-    public Tramo actualizar(Long id, Tramo actualizado) {
+    public Tramo actualizar(Integer id, Tramo actualizado) {
         log.info("Actualizando tramo: {}", id);
         return tramoRepository.findById(id)
                 .map(t -> {
-                    t.setOrden(actualizado.getOrden());
-                    t.setOrigenLatitud(actualizado.getOrigenLatitud());
-                    t.setOrigenLongitud(actualizado.getOrigenLongitud());
-                    t.setOrigenDescripcion(actualizado.getOrigenDescripcion());
-                    t.setDestinoLatitud(actualizado.getDestinoLatitud());
-                    t.setDestinoLongitud(actualizado.getDestinoLongitud());
-                    t.setDestinoDescripcion(actualizado.getDestinoDescripcion());
-                    t.setTipoTramo(actualizado.getTipoTramo());
-                    t.setDistanciaKm(actualizado.getDistanciaKm());
-                    t.setTiempoEstimadoMinutos(actualizado.getTiempoEstimadoMinutos());
-                    t.setObservaciones(actualizado.getObservaciones());
+                    t.setRutaId(actualizado.getRutaId());
+                    t.setTipoTramoId(actualizado.getTipoTramoId());
+                    t.setDominio(actualizado.getDominio());
+                    t.setUbicacionOrigenId(actualizado.getUbicacionOrigenId());
+                    t.setTransportistaId(actualizado.getTransportistaId());
+                    t.setUbicacionDestinoId(actualizado.getUbicacionDestinoId());
+                    t.setCostoAproximado(actualizado.getCostoAproximado());
+                    t.setCostoReal(actualizado.getCostoReal());
+                    t.setFechaHoraInicio(actualizado.getFechaHoraInicio());
+                    t.setFechaHoraFin(actualizado.getFechaHoraFin());
+                    t.setFechaHoraEstimadaFin(actualizado.getFechaHoraEstimadaFin());
                     return tramoRepository.save(t);
                 })
                 .orElseThrow(() -> new RuntimeException("Tramo no encontrado con id: " + id));
     }
 
     @Transactional
-    public void eliminar(Long id) {
+    public void eliminar(Integer id) {
         log.info("Eliminando tramo: {}", id);
         if (tramoRepository.existsById(id)) {
             tramoRepository.deleteById(id);

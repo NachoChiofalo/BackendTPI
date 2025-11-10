@@ -23,44 +23,31 @@ public class RutaService {
         return rutaRepository.findAll();
     }
 
-    public Optional<Ruta> obtenerPorId(Long id) {
+    public Optional<Ruta> obtenerPorId(Integer id) {
         log.info("Obteniendo ruta por id: {}", id);
         return rutaRepository.findById(id);
     }
 
-    public List<Ruta> buscarPorCodigo(String codigo) {
-        log.info("Buscando rutas por codigo: {}", codigo);
-        return rutaRepository.findByCodigoContainingIgnoreCase(codigo);
-    }
-
-    public List<Ruta> buscarPorSolicitudId(Long solicitudId) {
-        log.info("Buscando rutas por solicitudId: {}", solicitudId);
-        return rutaRepository.findBySolicitudId(solicitudId);
-    }
-
     @Transactional
     public Ruta guardar(Ruta ruta) {
-        log.info("Guardando ruta: {}", ruta.getCodigo());
+        log.info("Guardando ruta: {}", ruta.getRutaId());
         return rutaRepository.save(ruta);
     }
 
     @Transactional
-    public Ruta actualizar(Long id, Ruta actualizado) {
+    public Ruta actualizar(Integer id, Ruta actualizado) {
         log.info("Actualizando ruta: {}", id);
         return rutaRepository.findById(id)
                 .map(r -> {
-                    r.setCodigo(actualizado.getCodigo());
-                    r.setSolicitudId(actualizado.getSolicitudId());
-                    r.setObservaciones(actualizado.getObservaciones());
-                    r.setPrioridad(actualizado.getPrioridad());
-                    r.setTipoRuta(actualizado.getTipoRuta());
+                    r.setCantidadTramos(actualizado.getCantidadTramos());
+                    r.setCantidadDepositos(actualizado.getCantidadDepositos());
                     return rutaRepository.save(r);
                 })
                 .orElseThrow(() -> new RuntimeException("Ruta no encontrada con id: " + id));
     }
 
     @Transactional
-    public void eliminar(Long id) {
+    public void eliminar(Integer id) {
         log.info("Eliminando ruta: {}", id);
         if (rutaRepository.existsById(id)) {
             rutaRepository.deleteById(id);

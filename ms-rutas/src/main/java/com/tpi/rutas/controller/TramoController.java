@@ -27,20 +27,20 @@ public class TramoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Tramo> obtenerPorId(@PathVariable Long id) {
+    public ResponseEntity<Tramo> obtenerPorId(@PathVariable Integer id) {
         log.info("GET /api/tramos/{} - Obtener por id", id);
         return tramoService.obtenerPorId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/ruta/{rutaId}")
-    public ResponseEntity<List<Tramo>> obtenerPorRuta(@PathVariable Long rutaId) {
+    public ResponseEntity<List<Tramo>> obtenerPorRuta(@PathVariable Integer rutaId) {
         log.info("GET /api/tramos/ruta/{} - Obtener por ruta", rutaId);
         return ResponseEntity.ok(tramoService.obtenerPorRuta(rutaId));
     }
 
     @PostMapping
     public ResponseEntity<Tramo> crear(@Valid @RequestBody Tramo tramo) {
-        log.info("POST /api/tramos - Creando tramo orden {}", tramo.getOrden());
+        log.info("POST /api/tramos - Creando tramo ID: {}", tramo.getTramoId());
         try {
             Tramo guardado = tramoService.guardar(tramo);
             return ResponseEntity.status(HttpStatus.CREATED).body(guardado);
@@ -51,7 +51,7 @@ public class TramoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Tramo> actualizar(@PathVariable Long id, @Valid @RequestBody Tramo tramo) {
+    public ResponseEntity<Tramo> actualizar(@PathVariable Integer id, @Valid @RequestBody Tramo tramo) {
         log.info("PUT /api/tramos/{} - Actualizando", id);
         try {
             Tramo actualizado = tramoService.actualizar(id, tramo);
@@ -63,7 +63,7 @@ public class TramoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         log.info("DELETE /api/tramos/{} - Eliminando", id);
         try {
             tramoService.eliminar(id);
