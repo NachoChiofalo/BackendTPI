@@ -1,6 +1,5 @@
 package com.tpi.solicitudes.controller;
 
-import com.tpi.solicitudes.dto.ContenedorDto;
 import com.tpi.solicitudes.entity.Contenedor;
 import com.tpi.solicitudes.service.ContenedorService;
 import lombok.RequiredArgsConstructor;
@@ -28,25 +27,18 @@ public class ContenedorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Contenedor> obtenerPorId(@PathVariable String id) {
+    public ResponseEntity<Contenedor> obtenerPorId(@PathVariable Integer id) {
         log.info("GET /api/contenedores/{} - Obteniendo por id", id);
         return contenedorService.obtenerPorId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/cliente/{clienteId}")
-    public ResponseEntity<List<Contenedor>> buscarPorCliente(@PathVariable Long clienteId) {
-        log.info("GET /api/contenedores/cliente/{} - Buscando por cliente", clienteId);
-        return ResponseEntity.ok(contenedorService.buscarPorClienteId(clienteId));
-    }
-
     @PostMapping
-    public ResponseEntity<Contenedor> crear(@Valid @RequestBody ContenedorDto dto) {
-        log.info("POST /api/contenedores - Creando contenedor: {}", dto.getIdentificacion());
+    public ResponseEntity<Contenedor> crear(@Valid @RequestBody Contenedor contenedor) {
+        log.info("POST /api/contenedores - Creando contenedor: {}", contenedor.getIdContenedor());
         try {
-            Contenedor c = mapearDtoAEntidad(dto);
-            Contenedor guardado = contenedorService.guardar(c);
+            Contenedor guardado = contenedorService.guardar(contenedor);
             return ResponseEntity.status(HttpStatus.CREATED).body(guardado);
         } catch (Exception e) {
             log.error("Error al crear contenedor: {}", e.getMessage());
@@ -55,11 +47,10 @@ public class ContenedorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Contenedor> actualizar(@PathVariable String id, @Valid @RequestBody ContenedorDto dto) {
+    public ResponseEntity<Contenedor> actualizar(@PathVariable Integer id, @Valid @RequestBody Contenedor contenedor) {
         log.info("PUT /api/contenedores/{} - Actualizando", id);
         try {
-            Contenedor c = mapearDtoAEntidad(dto);
-            Contenedor actualizado = contenedorService.actualizar(id, c);
+            Contenedor actualizado = contenedorService.actualizar(id, contenedor);
             return ResponseEntity.ok(actualizado);
         } catch (RuntimeException e) {
             log.error("Error al actualizar contenedor {}: {}", id, e.getMessage());
@@ -68,7 +59,7 @@ public class ContenedorController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable String id) {
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         log.info("DELETE /api/contenedores/{} - Eliminando", id);
         try {
             contenedorService.eliminar(id);
@@ -77,19 +68,5 @@ public class ContenedorController {
             log.error("Error al eliminar contenedor {}: {}", id, e.getMessage());
             return ResponseEntity.notFound().build();
         }
-    }
-
-    private Contenedor mapearDtoAEntidad(ContenedorDto dto) {
-        return Contenedor.builder()
-                .identificacion(dto.getIdentificacion())
-                .peso(dto.getPeso())
-                .volumen(dto.getVolumen())
-                .descripcion(dto.getDescripcion())
-                .estado(dto.getEstado() != null ? Contenedor.EstadoContenedor.valueOf(dto.getEstado()) : Contenedor.EstadoContenedor.REGISTRADO)
-                .tipoContenedor(dto.getTipoContenedor() != null ? Contenedor.TipoContenedor.valueOf(dto.getTipoContenedor()) : null)
-                .ubicacionActualLatitud(dto.getUbicacionActualLatitud())
-                .ubicacionActualLongitud(dto.getUbicacionActualLongitud())
-                .ubicacionDescripcion(dto.getUbicacionDescripcion())
-                .build();
     }
 }

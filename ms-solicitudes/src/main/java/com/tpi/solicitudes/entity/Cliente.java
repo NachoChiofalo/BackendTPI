@@ -5,93 +5,39 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * Entidad Cliente - Representa los clientes que solicitan traslados de contenedores
- * Esquema: solicitudes
+ * Mapea a la tabla 'Clientes' en el esquema 'public'
  */
 @Entity
-@Table(name = "clientes", schema = "solicitudes")
+@Table(name = "clientes", schema = "public")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Cliente {
+@IdClass(ClienteId.class)
+public class Cliente implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "tipo_doc_cliente_id", nullable = false)
+    private Integer tipoDocClienteId;
 
-    @Column(nullable = false, length = 100)
-    private String nombre;
+    @Id
+    @Column(name = "num_doc_cliente", nullable = false)
+    private Long numDocCliente;
 
-    @Column(nullable = false, unique = true, length = 150)
-    private String email;
+    @Column(name = "nombres", nullable = false, length = 50)
+    private String nombres;
 
-    @Column(nullable = false, length = 20)
+    @Column(name = "apellidos", nullable = false, length = 50)
+    private String apellidos;
+
+    @Column(name = "domicilio", nullable = false, length = 50)
+    private String domicilio;
+
+    @Column(name = "telefono", nullable = false, length = 50)
     private String telefono;
-
-    @Column(length = 500)
-    private String direccion;
-
-    @Column(name = "numero_documento", length = 20)
-    private String numeroDocumento;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_documento", length = 10)
-    private TipoDocumento tipoDocumento;
-
-    @Column(name = "activo")
-    @Builder.Default
-    private Boolean activo = true;
-
-    // Relaciones
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<Contenedor> contenedores = new ArrayList<>();
-
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<Solicitud> solicitudes = new ArrayList<>();
-
-    // Auditoría
-    @CreationTimestamp
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
-    // Enums
-    public enum TipoDocumento {
-        DNI, PASAPORTE, CUIT, CUIL
-    }
-
-    // Métodos de conveniencia
-    public void addContenedor(Contenedor contenedor) {
-        contenedores.add(contenedor);
-        contenedor.setCliente(this);
-    }
-
-    public void removeContenedor(Contenedor contenedor) {
-        contenedores.remove(contenedor);
-        contenedor.setCliente(null);
-    }
-
-    public void addSolicitud(Solicitud solicitud) {
-        solicitudes.add(solicitud);
-        solicitud.setCliente(this);
-    }
-
-    public void removeSolicitud(Solicitud solicitud) {
-        solicitudes.remove(solicitud);
-        solicitud.setCliente(null);
-    }
 }

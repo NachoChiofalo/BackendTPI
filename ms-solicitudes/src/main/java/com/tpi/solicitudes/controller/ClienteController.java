@@ -1,6 +1,5 @@
 package com.tpi.solicitudes.controller;
 
-import com.tpi.solicitudes.dto.ClienteDto;
 import com.tpi.solicitudes.entity.Cliente;
 import com.tpi.solicitudes.service.ClienteService;
 import lombok.RequiredArgsConstructor;
@@ -27,25 +26,32 @@ public class ClienteController {
         return ResponseEntity.ok(clienteService.obtenerTodos());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Cliente> obtenerPorId(@PathVariable Long id) {
-        log.info("GET /api/clientes/{} - Obteniendo por id", id);
-        return clienteService.obtenerPorId(id)
+    @GetMapping("/{tipoDocClienteId}/{numDocCliente}")
+    public ResponseEntity<Cliente> obtenerPorId(
+            @PathVariable Integer tipoDocClienteId,
+            @PathVariable Long numDocCliente) {
+        log.info("GET /api/clientes/{}/{} - Obteniendo por id compuesto", tipoDocClienteId, numDocCliente);
+        return clienteService.obtenerPorId(tipoDocClienteId, numDocCliente)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/buscar")
-    public ResponseEntity<List<Cliente>> buscarPorNombre(@RequestParam String nombre) {
-        log.info("GET /api/clientes/buscar - Buscando por nombre: {}", nombre);
-        return ResponseEntity.ok(clienteService.buscarPorNombre(nombre));
+    @GetMapping("/buscar/nombres")
+    public ResponseEntity<List<Cliente>> buscarPorNombres(@RequestParam String nombres) {
+        log.info("GET /api/clientes/buscar/nombres - Buscando por nombres: {}", nombres);
+        return ResponseEntity.ok(clienteService.buscarPorNombres(nombres));
+    }
+
+    @GetMapping("/buscar/apellidos")
+    public ResponseEntity<List<Cliente>> buscarPorApellidos(@RequestParam String apellidos) {
+        log.info("GET /api/clientes/buscar/apellidos - Buscando por apellidos: {}", apellidos);
+        return ResponseEntity.ok(clienteService.buscarPorApellidos(apellidos));
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> crear(@Valid @RequestBody ClienteDto dto) {
-        log.info("POST /api/clientes - Creando cliente: {}", dto.getNombre());
+    public ResponseEntity<Cliente> crear(@Valid @RequestBody Cliente cliente) {
+        log.info("POST /api/clientes - Creando cliente: {} {}", cliente.getNombres(), cliente.getApellidos());
         try {
-            Cliente cliente = mapearDtoAEntidad(dto);
             Cliente guardado = clienteService.guardar(cliente);
             return ResponseEntity.status(HttpStatus.CREATED).body(guardado);
         } catch (Exception e) {
@@ -54,41 +60,32 @@ public class ClienteController {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Cliente> actualizar(@PathVariable Long id, @Valid @RequestBody ClienteDto dto) {
-        log.info("PUT /api/clientes/{} - Actualizando", id);
+    @PutMapping("/{tipoDocClienteId}/{numDocCliente}")
+    public ResponseEntity<Cliente> actualizar(
+            @PathVariable Integer tipoDocClienteId,
+            @PathVariable Long numDocCliente,
+            @Valid @RequestBody Cliente cliente) {
+        log.info("PUT /api/clientes/{}/{} - Actualizando", tipoDocClienteId, numDocCliente);
         try {
-            Cliente cliente = mapearDtoAEntidad(dto);
-            Cliente actualizado = clienteService.actualizar(id, cliente);
+            Cliente actualizado = clienteService.actualizar(tipoDocClienteId, numDocCliente, cliente);
             return ResponseEntity.ok(actualizado);
         } catch (RuntimeException e) {
-            log.error("Error al actualizar cliente {}: {}", id, e.getMessage());
+            log.error("Error al actualizar cliente: {}", e.getMessage());
             return ResponseEntity.notFound().build();
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        log.info("DELETE /api/clientes/{} - Eliminando", id);
+    @DeleteMapping("/{tipoDocClienteId}/{numDocCliente}")
+    public ResponseEntity<Void> eliminar(
+            @PathVariable Integer tipoDocClienteId,
+            @PathVariable Long numDocCliente) {
+        log.info("DELETE /api/clientes/{}/{} - Eliminando", tipoDocClienteId, numDocCliente);
         try {
-            clienteService.eliminar(id);
+            clienteService.eliminar(tipoDocClienteId, numDocCliente);
             return ResponseEntity.noContent().build();
         } catch (RuntimeException e) {
-            log.error("Error al eliminar cliente {}: {}", id, e.getMessage());
+            log.error("Error al eliminar cliente: {}", e.getMessage());
             return ResponseEntity.notFound().build();
         }
-    }
-
-    private Cliente mapearDtoAEntidad(ClienteDto dto) {
-        return Cliente.builder()
-                .id(dto.getId())
-                .nombre(dto.getNombre())
-                .email(dto.getEmail())
-                .telefono(dto.getTelefono())
-                .direccion(dto.getDireccion())
-                .numeroDocumento(dto.getNumeroDocumento())
-                .tipoDocumento(dto.getTipoDocumento() != null ? Cliente.TipoDocumento.valueOf(dto.getTipoDocumento()) : null)
-                .activo(dto.getActivo() != null ? dto.getActivo() : true)
-                .build();
     }
 }

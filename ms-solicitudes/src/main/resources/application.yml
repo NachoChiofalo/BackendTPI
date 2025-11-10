@@ -2,11 +2,21 @@ spring:
   application:
     name: ms-solicitudes
 
+  # Deshabilitar seguridad temporalmente para pruebas
+  security:
+    enabled: false
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/tpi
-    username: postgres
-    password: admin
+    url: jdbc:postgresql://localhost:5432/tpi_logistica?TimeZone=UTC
+    username: tpi_user
+    password: tpi_pass
     driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-init-sql: SET TIME ZONE 'UTC'
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -16,7 +26,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        default_schema: solicitudes
+        default_schema: public
+
+  flyway:
+    enabled: false
 
 server:
   port: 8083

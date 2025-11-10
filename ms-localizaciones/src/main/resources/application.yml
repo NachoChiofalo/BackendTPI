@@ -4,9 +4,9 @@ spring:
 
   # Configuración de base de datos
   datasource:
-    url: jdbc:postgresql://localhost:5432/tpi
-    username: postgres
-    password: admin
+    url: jdbc:postgresql://localhost:5432/tpi_logistica
+    username: tpi_user
+    password: tpi_pass
     driver-class-name: org.postgresql.Driver
 
   # Configuración JPA
