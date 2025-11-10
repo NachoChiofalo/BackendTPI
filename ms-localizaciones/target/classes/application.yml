@@ -4,10 +4,15 @@ spring:
 
   # Configuración de base de datos
   datasource:
-    url: jdbc:postgresql://localhost:5432/tpi
-    username: postgres
-    password: admin
+    url: jdbc:postgresql://localhost:5432/tpi_logistica
+    username: tpi_user
+    password: tpi_pass
     driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+      data-source-properties:
+        stringtype: unspecified
 
   # Configuración JPA
   jpa:
@@ -19,10 +24,16 @@ spring:
       hibernate:
         format_sql: true
         default_schema: localizaciones
+        jdbc:
+          time_zone: UTC
+
+  # Deshabilitar Flyway (BD manejada por Docker Compose)
+  flyway:
+    enabled: false
 
   # Configuración de servidor
 server:
-  port: 8082
+  port: 8087
   servlet:
     context-path: /
     
@@ -42,3 +53,12 @@ logging:
     com.tpi.localizaciones: DEBUG
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+# Configuración OSRM
+osrm:
+  base-url: http://localhost:5000
+  profile: driving
+  connection-timeout: 5000
+  read-timeout: 10000
+  enabled: false  # Temporalmente deshabilitado hasta configurar los datos de Argentina
+  max-retries: 3
