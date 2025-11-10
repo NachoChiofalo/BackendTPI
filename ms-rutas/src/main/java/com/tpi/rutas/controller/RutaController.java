@@ -27,31 +27,27 @@ public class RutaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ruta> obtenerPorId(@PathVariable Long id) {
+    public ResponseEntity<Ruta> obtenerPorId(@PathVariable Integer id) {
         log.info("GET /api/rutas/{} - Obtener por id", id);
-        return rutaService.obtenerPorId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
-
-    @GetMapping("/codigo")
-    public ResponseEntity<List<Ruta>> buscarPorCodigo(@RequestParam String codigo) {
-        log.info("GET /api/rutas/codigo - Buscar por codigo: {}", codigo);
-        return ResponseEntity.ok(rutaService.buscarPorCodigo(codigo));
+        return rutaService.obtenerPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
     public ResponseEntity<Ruta> crear(@Valid @RequestBody Ruta ruta) {
-        log.info("POST /api/rutas - Creando ruta: {}", ruta.getCodigo());
+        log.info("POST /api/rutas - Creando ruta con ID: {}", ruta.getRutaId());
         try {
             Ruta guardada = rutaService.guardar(ruta);
             return ResponseEntity.status(HttpStatus.CREATED).body(guardada);
         } catch (Exception e) {
-            log.error("Error al crear ruta {}: {}", ruta.getCodigo(), e.getMessage());
+            log.error("Error al crear ruta: {}", e.getMessage());
             return ResponseEntity.badRequest().build();
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Ruta> actualizar(@PathVariable Long id, @Valid @RequestBody Ruta ruta) {
+    public ResponseEntity<Ruta> actualizar(@PathVariable Integer id, @Valid @RequestBody Ruta ruta) {
         log.info("PUT /api/rutas/{} - Actualizando", id);
         try {
             Ruta actualizado = rutaService.actualizar(id, ruta);
@@ -63,7 +59,7 @@ public class RutaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         log.info("DELETE /api/rutas/{} - Eliminando", id);
         try {
             rutaService.eliminar(id);
