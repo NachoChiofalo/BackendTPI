@@ -4,6 +4,15 @@
 -- ================================================
 
 -- ================================================
+-- CREACIÓN DE SCHEMAS
+-- ================================================
+CREATE SCHEMA IF NOT EXISTS localizaciones;
+CREATE SCHEMA IF NOT EXISTS flotas;
+CREATE SCHEMA IF NOT EXISTS precios;
+CREATE SCHEMA IF NOT EXISTS rutas;
+CREATE SCHEMA IF NOT EXISTS solicitudes;
+
+-- ================================================
 -- CONFIGURACIÓN DE PERMISOS PARA BASE DE DATOS COMPARTIDA
 -- ================================================
 -- Otorgar permisos completos al usuario para el esquema público
@@ -16,6 +25,34 @@ GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO tpi_user;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO tpi_user;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO tpi_user;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON FUNCTIONS TO tpi_user;
+
+-- Otorgar permisos para los schemas de microservicios
+GRANT ALL PRIVILEGES ON SCHEMA localizaciones TO tpi_user;
+GRANT ALL PRIVILEGES ON SCHEMA flotas TO tpi_user;
+GRANT ALL PRIVILEGES ON SCHEMA precios TO tpi_user;
+GRANT ALL PRIVILEGES ON SCHEMA rutas TO tpi_user;
+GRANT ALL PRIVILEGES ON SCHEMA solicitudes TO tpi_user;
+
+-- Permisos por defecto para tablas futuras en cada schema
+ALTER DEFAULT PRIVILEGES IN SCHEMA localizaciones GRANT ALL ON TABLES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA localizaciones GRANT ALL ON SEQUENCES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA localizaciones GRANT ALL ON FUNCTIONS TO tpi_user;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA flotas GRANT ALL ON TABLES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA flotas GRANT ALL ON SEQUENCES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA flotas GRANT ALL ON FUNCTIONS TO tpi_user;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA precios GRANT ALL ON TABLES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA precios GRANT ALL ON SEQUENCES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA precios GRANT ALL ON FUNCTIONS TO tpi_user;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA rutas GRANT ALL ON TABLES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA rutas GRANT ALL ON SEQUENCES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA rutas GRANT ALL ON FUNCTIONS TO tpi_user;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA solicitudes GRANT ALL ON TABLES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA solicitudes GRANT ALL ON SEQUENCES TO tpi_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA solicitudes GRANT ALL ON FUNCTIONS TO tpi_user;
 
 -- ================================================
 -- TABLA: Clientes
