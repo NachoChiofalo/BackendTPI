@@ -33,9 +33,9 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/tpi_logistica
-    username: tpi_user
-    password: tpi_pass
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/tpi_logistica}
+    username: ${SPRING_DATASOURCE_USERNAME:tpi_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:tpi_pass}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 20
