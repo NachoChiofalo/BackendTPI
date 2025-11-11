@@ -16,16 +16,16 @@ public class GatewayConfig {
     @Value("${microservices.flotas.url:http://localhost:8081}")
     private String flotasUrl;
 
-    @Value("${microservices.solicitudes.url:http://localhost:8082}")
+    @Value("${microservices.solicitudes.url:http://localhost:8084}")
     private String solicitudesUrl;
 
-    @Value("${microservices.rutas.url:http://localhost:8083}")
+    @Value("${microservices.rutas.url:http://localhost:8085}")
     private String rutasUrl;
 
-    @Value("${microservices.precios.url:http://localhost:8084}")
+    @Value("${microservices.precios.url:http://localhost:8083}")
     private String preciosUrl;
 
-    @Value("${microservices.localizaciones.url:http://localhost:8085}")
+    @Value("${microservices.localizaciones.url:http://localhost:8087}")
     private String localizacionesUrl;
 
     @Bean

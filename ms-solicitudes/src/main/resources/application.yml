@@ -11,9 +11,9 @@ spring:
       - org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/tpi_logistica?TimeZone=UTC
-    username: tpi_user
-    password: tpi_pass
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/tpi_logistica?TimeZone=UTC}
+    username: ${SPRING_DATASOURCE_USERNAME:tpi_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:tpi_pass}
     driver-class-name: org.postgresql.Driver
     hikari:
       connection-init-sql: SET TIME ZONE 'UTC'
@@ -32,7 +32,7 @@ spring:
     enabled: false
 
 server:
-  port: 8083
+  port: 8084
   servlet:
     context-path: /
 

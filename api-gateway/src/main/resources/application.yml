@@ -34,13 +34,13 @@ microservices:
   flotas:
     url: http://localhost:8081
   solicitudes:
-    url: http://localhost:8082
-  rutas:
-    url: http://localhost:8083
-  precios:
     url: http://localhost:8084
-  localizaciones:
+  rutas:
     url: http://localhost:8085
+  precios:
+    url: http://localhost:8083
+  localizaciones:
+    url: http://localhost:8087
 
 # Configuración de Circuit Breaker (Resilience4j)
 resilience4j:
