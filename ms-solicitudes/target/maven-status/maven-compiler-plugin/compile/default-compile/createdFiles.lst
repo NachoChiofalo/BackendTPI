@@ -1,9 +1,16 @@
+com\tpi\solicitudes\client\dto\RouteDto.class
 com\tpi\solicitudes\entity\Cliente.class
 com\tpi\solicitudes\entity\Solicitud$PrioridadSolicitud.class
 com\tpi\solicitudes\entity\Contenedor$ContenedorBuilder.class
-com\tpi\solicitudes\entity\Contenedor$EstadoContenedor.class
 com\tpi\solicitudes\entity\Cliente$ClienteBuilder.class
+com\tpi\solicitudes\service\SolicitudService.class
 com\tpi\solicitudes\entity\Solicitud.class
+com\tpi\solicitudes\service\Solicitud.class
+com\tpi\solicitudes\client\dto\OsrmRouteResponseDto.class
+com\tpi\solicitudes\controller\SolicitudController.class
+com\tpi\solicitudes\SolicitudesApplication.class
+com\tpi\solicitudes\client\OsrmFeignClient.class
+com\tpi\solicitudes\entity\Contenedor$EstadoContenedor.class
 com\tpi\solicitudes\entity\Contenedor$TipoContenedor.class
 com\tpi\solicitudes\entity\Contenedor.class
 com\tpi\solicitudes\entity\Cliente$TipoDocumento.class
