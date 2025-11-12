@@ -1712,3 +1712,34 @@ Date: <filtered>
 2025-11-11 22:42:15 [reactor-http-nio-10] DEBUG r.n.http.server.HttpServerOperations - [4e49d7e4-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:64444] Decreasing pending responses, now 0
 2025-11-11 22:42:15 [reactor-http-nio-10] DEBUG r.n.http.server.HttpServerOperations - [4e49d7e4-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:64444] Last HTTP packet was sent, terminating the channel
 2025-11-11 22:42:15 [reactor-http-nio-10] DEBUG r.netty.channel.ChannelOperations - [4e49d7e4-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:64444] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-11-11 22:46:36 [main] INFO  com.tpi.gateway.GatewayApplication - Starting GatewayApplication using Java 21.0.8 with PID 4652 (C:\Users\USUARIO\Desktop\TpiBackend\BackendTPI\api-gateway\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\TpiBackend\BackendTPI\api-gateway)
+2025-11-11 22:46:36 [main] INFO  com.tpi.gateway.GatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-11 22:46:37 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=54633169-d2cc-333f-9f9d-a89435643a2a
+2025-11-11 22:46:37 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default LoopResources: DefaultLoopResources {prefix=reactor-http, daemon=true, selectCount=16, workerCount=16}
+2025-11-11 22:46:37 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default ConnectionProvider: reactor.netty.resources.DefaultPooledConnectionProvider@af7e376
+2025-11-11 22:46:39 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2025-11-11 22:46:39 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-11-11 22:46:40 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-11 22:46:40 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-11-11 22:46:40 [main] DEBUG r.netty.resources.DefaultLoopIOUring - Default io_uring support : false
+2025-11-11 22:46:40 [main] DEBUG r.netty.resources.DefaultLoopEpoll - Default Epoll support : false
+2025-11-11 22:46:40 [main] DEBUG r.netty.resources.DefaultLoopKQueue - Default KQueue support : false
+2025-11-11 22:46:40 [reactor-http-nio-1] DEBUG r.netty.transport.ServerTransport - [09d21766, L:/[0:0:0:0:0:0:0:0]:8090] Bound new server
+2025-11-11 22:46:40 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8090
+2025-11-11 22:46:41 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-11 22:46:42 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-11 22:46:42 [main] DEBUG o.s.c.g.filter.GatewayMetricsFilter - New routes count: 0
+2025-11-11 22:46:42 [main] INFO  com.tpi.gateway.GatewayApplication - Started GatewayApplication in 7.503 seconds (process running for 7.795)
