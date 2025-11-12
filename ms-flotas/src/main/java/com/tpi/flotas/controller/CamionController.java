@@ -44,7 +44,7 @@ public class CamionController {
     }
 
     @GetMapping("/{dominio}")
-    public ResponseEntity<Camion> obtenerPorDominio(@PathVariable String dominio) {
+    public ResponseEntity<Camion> obtenerPorDominio(@PathVariable("dominio") String dominio) {
         log.info("GET /api/camiones/{} - Obteniendo camión por dominio", dominio);
         return camionService.obtenerPorDominio(dominio)
                 .map(ResponseEntity::ok)
@@ -89,7 +89,7 @@ public class CamionController {
     }
 
     @PutMapping("/{dominio}")
-    public ResponseEntity<Camion> actualizar(@PathVariable String dominio,
+    public ResponseEntity<Camion> actualizar(@PathVariable("dominio") String dominio,
                                            @Valid @RequestBody CamionDto camionDto) {
         log.info("PUT /api/camiones/{} - Actualizando camión", dominio);
 
@@ -112,7 +112,7 @@ public class CamionController {
     }
 
     @PatchMapping("/{dominio}/disponibilidad")
-    public ResponseEntity<Void> cambiarDisponibilidad(@PathVariable String dominio,
+    public ResponseEntity<Void> cambiarDisponibilidad(@PathVariable("dominio") String dominio,
                                                      @RequestParam Boolean disponible) {
         log.info("PATCH /api/camiones/{}/disponibilidad - Cambiando disponibilidad a: {}", dominio, disponible);
 
@@ -125,7 +125,7 @@ public class CamionController {
     }
 
     @DeleteMapping("/{dominio}")
-    public ResponseEntity<Void> eliminar(@PathVariable String dominio) {
+    public ResponseEntity<Void> eliminar(@PathVariable("dominio") String dominio) {
         log.info("DELETE /api/camiones/{} - Eliminando camión", dominio);
 
         try {

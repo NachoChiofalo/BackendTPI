@@ -27,7 +27,7 @@ public class ContenedorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Contenedor> obtenerPorId(@PathVariable Integer id) {
+    public ResponseEntity<Contenedor> obtenerPorId(@PathVariable("id") Integer id) {
         log.info("GET /api/contenedores/{} - Obteniendo por id", id);
         return contenedorService.obtenerPorId(id)
                 .map(ResponseEntity::ok)
@@ -47,7 +47,7 @@ public class ContenedorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Contenedor> actualizar(@PathVariable Integer id, @Valid @RequestBody Contenedor contenedor) {
+    public ResponseEntity<Contenedor> actualizar(@PathVariable("id") Integer id, @Valid @RequestBody Contenedor contenedor) {
         log.info("PUT /api/contenedores/{} - Actualizando", id);
         try {
             Contenedor actualizado = contenedorService.actualizar(id, contenedor);
@@ -59,7 +59,7 @@ public class ContenedorController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
+    public ResponseEntity<Void> eliminar(@PathVariable("id") Integer id) {
         log.info("DELETE /api/contenedores/{} - Eliminando", id);
         try {
             contenedorService.eliminar(id);

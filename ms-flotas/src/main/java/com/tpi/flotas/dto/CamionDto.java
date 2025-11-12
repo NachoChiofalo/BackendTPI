@@ -33,7 +33,6 @@ public class CamionDto {
     private BigDecimal costoBaseKm;
 
     @NotNull(message = "El consumo promedio es obligatorio")
-    @NotNull(message = "El consumo promedio es obligatorio")
     @DecimalMin(value = "0.1", message = "El consumo promedio debe ser mayor a 0")
     private BigDecimal consumoPromedio;
 

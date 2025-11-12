@@ -39,6 +39,7 @@ public class CamionService {
         return camionRepository.findById(dominio);
     }
 
+
     public List<Camion> obtenerConCapacidadMinima(BigDecimal pesoMin, BigDecimal volumenMin) {
         log.info("Obteniendo camiones con capacidad mínima - Peso: {}, Volumen: {}", pesoMin, volumenMin);
         return camionRepository.findByCapacidadMinima(pesoMin, volumenMin);

@@ -28,8 +28,8 @@ public class ClienteController {
 
     @GetMapping("/{tipoDocClienteId}/{numDocCliente}")
     public ResponseEntity<Cliente> obtenerPorId(
-            @PathVariable Integer tipoDocClienteId,
-            @PathVariable Long numDocCliente) {
+            @PathVariable("tipoDocClienteId") Integer tipoDocClienteId,
+            @PathVariable("numDocCliente") Long numDocCliente) {
         log.info("GET /api/clientes/{}/{} - Obteniendo por id compuesto", tipoDocClienteId, numDocCliente);
         return clienteService.obtenerPorId(tipoDocClienteId, numDocCliente)
                 .map(ResponseEntity::ok)
@@ -62,8 +62,8 @@ public class ClienteController {
 
     @PutMapping("/{tipoDocClienteId}/{numDocCliente}")
     public ResponseEntity<Cliente> actualizar(
-            @PathVariable Integer tipoDocClienteId,
-            @PathVariable Long numDocCliente,
+            @PathVariable("tipoDocClienteId") Integer tipoDocClienteId,
+            @PathVariable("numDocCliente") Long numDocCliente,
             @Valid @RequestBody Cliente cliente) {
         log.info("PUT /api/clientes/{}/{} - Actualizando", tipoDocClienteId, numDocCliente);
         try {
@@ -77,8 +77,8 @@ public class ClienteController {
 
     @DeleteMapping("/{tipoDocClienteId}/{numDocCliente}")
     public ResponseEntity<Void> eliminar(
-            @PathVariable Integer tipoDocClienteId,
-            @PathVariable Long numDocCliente) {
+            @PathVariable("tipoDocClienteId") Integer tipoDocClienteId,
+            @PathVariable("numDocCliente") Long numDocCliente) {
         log.info("DELETE /api/clientes/{}/{} - Eliminando", tipoDocClienteId, numDocCliente);
         try {
             clienteService.eliminar(tipoDocClienteId, numDocCliente);

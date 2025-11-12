@@ -27,7 +27,7 @@ public class UbicacionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ubicacion> getUbicacionById(@PathVariable Integer id) {
+    public ResponseEntity<Ubicacion> getUbicacionById(@PathVariable("id") Integer id) {
         return ubicacionService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
