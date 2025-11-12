@@ -27,7 +27,7 @@ public class RutaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ruta> obtenerPorId(@PathVariable Integer id) {
+    public ResponseEntity<Ruta> obtenerPorId(@PathVariable("id") Integer id) {
         log.info("GET /api/rutas/{} - Obtener por id", id);
         return rutaService.obtenerPorId(id)
                 .map(ResponseEntity::ok)
@@ -47,7 +47,7 @@ public class RutaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Ruta> actualizar(@PathVariable Integer id, @Valid @RequestBody Ruta ruta) {
+    public ResponseEntity<Ruta> actualizar(@PathVariable("id") Integer id, @Valid @RequestBody Ruta ruta) {
         log.info("PUT /api/rutas/{} - Actualizando", id);
         try {
             Ruta actualizado = rutaService.actualizar(id, ruta);
@@ -59,7 +59,7 @@ public class RutaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
+    public ResponseEntity<Void> eliminar(@PathVariable("id") Integer id) {
         log.info("DELETE /api/rutas/{} - Eliminando", id);
         try {
             rutaService.eliminar(id);

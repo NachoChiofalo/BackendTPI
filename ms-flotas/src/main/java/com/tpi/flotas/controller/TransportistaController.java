@@ -29,7 +29,7 @@ public class TransportistaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Transportista> obtenerPorId(@PathVariable Integer id) {
+    public ResponseEntity<Transportista> obtenerPorId(@PathVariable("id") Integer id) {
         log.info("GET /api/transportistas/{} - Obteniendo transportista por ID", id);
         return transportistaService.obtenerPorId(id)
                 .map(ResponseEntity::ok)
@@ -37,7 +37,7 @@ public class TransportistaController {
     }
 
     @GetMapping("/telefono/{telefono}")
-    public ResponseEntity<Transportista> obtenerPorTelefono(@PathVariable Long telefono) {
+    public ResponseEntity<Transportista> obtenerPorTelefono(@PathVariable("telefono") Long telefono) {
         log.info("GET /api/transportistas/telefono/{} - Obteniendo transportista por teléfono", telefono);
         return transportistaService.obtenerPorTelefono(telefono)
                 .map(ResponseEntity::ok)
@@ -66,7 +66,7 @@ public class TransportistaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Transportista> actualizar(@PathVariable Integer id,
+    public ResponseEntity<Transportista> actualizar(@PathVariable("id") Integer id,
                                                    @Valid @RequestBody TransportistaDto transportistaDto) {
         log.info("PUT /api/transportistas/{} - Actualizando transportista", id);
 
@@ -83,17 +83,6 @@ public class TransportistaController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
-        log.info("DELETE /api/transportistas/{} - Eliminando transportista", id);
-
-        try {
-            transportistaService.eliminar(id);
-            return ResponseEntity.noContent().build();
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
 
 
 }

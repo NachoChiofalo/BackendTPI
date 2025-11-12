@@ -26,7 +26,7 @@ public class SolicitudController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Solicitud> obtenerPorId(@PathVariable Integer id) {
+    public ResponseEntity<Solicitud> obtenerPorId(@PathVariable("id") Integer id) {
         log.info("GET /api/solicitudes/{} - Obteniendo solicitud por ID", id);
         return solicitudService.obtenerPorId(id)
                 .map(ResponseEntity::ok)

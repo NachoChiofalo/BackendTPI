@@ -27,7 +27,7 @@ public class DepositoController {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Deposito> getDepositoById(@PathVariable Integer id) {
+    public ResponseEntity<Deposito> getDepositoById(@PathVariable("id") Integer id) {
         return depositoService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

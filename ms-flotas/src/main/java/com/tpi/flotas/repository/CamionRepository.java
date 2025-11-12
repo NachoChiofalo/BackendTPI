@@ -25,4 +25,7 @@ public interface CamionRepository extends JpaRepository<Camion, String> {
     // Buscar camiones disponibles con capacidad mínima
     @Query("SELECT c FROM Camion c WHERE c.disponible = true AND c.capacidadPeso >= :pesoMin AND c.capacidadVolumen >= :volumenMin")
     List<Camion> findDisponiblesConCapacidadMinima(@Param("pesoMin") BigDecimal pesoMin, @Param("volumenMin") BigDecimal volumenMin);
+
+    // Encontrar por dominio (ID)
+    Camion findByDominio(String dominio);
 }

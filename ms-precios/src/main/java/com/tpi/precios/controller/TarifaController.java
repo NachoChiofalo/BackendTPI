@@ -52,7 +52,7 @@ public class TarifaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TarifaDto> obtenerPorId(@PathVariable Integer id) {
+    public ResponseEntity<TarifaDto> obtenerPorId(@PathVariable("id") Integer id) {
         log.info("GET /api/tarifas/{} - Obteniendo tarifa por ID", id);
         return tarifaService.obtenerPorId(id)
                 .map(tarifa -> ResponseEntity.ok(convertirADto(tarifa)))
@@ -129,7 +129,7 @@ public class TarifaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TarifaDto> actualizar(@PathVariable Integer id, @Valid @RequestBody TarifaDto tarifaDto) {
+    public ResponseEntity<TarifaDto> actualizar(@PathVariable("id") Integer id, @Valid @RequestBody TarifaDto tarifaDto) {
         log.info("PUT /api/tarifas/{} - Actualizando tarifa", id);
         try {
             Tarifa tarifa = convertirAEntidad(tarifaDto);
@@ -145,7 +145,7 @@ public class TarifaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
+    public ResponseEntity<Void> eliminar(@PathVariable("id") Integer id) {
         log.info("DELETE /api/tarifas/{} - Eliminando tarifa", id);
         try {
             tarifaService.eliminarTarifa(id);

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/scripts/setup-osrm-data.cmd">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/scripts/setup-osrm-data.cmd" />
+              <option name="updatedContent" value="@echo off&#10;echo Configurando datos de OSRM para Argentina...&#10;&#10;set OSRM_DATA_DIR=%~dp0..\osrm-data&#10;set TEMP_DIR=%TEMP%\osrm-setup&#10;&#10;:: Crear directorios&#10;if not exist &quot;%OSRM_DATA_DIR%&quot; mkdir &quot;%OSRM_DATA_DIR%&quot;&#10;if not exist &quot;%TEMP_DIR%&quot; mkdir &quot;%TEMP_DIR%&quot;&#10;&#10;echo Descargando mapa de Argentina desde Geofabrik...&#10;echo Esto puede tomar varios minutos dependiendo de la conexión...&#10;&#10;:: Descargar el archivo OSM de Argentina&#10;curl -L -o &quot;%TEMP_DIR%\argentina-latest.osm.pbf&quot; &quot;https://download.geofabrik.de/south-america/argentina-latest.osm.pbf&quot;&#10;&#10;if %ERRORLEVEL% neq 0 (&#10;    echo Error: No se pudo descargar el archivo OSM de Argentina&#10;    echo Verifica tu conexión a internet e intenta nuevamente&#10;    pause&#10;    exit /b 1&#10;)&#10;&#10;echo Archivo descargado exitosamente.&#10;echo Procesando datos con OSRM (esto puede tomar bastante tiempo)...&#10;&#10;:: Usar Docker para procesar los datos&#10;docker run -t -v &quot;%OSRM_DATA_DIR%&quot;:/data -v &quot;%TEMP_DIR%&quot;:/temp ghcr.io/project-osrm/osrm-backend osrm-extract -p /opt/car.lua /temp/argentina-latest.osm.pbf --output /data/argentina-latest.osrm&#10;&#10;if %ERRORLEVEL% neq 0 (&#10;    echo Error: Fallo en osrm-extract&#10;    pause&#10;    exit /b 1&#10;)&#10;&#10;docker run -t -v &quot;%OSRM_DATA_DIR%&quot;:/data ghcr.io/project-osrm/osrm-backend osrm-partition /data/argentina-latest.osrm&#10;&#10;if %ERRORLEVEL% neq 0 (&#10;    echo Error: Fallo en osrm-partition&#10;    pause&#10;    exit /b 1&#10;)&#10;&#10;docker run -t -v &quot;%OSRM_DATA_DIR%&quot;:/data ghcr.io/project-osrm/osrm-backend osrm-customize /data/argentina-latest.osrm&#10;&#10;if %ERRORLEVEL% neq 0 (&#10;    echo Error: Fallo en osrm-customize&#10;    pause&#10;    exit /b 1&#10;)&#10;&#10;:: Limpiar archivos temporales&#10;rmdir /s /q &quot;%TEMP_DIR%&quot;&#10;&#10;echo.&#10;echo ¡Configuración de OSRM completada exitosamente!&#10;echo Los datos de Argentina están listos para usar.&#10;echo.&#10;pause" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
