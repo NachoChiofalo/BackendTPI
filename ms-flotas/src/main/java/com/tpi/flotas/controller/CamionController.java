@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
@@ -66,6 +67,7 @@ public class CamionController {
         return ResponseEntity.ok(camiones);
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PostMapping
     public ResponseEntity<Camion> crear(@Valid @RequestBody CamionDto camionDto) {
         log.info("POST /api/camiones - Creando nuevo camión: {}", camionDto.getDominio());
@@ -88,6 +90,7 @@ public class CamionController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PutMapping("/{dominio}")
     public ResponseEntity<Camion> actualizar(@PathVariable("dominio") String dominio,
                                            @Valid @RequestBody CamionDto camionDto) {
@@ -111,6 +114,7 @@ public class CamionController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PatchMapping("/{dominio}/disponibilidad")
     public ResponseEntity<Void> cambiarDisponibilidad(@PathVariable("dominio") String dominio,
                                                      @RequestParam Boolean disponible) {
@@ -124,6 +128,7 @@ public class CamionController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @DeleteMapping("/{dominio}")
     public ResponseEntity<Void> eliminar(@PathVariable("dominio") String dominio) {
         log.info("DELETE /api/camiones/{} - Eliminando camión", dominio);

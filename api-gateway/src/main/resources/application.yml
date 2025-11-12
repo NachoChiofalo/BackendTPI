@@ -26,8 +26,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/logistica
-          jwk-set-uri: http://localhost:8080/realms/logistica/protocol/openid-connect/certs
+          issuer-uri: http://localhost:8080/realms/TPI-BACKEND
+          jwk-set-uri: http://localhost:8080/realms/TPI-BACKEND/protocol/openid-connect/certs
 
 # URLs de los microservicios (configuración estática)
 microservices:
