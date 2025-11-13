@@ -8,6 +8,7 @@ D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\ja
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\service\UbicacionService.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\repository\DepositoRepository.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\controller\DepositoController.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\config\SwaggerConfig.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\config\SecurityConfig.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\controller\GeoController.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\repository\UbicacionRepository.java

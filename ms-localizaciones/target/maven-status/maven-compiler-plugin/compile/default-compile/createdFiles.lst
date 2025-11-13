@@ -10,4 +10,5 @@ com\tpi\localizaciones\repository\UbicacionRepository.class
 com\tpi\localizaciones\dto\DistanciaDTO.class
 com\tpi\localizaciones\LocalizacionesApplication.class
 com\tpi\localizaciones\repository\DepositoRepository.class
+com\tpi\localizaciones\config\SwaggerConfig.class
 com\tpi\localizaciones\controller\DepositoController.class

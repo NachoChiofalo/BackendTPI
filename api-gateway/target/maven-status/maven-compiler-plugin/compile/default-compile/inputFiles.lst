@@ -1,4 +1,5 @@
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\config\GatewayConfig.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\config\SwaggerConfig.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\config\CorsConfig.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\config\WebClientConfig.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\src\main\java\com\tpi\gateway\filter\LoggingFilter.java

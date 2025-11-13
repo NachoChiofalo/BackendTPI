@@ -13,3 +13,4 @@ com\tpi\rutas\dto\TramoDto.class
 com\tpi\rutas\entity\Ruta$RutaBuilder.class
 com\tpi\rutas\service\RutaService.class
 com\tpi\rutas\entity\Tramo.class
+com\tpi\rutas\config\SwaggerConfig.class
