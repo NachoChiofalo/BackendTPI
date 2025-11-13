@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
@@ -115,6 +116,7 @@ public class TarifaController {
         return ResponseEntity.ok(tarifasDto);
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PostMapping
     public ResponseEntity<TarifaDto> crear(@Valid @RequestBody TarifaDto tarifaDto) {
         log.info("POST /api/tarifas - Creando nueva tarifa");
@@ -128,6 +130,7 @@ public class TarifaController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PutMapping("/{id}")
     public ResponseEntity<TarifaDto> actualizar(@PathVariable("id") Integer id, @Valid @RequestBody TarifaDto tarifaDto) {
         log.info("PUT /api/tarifas/{} - Actualizando tarifa", id);
@@ -144,6 +147,7 @@ public class TarifaController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable("id") Integer id) {
         log.info("DELETE /api/tarifas/{} - Eliminando tarifa", id);

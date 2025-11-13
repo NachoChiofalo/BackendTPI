@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
@@ -20,12 +21,14 @@ public class ContenedorController {
 
     private final ContenedorService contenedorService;
 
+    @PreAuthorize("hasRole('cliente')")
     @GetMapping
     public ResponseEntity<List<Contenedor>> obtenerTodos() {
         log.info("GET /api/contenedores - Obteniendo todos los contenedores");
         return ResponseEntity.ok(contenedorService.obtenerTodos());
     }
 
+    @PreAuthorize("hasRole('cliente')")
     @GetMapping("/{id}")
     public ResponseEntity<Contenedor> obtenerPorId(@PathVariable("id") Integer id) {
         log.info("GET /api/contenedores/{} - Obteniendo por id", id);
@@ -34,6 +37,7 @@ public class ContenedorController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PostMapping
     public ResponseEntity<Contenedor> crear(@Valid @RequestBody Contenedor contenedor) {
         log.info("POST /api/contenedores - Creando contenedor: {}", contenedor.getIdContenedor());
@@ -46,6 +50,7 @@ public class ContenedorController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PutMapping("/{id}")
     public ResponseEntity<Contenedor> actualizar(@PathVariable("id") Integer id, @Valid @RequestBody Contenedor contenedor) {
         log.info("PUT /api/contenedores/{} - Actualizando", id);
@@ -58,6 +63,7 @@ public class ContenedorController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable("id") Integer id) {
         log.info("DELETE /api/contenedores/{} - Eliminando", id);

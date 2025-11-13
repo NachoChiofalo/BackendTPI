@@ -78,7 +78,7 @@ public class CamionController {
             camion.setDisponible(camionDto.getDisponible());
             camion.setCapacidadPeso(camionDto.getCapacidadPeso());
             camion.setCapacidadVolumen(camionDto.getCapacidadVolumen());
-            camion.setCostoBaseKm(camionDto.getCostoBaseKm());
+            camion.setCostoBaseKm(camionDto.getCostoBaseKm  ());
             camion.setConsumoPromedio(camionDto.getConsumoPromedio());
 
             Camion camionGuardado = camionService.guardar(camion);
