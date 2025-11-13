@@ -38,7 +38,7 @@ public class TransportistaController {
 
     @GetMapping("/telefono/{telefono}")
     public ResponseEntity<Transportista> obtenerPorTelefono(@PathVariable("telefono") Long telefono) {
-        log.info("GET /api/transportistas/telefono/{} - Obteniendo transportista por teléfono", telefono);
+        log .info("GET /api/transportistas/telefono/{} - Obteniendo transportista por teléfono", telefono);
         return transportistaService.obtenerPorTelefono(telefono)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
