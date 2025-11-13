@@ -116,3 +116,27 @@ logging:
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   file:
     name: logs/gateway.log
+
+# Configuración de Swagger/OpenAPI para API Gateway
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /v3/api-docs
+        name: API Gateway
+      - url: http://localhost:8084/v3/api-docs
+        name: Solicitudes API
+      - url: http://localhost:8081/v3/api-docs
+        name: Flotas API
+      - url: http://localhost:8085/v3/api-docs
+        name: Rutas API
+      - url: http://localhost:8083/v3/api-docs
+        name: Precios API
+      - url: http://localhost:8087/v3/api-docs
+        name: Localizaciones API
+

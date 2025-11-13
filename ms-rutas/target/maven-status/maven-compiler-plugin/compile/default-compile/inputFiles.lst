@@ -1,6 +1,7 @@
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-rutas\src\main\java\com\tpi\rutas\repository\RutaRepository.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-rutas\src\main\java\com\tpi\rutas\controller\TramoController.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-rutas\src\main\java\com\tpi\rutas\controller\RutaController.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-rutas\src\main\java\com\tpi\rutas\config\SwaggerConfig.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-rutas\src\main\java\com\tpi\rutas\dto\TramoDto.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-rutas\src\main\java\com\tpi\rutas\service\RutaService.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-rutas\src\main\java\com\tpi\rutas\service\TramoService.java

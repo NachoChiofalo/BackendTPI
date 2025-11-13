@@ -1,12 +1,13 @@
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\entity\Transportista.java
-D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\repository\CamionRepository.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\controller\TransportistaController.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\dto\CamionDto.java
-D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\dto\TransportistaDto.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\config\OpenApiConfig.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\entity\Camion.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\FlotasApplication.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\repository\TransportistaRepository.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\repository\CamionRepository.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\dto\TransportistaDto.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\service\CamionService.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\service\TransportistaService.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\config\SwaggerConfig.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\controller\CamionController.java
-D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-flotas\src\main\java\com\tpi\flotas\repository\TransportistaRepository.java

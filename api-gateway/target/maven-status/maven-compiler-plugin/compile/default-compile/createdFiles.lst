@@ -10,3 +10,4 @@ com\tpi\gateway\filter\LoggingFilter$Config.class
 com\tpi\gateway\filter\AuthenticationFilter.class
 com\tpi\gateway\filter\LoggingFilter.class
 com\tpi\gateway\config\GatewayConfig.class
+com\tpi\gateway\config\SwaggerConfig.class

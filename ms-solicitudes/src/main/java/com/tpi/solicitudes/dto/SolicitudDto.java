@@ -1,62 +1,46 @@
 package com.tpi.solicitudes.dto;
 
-import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Schema(description = "DTO para la creación y actualización de solicitudes de transporte")
 public class SolicitudDto {
 
+    @Schema(description = "Identificador único de la solicitud", example = "1", accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     @NotBlank
-    @Size(max = 50)
-    private String numero;
+    @Schema(description = "Descripción detallada de la solicitud", example = "Transporte de contenedores desde Puerto Buenos Aires", required = true)
+    private String descripcion;
 
     @NotNull
-    private String contenedorId; // string id from Contenedor.identificacion
+    @Schema(description = "Ubicación de origen del transporte", example = "Puerto Buenos Aires", required = true)
+    private String origen;
 
     @NotNull
-    private Long clienteId;
+    @Schema(description = "Ubicación de destino del transporte", example = "Depósito Córdoba", required = true)
+    private String destino;
 
-    @NotNull
-    private BigDecimal origenLatitud;
+    @Positive
+    @Schema(description = "Peso de la carga en kilogramos", example = "15000", required = true)
+    private Double peso;
 
-    @NotNull
-    private BigDecimal origenLongitud;
+    @Schema(description = "Tipo de contenedor requerido", example = "20' DRY", allowableValues = {"20' DRY", "40' DRY", "40' HC", "20' REEFER", "40' REEFER"})
+    private String tipoContenedor;
 
-    @NotBlank
-    @Size(max = 500)
-    private String origenDireccion;
+    @Schema(description = "Fecha y hora de creación de la solicitud", example = "2025-01-15T10:30:00", accessMode = Schema.AccessMode.READ_ONLY)
+    private LocalDateTime fechaCreacion;
 
-    @NotNull
-    private BigDecimal destinoLatitud;
-
-    @NotNull
-    private BigDecimal destinoLongitud;
-
-    @NotBlank
-    @Size(max = 500)
-    private String destinoDireccion;
-
+    @Schema(description = "Estado actual de la solicitud", example = "PENDIENTE", accessMode = Schema.AccessMode.READ_ONLY,
+            allowableValues = {"PENDIENTE", "EN_PROCESO", "ASIGNADA", "EN_TRANSITO", "COMPLETADA", "CANCELADA"})
     private String estado;
 
+    @Schema(description = "Observaciones adicionales sobre la solicitud", example = "Carga frágil - manejar con cuidado")
     private String observaciones;
-
-    private LocalDateTime fechaRetiroProgramada;
-    private LocalDateTime fechaEntregaProgramada;
-
-    private BigDecimal costoEstimado;
-    private Integer tiempoEstimado;
-    private BigDecimal costoFinal;
-    private Integer tiempoReal;
-    private String prioridad;
 }
