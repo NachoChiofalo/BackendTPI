@@ -18,8 +18,8 @@ public class GeoController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public DistanciaDTO obtenerDistancia(
-            @RequestParam String origen,
-            @RequestParam String destino) throws Exception {
+            @RequestParam("origen") String origen,
+            @RequestParam("destino") String destino) throws Exception {
         return geoService.calcularDistancia(origen, destino);
     }
 }

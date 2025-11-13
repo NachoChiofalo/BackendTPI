@@ -1,10 +1,13 @@
-D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\repository\DepositoRepository.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\service\DepositoService.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\service\GeoService.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\entity\Ubicacion.java
-D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\controller\DepositoController.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\controller\UbicacionController.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\entity\Deposito.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\LocalizacionesApplication.java
-D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\config\SecurityConfig.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\dto\DistanciaDTO.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\service\UbicacionService.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\repository\DepositoRepository.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\controller\DepositoController.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\config\SecurityConfig.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\controller\GeoController.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\repository\UbicacionRepository.java
