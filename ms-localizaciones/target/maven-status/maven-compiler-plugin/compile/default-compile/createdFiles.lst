@@ -1,10 +1,13 @@
-com\tpi\localizaciones\config\SecurityConfig.class
 com\tpi\localizaciones\entity\Deposito.class
+com\tpi\localizaciones\service\GeoService.class
 com\tpi\localizaciones\entity\Ubicacion.class
 com\tpi\localizaciones\service\UbicacionService.class
 com\tpi\localizaciones\service\DepositoService.class
-com\tpi\localizaciones\repository\UbicacionRepository.class
-com\tpi\localizaciones\LocalizacionesApplication.class
 com\tpi\localizaciones\controller\UbicacionController.class
+com\tpi\localizaciones\config\SecurityConfig.class
+com\tpi\localizaciones\controller\GeoController.class
+com\tpi\localizaciones\repository\UbicacionRepository.class
+com\tpi\localizaciones\dto\DistanciaDTO.class
+com\tpi\localizaciones\LocalizacionesApplication.class
 com\tpi\localizaciones\repository\DepositoRepository.class
 com\tpi\localizaciones\controller\DepositoController.class

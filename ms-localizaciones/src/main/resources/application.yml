@@ -60,5 +60,11 @@ osrm:
   profile: driving
   connection-timeout: 5000
   read-timeout: 10000
-  enabled: false  # Temporalmente deshabilitado hasta configurar los datos de Argentina
+  enabled: true  # Temporalmente deshabilitado hasta configurar los datos de Argentina
   max-retries: 3
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+

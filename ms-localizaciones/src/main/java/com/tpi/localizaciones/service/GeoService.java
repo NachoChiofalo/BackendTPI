@@ -21,7 +21,9 @@ public class GeoService {
 
     public DistanciaDTO calcularDistancia(String origen, String destino) throws Exception {
         // Origen y destino vienen en formato lat,long
-        String url = osrmBaseUrl + "/route/v1/driving/" + origen + ";" + destino + "?overview=false";
+        String origenTrim = origen.trim();
+        String destinoTrim = destino.trim();
+        String url = osrmBaseUrl + "/route/v1/driving/" + origenTrim + ";" + destinoTrim + "?overview=false";
 
         String body;
         try {
@@ -46,8 +48,8 @@ public class GeoService {
         double durationSec = route.path("duration").asDouble();
 
         DistanciaDTO dto = new DistanciaDTO();
-        dto.setOrigen(origen);
-        dto.setDestino(destino);
+        dto.setOrigen(origenTrim);
+        dto.setDestino(destinoTrim);
         dto.setKilometros(meters / 1000.0);
         dto.setDuracionTexto(String.format("%.0f min", durationSec / 60.0));
 

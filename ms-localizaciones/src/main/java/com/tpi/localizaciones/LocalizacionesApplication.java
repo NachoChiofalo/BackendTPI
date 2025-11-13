@@ -3,7 +3,6 @@ package com.tpi.localizaciones;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
@@ -11,7 +10,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * Gestiona ciudades, ubicaciones y cálculo de distancias con OSRM
  */
 @SpringBootApplication
-@EnableDiscoveryClient
 @EnableFeignClients
 @ConfigurationPropertiesScan
 public class LocalizacionesApplication {

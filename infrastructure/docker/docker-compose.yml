@@ -1,4 +1,6 @@
 
+version: '3.8'
+
 services:
   postgres:
     image: postgres:15
@@ -63,13 +65,14 @@ services:
 
   osrm:
     image: ghcr.io/project-osrm/osrm-backend:latest
+    platform: linux/arm64
     container_name: tpi-osrm
     ports:
       - "5000:5000"
     volumes:
       - ../../osrm-data:/data
-    command: osrm-routed --algorithm mld /data/argentina-latest.osrm
-    restart: unless-stopped
+    command: osrm-routed --algorithm mld /data/argentina-251112.osrm
+
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5000/route/v1/driving/-64.18105,-31.4135;-60.6985,-32.9471?overview=false"]
       interval: 30s
@@ -85,3 +88,4 @@ volumes:
 networks:
   tpi-network:
     driver: bridge
+

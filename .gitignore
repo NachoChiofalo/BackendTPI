@@ -1,0 +1,3 @@
+# Ignorar archivos y carpetas de datos de OSRM
+osrm-data/
+
