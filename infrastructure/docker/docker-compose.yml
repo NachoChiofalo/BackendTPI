@@ -82,6 +82,176 @@ services:
     networks:
       - tpi-network
 
+  # Microservicios
+  ms-flotas:
+    build:
+      context: ../../
+      dockerfile: ms-flotas/Dockerfile
+    container_name: tpi-ms-flotas
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8081
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://tpi-postgres:5432/tpi_logistica
+      - SPRING_DATASOURCE_USERNAME=tpi_user
+      - SPRING_DATASOURCE_PASSWORD=tpi_pass
+      - TZ=UTC
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api-gateway:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - tpi-network
+
+  ms-localizaciones:
+    build:
+      context: ../../
+      dockerfile: ms-localizaciones/Dockerfile
+    container_name: tpi-ms-localizaciones
+    ports:
+      - "8087:8087"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8087
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://tpi-postgres:5432/tpi_logistica
+      - SPRING_DATASOURCE_USERNAME=tpi_user
+      - SPRING_DATASOURCE_PASSWORD=tpi_pass
+      - TZ=UTC
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api-gateway:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8087/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - tpi-network
+
+  ms-precios:
+    build:
+      context: ../../
+      dockerfile: ms-precios/Dockerfile
+    container_name: tpi-ms-precios
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8083
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://tpi-postgres:5432/tpi_logistica
+      - SPRING_DATASOURCE_USERNAME=tpi_user
+      - SPRING_DATASOURCE_PASSWORD=tpi_pass
+      - TZ=UTC
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api-gateway:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8083/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - tpi-network
+
+  ms-rutas:
+    build:
+      context: ../../
+      dockerfile: ms-rutas/Dockerfile
+    container_name: tpi-ms-rutas
+    ports:
+      - "8085:8085"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8085
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://tpi-postgres:5432/tpi_logistica
+      - SPRING_DATASOURCE_USERNAME=tpi_user
+      - SPRING_DATASOURCE_PASSWORD=tpi_pass
+      - OSRM_URL=http://tpi-osrm:5000
+      - TZ=UTC
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api-gateway:
+        condition: service_healthy
+#      osrm:
+#        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8085/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - tpi-network
+
+  ms-solicitudes:
+    build:
+      context: ../../
+      dockerfile: ms-solicitudes/Dockerfile
+    container_name: tpi-ms-solicitudes
+    ports:
+      - "8084:8084"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8084
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://tpi-postgres:5432/tpi_logistica
+      - SPRING_DATASOURCE_USERNAME=tpi_user
+      - SPRING_DATASOURCE_PASSWORD=tpi_pass
+      - TZ=UTC
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api-gateway:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8084/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - tpi-network
+
+  api-gateway:
+    build:
+      context: ../../
+      dockerfile: api-gateway/Dockerfile
+    container_name: tpi-api-gateway
+    ports:
+      - "8090:8090"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8090
+      - KEYCLOAK_AUTH_SERVER_URL=http://tpi-keycloak:8080
+      - TZ=UTC
+    depends_on:
+      postgres:
+        condition: service_healthy
+      keycloak:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8090/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - tpi-network
+
 volumes:
   postgres_data:
 

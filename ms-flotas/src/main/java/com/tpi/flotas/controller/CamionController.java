@@ -23,6 +23,7 @@ public class CamionController {
 
     private final CamionService camionService;
 
+
     @GetMapping
     public ResponseEntity<List<Camion>> obtenerTodos() {
         log.info("GET /api/camiones - Obteniendo todos los camiones");

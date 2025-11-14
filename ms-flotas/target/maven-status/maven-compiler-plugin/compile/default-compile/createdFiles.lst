@@ -2,7 +2,6 @@ com\tpi\flotas\service\CamionService.class
 com\tpi\flotas\service\TransportistaService.class
 com\tpi\flotas\entity\Transportista.class
 com\tpi\flotas\dto\CamionDto.class
-com\tpi\flotas\dto\TransportistaInfoDto.class
 com\tpi\flotas\entity\Camion$CamionBuilder.class
 com\tpi\flotas\dto\TransportistaDto.class
 com\tpi\flotas\dto\TransportistaDto$TransportistaDtoBuilder.class

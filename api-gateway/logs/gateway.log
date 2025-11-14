@@ -138,3 +138,1193 @@
 2025-11-13 02:13:43 [reactor-http-nio-2] DEBUG r.netty.channel.ChannelOperations - [6f0d8302-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:64270] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
 2025-11-13 02:13:43 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [6f0d8302-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:64270] Last HTTP packet was sent, terminating the channel
 2025-11-13 02:15:55 [SpringApplicationShutdownHook] DEBUG r.netty.transport.ServerTransport - [7fee6a4c, L:/[0:0:0:0:0:0:0:0]:8090] Server is about to be disposed with timeout: PT3S
+2025-11-14 13:35:55 [main] INFO  com.tpi.gateway.GatewayApplication - Starting GatewayApplication using Java 21.0.4 with PID 19960 (D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\target\classes started by juani in D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway)
+2025-11-14 13:35:55 [main] INFO  com.tpi.gateway.GatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-14 13:35:58 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a3541b3b-51da-3ce6-aadd-d60b8d6ec6c3
+2025-11-14 13:35:58 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default LoopResources: DefaultLoopResources {prefix=reactor-http, daemon=true, selectCount=12, workerCount=12}
+2025-11-14 13:35:58 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default ConnectionProvider: reactor.netty.resources.DefaultPooledConnectionProvider@72543547
+2025-11-14 13:36:01 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2025-11-14 13:36:02 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-11-14 13:36:03 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-14 13:36:03 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-11-14 13:36:04 [main] DEBUG r.netty.resources.DefaultLoopIOUring - Default io_uring support : false
+2025-11-14 13:36:04 [main] DEBUG r.netty.resources.DefaultLoopEpoll - Default Epoll support : false
+2025-11-14 13:36:04 [main] DEBUG r.netty.resources.DefaultLoopKQueue - Default KQueue support : false
+2025-11-14 13:36:05 [reactor-http-nio-1] DEBUG r.netty.transport.ServerTransport - [8ed7aeeb, L:/[0:0:0:0:0:0:0:0]:8090] Bound new server
+2025-11-14 13:36:05 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8090
+2025-11-14 13:36:06 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-14 13:36:07 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-14 13:36:07 [main] DEBUG o.s.c.g.filter.GatewayMetricsFilter - New routes count: 0
+2025-11-14 13:36:07 [main] INFO  com.tpi.gateway.GatewayApplication - Started GatewayApplication in 14.205 seconds (process running for 15.128)
+2025-11-14 13:37:21 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] New http connection, requesting read
+2025-11-14 13:37:21 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [8d3b033c, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50674] New http connection, requesting read
+2025-11-14 13:37:21 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [0a381eac, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:37:21 [reactor-http-nio-2] DEBUG r.netty.transport.TransportConfig - [8d3b033c, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50674] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:37:21 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Increasing pending responses, now 1
+2025-11-14 13:37:21 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [0a381eac-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@73995778
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG r.n.r.PooledConnectionProvider - Creating a new [http] client pool [PoolFactory{evictionInterval=PT0S, leasingStrategy=fifo, maxConnections=500, maxIdleTime=-1, maxLifeTime=-1, metricsEnabled=false, pendingAcquireMaxCount=1000, pendingAcquireTimeout=45000}] for [localhost/<unresolved>:8080]
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG r.n.r.PooledConnectionProvider - [9557bafb] Created a new pooled channel, now: 0 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [9557bafb] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.httpDecompressor = io.netty.handler.codec.http.HttpContentDecompressor), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConnector - [9557bafb] Connecting to [localhost/127.0.0.1:8080].
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConnector - [9557bafb] Connect attempt to [localhost/127.0.0.1:8080] failed.
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-14 13:37:22 [reactor-http-nio-3] ERROR o.s.b.a.w.r.e.AbstractErrorWebExceptionHandler - [0a381eac-1]  500 Server Error for HTTP GET "/api/depositos/depositos"
+java.lang.IllegalStateException: Could not obtain the keys
+	at org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder$JwkSetUriReactiveJwtDecoderBuilder.lambda$processor$12(NimbusReactiveJwtDecoder.java:451)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ AuthenticationWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ ReactorContextWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ HttpHeaderWriterWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ ServerWebExchangeReactorContextWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ org.springframework.security.web.server.WebFilterChainProxy [DefaultWebFilterChain]
+	*__checkpoint ⇢ HTTP GET "/api/depositos/depositos" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder$JwkSetUriReactiveJwtDecoderBuilder.lambda$processor$12(NimbusReactiveJwtDecoder.java:451)
+		at reactor.core.publisher.Mono.lambda$onErrorMap$28(Mono.java:3799)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onError(MonoFlatMap.java:180)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.Operators$MonoSubscriber.onError(Operators.java:1912)
+		at reactor.core.publisher.MonoCacheTime$CoordinatorSubscriber.signalCached(MonoCacheTime.java:340)
+		at reactor.core.publisher.MonoCacheTime$CoordinatorSubscriber.onError(MonoCacheTime.java:363)
+		at reactor.core.publisher.FluxPeekFuseable$PeekFuseableSubscriber.onError(FluxPeekFuseable.java:234)
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onError(FluxMapFuseable.java:142)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onError(MonoFlatMap.java:180)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxDoFinally$DoFinallySubscriber.onError(FluxDoFinally.java:119)
+		at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onError(MonoPeekTerminal.java:258)
+		at reactor.core.publisher.FluxPeekFuseable$PeekConditionalSubscriber.onError(FluxPeekFuseable.java:903)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:56)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476)
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620)
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475)
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522)
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261)
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to GET http://localhost:8080/realms/TPI-BACKEND/protocol/openid-connect/certs [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476)
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620)
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475)
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522)
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261)
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Decreasing pending responses, now 0
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [0a381eac-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] [HttpServer] Channel inbound receiver cancelled (operation cancelled).
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG reactor.netty.channel.FluxReceive - [0a381eac-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] [terminated=false, cancelled=true, pending=0, error=null]: dropping frame CONTENT(decodeResult: success, content: PooledSlicedByteBuf(ridx: 0, widx: 378, cap: 378/378, unwrapped: PooledUnsafeDirectByteBuf(ridx: 2048, widx: 2048, cap: 2048)))
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Last HTTP response frame
+2025-11-14 13:37:22 [reactor-http-nio-3] DEBUG r.n.channel.ChannelOperationsHandler - [0a381eac, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] No ChannelOperation attached.
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Increasing pending responses, now 1
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [0a381eac-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@73995778
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG r.n.r.PooledConnectionProvider - [c6969c31] Created a new pooled channel, now: 0 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [c6969c31] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.httpDecompressor = io.netty.handler.codec.http.HttpContentDecompressor), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG reactor.netty.ReactorNetty - [0a381eac-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Non Removed handler: reactor.left.readTimeoutHandler, context: null, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConnector - [c6969c31] Connecting to [localhost/127.0.0.1:8080].
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConnector - [c6969c31] Connect attempt to [localhost/127.0.0.1:8080] failed.
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-14 13:37:35 [reactor-http-nio-3] ERROR o.s.b.a.w.r.e.AbstractErrorWebExceptionHandler - [0a381eac-2]  500 Server Error for HTTP GET "/api/depositos"
+java.lang.IllegalStateException: Could not obtain the keys
+	at org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder$JwkSetUriReactiveJwtDecoderBuilder.lambda$processor$12(NimbusReactiveJwtDecoder.java:451)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ AuthenticationWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ ReactorContextWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ HttpHeaderWriterWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ ServerWebExchangeReactorContextWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ org.springframework.security.web.server.WebFilterChainProxy [DefaultWebFilterChain]
+	*__checkpoint ⇢ HTTP GET "/api/depositos" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder$JwkSetUriReactiveJwtDecoderBuilder.lambda$processor$12(NimbusReactiveJwtDecoder.java:451)
+		at reactor.core.publisher.Mono.lambda$onErrorMap$28(Mono.java:3799)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onError(MonoFlatMap.java:180)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.Operators$MonoSubscriber.onError(Operators.java:1912)
+		at reactor.core.publisher.MonoCacheTime$CoordinatorSubscriber.signalCached(MonoCacheTime.java:340)
+		at reactor.core.publisher.MonoCacheTime$CoordinatorSubscriber.onError(MonoCacheTime.java:363)
+		at reactor.core.publisher.FluxPeekFuseable$PeekFuseableSubscriber.onError(FluxPeekFuseable.java:234)
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onError(FluxMapFuseable.java:142)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onError(MonoFlatMap.java:180)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxDoFinally$DoFinallySubscriber.onError(FluxDoFinally.java:119)
+		at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onError(MonoPeekTerminal.java:258)
+		at reactor.core.publisher.FluxPeekFuseable$PeekConditionalSubscriber.onError(FluxPeekFuseable.java:903)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:56)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476)
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620)
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475)
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522)
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261)
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to GET http://localhost:8080/realms/TPI-BACKEND/protocol/openid-connect/certs [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476)
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620)
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475)
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522)
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261)
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Decreasing pending responses, now 0
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [0a381eac-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] [HttpServer] Channel inbound receiver cancelled (operation cancelled).
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG reactor.netty.channel.FluxReceive - [0a381eac-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] [terminated=true, cancelled=true, pending=0, error=null]: dropping frame LAST_CONTENT(decodeResult: success, content: PooledSlicedByteBuf(ridx: 0, widx: 507, cap: 507/507, unwrapped: PooledUnsafeDirectByteBuf(ridx: 2167, widx: 2167, cap: 16384)))
+2025-11-14 13:37:35 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Last HTTP response frame
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Increasing pending responses, now 1
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [0a381eac-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@73995778
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG r.n.r.PooledConnectionProvider - [e2d39c37] Created a new pooled channel, now: 0 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [e2d39c37] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.httpDecompressor = io.netty.handler.codec.http.HttpContentDecompressor), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG reactor.netty.ReactorNetty - [0a381eac-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Non Removed handler: reactor.left.readTimeoutHandler, context: null, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConnector - [e2d39c37] Connecting to [localhost/127.0.0.1:8080].
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConnector - [e2d39c37] Connect attempt to [localhost/127.0.0.1:8080] failed.
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-14 13:37:59 [reactor-http-nio-3] ERROR o.s.b.a.w.r.e.AbstractErrorWebExceptionHandler - [0a381eac-3]  500 Server Error for HTTP GET "/api/camiones"
+java.lang.IllegalStateException: Could not obtain the keys
+	at org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder$JwkSetUriReactiveJwtDecoderBuilder.lambda$processor$12(NimbusReactiveJwtDecoder.java:451)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ AuthenticationWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ ReactorContextWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ HttpHeaderWriterWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ ServerWebExchangeReactorContextWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ org.springframework.security.web.server.WebFilterChainProxy [DefaultWebFilterChain]
+	*__checkpoint ⇢ HTTP GET "/api/camiones" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder$JwkSetUriReactiveJwtDecoderBuilder.lambda$processor$12(NimbusReactiveJwtDecoder.java:451)
+		at reactor.core.publisher.Mono.lambda$onErrorMap$28(Mono.java:3799)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onError(MonoFlatMap.java:180)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.Operators$MonoSubscriber.onError(Operators.java:1912)
+		at reactor.core.publisher.MonoCacheTime$CoordinatorSubscriber.signalCached(MonoCacheTime.java:340)
+		at reactor.core.publisher.MonoCacheTime$CoordinatorSubscriber.onError(MonoCacheTime.java:363)
+		at reactor.core.publisher.FluxPeekFuseable$PeekFuseableSubscriber.onError(FluxPeekFuseable.java:234)
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onError(FluxMapFuseable.java:142)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onError(MonoFlatMap.java:180)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxDoFinally$DoFinallySubscriber.onError(FluxDoFinally.java:119)
+		at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onError(MonoPeekTerminal.java:258)
+		at reactor.core.publisher.FluxPeekFuseable$PeekConditionalSubscriber.onError(FluxPeekFuseable.java:903)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:56)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476)
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620)
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475)
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522)
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261)
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to GET http://localhost:8080/realms/TPI-BACKEND/protocol/openid-connect/certs [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476)
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620)
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475)
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522)
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261)
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Decreasing pending responses, now 0
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [0a381eac-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] [HttpServer] Channel inbound receiver cancelled (operation cancelled).
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG reactor.netty.channel.FluxReceive - [0a381eac-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] [terminated=true, cancelled=true, pending=0, error=null]: dropping frame LAST_CONTENT(decodeResult: success, content: PooledSlicedByteBuf(ridx: 0, widx: 507, cap: 507/507, unwrapped: PooledUnsafeDirectByteBuf(ridx: 2166, widx: 2166, cap: 16384)))
+2025-11-14 13:37:59 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Last HTTP response frame
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Increasing pending responses, now 1
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [0a381eac-4, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@73995778
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG r.n.r.PooledConnectionProvider - [7d103718] Created a new pooled channel, now: 0 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [7d103718] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.httpDecompressor = io.netty.handler.codec.http.HttpContentDecompressor), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG reactor.netty.ReactorNetty - [0a381eac-4, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Non Removed handler: reactor.left.readTimeoutHandler, context: null, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConnector - [7d103718] Connecting to [localhost/127.0.0.1:8080].
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConnector - [7d103718] Connect attempt to [localhost/127.0.0.1:8080] failed.
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-14 13:38:07 [reactor-http-nio-3] ERROR o.s.b.a.w.r.e.AbstractErrorWebExceptionHandler - [0a381eac-4]  500 Server Error for HTTP GET "/api/flotas/camiones"
+java.lang.IllegalStateException: Could not obtain the keys
+	at org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder$JwkSetUriReactiveJwtDecoderBuilder.lambda$processor$12(NimbusReactiveJwtDecoder.java:451)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ AuthenticationWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ ReactorContextWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ HttpHeaderWriterWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ ServerWebExchangeReactorContextWebFilter [DefaultWebFilterChain]
+	*__checkpoint ⇢ org.springframework.security.web.server.WebFilterChainProxy [DefaultWebFilterChain]
+	*__checkpoint ⇢ HTTP GET "/api/flotas/camiones" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder$JwkSetUriReactiveJwtDecoderBuilder.lambda$processor$12(NimbusReactiveJwtDecoder.java:451)
+		at reactor.core.publisher.Mono.lambda$onErrorMap$28(Mono.java:3799)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onError(MonoFlatMap.java:180)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.Operators$MonoSubscriber.onError(Operators.java:1912)
+		at reactor.core.publisher.MonoCacheTime$CoordinatorSubscriber.signalCached(MonoCacheTime.java:340)
+		at reactor.core.publisher.MonoCacheTime$CoordinatorSubscriber.onError(MonoCacheTime.java:363)
+		at reactor.core.publisher.FluxPeekFuseable$PeekFuseableSubscriber.onError(FluxPeekFuseable.java:234)
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onError(FluxMapFuseable.java:142)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onError(MonoFlatMap.java:180)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxDoFinally$DoFinallySubscriber.onError(FluxDoFinally.java:119)
+		at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onError(MonoPeekTerminal.java:258)
+		at reactor.core.publisher.FluxPeekFuseable$PeekConditionalSubscriber.onError(FluxPeekFuseable.java:903)
+		at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onError(FluxMap.java:134)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:56)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476)
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620)
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475)
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522)
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261)
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to GET http://localhost:8080/realms/TPI-BACKEND/protocol/openid-connect/certs [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476)
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620)
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475)
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522)
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261)
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:8080
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-4, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Decreasing pending responses, now 0
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-4, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [0a381eac-4, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] [HttpServer] Channel inbound receiver cancelled (operation cancelled).
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG reactor.netty.channel.FluxReceive - [0a381eac-4, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] [terminated=true, cancelled=true, pending=0, error=null]: dropping frame LAST_CONTENT(decodeResult: success, content: PooledSlicedByteBuf(ridx: 0, widx: 507, cap: 507/507, unwrapped: PooledUnsafeDirectByteBuf(ridx: 2173, widx: 2173, cap: 8192)))
+2025-11-14 13:38:07 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0a381eac-4, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:50675] Last HTTP response frame
+2025-11-14 13:38:45 [SpringApplicationShutdownHook] DEBUG r.netty.transport.ServerTransport - [8ed7aeeb, L:/[0:0:0:0:0:0:0:0]:8090] Server is about to be disposed with timeout: PT3S
+2025-11-14 13:39:51 [main] INFO  com.tpi.gateway.GatewayApplication - Starting GatewayApplication using Java 21.0.4 with PID 23900 (D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway\target\classes started by juani in D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\api-gateway)
+2025-11-14 13:39:51 [main] INFO  com.tpi.gateway.GatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-14 13:39:55 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a3541b3b-51da-3ce6-aadd-d60b8d6ec6c3
+2025-11-14 13:39:56 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default LoopResources: DefaultLoopResources {prefix=reactor-http, daemon=true, selectCount=12, workerCount=12}
+2025-11-14 13:39:56 [main] DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default ConnectionProvider: reactor.netty.resources.DefaultPooledConnectionProvider@78910096
+2025-11-14 13:39:59 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2025-11-14 13:39:59 [main] INFO  o.s.c.g.r.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-11-14 13:40:01 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-14 13:40:01 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-11-14 13:40:02 [main] DEBUG r.netty.resources.DefaultLoopIOUring - Default io_uring support : false
+2025-11-14 13:40:02 [main] DEBUG r.netty.resources.DefaultLoopEpoll - Default Epoll support : false
+2025-11-14 13:40:02 [main] DEBUG r.netty.resources.DefaultLoopKQueue - Default KQueue support : false
+2025-11-14 13:40:02 [reactor-http-nio-1] DEBUG r.netty.transport.ServerTransport - [c0adf094, L:/[0:0:0:0:0:0:0:0]:8090] Bound new server
+2025-11-14 13:40:02 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8090
+2025-11-14 13:40:03 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-14 13:40:04 [main] INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2025-11-14 13:40:04 [main] DEBUG o.s.c.g.filter.GatewayMetricsFilter - New routes count: 0
+2025-11-14 13:40:04 [main] INFO  com.tpi.gateway.GatewayApplication - Started GatewayApplication in 16.312 seconds (process running for 17.814)
+2025-11-14 13:40:22 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0dbcf5e9, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] New http connection, requesting read
+2025-11-14 13:40:22 [reactor-http-nio-2] DEBUG r.n.http.server.HttpServerOperations - [03ee4ba2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65258] New http connection, requesting read
+2025-11-14 13:40:22 [reactor-http-nio-2] DEBUG r.netty.transport.TransportConfig - [03ee4ba2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65258] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:40:22 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [0dbcf5e9, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:40:22 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0dbcf5e9, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] Increasing pending responses, now 1
+2025-11-14 13:40:22 [reactor-http-nio-3] DEBUG r.netty.http.server.HttpServer - [0dbcf5e9-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@667cf21
+2025-11-14 13:40:22 [reactor-http-nio-3] DEBUG r.n.r.PooledConnectionProvider - Creating a new [http] client pool [PoolFactory{evictionInterval=PT0S, leasingStrategy=fifo, maxConnections=500, maxIdleTime=-1, maxLifeTime=-1, metricsEnabled=false, pendingAcquireMaxCount=1000, pendingAcquireTimeout=45000}] for [localhost/<unresolved>:8080]
+2025-11-14 13:40:22 [reactor-http-nio-3] DEBUG r.n.r.PooledConnectionProvider - [4f381a60] Created a new pooled channel, now: 0 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:40:22 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConfig - [4f381a60] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.httpDecompressor = io.netty.handler.codec.http.HttpContentDecompressor), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:40:23 [reactor-http-nio-3] DEBUG r.netty.transport.TransportConnector - [4f381a60] Connecting to [localhost/127.0.0.1:8080].
+2025-11-14 13:40:23 [reactor-http-nio-3] DEBUG r.n.r.DefaultPooledConnectionProvider - [4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] Registering pool release on close event for channel
+2025-11-14 13:40:23 [reactor-http-nio-3] DEBUG r.n.r.PooledConnectionProvider - [4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] Channel connected, now: 1 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:40:23 [reactor-http-nio-3] DEBUG r.n.r.DefaultPooledConnectionProvider - [4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] onStateChange(PooledConnection{channel=[id: 0x4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080]}, [connected])
+2025-11-14 13:40:23 [reactor-http-nio-3] DEBUG r.n.r.DefaultPooledConnectionProvider - [4f381a60-1, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] onStateChange(GET{uri=null, connection=PooledConnection{channel=[id: 0x4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080]}}, [configured])
+2025-11-14 13:40:23 [reactor-http-nio-3] DEBUG r.n.http.client.HttpClientConnect - [4f381a60-1, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] Handler is being applied: {uri=http://localhost:8080/realms/TPI-BACKEND/protocol/openid-connect/certs, method=GET}
+2025-11-14 13:40:23 [reactor-http-nio-3] DEBUG r.n.r.DefaultPooledConnectionProvider - [4f381a60-1, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] onStateChange(GET{uri=/realms/TPI-BACKEND/protocol/openid-connect/certs, connection=PooledConnection{channel=[id: 0x4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080]}}, [request_prepared])
+2025-11-14 13:40:23 [reactor-http-nio-3] DEBUG r.n.r.DefaultPooledConnectionProvider - [4f381a60-1, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] onStateChange(GET{uri=/realms/TPI-BACKEND/protocol/openid-connect/certs, connection=PooledConnection{channel=[id: 0x4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080]}}, [request_sent])
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.http.client.HttpClientOperations - [4f381a60-1, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+content-length: <filtered>
+Cache-Control: <filtered>
+Content-Type: <filtered>
+Referrer-Policy: <filtered>
+Strict-Transport-Security: <filtered>
+X-Content-Type-Options: <filtered>
+X-Frame-Options: <filtered>
+X-XSS-Protection: <filtered>
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.r.DefaultPooledConnectionProvider - [4f381a60-1, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] onStateChange(GET{uri=/realms/TPI-BACKEND/protocol/openid-connect/certs, connection=PooledConnection{channel=[id: 0x4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080]}}, [response_received])
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG reactor.netty.channel.FluxReceive - [4f381a60-1, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.http.client.HttpClientOperations - [4f381a60-1, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] Received last HTTP packet
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0dbcf5e9-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] Last HTTP response frame
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0dbcf5e9-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] No sendHeaders() called before complete, sending zero-length header
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0dbcf5e9-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] Decreasing pending responses, now 0
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.http.server.HttpServerOperations - [0dbcf5e9-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.netty.channel.ChannelOperations - [0dbcf5e9-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG reactor.netty.channel.FluxReceive - [0dbcf5e9-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] [terminated=false, cancelled=true, pending=0, error=null]: dropping frame CONTENT(decodeResult: success, content: PooledSlicedByteBuf(ridx: 0, widx: 382, cap: 382/382, unwrapped: PooledUnsafeDirectByteBuf(ridx: 2048, widx: 2048, cap: 2048)))
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.r.DefaultPooledConnectionProvider - [4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] onStateChange(GET{uri=/realms/TPI-BACKEND/protocol/openid-connect/certs, connection=PooledConnection{channel=[id: 0x4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080]}}, [response_completed])
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.r.DefaultPooledConnectionProvider - [4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] onStateChange(GET{uri=/realms/TPI-BACKEND/protocol/openid-connect/certs, connection=PooledConnection{channel=[id: 0x4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080]}}, [disconnecting])
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.r.DefaultPooledConnectionProvider - [4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] Releasing channel
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.r.PooledConnectionProvider - [4f381a60, L:/127.0.0.1:65261 - R:localhost/127.0.0.1:8080] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+2025-11-14 13:40:24 [reactor-http-nio-3] DEBUG r.n.channel.ChannelOperationsHandler - [0dbcf5e9, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65259] No ChannelOperation attached.
+2025-11-14 13:41:32 [reactor-http-nio-4] DEBUG r.n.http.server.HttpServerOperations - [baf9ae8d, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65290] New http connection, requesting read
+2025-11-14 13:41:32 [reactor-http-nio-4] DEBUG r.netty.transport.TransportConfig - [baf9ae8d, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65290] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] New http connection, requesting read
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.netty.transport.TransportConfig - [a293833d, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Increasing pending responses, now 1
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.netty.http.server.HttpServer - [a293833d-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@667cf21
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Last HTTP response frame
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] No sendHeaders() called before complete, sending zero-length header
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Decreasing pending responses, now 0
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.netty.channel.ChannelOperations - [a293833d-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Dropped HTTP content, since response has been sent already: CONTENT(decodeResult: success, content: PooledSlicedByteBuf(ridx: 0, widx: 382, cap: 382/382, unwrapped: PooledUnsafeDirectByteBuf(ridx: 2048, widx: 2048, cap: 2048)))
+2025-11-14 13:41:32 [reactor-http-nio-5] DEBUG r.n.channel.ChannelOperationsHandler - [a293833d, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] No ChannelOperation attached.
+2025-11-14 13:41:40 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Increasing pending responses, now 1
+2025-11-14 13:41:40 [reactor-http-nio-5] DEBUG r.netty.http.server.HttpServer - [a293833d-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@667cf21
+2025-11-14 13:41:40 [reactor-http-nio-5] DEBUG reactor.netty.ReactorNetty - [a293833d-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Non Removed handler: reactor.left.readTimeoutHandler, context: null, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:41:40 [parallel-1] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Route matched: ms-flotas
+2025-11-14 13:41:40 [parallel-1] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Mapping [Exchange: GET http://localhost:8090/api/flotas/camiones] to Route{id='ms-flotas', uri=http://localhost:8081, order=0, predicate=Paths: [/api/flotas/**], match trailing slash: true, gatewayFilters=[[[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0]], metadata={}}
+2025-11-14 13:41:40 [parallel-1] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - [a293833d-3] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@4da9f187
+2025-11-14 13:41:40 [parallel-1] DEBUG o.s.c.g.handler.FilteringWebHandler - Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@66b31d46}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@22cd8ec2}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1f3c5308}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@3a4f8e8a}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@5fc1e4fb}, order = 0], [[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@51e94b7d}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@29aa4bc9}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@4468fda8}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@10a0d93a}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@47162173}, order = 2147483647]]
+2025-11-14 13:41:40 [parallel-1] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Will instrument the HTTP request headers [Content-Type:"application/json", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"862e59c6-dca9-412c-86b7-ace3f793b1cf", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"507", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65291"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:41:40 [parallel-1] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Client observation  {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.0027202, duration(nanos)=2720200.0, startTimeNanos=531155927499}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@7359986e'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@282e880b} created for the request. New headers are [Content-Type:"application/json", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"862e59c6-dca9-412c-86b7-ace3f793b1cf", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"507", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65291"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:41:40 [parallel-1] DEBUG r.n.r.PooledConnectionProvider - Creating a new [proxy] client pool [PoolFactory{evictionInterval=PT0S, leasingStrategy=fifo, maxConnections=2147483647, maxIdleTime=-1, maxLifeTime=-1, metricsEnabled=false, pendingAcquireMaxCount=-1, pendingAcquireTimeout=0}] for [localhost/<unresolved>:8081]
+2025-11-14 13:41:40 [reactor-http-nio-6] DEBUG r.n.r.PooledConnectionProvider - [b98e9ba2] Created a new pooled channel, now: 0 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:41:40 [reactor-http-nio-6] DEBUG r.netty.transport.TransportConfig - [b98e9ba2] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:41:40 [reactor-http-nio-6] DEBUG r.netty.transport.TransportConnector - [b98e9ba2] Connecting to [localhost/127.0.0.1:8081].
+2025-11-14 13:41:40 [reactor-http-nio-6] DEBUG r.n.r.DefaultPooledConnectionProvider - [b98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] Registering pool release on close event for channel
+2025-11-14 13:41:40 [reactor-http-nio-6] DEBUG r.n.r.PooledConnectionProvider - [b98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] Channel connected, now: 1 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:41:40 [reactor-http-nio-6] DEBUG r.n.r.DefaultPooledConnectionProvider - [b98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] onStateChange(PooledConnection{channel=[id: 0xb98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081]}, [connected])
+2025-11-14 13:41:40 [reactor-http-nio-6] DEBUG r.n.r.DefaultPooledConnectionProvider - [b98e9ba2-1, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=null, connection=PooledConnection{channel=[id: 0xb98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081]}}, [configured])
+2025-11-14 13:41:40 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [b98e9ba2-1, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] Handler is being applied: {uri=http://localhost:8081/api/camiones, method=GET}
+2025-11-14 13:41:40 [reactor-http-nio-6] DEBUG r.n.r.DefaultPooledConnectionProvider - [b98e9ba2-1, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xb98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081]}}, [request_prepared])
+2025-11-14 13:41:40 [reactor-http-nio-5] DEBUG reactor.netty.channel.FluxReceive - [a293833d-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] [terminated=true, cancelled=false, pending=1, error=null]: subscribing inbound receiver
+2025-11-14 13:41:40 [reactor-http-nio-6] DEBUG r.n.r.DefaultPooledConnectionProvider - [b98e9ba2-1, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xb98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081]}}, [request_sent])
+2025-11-14 13:41:41 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [b98e9ba2-1, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 
+Vary: <filtered>
+Vary: <filtered>
+Vary: <filtered>
+Content-Type: <filtered>
+Transfer-Encoding: <filtered>
+Date: <filtered>
+2025-11-14 13:41:41 [reactor-http-nio-6] DEBUG r.n.r.DefaultPooledConnectionProvider - [b98e9ba2-1, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xb98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081]}}, [response_received])
+2025-11-14 13:41:41 [reactor-http-nio-6] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - Will instrument the response
+2025-11-14 13:41:41 [reactor-http-nio-6] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - The response was handled for observation {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.9589016, duration(nanos)=9.589016E8, startTimeNanos=531155927499}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@7359986e'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@282e880b}
+2025-11-14 13:41:41 [reactor-http-nio-6] DEBUG reactor.netty.channel.FluxReceive - [b98e9ba2-1, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+2025-11-14 13:41:41 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [b98e9ba2-1, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] Received last HTTP packet
+2025-11-14 13:41:41 [reactor-http-nio-6] DEBUG r.n.r.DefaultPooledConnectionProvider - [b98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xb98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081]}}, [response_completed])
+2025-11-14 13:41:41 [reactor-http-nio-6] DEBUG r.n.r.DefaultPooledConnectionProvider - [b98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xb98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081]}}, [disconnecting])
+2025-11-14 13:41:41 [reactor-http-nio-6] DEBUG r.n.r.DefaultPooledConnectionProvider - [b98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] Releasing channel
+2025-11-14 13:41:41 [reactor-http-nio-6] DEBUG r.n.r.PooledConnectionProvider - [b98e9ba2, L:/127.0.0.1:65296 - R:localhost/127.0.0.1:8081] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+2025-11-14 13:41:41 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Last HTTP response frame
+2025-11-14 13:41:41 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Decreasing pending responses, now 0
+2025-11-14 13:41:41 [reactor-http-nio-5] DEBUG r.n.http.server.HttpServerOperations - [a293833d-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:41:41 [reactor-http-nio-5] DEBUG r.netty.channel.ChannelOperations - [a293833d-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65291] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-11-14 13:42:41 [reactor-http-nio-6] DEBUG r.n.r.DefaultPooledConnectionProvider - [b98e9ba2, L:/127.0.0.1:65296 ! R:localhost/127.0.0.1:8081] onStateChange(PooledConnection{channel=[id: 0xb98e9ba2, L:/127.0.0.1:65296 ! R:localhost/127.0.0.1:8081]}, [disconnecting])
+2025-11-14 13:45:21 [reactor-http-nio-7] DEBUG r.n.http.server.HttpServerOperations - [d48d5227, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65367] New http connection, requesting read
+2025-11-14 13:45:21 [reactor-http-nio-8] DEBUG r.n.http.server.HttpServerOperations - [15639294, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] New http connection, requesting read
+2025-11-14 13:45:21 [reactor-http-nio-7] DEBUG r.netty.transport.TransportConfig - [d48d5227, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65367] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:45:21 [reactor-http-nio-8] DEBUG r.netty.transport.TransportConfig - [15639294, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:45:21 [reactor-http-nio-8] DEBUG r.n.http.server.HttpServerOperations - [15639294, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Increasing pending responses, now 1
+2025-11-14 13:45:21 [reactor-http-nio-8] DEBUG r.netty.http.server.HttpServer - [15639294-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@667cf21
+2025-11-14 13:45:21 [reactor-http-nio-8] DEBUG reactor.netty.ReactorNetty - [15639294-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Non Removed handler: reactor.left.readTimeoutHandler, context: null, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:45:21 [parallel-3] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Route matched: ms-flotas
+2025-11-14 13:45:21 [parallel-3] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Mapping [Exchange: POST http://localhost:8090/api/flotas/camiones] to Route{id='ms-flotas', uri=http://localhost:8081, order=0, predicate=Paths: [/api/flotas/**], match trailing slash: true, gatewayFilters=[[[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0]], metadata={}}
+2025-11-14 13:45:21 [parallel-3] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - [15639294-4] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@4da9f187
+2025-11-14 13:45:21 [parallel-3] DEBUG o.s.c.g.handler.FilteringWebHandler - Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@66b31d46}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@22cd8ec2}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1f3c5308}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@3a4f8e8a}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@5fc1e4fb}, order = 0], [[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@51e94b7d}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@29aa4bc9}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@4468fda8}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@10a0d93a}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@47162173}, order = 2147483647]]
+2025-11-14 13:45:21 [parallel-3] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Will instrument the HTTP request headers [Content-Type:"application/json", Authorization:"Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5Y3ExMmxfd1ZmUlFkRzhjM09uSVlTcXBDbDFtNFZLTmJZSE9icGpYd1pFIn0.eyJleHAiOjE3NjMxMzg5ODAsImlhdCI6MTc2MzEzODY4MCwianRpIjoiZDFmNzIxY2UtMGZkNy00YTNjLWJjOGQtN2M2ZjJjMGY3YjUxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9UUEktQkFDS0VORCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2OGJjODNlMy1kNjI4LTQ1NjUtYTMxMy1mYzhiYzVhOWFiODAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0cGktYmFja2VuZCIsInNlc3Npb25fc3RhdGUiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLXRwaS1iYWNrZW5kIiwib3BlcmFkb3IiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJJZ25hY2lvIFN0b3JlbGxvIENoaW9mYWxvIiwicHJlZmVycmVkX3VzZXJuYW1lIjoib3BlcmFkb3IxIiwiZ2l2ZW5fbmFtZSI6IklnbmFjaW8iLCJmYW1pbHlfbmFtZSI6IlN0b3JlbGxvIENoaW9mYWxvIn0.W3zgS-lzKH_PvdKEFOZW7qGVnppKbSLTltpdtb5QoN35XYvJDlr8kHSTRCtV_2kVE_TBR5hqKduKN20ZiVixfMqEzQYXASkrAOBp-4hMp3RadLn2Nm-jaGVzKi56RmOdxhCLrG2ggaexUW0Mh0UdvuIzTYJdBhXA6hsU5qhkCCHV8ymDEPEgcToeK_EwQvyDC_8VpTDXZohLSkD8qdCdD7ohZGxXStE7Td1VRI3MnUAiwrkpNgY9V6rJZwyiKLOJFDSOmJHhX0d-BBL0RTcxW2ru8YzVGb41hXtUMPwrJeSjLipoh1I-1Wr6fBVgNC8PZHnop-bwSQiHZX-fr43yXw", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"1f27e9a6-81b2-4a1e-98e3-47d92fba440d", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"215", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65368"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:45:21 [parallel-3] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Client observation  {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='POST', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=3.474E-4, duration(nanos)=347400.0, startTimeNanos=752061509400}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@6415d355'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@211741b3} created for the request. New headers are [Content-Type:"application/json", Authorization:"Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5Y3ExMmxfd1ZmUlFkRzhjM09uSVlTcXBDbDFtNFZLTmJZSE9icGpYd1pFIn0.eyJleHAiOjE3NjMxMzg5ODAsImlhdCI6MTc2MzEzODY4MCwianRpIjoiZDFmNzIxY2UtMGZkNy00YTNjLWJjOGQtN2M2ZjJjMGY3YjUxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9UUEktQkFDS0VORCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2OGJjODNlMy1kNjI4LTQ1NjUtYTMxMy1mYzhiYzVhOWFiODAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0cGktYmFja2VuZCIsInNlc3Npb25fc3RhdGUiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLXRwaS1iYWNrZW5kIiwib3BlcmFkb3IiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJJZ25hY2lvIFN0b3JlbGxvIENoaW9mYWxvIiwicHJlZmVycmVkX3VzZXJuYW1lIjoib3BlcmFkb3IxIiwiZ2l2ZW5fbmFtZSI6IklnbmFjaW8iLCJmYW1pbHlfbmFtZSI6IlN0b3JlbGxvIENoaW9mYWxvIn0.W3zgS-lzKH_PvdKEFOZW7qGVnppKbSLTltpdtb5QoN35XYvJDlr8kHSTRCtV_2kVE_TBR5hqKduKN20ZiVixfMqEzQYXASkrAOBp-4hMp3RadLn2Nm-jaGVzKi56RmOdxhCLrG2ggaexUW0Mh0UdvuIzTYJdBhXA6hsU5qhkCCHV8ymDEPEgcToeK_EwQvyDC_8VpTDXZohLSkD8qdCdD7ohZGxXStE7Td1VRI3MnUAiwrkpNgY9V6rJZwyiKLOJFDSOmJHhX0d-BBL0RTcxW2ru8YzVGb41hXtUMPwrJeSjLipoh1I-1Wr6fBVgNC8PZHnop-bwSQiHZX-fr43yXw", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"1f27e9a6-81b2-4a1e-98e3-47d92fba440d", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"215", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65368"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.PooledConnectionProvider - [fa359f1e] Created a new pooled channel, now: 0 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.netty.transport.TransportConfig - [fa359f1e] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.netty.transport.TransportConnector - [fa359f1e] Connecting to [localhost/127.0.0.1:8081].
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Registering pool release on close event for channel
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.PooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Channel connected, now: 1 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}, [connected])
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e-1, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=null, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [configured])
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.http.client.HttpClientConnect - [fa359f1e-1, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Handler is being applied: {uri=http://localhost:8081/api/camiones, method=POST}
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e-1, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(POST{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [request_prepared])
+2025-11-14 13:45:21 [reactor-http-nio-8] DEBUG reactor.netty.channel.FluxReceive - [15639294-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] [terminated=true, cancelled=false, pending=1, error=null]: subscribing inbound receiver
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e-1, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(POST{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [request_sent])
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.http.client.HttpClientOperations - [fa359f1e-1, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 201 
+Vary: <filtered>
+Vary: <filtered>
+Vary: <filtered>
+Content-Type: <filtered>
+Transfer-Encoding: <filtered>
+Date: <filtered>
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e-1, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(POST{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [response_received])
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - Will instrument the response
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - The response was handled for observation {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='POST', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.5458914, duration(nanos)=5.458914E8, startTimeNanos=752061509400}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@6415d355'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@211741b3}
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG reactor.netty.channel.FluxReceive - [fa359f1e-1, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.http.client.HttpClientOperations - [fa359f1e-1, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Received last HTTP packet
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(POST{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [response_completed])
+2025-11-14 13:45:21 [reactor-http-nio-8] DEBUG r.n.http.server.HttpServerOperations - [15639294-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Last HTTP response frame
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(POST{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [disconnecting])
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Releasing channel
+2025-11-14 13:45:21 [reactor-http-nio-8] DEBUG r.n.http.server.HttpServerOperations - [15639294-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Decreasing pending responses, now 0
+2025-11-14 13:45:21 [reactor-http-nio-9] DEBUG r.n.r.PooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+2025-11-14 13:45:21 [reactor-http-nio-8] DEBUG r.n.http.server.HttpServerOperations - [15639294-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:45:21 [reactor-http-nio-8] DEBUG r.netty.channel.ChannelOperations - [15639294-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-11-14 13:45:30 [reactor-http-nio-8] DEBUG r.n.http.server.HttpServerOperations - [15639294, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Increasing pending responses, now 1
+2025-11-14 13:45:30 [reactor-http-nio-8] DEBUG r.netty.http.server.HttpServer - [15639294-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@667cf21
+2025-11-14 13:45:30 [reactor-http-nio-8] DEBUG reactor.netty.ReactorNetty - [15639294-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Non Removed handler: reactor.left.readTimeoutHandler, context: null, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:45:30 [parallel-5] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Route matched: ms-flotas
+2025-11-14 13:45:30 [parallel-5] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Mapping [Exchange: GET http://localhost:8090/api/flotas/camiones] to Route{id='ms-flotas', uri=http://localhost:8081, order=0, predicate=Paths: [/api/flotas/**], match trailing slash: true, gatewayFilters=[[[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0]], metadata={}}
+2025-11-14 13:45:30 [parallel-5] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - [15639294-5] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@4da9f187
+2025-11-14 13:45:30 [parallel-5] DEBUG o.s.c.g.handler.FilteringWebHandler - Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@66b31d46}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@22cd8ec2}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1f3c5308}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@3a4f8e8a}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@5fc1e4fb}, order = 0], [[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@51e94b7d}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@29aa4bc9}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@4468fda8}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@10a0d93a}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@47162173}, order = 2147483647]]
+2025-11-14 13:45:30 [parallel-5] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Will instrument the HTTP request headers [Content-Type:"application/json", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"ea4352e6-a03d-4486-b13c-957b19988682", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"215", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65368"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:45:30 [parallel-5] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Client observation  {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=1.052E-4, duration(nanos)=105200.0, startTimeNanos=761748519800}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@2c243d8f'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@22e3d67b} created for the request. New headers are [Content-Type:"application/json", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"ea4352e6-a03d-4486-b13c-957b19988682", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"215", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65368"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.r.PooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Channel acquired, now: 1 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.http.client.HttpClientConnect - [fa359f1e-2, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Handler is being applied: {uri=http://localhost:8081/api/camiones, method=GET}
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e-2, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [request_prepared])
+2025-11-14 13:45:30 [reactor-http-nio-8] DEBUG reactor.netty.channel.FluxReceive - [15639294-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] [terminated=true, cancelled=false, pending=1, error=null]: subscribing inbound receiver
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e-2, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [request_sent])
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.http.client.HttpClientOperations - [fa359f1e-2, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 
+Vary: <filtered>
+Vary: <filtered>
+Vary: <filtered>
+Content-Type: <filtered>
+Transfer-Encoding: <filtered>
+Date: <filtered>
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e-2, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [response_received])
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - Will instrument the response
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - The response was handled for observation {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.0164996, duration(nanos)=1.64996E7, startTimeNanos=761748519800}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@2c243d8f'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@22e3d67b}
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG reactor.netty.channel.FluxReceive - [fa359f1e-2, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.http.client.HttpClientOperations - [fa359f1e-2, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Received last HTTP packet
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [response_completed])
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081]}}, [disconnecting])
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Releasing channel
+2025-11-14 13:45:30 [reactor-http-nio-9] DEBUG r.n.r.PooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 - R:localhost/127.0.0.1:8081] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+2025-11-14 13:45:30 [reactor-http-nio-8] DEBUG r.n.http.server.HttpServerOperations - [15639294-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Last HTTP response frame
+2025-11-14 13:45:30 [reactor-http-nio-8] DEBUG r.n.http.server.HttpServerOperations - [15639294-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Decreasing pending responses, now 0
+2025-11-14 13:45:30 [reactor-http-nio-8] DEBUG r.n.http.server.HttpServerOperations - [15639294-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:45:30 [reactor-http-nio-8] DEBUG r.netty.channel.ChannelOperations - [15639294-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65368] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-11-14 13:46:31 [reactor-http-nio-9] DEBUG r.n.r.DefaultPooledConnectionProvider - [fa359f1e, L:/127.0.0.1:65369 ! R:localhost/127.0.0.1:8081] onStateChange(PooledConnection{channel=[id: 0xfa359f1e, L:/127.0.0.1:65369 ! R:localhost/127.0.0.1:8081]}, [disconnecting])
+2025-11-14 13:46:58 [reactor-http-nio-10] DEBUG r.n.http.server.HttpServerOperations - [08a4d9a0, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65392] New http connection, requesting read
+2025-11-14 13:46:58 [reactor-http-nio-10] DEBUG r.netty.transport.TransportConfig - [08a4d9a0, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65392] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:46:58 [reactor-http-nio-11] DEBUG r.n.http.server.HttpServerOperations - [42ebcefa, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] New http connection, requesting read
+2025-11-14 13:46:58 [reactor-http-nio-11] DEBUG r.netty.transport.TransportConfig - [42ebcefa, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:46:58 [reactor-http-nio-11] DEBUG r.n.http.server.HttpServerOperations - [42ebcefa, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] Increasing pending responses, now 1
+2025-11-14 13:46:58 [reactor-http-nio-11] DEBUG r.netty.http.server.HttpServer - [42ebcefa-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@667cf21
+2025-11-14 13:46:58 [reactor-http-nio-11] DEBUG reactor.netty.ReactorNetty - [42ebcefa-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] Non Removed handler: reactor.left.readTimeoutHandler, context: null, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:46:58 [parallel-7] DEBUG r.n.http.server.HttpServerOperations - [42ebcefa-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] Last HTTP response frame
+2025-11-14 13:46:58 [parallel-7] DEBUG r.n.http.server.HttpServerOperations - [42ebcefa-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] No sendHeaders() called before complete, sending zero-length header
+2025-11-14 13:46:58 [reactor-http-nio-11] DEBUG r.n.http.server.HttpServerOperations - [42ebcefa-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] Decreasing pending responses, now 0
+2025-11-14 13:46:58 [reactor-http-nio-11] DEBUG r.netty.channel.ChannelOperations - [42ebcefa-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-11-14 13:46:58 [reactor-http-nio-11] DEBUG reactor.netty.channel.FluxReceive - [42ebcefa-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] [terminated=true, cancelled=true, pending=0, error=null]: dropping frame LAST_CONTENT(decodeResult: success, content: PooledSlicedByteBuf(ridx: 0, widx: 215, cap: 215/215, unwrapped: PooledUnsafeDirectByteBuf(ridx: 498, widx: 498, cap: 2048)))
+2025-11-14 13:46:58 [reactor-http-nio-11] DEBUG r.n.http.server.HttpServerOperations - [42ebcefa-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65393] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:48:21 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] New http connection, requesting read
+2025-11-14 13:48:21 [reactor-http-nio-12] DEBUG r.n.http.server.HttpServerOperations - [913d918c, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65407] New http connection, requesting read
+2025-11-14 13:48:21 [reactor-http-nio-12] DEBUG r.netty.transport.TransportConfig - [913d918c, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65407] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:48:21 [reactor-http-nio-1] DEBUG r.netty.transport.TransportConfig - [d88736fd, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:48:21 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Increasing pending responses, now 1
+2025-11-14 13:48:21 [reactor-http-nio-1] DEBUG r.netty.http.server.HttpServer - [d88736fd-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@667cf21
+2025-11-14 13:48:21 [reactor-http-nio-1] DEBUG reactor.netty.ReactorNetty - [d88736fd-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Non Removed handler: reactor.left.readTimeoutHandler, context: null, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:48:21 [parallel-8] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Route matched: ms-flotas
+2025-11-14 13:48:21 [parallel-8] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Mapping [Exchange: DELETE http://localhost:8090/api/flotas/camiones/FGH233] to Route{id='ms-flotas', uri=http://localhost:8081, order=0, predicate=Paths: [/api/flotas/**], match trailing slash: true, gatewayFilters=[[[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0]], metadata={}}
+2025-11-14 13:48:21 [parallel-8] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - [d88736fd-7] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@4da9f187
+2025-11-14 13:48:21 [parallel-8] DEBUG o.s.c.g.handler.FilteringWebHandler - Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@66b31d46}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@22cd8ec2}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1f3c5308}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@3a4f8e8a}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@5fc1e4fb}, order = 0], [[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@51e94b7d}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@29aa4bc9}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@4468fda8}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@10a0d93a}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@47162173}, order = 2147483647]]
+2025-11-14 13:48:21 [parallel-8] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Will instrument the HTTP request headers [Content-Type:"application/json", Authorization:"Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5Y3ExMmxfd1ZmUlFkRzhjM09uSVlTcXBDbDFtNFZLTmJZSE9icGpYd1pFIn0.eyJleHAiOjE3NjMxMzg5ODAsImlhdCI6MTc2MzEzODY4MCwianRpIjoiZDFmNzIxY2UtMGZkNy00YTNjLWJjOGQtN2M2ZjJjMGY3YjUxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9UUEktQkFDS0VORCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2OGJjODNlMy1kNjI4LTQ1NjUtYTMxMy1mYzhiYzVhOWFiODAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0cGktYmFja2VuZCIsInNlc3Npb25fc3RhdGUiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLXRwaS1iYWNrZW5kIiwib3BlcmFkb3IiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJJZ25hY2lvIFN0b3JlbGxvIENoaW9mYWxvIiwicHJlZmVycmVkX3VzZXJuYW1lIjoib3BlcmFkb3IxIiwiZ2l2ZW5fbmFtZSI6IklnbmFjaW8iLCJmYW1pbHlfbmFtZSI6IlN0b3JlbGxvIENoaW9mYWxvIn0.W3zgS-lzKH_PvdKEFOZW7qGVnppKbSLTltpdtb5QoN35XYvJDlr8kHSTRCtV_2kVE_TBR5hqKduKN20ZiVixfMqEzQYXASkrAOBp-4hMp3RadLn2Nm-jaGVzKi56RmOdxhCLrG2ggaexUW0Mh0UdvuIzTYJdBhXA6hsU5qhkCCHV8ymDEPEgcToeK_EwQvyDC_8VpTDXZohLSkD8qdCdD7ohZGxXStE7Td1VRI3MnUAiwrkpNgY9V6rJZwyiKLOJFDSOmJHhX0d-BBL0RTcxW2ru8YzVGb41hXtUMPwrJeSjLipoh1I-1Wr6fBVgNC8PZHnop-bwSQiHZX-fr43yXw", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"4996f70e-acaf-446c-9ac6-523dd0cbdc0b", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"215", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65408"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:48:21 [parallel-8] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Client observation  {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='DELETE', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones/FGH233'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=5.69E-5, duration(nanos)=56900.0, startTimeNanos=932026808600}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@33d30b0f'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@3d14f305} created for the request. New headers are [Content-Type:"application/json", Authorization:"Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5Y3ExMmxfd1ZmUlFkRzhjM09uSVlTcXBDbDFtNFZLTmJZSE9icGpYd1pFIn0.eyJleHAiOjE3NjMxMzg5ODAsImlhdCI6MTc2MzEzODY4MCwianRpIjoiZDFmNzIxY2UtMGZkNy00YTNjLWJjOGQtN2M2ZjJjMGY3YjUxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9UUEktQkFDS0VORCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2OGJjODNlMy1kNjI4LTQ1NjUtYTMxMy1mYzhiYzVhOWFiODAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0cGktYmFja2VuZCIsInNlc3Npb25fc3RhdGUiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLXRwaS1iYWNrZW5kIiwib3BlcmFkb3IiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJJZ25hY2lvIFN0b3JlbGxvIENoaW9mYWxvIiwicHJlZmVycmVkX3VzZXJuYW1lIjoib3BlcmFkb3IxIiwiZ2l2ZW5fbmFtZSI6IklnbmFjaW8iLCJmYW1pbHlfbmFtZSI6IlN0b3JlbGxvIENoaW9mYWxvIn0.W3zgS-lzKH_PvdKEFOZW7qGVnppKbSLTltpdtb5QoN35XYvJDlr8kHSTRCtV_2kVE_TBR5hqKduKN20ZiVixfMqEzQYXASkrAOBp-4hMp3RadLn2Nm-jaGVzKi56RmOdxhCLrG2ggaexUW0Mh0UdvuIzTYJdBhXA6hsU5qhkCCHV8ymDEPEgcToeK_EwQvyDC_8VpTDXZohLSkD8qdCdD7ohZGxXStE7Td1VRI3MnUAiwrkpNgY9V6rJZwyiKLOJFDSOmJHhX0d-BBL0RTcxW2ru8YzVGb41hXtUMPwrJeSjLipoh1I-1Wr6fBVgNC8PZHnop-bwSQiHZX-fr43yXw", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"4996f70e-acaf-446c-9ac6-523dd0cbdc0b", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"215", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65408"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.PooledConnectionProvider - [a9f8f1ba] Created a new pooled channel, now: 0 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.netty.transport.TransportConfig - [a9f8f1ba] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.netty.transport.TransportConnector - [a9f8f1ba] Connecting to [localhost/127.0.0.1:8081].
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Registering pool release on close event for channel
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.PooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Channel connected, now: 1 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}, [connected])
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba-1, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=null, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [configured])
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.http.client.HttpClientConnect - [a9f8f1ba-1, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Handler is being applied: {uri=http://localhost:8081/api/camiones/FGH233, method=DELETE}
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba-1, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(DELETE{uri=/api/camiones/FGH233, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [request_prepared])
+2025-11-14 13:48:21 [reactor-http-nio-1] DEBUG reactor.netty.channel.FluxReceive - [d88736fd-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] [terminated=true, cancelled=false, pending=1, error=null]: subscribing inbound receiver
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba-1, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(DELETE{uri=/api/camiones/FGH233, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [request_sent])
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.http.client.HttpClientOperations - [a9f8f1ba-1, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 204 
+Vary: <filtered>
+Vary: <filtered>
+Vary: <filtered>
+Date: <filtered>
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba-1, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(DELETE{uri=/api/camiones/FGH233, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [response_received])
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - Will instrument the response
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - The response was handled for observation {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='DELETE', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones/FGH233'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.1391011, duration(nanos)=1.391011E8, startTimeNanos=932026808600}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@33d30b0f'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@3d14f305}
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG reactor.netty.channel.FluxReceive - [a9f8f1ba-1, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.http.client.HttpClientOperations - [a9f8f1ba-1, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Received last HTTP packet
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(DELETE{uri=/api/camiones/FGH233, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [response_completed])
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(DELETE{uri=/api/camiones/FGH233, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [disconnecting])
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Releasing channel
+2025-11-14 13:48:21 [reactor-http-nio-2] DEBUG r.n.r.PooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+2025-11-14 13:48:21 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Decreasing pending responses, now 0
+2025-11-14 13:48:21 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Last HTTP response frame
+2025-11-14 13:48:21 [reactor-http-nio-1] DEBUG r.netty.channel.ChannelOperations - [d88736fd-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-11-14 13:48:21 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd-1, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:48:36 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Increasing pending responses, now 1
+2025-11-14 13:48:36 [reactor-http-nio-1] DEBUG r.netty.http.server.HttpServer - [d88736fd-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@667cf21
+2025-11-14 13:48:36 [reactor-http-nio-1] DEBUG reactor.netty.ReactorNetty - [d88736fd-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Non Removed handler: reactor.left.readTimeoutHandler, context: null, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:48:36 [parallel-10] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Route matched: ms-flotas
+2025-11-14 13:48:36 [parallel-10] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Mapping [Exchange: GET http://localhost:8090/api/flotas/camiones/FGH233] to Route{id='ms-flotas', uri=http://localhost:8081, order=0, predicate=Paths: [/api/flotas/**], match trailing slash: true, gatewayFilters=[[[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0]], metadata={}}
+2025-11-14 13:48:36 [parallel-10] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - [d88736fd-8] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@4da9f187
+2025-11-14 13:48:36 [parallel-10] DEBUG o.s.c.g.handler.FilteringWebHandler - Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@66b31d46}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@22cd8ec2}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1f3c5308}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@3a4f8e8a}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@5fc1e4fb}, order = 0], [[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@51e94b7d}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@29aa4bc9}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@4468fda8}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@10a0d93a}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@47162173}, order = 2147483647]]
+2025-11-14 13:48:36 [parallel-10] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Will instrument the HTTP request headers [Content-Type:"application/json", Authorization:"Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5Y3ExMmxfd1ZmUlFkRzhjM09uSVlTcXBDbDFtNFZLTmJZSE9icGpYd1pFIn0.eyJleHAiOjE3NjMxMzg5ODAsImlhdCI6MTc2MzEzODY4MCwianRpIjoiZDFmNzIxY2UtMGZkNy00YTNjLWJjOGQtN2M2ZjJjMGY3YjUxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9UUEktQkFDS0VORCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2OGJjODNlMy1kNjI4LTQ1NjUtYTMxMy1mYzhiYzVhOWFiODAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0cGktYmFja2VuZCIsInNlc3Npb25fc3RhdGUiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLXRwaS1iYWNrZW5kIiwib3BlcmFkb3IiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJJZ25hY2lvIFN0b3JlbGxvIENoaW9mYWxvIiwicHJlZmVycmVkX3VzZXJuYW1lIjoib3BlcmFkb3IxIiwiZ2l2ZW5fbmFtZSI6IklnbmFjaW8iLCJmYW1pbHlfbmFtZSI6IlN0b3JlbGxvIENoaW9mYWxvIn0.W3zgS-lzKH_PvdKEFOZW7qGVnppKbSLTltpdtb5QoN35XYvJDlr8kHSTRCtV_2kVE_TBR5hqKduKN20ZiVixfMqEzQYXASkrAOBp-4hMp3RadLn2Nm-jaGVzKi56RmOdxhCLrG2ggaexUW0Mh0UdvuIzTYJdBhXA6hsU5qhkCCHV8ymDEPEgcToeK_EwQvyDC_8VpTDXZohLSkD8qdCdD7ohZGxXStE7Td1VRI3MnUAiwrkpNgY9V6rJZwyiKLOJFDSOmJHhX0d-BBL0RTcxW2ru8YzVGb41hXtUMPwrJeSjLipoh1I-1Wr6fBVgNC8PZHnop-bwSQiHZX-fr43yXw", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"3d2a4971-b29d-41cf-9a8d-fd16e4503ad8", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"215", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65408"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:48:36 [parallel-10] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Client observation  {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones/FGH233'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=1.232E-4, duration(nanos)=123200.0, startTimeNanos=947396973300}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@4f63a350'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@41a454cc} created for the request. New headers are [Content-Type:"application/json", Authorization:"Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5Y3ExMmxfd1ZmUlFkRzhjM09uSVlTcXBDbDFtNFZLTmJZSE9icGpYd1pFIn0.eyJleHAiOjE3NjMxMzg5ODAsImlhdCI6MTc2MzEzODY4MCwianRpIjoiZDFmNzIxY2UtMGZkNy00YTNjLWJjOGQtN2M2ZjJjMGY3YjUxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9UUEktQkFDS0VORCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2OGJjODNlMy1kNjI4LTQ1NjUtYTMxMy1mYzhiYzVhOWFiODAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0cGktYmFja2VuZCIsInNlc3Npb25fc3RhdGUiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLXRwaS1iYWNrZW5kIiwib3BlcmFkb3IiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJJZ25hY2lvIFN0b3JlbGxvIENoaW9mYWxvIiwicHJlZmVycmVkX3VzZXJuYW1lIjoib3BlcmFkb3IxIiwiZ2l2ZW5fbmFtZSI6IklnbmFjaW8iLCJmYW1pbHlfbmFtZSI6IlN0b3JlbGxvIENoaW9mYWxvIn0.W3zgS-lzKH_PvdKEFOZW7qGVnppKbSLTltpdtb5QoN35XYvJDlr8kHSTRCtV_2kVE_TBR5hqKduKN20ZiVixfMqEzQYXASkrAOBp-4hMp3RadLn2Nm-jaGVzKi56RmOdxhCLrG2ggaexUW0Mh0UdvuIzTYJdBhXA6hsU5qhkCCHV8ymDEPEgcToeK_EwQvyDC_8VpTDXZohLSkD8qdCdD7ohZGxXStE7Td1VRI3MnUAiwrkpNgY9V6rJZwyiKLOJFDSOmJHhX0d-BBL0RTcxW2ru8YzVGb41hXtUMPwrJeSjLipoh1I-1Wr6fBVgNC8PZHnop-bwSQiHZX-fr43yXw", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"3d2a4971-b29d-41cf-9a8d-fd16e4503ad8", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"215", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65408"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.r.PooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Channel acquired, now: 1 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.http.client.HttpClientConnect - [a9f8f1ba-2, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Handler is being applied: {uri=http://localhost:8081/api/camiones/FGH233, method=GET}
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba-2, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones/FGH233, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [request_prepared])
+2025-11-14 13:48:36 [reactor-http-nio-1] DEBUG reactor.netty.channel.FluxReceive - [d88736fd-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] [terminated=true, cancelled=false, pending=1, error=null]: subscribing inbound receiver
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba-2, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones/FGH233, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [request_sent])
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.http.client.HttpClientOperations - [a9f8f1ba-2, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 404 
+Vary: <filtered>
+Vary: <filtered>
+Vary: <filtered>
+Content-Length: <filtered>
+Date: <filtered>
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba-2, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones/FGH233, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [response_received])
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - Will instrument the response
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - The response was handled for observation {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones/FGH233'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.0153541, duration(nanos)=1.53541E7, startTimeNanos=947396973300}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@4f63a350'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@41a454cc}
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG reactor.netty.channel.FluxReceive - [a9f8f1ba-2, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.http.client.HttpClientOperations - [a9f8f1ba-2, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Received last HTTP packet
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones/FGH233, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [response_completed])
+2025-11-14 13:48:36 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Decreasing pending responses, now 0
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones/FGH233, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [disconnecting])
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Releasing channel
+2025-11-14 13:48:36 [reactor-http-nio-2] DEBUG r.n.r.PooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+2025-11-14 13:48:36 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Last HTTP response frame
+2025-11-14 13:48:36 [reactor-http-nio-1] DEBUG r.netty.channel.ChannelOperations - [d88736fd-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-11-14 13:48:36 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd-2, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:48:43 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Increasing pending responses, now 1
+2025-11-14 13:48:43 [reactor-http-nio-1] DEBUG r.netty.http.server.HttpServer - [d88736fd-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Handler is being applied: org.springframework.http.server.reactive.ReactorHttpHandlerAdapter@667cf21
+2025-11-14 13:48:43 [reactor-http-nio-1] DEBUG reactor.netty.ReactorNetty - [d88736fd-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Non Removed handler: reactor.left.readTimeoutHandler, context: null, pipeline: DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpServerCodec), (reactor.left.httpTrafficHandler = reactor.netty.http.server.HttpTrafficHandler), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+2025-11-14 13:48:43 [parallel-12] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Route matched: ms-flotas
+2025-11-14 13:48:43 [parallel-12] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - Mapping [Exchange: GET http://localhost:8090/api/flotas/camiones] to Route{id='ms-flotas', uri=http://localhost:8081, order=0, predicate=Paths: [/api/flotas/**], match trailing slash: true, gatewayFilters=[[[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0]], metadata={}}
+2025-11-14 13:48:43 [parallel-12] DEBUG o.s.c.g.h.RoutePredicateHandlerMapping - [d88736fd-9] Mapped to org.springframework.cloud.gateway.handler.FilteringWebHandler@4da9f187
+2025-11-14 13:48:43 [parallel-12] DEBUG o.s.c.g.handler.FilteringWebHandler - Sorted gatewayFilterFactories: [[GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RemoveCachedBodyFilter@66b31d46}, order = -2147483648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.AdaptCachedBodyGlobalFilter@22cd8ec2}, order = -2147482648], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyWriteResponseFilter@1f3c5308}, order = -1], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardPathFilter@3a4f8e8a}, order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.GatewayMetricsFilter@5fc1e4fb}, order = 0], [[RewritePath /api/flotas/(?<segment>.*) = '/api/${segment}'], order = 0], [[SpringCloudCircuitBreakerResilience4JFilterFactory name = 'flotas-circuit-breaker', fallback = forward:/fallback/flotas], order = 0], [[AddRequestHeader X-Gateway-Source = 'api-gateway'], order = 0], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.RouteToRequestUrlFilter@51e94b7d}, order = 10000], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.config.GatewayNoLoadBalancerClientAutoConfiguration$NoLoadBalancerClientFilter@29aa4bc9}, order = 10150], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.WebsocketRoutingFilter@4468fda8}, order = 2147483646], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.NettyRoutingFilter@10a0d93a}, order = 2147483647], [GatewayFilterAdapter{delegate=org.springframework.cloud.gateway.filter.ForwardRoutingFilter@47162173}, order = 2147483647]]
+2025-11-14 13:48:43 [parallel-12] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Will instrument the HTTP request headers [Content-Type:"application/json", Authorization:"Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5Y3ExMmxfd1ZmUlFkRzhjM09uSVlTcXBDbDFtNFZLTmJZSE9icGpYd1pFIn0.eyJleHAiOjE3NjMxMzg5ODAsImlhdCI6MTc2MzEzODY4MCwianRpIjoiZDFmNzIxY2UtMGZkNy00YTNjLWJjOGQtN2M2ZjJjMGY3YjUxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9UUEktQkFDS0VORCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2OGJjODNlMy1kNjI4LTQ1NjUtYTMxMy1mYzhiYzVhOWFiODAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0cGktYmFja2VuZCIsInNlc3Npb25fc3RhdGUiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLXRwaS1iYWNrZW5kIiwib3BlcmFkb3IiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJJZ25hY2lvIFN0b3JlbGxvIENoaW9mYWxvIiwicHJlZmVycmVkX3VzZXJuYW1lIjoib3BlcmFkb3IxIiwiZ2l2ZW5fbmFtZSI6IklnbmFjaW8iLCJmYW1pbHlfbmFtZSI6IlN0b3JlbGxvIENoaW9mYWxvIn0.W3zgS-lzKH_PvdKEFOZW7qGVnppKbSLTltpdtb5QoN35XYvJDlr8kHSTRCtV_2kVE_TBR5hqKduKN20ZiVixfMqEzQYXASkrAOBp-4hMp3RadLn2Nm-jaGVzKi56RmOdxhCLrG2ggaexUW0Mh0UdvuIzTYJdBhXA6hsU5qhkCCHV8ymDEPEgcToeK_EwQvyDC_8VpTDXZohLSkD8qdCdD7ohZGxXStE7Td1VRI3MnUAiwrkpNgY9V6rJZwyiKLOJFDSOmJHhX0d-BBL0RTcxW2ru8YzVGb41hXtUMPwrJeSjLipoh1I-1Wr6fBVgNC8PZHnop-bwSQiHZX-fr43yXw", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"d439da50-0eb9-419d-ab66-eb06ee8fc46a", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"215", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65408"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:48:43 [parallel-12] DEBUG o.s.c.g.f.h.o.ObservedRequestHttpHeadersFilter - Client observation  {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=1.122E-4, duration(nanos)=112200.0, startTimeNanos=954431798700}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@5f70ad8c'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@51b75812} created for the request. New headers are [Content-Type:"application/json", Authorization:"Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5Y3ExMmxfd1ZmUlFkRzhjM09uSVlTcXBDbDFtNFZLTmJZSE9icGpYd1pFIn0.eyJleHAiOjE3NjMxMzg5ODAsImlhdCI6MTc2MzEzODY4MCwianRpIjoiZDFmNzIxY2UtMGZkNy00YTNjLWJjOGQtN2M2ZjJjMGY3YjUxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9UUEktQkFDS0VORCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2OGJjODNlMy1kNjI4LTQ1NjUtYTMxMy1mYzhiYzVhOWFiODAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0cGktYmFja2VuZCIsInNlc3Npb25fc3RhdGUiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLXRwaS1iYWNrZW5kIiwib3BlcmFkb3IiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiI0YWYwMjQyYS0yNzY0LTQxZDItYTQxZi1kMTEwOTA4OTNlMTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJJZ25hY2lvIFN0b3JlbGxvIENoaW9mYWxvIiwicHJlZmVycmVkX3VzZXJuYW1lIjoib3BlcmFkb3IxIiwiZ2l2ZW5fbmFtZSI6IklnbmFjaW8iLCJmYW1pbHlfbmFtZSI6IlN0b3JlbGxvIENoaW9mYWxvIn0.W3zgS-lzKH_PvdKEFOZW7qGVnppKbSLTltpdtb5QoN35XYvJDlr8kHSTRCtV_2kVE_TBR5hqKduKN20ZiVixfMqEzQYXASkrAOBp-4hMp3RadLn2Nm-jaGVzKi56RmOdxhCLrG2ggaexUW0Mh0UdvuIzTYJdBhXA6hsU5qhkCCHV8ymDEPEgcToeK_EwQvyDC_8VpTDXZohLSkD8qdCdD7ohZGxXStE7Td1VRI3MnUAiwrkpNgY9V6rJZwyiKLOJFDSOmJHhX0d-BBL0RTcxW2ru8YzVGb41hXtUMPwrJeSjLipoh1I-1Wr6fBVgNC8PZHnop-bwSQiHZX-fr43yXw", User-Agent:"PostmanRuntime/7.49.1", Accept:"*/*", Postman-Token:"d439da50-0eb9-419d-ab66-eb06ee8fc46a", Host:"localhost:8090", Accept-Encoding:"gzip, deflate, br", Content-Length:"215", X-Gateway-Source:"api-gateway", Forwarded:"proto=http;host="localhost:8090";for="[0:0:0:0:0:0:0:1]:65408"", X-Forwarded-For:"0:0:0:0:0:0:0:1", X-Forwarded-Proto:"http", X-Forwarded-Port:"8090", X-Forwarded-Host:"localhost:8090"]
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.r.PooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Channel acquired, now: 1 active connections, 0 inactive connections and 0 pending acquire requests.
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.http.client.HttpClientConnect - [a9f8f1ba-3, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Handler is being applied: {uri=http://localhost:8081/api/camiones, method=GET}
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba-3, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [request_prepared])
+2025-11-14 13:48:43 [reactor-http-nio-1] DEBUG reactor.netty.channel.FluxReceive - [d88736fd-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] [terminated=true, cancelled=false, pending=1, error=null]: subscribing inbound receiver
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba-3, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [request_sent])
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.http.client.HttpClientOperations - [a9f8f1ba-3, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 
+Vary: <filtered>
+Vary: <filtered>
+Vary: <filtered>
+Content-Type: <filtered>
+Transfer-Encoding: <filtered>
+Date: <filtered>
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba-3, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [response_received])
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - Will instrument the response
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - The response was handled for observation {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='ms-flotas', spring.cloud.gateway.route.uri='http://localhost:8081'], highCardinalityKeyValues=[http.uri='http://localhost:8090/api/camiones'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.0187254, duration(nanos)=1.87254E7, startTimeNanos=954431798700}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@5f70ad8c'], parentObservation=org.springframework.security.web.server.ObservationWebFilterChainDecorator$PhasedObservation@51b75812}
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG reactor.netty.channel.FluxReceive - [a9f8f1ba-3, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.http.client.HttpClientOperations - [a9f8f1ba-3, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Received last HTTP packet
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [response_completed])
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] onStateChange(GET{uri=/api/camiones, connection=PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081]}}, [disconnecting])
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Releasing channel
+2025-11-14 13:48:43 [reactor-http-nio-2] DEBUG r.n.r.PooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 - R:localhost/127.0.0.1:8081] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+2025-11-14 13:48:43 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Last HTTP response frame
+2025-11-14 13:48:43 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Decreasing pending responses, now 0
+2025-11-14 13:48:43 [reactor-http-nio-1] DEBUG r.n.http.server.HttpServerOperations - [d88736fd-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] Last HTTP packet was sent, terminating the channel
+2025-11-14 13:48:43 [reactor-http-nio-1] DEBUG r.netty.channel.ChannelOperations - [d88736fd-3, L:/[0:0:0:0:0:0:0:1]:8090 - R:/[0:0:0:0:0:0:0:1]:65408] [HttpServer] Channel inbound receiver cancelled (subscription disposed).
+2025-11-14 13:49:44 [reactor-http-nio-2] DEBUG r.n.r.DefaultPooledConnectionProvider - [a9f8f1ba, L:/127.0.0.1:65409 ! R:localhost/127.0.0.1:8081] onStateChange(PooledConnection{channel=[id: 0xa9f8f1ba, L:/127.0.0.1:65409 ! R:localhost/127.0.0.1:8081]}, [disconnecting])
+2025-11-14 13:52:40 [reactor-http-nio-3] DEBUG r.n.r.DefaultPooledConnectionProvider - [4f381a60, L:/127.0.0.1:65261 ! R:localhost/127.0.0.1:8080] onStateChange(PooledConnection{channel=[id: 0x4f381a60, L:/127.0.0.1:65261 ! R:localhost/127.0.0.1:8080]}, [disconnecting])
+2025-11-14 13:52:48 [SpringApplicationShutdownHook] DEBUG r.netty.transport.ServerTransport - [c0adf094, L:/[0:0:0:0:0:0:0:0]:8090] Server is about to be disposed with timeout: PT3S
