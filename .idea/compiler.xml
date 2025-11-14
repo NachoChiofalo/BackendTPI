@@ -18,8 +18,8 @@
         <module name="api-gateway" />
         <module name="ms-rutas" />
         <module name="ms-solicitudes" />
-        <module name="integration-tests" />
         <module name="ms-precios" />
+        <module name="integration-tests" />
       </profile>
     </annotationProcessing>
   </component>
