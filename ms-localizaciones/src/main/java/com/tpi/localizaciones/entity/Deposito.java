@@ -1,5 +1,6 @@
 package com.tpi.localizaciones.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class Deposito {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ubicacion_id", nullable = false)
     private Ubicacion ubicacion;
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
