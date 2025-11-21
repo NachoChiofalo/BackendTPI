@@ -20,11 +20,11 @@ Todos los microservicios tienen configurada la dependencia `springdoc-openapi-st
 Una vez que los microservicios estén ejecutándose, puedes acceder a Swagger UI en:
 
 #### Microservicios Individuales:
-- **Solicitudes**: http://localhost:8080/swagger-ui.html
 - **Flotas**: http://localhost:8081/swagger-ui.html
-- **Rutas**: http://localhost:8082/swagger-ui.html
 - **Precios**: http://localhost:8083/swagger-ui.html
-- **Localizaciones**: http://localhost:8084/swagger-ui.html
+- **Solicitudes**: http://localhost:8084/swagger-ui.html
+- **Rutas**: http://localhost:8085/swagger-ui.html
+- **Localizaciones**: http://localhost:8087/swagger-ui.html
 
 #### API Gateway (Centralizado):
 - **Gateway**: http://localhost:8080/swagger-ui.html

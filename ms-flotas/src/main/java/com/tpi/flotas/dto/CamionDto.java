@@ -45,5 +45,5 @@ public class CamionDto {
     private Boolean activo;
 
     // DTO anidado para información del transportista
-    private TransportistaInfoDto transportista;
+    private TransportistaDto.TransportistaInfoDto transportista;
 }

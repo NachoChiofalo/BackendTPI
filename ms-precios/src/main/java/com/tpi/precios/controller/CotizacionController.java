@@ -18,6 +18,13 @@ public class CotizacionController {
 
     private final CalculoPrecioService calculoPrecioService;
 
+    /**
+     * REQUERIMIENTO FUNCIONAL 8: Calcular el costo total de la entrega (Sistema)
+     * - Incluye recorrido total (distancia entre origen → depósitos → destino)
+     * - Considera peso y volumen del contenedor
+     * - Calcula estadía en depósitos (diferencia entre fechas de entrada/salida)
+     * - Registra cálculo de tiempo real y costo real al finalizar
+     */
     @PostMapping("/calcular")
     public ResponseEntity<CalculoPrecioDto> calcularPrecio(@Valid @RequestBody SolicitudCotizacionDto solicitud) {
         log.info("POST /api/cotizaciones/calcular - Calculando precio para cotización");

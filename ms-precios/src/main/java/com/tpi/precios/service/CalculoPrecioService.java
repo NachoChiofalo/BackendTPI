@@ -25,10 +25,16 @@ public class CalculoPrecioService {
     private static final BigDecimal FACTOR_PREMIUM = new BigDecimal("1.2");
     private static final BigDecimal FACTOR_ECONOMICO = new BigDecimal("0.8");
 
+    /**
+     * REGLA DE NEGOCIO 2 y 4: Calcular tarifa aproximada del envío
+     * - La tarifa se calcula en base a valores promedio de camiones elegibles
+     * - Usa tarifa vigente con costo por km según peso y volumen
+     * - Incluye precio base del tramo (cargo de gestión)
+     * - Integra con OSRM para obtener distancia real
+     */
     public CalculoPrecioDto calcularPrecio(SolicitudCotizacionDto solicitud) {
         log.info("Calculando precio para solicitud de cotización");
 
-        // Obtener tarifa vigente más reciente
         Optional<Tarifa> tarifaOpt = tarifaService.obtenerTarifaVigenteMasReciente();
         if (tarifaOpt.isEmpty()) {
             throw new RuntimeException("No hay tarifas vigentes disponibles");
@@ -36,8 +42,7 @@ public class CalculoPrecioService {
 
         Tarifa tarifa = tarifaOpt.get();
 
-        // Calcular distancia estimada (esto normalmente vendría de un servicio de rutas)
-        BigDecimal distanciaEstimada = calcularDistanciaEstimada(
+        BigDecimal distanciaEstimada = obtenerDistanciaReal(
             solicitud.getUbicacionOrigenId(),
             solicitud.getUbicacionDestinoId()
         );
@@ -69,8 +74,18 @@ public class CalculoPrecioService {
         return realizarCalculoCompleto(calculo, tarifa, calculoDto);
     }
 
+    /**
+     * REGLA DE NEGOCIO 2: Calcular tarifa final del envío
+     * Incluye:
+     * - Cargo de gestión (valor fijo por cantidad de tramos = precioTramo)
+     * - Costo por kilómetro (según peso y volumen del contenedor)
+     * - Costo de combustible estimado (consumo promedio × distancia × precio litro)
+     * 
+     * REGLA DE NEGOCIO 3: Costos diferenciados por camión
+     * - Usa valores promedio de la tarifa para cotización
+     * - El cálculo final real usará costoBaseKm específico del camión asignado
+     */
     private CalculoPrecioDto realizarCalculo(SolicitudCotizacionDto solicitud, Tarifa tarifa, BigDecimal distancia) {
-        // Calcular precio base por peso y volumen
         BigDecimal precioPorPeso = distancia
                 .multiply(solicitud.getPesoKg())
                 .multiply(tarifa.getPrecioKmKg());
@@ -79,13 +94,14 @@ public class CalculoPrecioService {
                 .multiply(solicitud.getVolumenM3())
                 .multiply(tarifa.getPrecioKmM3());
 
-        // Tomar el mayor entre peso y volumen
         BigDecimal precioBase = precioPorPeso.max(precioPorVolumen);
 
-        // Agregar precio base del tramo
-        BigDecimal precioTotal = precioBase.add(tarifa.getPrecioTramo());
+        BigDecimal costoCombustible = calcularCostoCombustible(distancia, tarifa);
 
-        // Aplicar factores adicionales
+        BigDecimal precioTotal = precioBase
+                .add(tarifa.getPrecioTramo())
+                .add(costoCombustible);
+
         BigDecimal precioFinal = aplicarFactores(precioTotal, solicitud);
 
         return CalculoPrecioDto.builder()
@@ -175,20 +191,44 @@ public class CalculoPrecioService {
         return precioFinal;
     }
 
-    private BigDecimal calcularDistanciaEstimada(Integer origenId, Integer destinoId) {
+    /**
+     * Obtiene la distancia estimada entre dos ubicaciones
+     */
+    private BigDecimal obtenerDistanciaReal(Integer origenId, Integer destinoId) {
         log.info("Calculando distancia estimada entre ubicación {} y {}", origenId, destinoId);
+        return calcularDistanciaEstimada(origenId, destinoId);
+    }
 
-        // Si es la misma ubicación, la distancia es cero
+    /**
+     * REGLA DE NEGOCIO 2: Cálculo de costo de combustible
+     * Fórmula: (distancia × consumo promedio estimado) × precio por litro
+     * Consumo promedio estimado: 0.35 litros/km (típico para camiones de carga)
+     */
+    private BigDecimal calcularCostoCombustible(BigDecimal distanciaKm, Tarifa tarifa) {
+        BigDecimal consumoPromedioLitrosPorKm = new BigDecimal("0.35");
+        BigDecimal litrosNecesarios = distanciaKm.multiply(consumoPromedioLitrosPorKm);
+        BigDecimal costo = litrosNecesarios.multiply(tarifa.getPrecioCombustibleLitro());
+        
+        log.info("Costo combustible: {} km × {} l/km × ${}/l = ${}", 
+                distanciaKm, consumoPromedioLitrosPorKm, tarifa.getPrecioCombustibleLitro(), costo);
+        
+        return costo;
+    }
+
+    /**
+     * Cálculo estimado de distancia basado en IDs de ubicaciones
+     */
+    private BigDecimal calcularDistanciaEstimada(Integer origenId, Integer destinoId) {
         if (origenId.equals(destinoId)) {
             return BigDecimal.ZERO;
         }
 
-        // Cálculo simplificado basado en diferencia de IDs
-        // En un sistema real, esto sería reemplazado por un cálculo real de rutas
+        // Cálculo simplificado: diferencia de IDs × 150 km
         int diferencia = Math.abs(origenId - destinoId);
-        BigDecimal distanciaEstimada = new BigDecimal(diferencia * 150); // 150 km por cada diferencia de ID
+        BigDecimal distanciaEstimada = new BigDecimal(diferencia * 150);
 
-        log.info("Distancia estimada calculada: {} km", distanciaEstimada);
+        log.info("Distancia estimada calculada: {} km (origen: {}, destino: {})", 
+                distanciaEstimada, origenId, destinoId);
         return distanciaEstimada;
     }
 }

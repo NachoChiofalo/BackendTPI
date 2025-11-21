@@ -23,6 +23,7 @@ public class CamionController {
 
     private final CamionService camionService;
 
+
     @GetMapping
     public ResponseEntity<List<Camion>> obtenerTodos() {
         log.info("GET /api/camiones - Obteniendo todos los camiones");
@@ -52,6 +53,11 @@ public class CamionController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    /**
+     * REQUERIMIENTO FUNCIONAL 10: Validar que un camión no supere su capacidad máxima en peso ni volumen
+     * - Filtra camiones que cumplan con requisitos mínimos de capacidad
+     * - Permite buscar solo entre camiones disponibles
+     */
     @GetMapping("/capacidad")
     public ResponseEntity<List<Camion>> obtenerConCapacidad(
             @RequestParam BigDecimal pesoMin,
@@ -67,6 +73,11 @@ public class CamionController {
         return ResponseEntity.ok(camiones);
     }
 
+    /**
+     * REQUERIMIENTO FUNCIONAL 9 (parte 4): Registrar y actualizar camiones (Operador)
+     * - Carga camiones con capacidad en peso y volumen
+     * - Registra consumo de combustible y costos para cálculo de tarifas
+     */
     @PreAuthorize("hasRole('operador')")
     @PostMapping
     public ResponseEntity<Camion> crear(@Valid @RequestBody CamionDto camionDto) {

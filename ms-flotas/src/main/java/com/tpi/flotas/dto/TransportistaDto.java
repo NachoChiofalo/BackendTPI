@@ -24,12 +24,17 @@ public class TransportistaDto {
 
     @NotNull(message = "El teléfono es obligatorio")
     private Long telefono;
-}
-class TransportistaInfoDto {
-    private Long id;
-    private String username;
-    private String nombre;
-    private String apellido;
-    private String telefono;
-    private String categoriaLicencia;
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class TransportistaInfoDto {
+        private Long id;
+        private String username;
+        private String nombre;
+        private String apellido;
+        private String telefono;
+        private String categoriaLicencia;
+    }
 }

@@ -9,6 +9,20 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+/**
+ * INTEGRACIÓN CON API EXTERNA: OSRM (Open Source Routing Machine)
+ * 
+ * Servicio que integra con OSRM para calcular distancias y duraciones reales entre dos puntos.
+ * OSRM es una alternativa open-source a Google Maps Directions API.
+ * 
+ * Configuración:
+ * - osrm.base-url: URL del servidor OSRM (por defecto http://localhost:5000)
+ * 
+ * Uso:
+ * - Recibe coordenadas en formato "longitud,latitud" (orden OSRM)
+ * - Retorna distancia en kilómetros y duración estimada
+ * - Utilizado para cumplir con el cálculo de recorridos entre origen-depósito-destino
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j

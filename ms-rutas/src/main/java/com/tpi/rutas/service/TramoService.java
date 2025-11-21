@@ -69,4 +69,58 @@ public class TramoService {
             throw new RuntimeException("Tramo no encontrado con id: " + id);
         }
     }
+
+    /**
+     * REGLA DE NEGOCIO 1: Un camión no puede transportar contenedores que superen su peso o volumen máximo
+     * Esta validación debe hacerse antes de asignar el camión al tramo
+     * El controller debe validar que el camión tenga capacidad suficiente antes de llamar a este método
+     */
+    @Transactional
+    public Tramo asignarCamion(Integer tramoId, String dominio) {
+        log.info("Asignando camión {} al tramo {}", dominio, tramoId);
+        return tramoRepository.findById(tramoId)
+                .map(tramo -> {
+                    tramo.setDominio(dominio);
+                    return tramoRepository.save(tramo);
+                })
+                .orElseThrow(() -> new RuntimeException("Tramo no encontrado con id: " + tramoId));
+    }
+
+    /**
+     * REGLA DE NEGOCIO 7 (parte 1): Determinar el inicio de un tramo
+     * Los tramos deben registrar fechas estimadas y reales para calcular el desempeño del servicio
+     */
+    @Transactional
+    public Tramo iniciarTramo(Integer tramoId) {
+        log.info("Iniciando tramo: {}", tramoId);
+        return tramoRepository.findById(tramoId)
+                .map(tramo -> {
+                    tramo.setFechaHoraInicio(java.time.LocalDate.now());
+                    return tramoRepository.save(tramo);
+                })
+                .orElseThrow(() -> new RuntimeException("Tramo no encontrado con id: " + tramoId));
+    }
+
+    /**
+     * REGLA DE NEGOCIO 7 (parte 2): Determinar el fin de un tramo
+     * Los tramos deben registrar fechas reales para:
+     * - Calcular el desempeño del servicio (comparar fecha real vs estimada)
+     * - Calcular estadía en depósitos (diferencia entre fecha fin de un tramo y fecha inicio del siguiente)
+     * - Determinar costos reales de transporte
+     */
+    @Transactional
+    public Tramo finalizarTramo(Integer tramoId) {
+        log.info("Finalizando tramo: {}", tramoId);
+        return tramoRepository.findById(tramoId)
+                .map(tramo -> {
+                    tramo.setFechaHoraFin(java.time.LocalDate.now());
+                    return tramoRepository.save(tramo);
+                })
+                .orElseThrow(() -> new RuntimeException("Tramo no encontrado con id: " + tramoId));
+    }
+
+    public List<Tramo> obtenerPorTransportista(Integer transportistaId) {
+        log.info("Obteniendo tramos del transportista: {}", transportistaId);
+        return tramoRepository.findByTransportistaId(transportistaId);
+    }
 }

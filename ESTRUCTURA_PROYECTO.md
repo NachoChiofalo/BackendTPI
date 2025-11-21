@@ -402,7 +402,7 @@ tpi-backend-logistica-2025/
 
 ### **Fase 3: Integraciones**
 1. Integrar con Keycloak para seguridad
-2. Implementar Google Maps API
+2. Implementar integración con OSRM API
 3. Configurar logging y monitoreo
 4. Crear tests de integración
 

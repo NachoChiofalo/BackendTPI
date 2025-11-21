@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface TramoRepository extends JpaRepository<Tramo, Integer> {
     List<Tramo> findByRutaId(Integer rutaId);
+    List<Tramo> findByTransportistaId(Integer transportistaId);
 }

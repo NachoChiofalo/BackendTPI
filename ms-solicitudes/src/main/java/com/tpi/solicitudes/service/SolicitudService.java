@@ -27,4 +27,38 @@ public class SolicitudService {
         log.info("Obteniendo solicitud por id: {}", id);
         return solicitudRepository.findById(id);
     }
+
+    @Transactional
+    public Solicitud crear(Solicitud solicitud) {
+        log.info("Creando nueva solicitud");
+        return solicitudRepository.save(solicitud);
+    }
+
+    public List<Solicitud> obtenerPorCliente(Integer tipoDoc, Long numDoc) {
+        log.info("Obteniendo solicitudes del cliente: {} - {}", tipoDoc, numDoc);
+        return solicitudRepository.findByTipoDocClienteAndNumDocCliente(tipoDoc, numDoc);
+    }
+
+    public List<Solicitud> obtenerPendientes() {
+        log.info("Obteniendo solicitudes pendientes");
+        // Estados: 1=borrador, 2=programada, 3=en tránsito, 4=entregada
+        // Pendientes son las que no están entregadas (estado != 4)
+        return solicitudRepository.findByEstadoSolicitudNot(4);
+    }
+
+    public List<Solicitud> obtenerPorUbicacionDestino(Integer ubicacionId) {
+        log.info("Obteniendo solicitudes con destino en ubicación: {}", ubicacionId);
+        return solicitudRepository.findByIdUbicacionDestino(ubicacionId);
+    }
+
+    @Transactional
+    public Solicitud asignarRuta(Integer solicitudId, Integer rutaId) {
+        log.info("Asignando ruta {} a solicitud {}", rutaId, solicitudId);
+        return solicitudRepository.findById(solicitudId)
+                .map(solicitud -> {
+                    solicitud.setIdRuta(rutaId);
+                    return solicitudRepository.save(solicitud);
+                })
+                .orElseThrow(() -> new RuntimeException("Solicitud no encontrada con id: " + solicitudId));
+    }
 }

@@ -116,6 +116,11 @@ public class TarifaController {
         return ResponseEntity.ok(tarifasDto);
     }
 
+    /**
+     * REQUERIMIENTO FUNCIONAL 9 (parte 5): Registrar y actualizar tarifas (Operador)
+     * - Modifica parámetros de tarifación: costo por km, combustible, estadía
+     * - Configura valores base para cálculo de costos estimados y reales
+     */
     @PreAuthorize("hasRole('operador')")
     @PostMapping
     public ResponseEntity<TarifaDto> crear(@Valid @RequestBody TarifaDto tarifaDto) {

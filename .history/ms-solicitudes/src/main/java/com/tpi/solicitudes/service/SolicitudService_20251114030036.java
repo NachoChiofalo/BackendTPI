@@ -1,0 +1,53 @@
+package com.tpi.solicitudes.service;
+
+import com.tpi.solicitudes.entity.Solicitud;
+import com.tpi.solicitudes.repository.SolicitudRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
+@Slf4j
+@Transactional(readOnly = true)
+public class SolicitudService {
+
+    private final SolicitudRepository solicitudRepository;
+
+    public List<Solicitud> obtenerTodos() {
+        log.info("Obteniendo todas las solicitudes");
+        return solicitudRepository.findAll();
+    }
+
+    public Optional<Solicitud> obtenerPorId(Integer id) {
+        log.info("Obteniendo solicitud por id: {}", id);
+        return solicitudRepository.findById(id);
+    }
+
+    @Transactional
+    public Solicitud crear(Solicitud solicitud) {
+        log.info("Creando nueva solicitud");
+        return solicitudRepository.save(solicitud);
+    }
+
+    public List<Solicitud> obtenerPorCliente(Integer tipoDoc, Long numDoc) {
+        log.info("Obteniendo solicitudes del cliente: {} - {}", tipoDoc, numDoc);
+        return solicitudRepository.findByTipoDocClienteAndNumDocCliente(tipoDoc, numDoc);
+    }
+
+    public List<Solicitud> obtenerPendientes() {
+        log.info("Obteniendo solicitudes pendientes");
+        // Estados: 1=borrador, 2=programada, 3=en tránsito, 4=entregada
+        // Pendientes son las que no están entregadas (estado != 4)
+        return solicitudRepository.findByEstadoSolicitudNot(4);
+    }
+
+    public List<Solicitud> obtenerPorUbicacionDestino(Integer ubicacionId) {
+        log.info("Obteniendo solicitudes con destino en ubicación: {}", ubicacionId);
+        return solicitudRepository.findByIdUbicacionDestino(ubicacionId);
+    }
+}

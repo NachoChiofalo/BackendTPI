@@ -39,12 +39,27 @@ public class CamionService {
         return camionRepository.findById(dominio);
     }
 
-
+    /**
+     * REGLA DE NEGOCIO 1: Un camión no puede transportar contenedores que superen su peso o volumen máximo
+     * Este método busca camiones que cumplan con la capacidad mínima requerida
+     * 
+     * @param pesoMin Peso mínimo requerido (peso del contenedor)
+     * @param volumenMin Volumen mínimo requerido (volumen del contenedor)
+     * @return Lista de camiones con capacidad suficiente
+     */
     public List<Camion> obtenerConCapacidadMinima(BigDecimal pesoMin, BigDecimal volumenMin) {
         log.info("Obteniendo camiones con capacidad mínima - Peso: {}, Volumen: {}", pesoMin, volumenMin);
         return camionRepository.findByCapacidadMinima(pesoMin, volumenMin);
     }
 
+    /**
+     * REGLA DE NEGOCIO 1: Validación de capacidad para camiones disponibles
+     * Filtra solo camiones que estén disponibles Y cumplan con la capacidad requerida
+     * 
+     * @param pesoMin Peso mínimo requerido (peso del contenedor)
+     * @param volumenMin Volumen mínimo requerido (volumen del contenedor)
+     * @return Lista de camiones disponibles con capacidad suficiente
+     */
     public List<Camion> obtenerDisponiblesConCapacidad(BigDecimal pesoMin, BigDecimal volumenMin) {
         log.info("Obteniendo camiones disponibles con capacidad mínima - Peso: {}, Volumen: {}", pesoMin, volumenMin);
         return camionRepository.findDisponiblesConCapacidadMinima(pesoMin, volumenMin);

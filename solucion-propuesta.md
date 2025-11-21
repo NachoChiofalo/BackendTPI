@@ -77,7 +77,7 @@ Este servicio gestionaría **Ubicación** y **Ciudad** y se integraría con la A
 - `POST /ubicaciones`: Para registrar nuevas ubicaciones (como depósitos o puntos de clientes).
 
 #### Endpoints Internos (usados por ms-rutas):
-- `GET /distancia?origenLat=...&origenLon=...&destinoLat=...&destinoLon=...`: Endpoint que consume la API de Google Maps para calcular la distancia entre dos puntos geográficos.
+- `GET /distancia?origen=lon,lat&destino=lon,lat`: Endpoint que consume la API de OSRM (Open Source Routing Machine) para calcular la distancia entre dos puntos geográficos.
 
 ## Comunicación entre Microservicios
 
@@ -92,7 +92,7 @@ Este servicio gestionaría **Ubicación** y **Ciudad** y se integraría con la A
 
 ### Integración con API Externa
 
-El microservicio `ms-localizaciones` será el único punto de contacto con la API de Google Maps, encapsulando esta dependencia externa y proporcionando una interfaz interna consistente para el cálculo de distancias.
+El microservicio `ms-localizaciones` será el único punto de contacto con la API de OSRM (Open Source Routing Machine), encapsulando esta dependencia externa y proporcionando una interfaz interna consistente para el cálculo de distancias.
 
 ## Consideraciones Técnicas
 
