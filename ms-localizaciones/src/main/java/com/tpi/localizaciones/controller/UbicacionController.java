@@ -58,5 +58,34 @@ public class UbicacionController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @PreAuthorize("hasRole('operador')")
+    @PutMapping("/{id}")
+    public ResponseEntity<Ubicacion> actualizarUbicacion(@PathVariable("id") Integer id,
+                                                         @Valid @RequestBody Ubicacion ubicacion) {
+        log.info("PUT /api/ubicaciones/{} - Actualizando ubicación", id);
+        try {
+            return ubicacionService.findById(id)
+                    .map(existing -> {
+                        // Actualizar campos permitidos
+                        existing.setCiudad(ubicacion.getCiudad());
+                        existing.setDireccion(ubicacion.getDireccion());
+                        existing.setLatitud(ubicacion.getLatitud());
+                        existing.setLongitud(ubicacion.getLongitud());
+                        existing.setNombre(ubicacion.getNombre());
+
+                        Ubicacion actualizada = ubicacionService.save(existing);
+                        log.info("Ubicación {} actualizada correctamente", id);
+                        return ResponseEntity.ok(actualizada);
+                    })
+                    .orElseGet(() -> {
+                        log.warn("Ubicación {} no encontrada para actualizar", id);
+                        return ResponseEntity.notFound().build();
+                    });
+        } catch (Exception e) {
+            log.error("Error al actualizar ubicación: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 }
 

@@ -1,6 +1,3 @@
-
-version: '3.8'
-
 services:
   postgres:
     image: postgres:15
@@ -48,24 +45,24 @@ services:
       - tpi-network
 
 
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: tpi-pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@tpilogistica.com
-      PGADMIN_DEFAULT_PASSWORD: admin123
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
-    ports:
-      - "8082:80"
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - tpi-network
+#  pgadmin:
+#    image: dpage/pgadmin4:latest
+#    container_name: tpi-pgadmin
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: admin@tpilogistica.com
+#      PGADMIN_DEFAULT_PASSWORD: admin123
+#      PGADMIN_CONFIG_SERVER_MODE: 'False'
+#    ports:
+#      - "8082:80"
+#    depends_on:
+#      postgres:
+#        condition: service_healthy
+#    networks:
+#      - tpi-network
 
   osrm:
     image: ghcr.io/project-osrm/osrm-backend:latest
-    platform: linux/arm64
+    #platform: linux/arm64
     container_name: tpi-osrm
     ports:
       - "5000:5000"
