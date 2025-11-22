@@ -44,13 +44,6 @@ public class TransportistaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/buscar")
-    public ResponseEntity<List<Transportista>> buscarPorTexto(@RequestParam String texto) {
-        log.info("GET /api/transportistas/buscar?texto={} - Buscando transportistas", texto);
-        List<Transportista> transportistas = transportistaService.buscarPorTexto(texto);
-        return ResponseEntity.ok(transportistas);
-    }
-
     @PostMapping
     public ResponseEntity<Transportista> crear(@Valid @RequestBody TransportistaDto transportistaDto) {
         log.info("POST /api/transportistas - Creando nuevo transportista");

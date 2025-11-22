@@ -1,0 +1,410 @@
+2025-11-22 09:49:29.623 |
+2025-11-22 09:49:29.623 |   .   ____          _            __ _ _
+2025-11-22 09:49:29.623 |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2025-11-22 09:49:29.623 | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2025-11-22 09:49:29.632 |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2025-11-22 09:49:29.633 |   '  |____| .__|_| |_|_| |_\__, | / / / /
+2025-11-22 09:49:29.633 |  =========|_|==============|___/=/_/_/_/
+2025-11-22 09:49:29.641 |  :: Spring Boot ::                (v3.2.0)
+2025-11-22 09:49:29.641 |
+2025-11-22 09:49:30.368 | 2025-11-22 12:49:30 - Starting PreciosApplication using Java 17.0.17 with PID 1 (/app/app.jar started by root in /app)
+2025-11-22 09:49:30.378 | 2025-11-22 12:49:30 - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-11-22 09:49:30.380 | 2025-11-22 12:49:30 - The following 1 profile is active: "docker"
+2025-11-22 09:49:41.849 | 2025-11-22 12:49:41 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-22 09:49:44.421 | 2025-11-22 12:49:44 - Finished Spring Data repository scanning in 2450 ms. Found 1 JPA repository interface.
+2025-11-22 09:49:47.483 | 2025-11-22 12:49:47 - BeanFactory id=8f56a87b-54a3-37f2-9a1f-1c886d8c7603
+2025-11-22 09:49:52.952 | 2025-11-22 12:49:52 - Tomcat initialized with port 8083 (http)
+2025-11-22 09:49:53.028 | 2025-11-22 12:49:53 - Starting service [Tomcat]
+2025-11-22 09:49:53.039 | 2025-11-22 12:49:53 - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-11-22 09:49:53.468 | 2025-11-22 12:49:53 - Initializing Spring embedded WebApplicationContext
+2025-11-22 09:49:53.471 | 2025-11-22 12:49:53 - Root WebApplicationContext: initialization completed in 22350 ms
+2025-11-22 09:49:55.206 | 2025-11-22 12:49:55 - Filter 'webMvcObservationFilter' configured for use
+2025-11-22 09:49:56.193 | 2025-11-22 12:49:56 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-22 09:49:56.637 | 2025-11-22 12:49:56 - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-11-22 09:49:57.008 | 2025-11-22 12:49:57 - HHH000026: Second-level cache disabled
+2025-11-22 09:50:00.067 | 2025-11-22 12:50:00 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-22 09:50:00.305 | 2025-11-22 12:50:00 - HikariPool-1 - Starting...
+2025-11-22 09:50:01.992 | 2025-11-22 12:50:01 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2459333a
+2025-11-22 09:50:02.001 | 2025-11-22 12:50:02 - HikariPool-1 - Start completed.
+2025-11-22 09:50:02.161 | 2025-11-22 12:50:02 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-22 09:50:07.567 | 2025-11-22 12:50:07 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-22 09:50:07.586 | 2025-11-22 12:50:07 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-22 09:50:09.407 | 2025-11-22 12:50:09 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-22 09:50:14.042 | 2025-11-22 12:50:14 - Exposing 4 endpoint(s) beneath base path '/actuator'
+2025-11-22 09:50:14.356 | 2025-11-22 12:50:14 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-22 09:50:14.841 | 2025-11-22 12:50:14 - 22 mappings in 'requestMappingHandlerMapping'
+2025-11-22 09:50:16.245 | 2025-11-22 12:50:16 - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-11-22 09:50:16.618 | 2025-11-22 12:50:16 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-11-22 09:50:16.824 | 2025-11-22 12:50:16 - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-11-22 09:50:19.390 | 2025-11-22 12:50:19 - Eureka HTTP Client uses RestTemplate.
+2025-11-22 09:50:21.398 | 2025-11-22 12:50:21 - Tomcat started on port 8083 (http) with context path ''
+2025-11-22 09:50:21.583 | 2025-11-22 12:50:21 - Started PreciosApplication in 56.064 seconds (process running for 61.816)
+2025-11-22 09:50:28.410 | 2025-11-22 12:50:28 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-22 09:50:28.410 | 2025-11-22 12:50:28 - Initializing Servlet 'dispatcherServlet'
+2025-11-22 09:50:28.410 | 2025-11-22 12:50:28 - Detected StandardServletMultipartResolver
+2025-11-22 09:50:28.412 | 2025-11-22 12:50:28 - Detected AcceptHeaderLocaleResolver
+2025-11-22 09:50:28.412 | 2025-11-22 12:50:28 - Detected FixedThemeResolver
+2025-11-22 09:50:28.414 | 2025-11-22 12:50:28 - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2a38b5c7
+2025-11-22 09:50:28.416 | 2025-11-22 12:50:28 - Detected org.springframework.web.servlet.support.SessionFlashMapManager@1bbebf8e
+2025-11-22 09:50:28.417 | 2025-11-22 12:50:28 - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-11-22 09:50:28.418 | 2025-11-22 12:50:28 - Completed initialization in 7 ms
+2025-11-22 09:50:28.471 | 2025-11-22 12:50:28 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:50:28.597 | 2025-11-22 12:50:28 - Read "application/octet-stream" to []
+2025-11-22 09:50:28.774 | 2025-11-22 12:50:28 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:50:28.942 | 2025-11-22 12:50:28 - Writing [org.springframework.boot.actuate.health.SystemHealth@cf4da2c]
+2025-11-22 09:50:29.049 | 2025-11-22 12:50:29 - Completed 200 OK
+2025-11-22 09:50:56.726 | 2025-11-22 12:50:56 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:50:56.728 | 2025-11-22 12:50:56 - Read "application/octet-stream" to []
+2025-11-22 09:50:56.734 | 2025-11-22 12:50:56 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:50:56.735 | 2025-11-22 12:50:56 - Writing [org.springframework.boot.actuate.health.SystemHealth@de4037b]
+2025-11-22 09:50:56.737 | 2025-11-22 12:50:56 - Completed 200 OK
+2025-11-22 09:51:24.257 | 2025-11-22 12:51:24 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:51:24.259 | 2025-11-22 12:51:24 - Read "application/octet-stream" to []
+2025-11-22 09:51:24.267 | 2025-11-22 12:51:24 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:51:24.268 | 2025-11-22 12:51:24 - Writing [org.springframework.boot.actuate.health.SystemHealth@4177fe03]
+2025-11-22 09:51:24.272 | 2025-11-22 12:51:24 - Completed 200 OK
+2025-11-22 09:51:51.864 | 2025-11-22 12:51:51 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:51:51.865 | 2025-11-22 12:51:51 - Read "application/octet-stream" to []
+2025-11-22 09:51:51.867 | 2025-11-22 12:51:51 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:51:51.868 | 2025-11-22 12:51:51 - Writing [org.springframework.boot.actuate.health.SystemHealth@7ebdebf1]
+2025-11-22 09:51:51.870 | 2025-11-22 12:51:51 - Completed 200 OK
+2025-11-22 09:52:19.380 | 2025-11-22 12:52:19 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:52:19.381 | 2025-11-22 12:52:19 - Read "application/octet-stream" to []
+2025-11-22 09:52:19.383 | 2025-11-22 12:52:19 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:52:19.383 | 2025-11-22 12:52:19 - Writing [org.springframework.boot.actuate.health.SystemHealth@ab06d29]
+2025-11-22 09:52:19.385 | 2025-11-22 12:52:19 - Completed 200 OK
+2025-11-22 09:52:46.959 | 2025-11-22 12:52:46 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:52:46.960 | 2025-11-22 12:52:46 - Read "application/octet-stream" to []
+2025-11-22 09:52:46.962 | 2025-11-22 12:52:46 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:52:46.962 | 2025-11-22 12:52:46 - Writing [org.springframework.boot.actuate.health.SystemHealth@621d1829]
+2025-11-22 09:52:46.963 | 2025-11-22 12:52:46 - Completed 200 OK
+2025-11-22 09:53:24.096 | 2025-11-22 12:53:24 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:53:24.097 | 2025-11-22 12:53:24 - Read "application/octet-stream" to []
+2025-11-22 09:53:24.102 | 2025-11-22 12:53:24 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:53:24.105 | 2025-11-22 12:53:24 - Writing [org.springframework.boot.actuate.health.SystemHealth@14f7bd72]
+2025-11-22 09:53:24.105 | 2025-11-22 12:53:24 - Completed 200 OK
+2025-11-22 09:53:51.656 | 2025-11-22 12:53:51 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:53:51.657 | 2025-11-22 12:53:51 - Read "application/octet-stream" to []
+2025-11-22 09:53:51.660 | 2025-11-22 12:53:51 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:53:51.660 | 2025-11-22 12:53:51 - Writing [org.springframework.boot.actuate.health.SystemHealth@16a7faa3]
+2025-11-22 09:53:51.661 | 2025-11-22 12:53:51 - Completed 200 OK
+2025-11-22 09:54:19.266 | 2025-11-22 12:54:19 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:54:19.267 | 2025-11-22 12:54:19 - Read "application/octet-stream" to []
+2025-11-22 09:54:19.270 | 2025-11-22 12:54:19 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:54:19.270 | 2025-11-22 12:54:19 - Writing [org.springframework.boot.actuate.health.SystemHealth@79507a76]
+2025-11-22 09:54:19.271 | 2025-11-22 12:54:19 - Completed 200 OK
+2025-11-22 09:54:56.540 | 2025-11-22 12:54:56 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:54:56.541 | 2025-11-22 12:54:56 - Read "application/octet-stream" to []
+2025-11-22 09:54:56.543 | 2025-11-22 12:54:56 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:54:56.543 | 2025-11-22 12:54:56 - Writing [org.springframework.boot.actuate.health.SystemHealth@26c263a2]
+2025-11-22 09:54:56.544 | 2025-11-22 12:54:56 - Completed 200 OK
+2025-11-22 09:55:23.781 | 2025-11-22 12:55:23 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:55:23.783 | 2025-11-22 12:55:23 - Read "application/octet-stream" to []
+2025-11-22 09:55:23.786 | 2025-11-22 12:55:23 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:55:23.786 | 2025-11-22 12:55:23 - Writing [org.springframework.boot.actuate.health.SystemHealth@382c9a24]
+2025-11-22 09:55:23.788 | 2025-11-22 12:55:23 - Completed 200 OK
+2025-11-22 09:55:49.313 | 2025-11-22 12:55:49 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:55:49.314 | 2025-11-22 12:55:49 - Read "application/octet-stream" to []
+2025-11-22 09:55:49.316 | 2025-11-22 12:55:49 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:55:49.316 | 2025-11-22 12:55:49 - Writing [org.springframework.boot.actuate.health.SystemHealth@3ca38d9c]
+2025-11-22 09:55:49.318 | 2025-11-22 12:55:49 - Completed 200 OK
+2025-11-22 09:56:16.943 | 2025-11-22 12:56:16 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:56:16.944 | 2025-11-22 12:56:16 - Read "application/octet-stream" to []
+2025-11-22 09:56:16.947 | 2025-11-22 12:56:16 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:56:16.947 | 2025-11-22 12:56:16 - Writing [org.springframework.boot.actuate.health.SystemHealth@33e651b9]
+2025-11-22 09:56:16.949 | 2025-11-22 12:56:16 - Completed 200 OK
+2025-11-22 09:56:46.774 | 2025-11-22 12:56:46 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:56:46.775 | 2025-11-22 12:56:46 - Read "application/octet-stream" to []
+2025-11-22 09:56:46.777 | 2025-11-22 12:56:46 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:56:46.777 | 2025-11-22 12:56:46 - Writing [org.springframework.boot.actuate.health.SystemHealth@58f07dbd]
+2025-11-22 09:56:46.779 | 2025-11-22 12:56:46 - Completed 200 OK
+2025-11-22 09:57:14.422 | 2025-11-22 12:57:14 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:57:14.424 | 2025-11-22 12:57:14 - Read "application/octet-stream" to []
+2025-11-22 09:57:14.426 | 2025-11-22 12:57:14 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:57:14.426 | 2025-11-22 12:57:14 - Writing [org.springframework.boot.actuate.health.SystemHealth@f885f7a]
+2025-11-22 09:57:14.428 | 2025-11-22 12:57:14 - Completed 200 OK
+2025-11-22 09:57:42.086 | 2025-11-22 12:57:42 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:57:42.086 | 2025-11-22 12:57:42 - Read "application/octet-stream" to []
+2025-11-22 09:57:42.090 | 2025-11-22 12:57:42 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:57:42.091 | 2025-11-22 12:57:42 - Writing [org.springframework.boot.actuate.health.SystemHealth@1773f3d9]
+2025-11-22 09:57:42.094 | 2025-11-22 12:57:42 - Completed 200 OK
+2025-11-22 09:58:09.615 | 2025-11-22 12:58:09 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:58:09.615 | 2025-11-22 12:58:09 - Read "application/octet-stream" to []
+2025-11-22 09:58:09.618 | 2025-11-22 12:58:09 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:58:09.618 | 2025-11-22 12:58:09 - Writing [org.springframework.boot.actuate.health.SystemHealth@31aa4272]
+2025-11-22 09:58:09.619 | 2025-11-22 12:58:09 - Completed 200 OK
+2025-11-22 09:58:37.320 | 2025-11-22 12:58:37 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:58:37.321 | 2025-11-22 12:58:37 - Read "application/octet-stream" to []
+2025-11-22 09:58:37.324 | 2025-11-22 12:58:37 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:58:37.324 | 2025-11-22 12:58:37 - Writing [org.springframework.boot.actuate.health.SystemHealth@6e705535]
+2025-11-22 09:58:37.325 | 2025-11-22 12:58:37 - Completed 200 OK
+2025-11-22 09:59:04.837 | 2025-11-22 12:59:04 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:59:04.838 | 2025-11-22 12:59:04 - Read "application/octet-stream" to []
+2025-11-22 09:59:04.840 | 2025-11-22 12:59:04 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:59:04.840 | 2025-11-22 12:59:04 - Writing [org.springframework.boot.actuate.health.SystemHealth@fc1fd95]
+2025-11-22 09:59:04.841 | 2025-11-22 12:59:04 - Completed 200 OK
+2025-11-22 09:59:32.275 | 2025-11-22 12:59:32 - HEAD "/actuator/health", parameters={}
+2025-11-22 09:59:32.276 | 2025-11-22 12:59:32 - Read "application/octet-stream" to []
+2025-11-22 09:59:32.279 | 2025-11-22 12:59:32 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 09:59:32.279 | 2025-11-22 12:59:32 - Writing [org.springframework.boot.actuate.health.SystemHealth@1fc0012c]
+2025-11-22 09:59:32.280 | 2025-11-22 12:59:32 - Completed 200 OK
+2025-11-22 10:00:04.197 | 2025-11-22 13:00:04 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:00:04.198 | 2025-11-22 13:00:04 - Read "application/octet-stream" to []
+2025-11-22 10:00:04.201 | 2025-11-22 13:00:04 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:00:04.201 | 2025-11-22 13:00:04 - Writing [org.springframework.boot.actuate.health.SystemHealth@75feda90]
+2025-11-22 10:00:04.203 | 2025-11-22 13:00:04 - Completed 200 OK
+2025-11-22 10:00:32.568 | 2025-11-22 13:00:32 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:00:32.569 | 2025-11-22 13:00:32 - Read "application/octet-stream" to []
+2025-11-22 10:00:32.571 | 2025-11-22 13:00:32 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:00:32.571 | 2025-11-22 13:00:32 - Writing [org.springframework.boot.actuate.health.SystemHealth@6dcbfc34]
+2025-11-22 10:00:32.572 | 2025-11-22 13:00:32 - Completed 200 OK
+2025-11-22 10:01:00.015 | 2025-11-22 13:01:00 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:01:00.016 | 2025-11-22 13:01:00 - Read "application/octet-stream" to []
+2025-11-22 10:01:00.018 | 2025-11-22 13:01:00 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:01:00.018 | 2025-11-22 13:01:00 - Writing [org.springframework.boot.actuate.health.SystemHealth@4b420917]
+2025-11-22 10:01:00.019 | 2025-11-22 13:01:00 - Completed 200 OK
+2025-11-22 10:01:27.572 | 2025-11-22 13:01:27 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:01:27.573 | 2025-11-22 13:01:27 - Read "application/octet-stream" to []
+2025-11-22 10:01:27.576 | 2025-11-22 13:01:27 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:01:27.576 | 2025-11-22 13:01:27 - Writing [org.springframework.boot.actuate.health.SystemHealth@2a87a7f6]
+2025-11-22 10:01:27.578 | 2025-11-22 13:01:27 - Completed 200 OK
+2025-11-22 10:01:55.641 | 2025-11-22 13:01:55 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:01:55.641 | 2025-11-22 13:01:55 - Read "application/octet-stream" to []
+2025-11-22 10:01:55.645 | 2025-11-22 13:01:55 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:01:55.649 | 2025-11-22 13:01:55 - Writing [org.springframework.boot.actuate.health.SystemHealth@77e70b99]
+2025-11-22 10:01:55.654 | 2025-11-22 13:01:55 - Completed 200 OK
+2025-11-22 10:02:23.512 | 2025-11-22 13:02:23 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:02:23.513 | 2025-11-22 13:02:23 - Read "application/octet-stream" to []
+2025-11-22 10:02:23.521 | 2025-11-22 13:02:23 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:02:23.521 | 2025-11-22 13:02:23 - Writing [org.springframework.boot.actuate.health.SystemHealth@7ad5a453]
+2025-11-22 10:02:23.521 | 2025-11-22 13:02:23 - Completed 200 OK
+2025-11-22 10:02:50.994 | 2025-11-22 13:02:50 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:02:50.994 | 2025-11-22 13:02:50 - Read "application/octet-stream" to []
+2025-11-22 10:02:50.996 | 2025-11-22 13:02:50 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:02:50.996 | 2025-11-22 13:02:50 - Writing [org.springframework.boot.actuate.health.SystemHealth@495bcf15]
+2025-11-22 10:02:50.997 | 2025-11-22 13:02:50 - Completed 200 OK
+2025-11-22 10:03:18.517 | 2025-11-22 13:03:18 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:03:18.519 | 2025-11-22 13:03:18 - Read "application/octet-stream" to []
+2025-11-22 10:03:18.521 | 2025-11-22 13:03:18 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:03:18.521 | 2025-11-22 13:03:18 - Writing [org.springframework.boot.actuate.health.SystemHealth@3e95b939]
+2025-11-22 10:03:18.522 | 2025-11-22 13:03:18 - Completed 200 OK
+2025-11-22 10:03:46.919 | 2025-11-22 13:03:46 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:03:46.920 | 2025-11-22 13:03:46 - Read "application/octet-stream" to []
+2025-11-22 10:03:46.922 | 2025-11-22 13:03:46 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:03:46.922 | 2025-11-22 13:03:46 - Writing [org.springframework.boot.actuate.health.SystemHealth@775dba9f]
+2025-11-22 10:03:46.923 | 2025-11-22 13:03:46 - Completed 200 OK
+2025-11-22 10:04:15.031 | 2025-11-22 13:04:15 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:04:15.032 | 2025-11-22 13:04:15 - Read "application/octet-stream" to []
+2025-11-22 10:04:15.034 | 2025-11-22 13:04:15 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:04:15.034 | 2025-11-22 13:04:15 - Writing [org.springframework.boot.actuate.health.SystemHealth@67039bb6]
+2025-11-22 10:04:15.035 | 2025-11-22 13:04:15 - Completed 200 OK
+2025-11-22 10:04:42.591 | 2025-11-22 13:04:42 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:04:42.591 | 2025-11-22 13:04:42 - Read "application/octet-stream" to []
+2025-11-22 10:04:42.593 | 2025-11-22 13:04:42 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:04:42.593 | 2025-11-22 13:04:42 - Writing [org.springframework.boot.actuate.health.SystemHealth@312e8264]
+2025-11-22 10:04:42.595 | 2025-11-22 13:04:42 - Completed 200 OK
+2025-11-22 10:05:09.980 | 2025-11-22 13:05:09 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:05:09.981 | 2025-11-22 13:05:09 - Read "application/octet-stream" to []
+2025-11-22 10:05:09.986 | 2025-11-22 13:05:09 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:05:09.986 | 2025-11-22 13:05:09 - Writing [org.springframework.boot.actuate.health.SystemHealth@550e771b]
+2025-11-22 10:05:09.990 | 2025-11-22 13:05:09 - Completed 200 OK
+2025-11-22 10:05:38.028 | 2025-11-22 13:05:38 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:05:38.030 | 2025-11-22 13:05:38 - Read "application/octet-stream" to []
+2025-11-22 10:05:38.033 | 2025-11-22 13:05:38 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:05:38.033 | 2025-11-22 13:05:38 - Writing [org.springframework.boot.actuate.health.SystemHealth@65b069ad]
+2025-11-22 10:05:38.036 | 2025-11-22 13:05:38 - Completed 200 OK
+2025-11-22 10:06:05.484 | 2025-11-22 13:06:05 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:06:05.486 | 2025-11-22 13:06:05 - Read "application/octet-stream" to []
+2025-11-22 10:06:05.490 | 2025-11-22 13:06:05 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:06:05.491 | 2025-11-22 13:06:05 - Writing [org.springframework.boot.actuate.health.SystemHealth@5b643fb4]
+2025-11-22 10:06:05.493 | 2025-11-22 13:06:05 - Completed 200 OK
+2025-11-22 10:06:33.112 | 2025-11-22 13:06:33 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:06:33.113 | 2025-11-22 13:06:33 - Read "application/octet-stream" to []
+2025-11-22 10:06:33.115 | 2025-11-22 13:06:33 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:06:33.115 | 2025-11-22 13:06:33 - Writing [org.springframework.boot.actuate.health.SystemHealth@6223f452]
+2025-11-22 10:06:33.116 | 2025-11-22 13:06:33 - Completed 200 OK
+2025-11-22 10:07:00.616 | 2025-11-22 13:07:00 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:07:00.617 | 2025-11-22 13:07:00 - Read "application/octet-stream" to []
+2025-11-22 10:07:00.621 | 2025-11-22 13:07:00 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:07:00.625 | 2025-11-22 13:07:00 - Writing [org.springframework.boot.actuate.health.SystemHealth@1b5fc54a]
+2025-11-22 10:07:00.625 | 2025-11-22 13:07:00 - Completed 200 OK
+2025-11-22 10:07:28.935 | 2025-11-22 13:07:28 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:07:28.935 | 2025-11-22 13:07:28 - Read "application/octet-stream" to []
+2025-11-22 10:07:28.937 | 2025-11-22 13:07:28 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:07:28.937 | 2025-11-22 13:07:28 - Writing [org.springframework.boot.actuate.health.SystemHealth@5280b35c]
+2025-11-22 10:07:28.938 | 2025-11-22 13:07:28 - Completed 200 OK
+2025-11-22 10:07:56.413 | 2025-11-22 13:07:56 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:07:56.413 | 2025-11-22 13:07:56 - Read "application/octet-stream" to []
+2025-11-22 10:07:56.415 | 2025-11-22 13:07:56 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:07:56.415 | 2025-11-22 13:07:56 - Writing [org.springframework.boot.actuate.health.SystemHealth@7574ffea]
+2025-11-22 10:07:56.416 | 2025-11-22 13:07:56 - Completed 200 OK
+2025-11-22 10:08:24.337 | 2025-11-22 13:08:24 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:08:24.338 | 2025-11-22 13:08:24 - Read "application/octet-stream" to []
+2025-11-22 10:08:24.340 | 2025-11-22 13:08:24 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:08:24.341 | 2025-11-22 13:08:24 - Writing [org.springframework.boot.actuate.health.SystemHealth@5cd06738]
+2025-11-22 10:08:24.342 | 2025-11-22 13:08:24 - Completed 200 OK
+2025-11-22 10:08:51.826 | 2025-11-22 13:08:51 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:08:51.827 | 2025-11-22 13:08:51 - Read "application/octet-stream" to []
+2025-11-22 10:08:51.830 | 2025-11-22 13:08:51 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:08:51.830 | 2025-11-22 13:08:51 - Writing [org.springframework.boot.actuate.health.SystemHealth@1c39ae61]
+2025-11-22 10:08:51.831 | 2025-11-22 13:08:51 - Completed 200 OK
+2025-11-22 10:09:19.263 | 2025-11-22 13:09:19 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:09:19.263 | 2025-11-22 13:09:19 - Read "application/octet-stream" to []
+2025-11-22 10:09:19.266 | 2025-11-22 13:09:19 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:09:19.266 | 2025-11-22 13:09:19 - Writing [org.springframework.boot.actuate.health.SystemHealth@565d8da6]
+2025-11-22 10:09:19.267 | 2025-11-22 13:09:19 - Completed 200 OK
+2025-11-22 10:09:47.209 | 2025-11-22 13:09:47 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:09:47.209 | 2025-11-22 13:09:47 - Read "application/octet-stream" to []
+2025-11-22 10:09:47.212 | 2025-11-22 13:09:47 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:09:47.212 | 2025-11-22 13:09:47 - Writing [org.springframework.boot.actuate.health.SystemHealth@6985655e]
+2025-11-22 10:09:47.213 | 2025-11-22 13:09:47 - Completed 200 OK
+2025-11-22 10:10:14.670 | 2025-11-22 13:10:14 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:10:14.671 | 2025-11-22 13:10:14 - Read "application/octet-stream" to []
+2025-11-22 10:10:14.673 | 2025-11-22 13:10:14 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:10:14.673 | 2025-11-22 13:10:14 - Writing [org.springframework.boot.actuate.health.SystemHealth@5046c05c]
+2025-11-22 10:10:14.675 | 2025-11-22 13:10:14 - Completed 200 OK
+2025-11-22 10:10:42.519 | 2025-11-22 13:10:42 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:10:42.520 | 2025-11-22 13:10:42 - Read "application/octet-stream" to []
+2025-11-22 10:10:42.523 | 2025-11-22 13:10:42 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:10:42.523 | 2025-11-22 13:10:42 - Writing [org.springframework.boot.actuate.health.SystemHealth@5506c40c]
+2025-11-22 10:10:42.524 | 2025-11-22 13:10:42 - Completed 200 OK
+2025-11-22 10:11:10.061 | 2025-11-22 13:11:10 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:11:10.062 | 2025-11-22 13:11:10 - Read "application/octet-stream" to []
+2025-11-22 10:11:10.065 | 2025-11-22 13:11:10 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:11:10.065 | 2025-11-22 13:11:10 - Writing [org.springframework.boot.actuate.health.SystemHealth@6ce3011d]
+2025-11-22 10:11:10.067 | 2025-11-22 13:11:10 - Completed 200 OK
+2025-11-22 10:11:37.548 | 2025-11-22 13:11:37 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:11:37.550 | 2025-11-22 13:11:37 - Read "application/octet-stream" to []
+2025-11-22 10:11:37.554 | 2025-11-22 13:11:37 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:11:37.555 | 2025-11-22 13:11:37 - Writing [org.springframework.boot.actuate.health.SystemHealth@261487fb]
+2025-11-22 10:11:37.556 | 2025-11-22 13:11:37 - Completed 200 OK
+2025-11-22 10:12:04.970 | 2025-11-22 13:12:04 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:12:04.971 | 2025-11-22 13:12:04 - Read "application/octet-stream" to []
+2025-11-22 10:12:04.974 | 2025-11-22 13:12:04 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:12:04.975 | 2025-11-22 13:12:04 - Writing [org.springframework.boot.actuate.health.SystemHealth@525f43ce]
+2025-11-22 10:12:04.976 | 2025-11-22 13:12:04 - Completed 200 OK
+2025-11-22 10:12:32.534 | 2025-11-22 13:12:32 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:12:32.535 | 2025-11-22 13:12:32 - Read "application/octet-stream" to []
+2025-11-22 10:12:32.537 | 2025-11-22 13:12:32 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:12:32.537 | 2025-11-22 13:12:32 - Writing [org.springframework.boot.actuate.health.SystemHealth@cfefce]
+2025-11-22 10:12:32.538 | 2025-11-22 13:12:32 - Completed 200 OK
+2025-11-22 10:12:59.997 | 2025-11-22 13:12:59 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:12:59.998 | 2025-11-22 13:12:59 - Read "application/octet-stream" to []
+2025-11-22 10:13:00.000 | 2025-11-22 13:13:00 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:13:00.000 | 2025-11-22 13:13:00 - Writing [org.springframework.boot.actuate.health.SystemHealth@6c5953eb]
+2025-11-22 10:13:00.001 | 2025-11-22 13:13:00 - Completed 200 OK
+2025-11-22 10:13:27.455 | 2025-11-22 13:13:27 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:13:27.457 | 2025-11-22 13:13:27 - Read "application/octet-stream" to []
+2025-11-22 10:13:27.461 | 2025-11-22 13:13:27 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:13:27.462 | 2025-11-22 13:13:27 - Writing [org.springframework.boot.actuate.health.SystemHealth@7c073558]
+2025-11-22 10:13:27.464 | 2025-11-22 13:13:27 - Completed 200 OK
+2025-11-22 10:13:54.943 | 2025-11-22 13:13:54 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:13:54.944 | 2025-11-22 13:13:54 - Read "application/octet-stream" to []
+2025-11-22 10:13:54.946 | 2025-11-22 13:13:54 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:13:54.946 | 2025-11-22 13:13:54 - Writing [org.springframework.boot.actuate.health.SystemHealth@fb4dc0]
+2025-11-22 10:13:54.947 | 2025-11-22 13:13:54 - Completed 200 OK
+2025-11-22 10:14:22.451 | 2025-11-22 13:14:22 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:14:22.451 | 2025-11-22 13:14:22 - Read "application/octet-stream" to []
+2025-11-22 10:14:22.454 | 2025-11-22 13:14:22 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:14:22.454 | 2025-11-22 13:14:22 - Writing [org.springframework.boot.actuate.health.SystemHealth@3455233f]
+2025-11-22 10:14:22.456 | 2025-11-22 13:14:22 - Completed 200 OK
+2025-11-22 10:14:49.816 | 2025-11-22 13:14:49 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:14:49.817 | 2025-11-22 13:14:49 - Read "application/octet-stream" to []
+2025-11-22 10:14:49.820 | 2025-11-22 13:14:49 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:14:49.820 | 2025-11-22 13:14:49 - Writing [org.springframework.boot.actuate.health.SystemHealth@60fef4b]
+2025-11-22 10:14:49.821 | 2025-11-22 13:14:49 - Completed 200 OK
+2025-11-22 10:15:17.316 | 2025-11-22 13:15:17 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:15:17.317 | 2025-11-22 13:15:17 - Read "application/octet-stream" to []
+2025-11-22 10:15:17.321 | 2025-11-22 13:15:17 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:15:17.321 | 2025-11-22 13:15:17 - Writing [org.springframework.boot.actuate.health.SystemHealth@3aeea9e9]
+2025-11-22 10:15:17.322 | 2025-11-22 13:15:17 - Completed 200 OK
+2025-11-22 10:15:44.884 | 2025-11-22 13:15:44 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:15:44.885 | 2025-11-22 13:15:44 - Read "application/octet-stream" to []
+2025-11-22 10:15:44.888 | 2025-11-22 13:15:44 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:15:44.888 | 2025-11-22 13:15:44 - Writing [org.springframework.boot.actuate.health.SystemHealth@56afa634]
+2025-11-22 10:15:44.889 | 2025-11-22 13:15:44 - Completed 200 OK
+2025-11-22 10:16:12.310 | 2025-11-22 13:16:12 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:16:12.310 | 2025-11-22 13:16:12 - Read "application/octet-stream" to []
+2025-11-22 10:16:12.325 | 2025-11-22 13:16:12 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:16:12.325 | 2025-11-22 13:16:12 - Writing [org.springframework.boot.actuate.health.SystemHealth@25def822]
+2025-11-22 10:16:12.326 | 2025-11-22 13:16:12 - Completed 200 OK
+2025-11-22 10:16:39.852 | 2025-11-22 13:16:39 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:16:39.853 | 2025-11-22 13:16:39 - Read "application/octet-stream" to []
+2025-11-22 10:16:39.855 | 2025-11-22 13:16:39 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:16:39.855 | 2025-11-22 13:16:39 - Writing [org.springframework.boot.actuate.health.SystemHealth@62d95c09]
+2025-11-22 10:16:39.856 | 2025-11-22 13:16:39 - Completed 200 OK
+2025-11-22 10:17:07.881 | 2025-11-22 13:17:07 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:17:07.882 | 2025-11-22 13:17:07 - Read "application/octet-stream" to []
+2025-11-22 10:17:07.907 | 2025-11-22 13:17:07 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:17:07.907 | 2025-11-22 13:17:07 - Writing [org.springframework.boot.actuate.health.SystemHealth@4500406b]
+2025-11-22 10:17:07.908 | 2025-11-22 13:17:07 - Completed 200 OK
+2025-11-22 10:17:35.387 | 2025-11-22 13:17:35 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:17:35.388 | 2025-11-22 13:17:35 - Read "application/octet-stream" to []
+2025-11-22 10:17:35.390 | 2025-11-22 13:17:35 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:17:35.390 | 2025-11-22 13:17:35 - Writing [org.springframework.boot.actuate.health.SystemHealth@705f932]
+2025-11-22 10:17:35.391 | 2025-11-22 13:17:35 - Completed 200 OK
+2025-11-22 10:18:02.902 | 2025-11-22 13:18:02 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:18:02.903 | 2025-11-22 13:18:02 - Read "application/octet-stream" to []
+2025-11-22 10:18:02.905 | 2025-11-22 13:18:02 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:18:02.905 | 2025-11-22 13:18:02 - Writing [org.springframework.boot.actuate.health.SystemHealth@56ba0524]
+2025-11-22 10:18:02.906 | 2025-11-22 13:18:02 - Completed 200 OK
+2025-11-22 10:18:30.765 | 2025-11-22 13:18:30 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:18:30.766 | 2025-11-22 13:18:30 - Read "application/octet-stream" to []
+2025-11-22 10:18:30.769 | 2025-11-22 13:18:30 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:18:30.769 | 2025-11-22 13:18:30 - Writing [org.springframework.boot.actuate.health.SystemHealth@13c456ec]
+2025-11-22 10:18:30.770 | 2025-11-22 13:18:30 - Completed 200 OK
+2025-11-22 10:18:58.913 | 2025-11-22 13:18:58 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:18:58.913 | 2025-11-22 13:18:58 - Read "application/octet-stream" to []
+2025-11-22 10:18:58.917 | 2025-11-22 13:18:58 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:18:58.917 | 2025-11-22 13:18:58 - Writing [org.springframework.boot.actuate.health.SystemHealth@45d4e06c]
+2025-11-22 10:18:58.918 | 2025-11-22 13:18:58 - Completed 200 OK
+2025-11-22 10:19:26.498 | 2025-11-22 13:19:26 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:19:26.500 | 2025-11-22 13:19:26 - Read "application/octet-stream" to []
+2025-11-22 10:19:26.504 | 2025-11-22 13:19:26 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:19:26.504 | 2025-11-22 13:19:26 - Writing [org.springframework.boot.actuate.health.SystemHealth@505ee41b]
+2025-11-22 10:19:26.506 | 2025-11-22 13:19:26 - Completed 200 OK
+2025-11-22 10:19:54.151 | 2025-11-22 13:19:54 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:19:54.152 | 2025-11-22 13:19:54 - Read "application/octet-stream" to []
+2025-11-22 10:19:54.334 | 2025-11-22 13:19:54 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:19:54.334 | 2025-11-22 13:19:54 - Writing [org.springframework.boot.actuate.health.SystemHealth@50163ded]
+2025-11-22 10:19:54.341 | 2025-11-22 13:19:54 - Completed 200 OK
+2025-11-22 10:20:21.791 | 2025-11-22 13:20:21 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:20:21.792 | 2025-11-22 13:20:21 - Read "application/octet-stream" to []
+2025-11-22 10:20:21.794 | 2025-11-22 13:20:21 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:20:21.794 | 2025-11-22 13:20:21 - Writing [org.springframework.boot.actuate.health.SystemHealth@3a561cbc]
+2025-11-22 10:20:21.795 | 2025-11-22 13:20:21 - Completed 200 OK
+2025-11-22 10:20:52.462 | 2025-11-22 13:20:52 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:20:52.463 | 2025-11-22 13:20:52 - Read "application/octet-stream" to []
+2025-11-22 10:20:52.465 | 2025-11-22 13:20:52 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:20:52.465 | 2025-11-22 13:20:52 - Writing [org.springframework.boot.actuate.health.SystemHealth@7485e508]
+2025-11-22 10:20:52.465 | 2025-11-22 13:20:52 - Completed 200 OK
+2025-11-22 10:21:19.827 | 2025-11-22 13:21:19 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:21:19.829 | 2025-11-22 13:21:19 - Read "application/octet-stream" to []
+2025-11-22 10:21:19.831 | 2025-11-22 13:21:19 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:21:19.831 | 2025-11-22 13:21:19 - Writing [org.springframework.boot.actuate.health.SystemHealth@57be3953]
+2025-11-22 10:21:19.832 | 2025-11-22 13:21:19 - Completed 200 OK
+2025-11-22 10:21:47.219 | 2025-11-22 13:21:47 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:21:47.221 | 2025-11-22 13:21:47 - Read "application/octet-stream" to []
+2025-11-22 10:21:47.225 | 2025-11-22 13:21:47 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:21:47.225 | 2025-11-22 13:21:47 - Writing [org.springframework.boot.actuate.health.SystemHealth@2f5c9b0e]
+2025-11-22 10:21:47.227 | 2025-11-22 13:21:47 - Completed 200 OK
+2025-11-22 10:22:14.426 | 2025-11-22 13:22:14 - POST "/api/cotizaciones/calcular", parameters={}
+2025-11-22 10:22:14.453 | 2025-11-22 13:22:14 - Mapped to com.tpi.precios.controller.CotizacionController#calcularPrecio(SolicitudCotizacionDto)
+2025-11-22 10:22:15.435 | 2025-11-22 13:22:15 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:22:15.436 | 2025-11-22 13:22:15 - Read "application/octet-stream" to []
+2025-11-22 10:22:15.437 | 2025-11-22 13:22:15 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:22:15.437 | 2025-11-22 13:22:15 - Writing [org.springframework.boot.actuate.health.SystemHealth@24267572]
+2025-11-22 10:22:15.438 | 2025-11-22 13:22:15 - Completed 200 OK
+2025-11-22 10:22:16.709 | 2025-11-22 13:22:16 - Read "application/json;charset=UTF-8" to [SolicitudCotizacionDto(ubicacionOrigenId=null, ubicacionDestinoId=null, pesoKg=null, volumenM3=null, (truncated)...]
+2025-11-22 10:22:17.709 | 2025-11-22 13:22:17 - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.tpi.precios.dto.CalculoPrecioDto> com.tpi.precios.controller.CotizacionController.calcularPrecio(com.tpi.precios.dto.SolicitudCotizacionDto) with 4 errors: [Field error in object 'solicitudCotizacionDto' on field 'ubicacionOrigenId': rejected value [null]; codes [NotNull.solicitudCotizacionDto.ubicacionOrigenId,NotNull.ubicacionOrigenId,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [solicitudCotizacionDto.ubicacionOrigenId,ubicacionOrigenId]; arguments []; default message [ubicacionOrigenId]]; default message [La ubicación de origen es obligatoria]] [Field error in object 'solicitudCotizacionDto' on field 'volumenM3': rejected value [null]; codes [NotNull.solicitudCotizacionDto.volumenM3,NotNull.volumenM3,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [solicitudCotizacionDto.volumenM3,volumenM3]; arguments []; default message [volumenM3]]; default message [El volumen en m³ es obligatorio]] [Field error in object 'solicitudCotizacionDto' on field 'pesoKg': rejected value [null]; codes [NotNull.solicitudCotizacionDto.pesoKg,NotNull.pesoKg,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [solicitudCotizacionDto.pesoKg,pesoKg]; arguments []; default message [pesoKg]]; default message [El peso en kilogramos es obligatorio]] [Field error in object 'solicitudCotizacionDto' on field 'ubicacionDestinoId': rejected value [null]; codes [NotNull.solicitudCotizacionDto.ubicacionDestinoId,NotNull.ubicacionDestinoId,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [solicitudCotizacionDto.ubicacionDestinoId,ubicacionDestinoId]; arguments []; default message [ubicacionDestinoId]]; default message [La ubicación de destino es obligatoria]] ]
+2025-11-22 10:22:17.773 | 2025-11-22 13:22:17 - Completed 400 BAD_REQUEST
+2025-11-22 10:22:17.799 | 2025-11-22 13:22:17 - "ERROR" dispatch for POST "/error", parameters={}
+2025-11-22 10:22:17.810 | 2025-11-22 13:22:17 - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-11-22 10:22:17.939 | 2025-11-22 13:22:17 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-11-22 10:22:18.067 | 2025-11-22 13:22:18 - Writing [{timestamp=Sat Nov 22 13:22:17 UTC 2025, status=400, error=Bad Request, path=/api/cotizaciones/calcu (truncated)...]
+2025-11-22 10:22:18.104 | 2025-11-22 13:22:18 - Exiting from "ERROR" dispatch, status 400
+2025-11-22 10:22:42.823 | 2025-11-22 13:22:42 - HEAD "/actuator/health", parameters={}
+2025-11-22 10:22:42.824 | 2025-11-22 13:22:42 - Read "application/octet-stream" to []
+2025-11-22 10:22:42.826 | 2025-11-22 13:22:42 - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2025-11-22 10:22:42.827 | 2025-11-22 13:22:42 - Writing [org.springframework.boot.actuate.health.SystemHealth@69f9e230]
+2025-11-22 10:22:42.828 | 2025-11-22 13:22:42 - Completed 200 OK

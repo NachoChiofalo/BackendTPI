@@ -20,10 +20,9 @@ public class Deposito {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ubicacion_id", nullable = false)
-    private Ubicacion ubicacion;
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Ubicacion ubicacion;
 
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
 }
-

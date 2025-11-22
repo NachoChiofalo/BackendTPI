@@ -125,19 +125,6 @@ public class CamionController {
         }
     }
 
-    @PreAuthorize("hasRole('operador')")
-    @PatchMapping("/{dominio}/disponibilidad")
-    public ResponseEntity<Void> cambiarDisponibilidad(@PathVariable("dominio") String dominio,
-                                                     @RequestParam Boolean disponible) {
-        log.info("PATCH /api/camiones/{}/disponibilidad - Cambiando disponibilidad a: {}", dominio, disponible);
-
-        try {
-            camionService.cambiarDisponibilidad(dominio, disponible);
-            return ResponseEntity.ok().build();
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
 
     @PreAuthorize("hasRole('operador')")
     @DeleteMapping("/{dominio}")

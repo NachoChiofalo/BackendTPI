@@ -1,5 +1,6 @@
 package com.tpi.localizaciones.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Ubicacion {
 
     @Id
@@ -32,4 +34,3 @@ public class Ubicacion {
     @Column(name = "nombre", length = 30)
     private String nombre;
 }
-
