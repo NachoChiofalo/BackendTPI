@@ -36,18 +36,6 @@ public class ClienteController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/buscar/nombres")
-    public ResponseEntity<List<Cliente>> buscarPorNombres(@RequestParam String nombres) {
-        log.info("GET /api/clientes/buscar/nombres - Buscando por nombres: {}", nombres);
-        return ResponseEntity.ok(clienteService.buscarPorNombres(nombres));
-    }
-
-    @GetMapping("/buscar/apellidos")
-    public ResponseEntity<List<Cliente>> buscarPorApellidos(@RequestParam String apellidos) {
-        log.info("GET /api/clientes/buscar/apellidos - Buscando por apellidos: {}", apellidos);
-        return ResponseEntity.ok(clienteService.buscarPorApellidos(apellidos));
-    }
-
     @PostMapping
     public ResponseEntity<Cliente> crear(@Valid @RequestBody Cliente cliente) {
         log.info("POST /api/clientes - Creando cliente: {} {}", cliente.getNombres(), cliente.getApellidos());

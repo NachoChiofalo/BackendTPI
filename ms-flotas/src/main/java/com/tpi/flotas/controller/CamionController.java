@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/camiones")
@@ -67,8 +68,8 @@ public class CamionController {
                 pesoMin, volumenMin, soloDisponibles);
 
         List<Camion> camiones = soloDisponibles
-            ? camionService.obtenerDisponiblesConCapacidad(pesoMin, volumenMin)
-            : camionService.obtenerConCapacidadMinima(pesoMin, volumenMin);
+                ? camionService.obtenerDisponiblesConCapacidad(pesoMin, volumenMin)
+                : camionService.obtenerConCapacidadMinima(pesoMin, volumenMin);
 
         return ResponseEntity.ok(camiones);
     }
@@ -89,7 +90,7 @@ public class CamionController {
             camion.setDisponible(camionDto.getDisponible());
             camion.setCapacidadPeso(camionDto.getCapacidadPeso());
             camion.setCapacidadVolumen(camionDto.getCapacidadVolumen());
-            camion.setCostoBaseKm(camionDto.getCostoBaseKm  ());
+            camion.setCostoBaseKm(camionDto.getCostoBaseKm());
             camion.setConsumoPromedio(camionDto.getConsumoPromedio());
 
             Camion camionGuardado = camionService.guardar(camion);
@@ -104,7 +105,7 @@ public class CamionController {
     @PreAuthorize("hasRole('operador')")
     @PutMapping("/{dominio}")
     public ResponseEntity<Camion> actualizar(@PathVariable("dominio") String dominio,
-                                           @Valid @RequestBody CamionDto camionDto) {
+                                             @Valid @RequestBody CamionDto camionDto) {
         log.info("PUT /api/camiones/{} - Actualizando camión", dominio);
 
         try {
@@ -138,6 +139,29 @@ public class CamionController {
         } catch (RuntimeException e) {
             log.error("Error al eliminar camión {}: {}", dominio, e.getMessage());
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    // Nuevo endpoint para asignar un camión a un tramo (usa la lógica SQL en CamionService)
+    @PostMapping("/asignar")
+    public ResponseEntity<Map<String, Object>> asignarCamionATramo(
+            @RequestParam("tramoId") Integer tramoId,
+            @RequestParam("dominio") String dominio) {
+
+        log.info("POST /api/camiones/asignar - Asignando camión {} para tramo {}", dominio, tramoId);
+        try {
+            Map<String, Object> reservado = camionService.asignarCamionEspecificoATramo(tramoId, dominio);
+            if (reservado == null) {
+                Map<String, Object> body = new java.util.HashMap<>();
+                body.put("message", "No fue posible asignar el camión solicitado");
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(body);
+            }
+            return ResponseEntity.ok(reservado);
+        } catch (RuntimeException e) {
+            log.error("Error al asignar camión {} al tramo {}: {}", dominio, tramoId, e.getMessage());
+            Map<String, Object> body = new java.util.HashMap<>();
+            body.put("error", e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
         }
     }
 }
