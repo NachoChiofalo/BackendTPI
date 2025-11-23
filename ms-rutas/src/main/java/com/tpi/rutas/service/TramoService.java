@@ -91,8 +91,20 @@ public class TramoService {
      * Los tramos deben registrar fechas estimadas y reales para calcular el desempeño del servicio
      */
     @Transactional
+    public Tramo iniciarTramo(Integer rutaId, Integer tramoId) {
+        log.info("Iniciando tramo: {} de la ruta: {}", tramoId, rutaId);
+        return tramoRepository.findByTramoIdAndRutaId(tramoId, rutaId)
+                .map(tramo -> {
+                    tramo.setFechaHoraInicio(java.time.LocalDate.now());
+                    return tramoRepository.save(tramo);
+                })
+                .orElseThrow(() -> new RuntimeException("Tramo no encontrado con id: " + tramoId + " para la ruta: " + rutaId));
+    }
+
+    // Compatibilidad: método antiguo por tramoId sólo (delegará buscando ruta implícita)
+    @Transactional
     public Tramo iniciarTramo(Integer tramoId) {
-        log.info("Iniciando tramo: {}", tramoId);
+        log.info("Iniciando tramo (sin validar ruta): {}", tramoId);
         return tramoRepository.findById(tramoId)
                 .map(tramo -> {
                     tramo.setFechaHoraInicio(java.time.LocalDate.now());
@@ -109,8 +121,20 @@ public class TramoService {
      * - Determinar costos reales de transporte
      */
     @Transactional
+    public Tramo finalizarTramo(Integer rutaId, Integer tramoId) {
+        log.info("Finalizando tramo: {} de la ruta: {}", tramoId, rutaId);
+        return tramoRepository.findByTramoIdAndRutaId(tramoId, rutaId)
+                .map(tramo -> {
+                    tramo.setFechaHoraFin(java.time.LocalDate.now());
+                    return tramoRepository.save(tramo);
+                })
+                .orElseThrow(() -> new RuntimeException("Tramo no encontrado con id: " + tramoId + " para la ruta: " + rutaId));
+    }
+
+    // Compatibilidad: método antiguo por tramoId sólo
+    @Transactional
     public Tramo finalizarTramo(Integer tramoId) {
-        log.info("Finalizando tramo: {}", tramoId);
+        log.info("Finalizando tramo (sin validar ruta): {}", tramoId);
         return tramoRepository.findById(tramoId)
                 .map(tramo -> {
                     tramo.setFechaHoraFin(java.time.LocalDate.now());

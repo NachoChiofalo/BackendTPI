@@ -105,14 +105,14 @@ public class TramoController {
      * - Marca el comienzo del transporte del contenedor en este tramo
      */
     @PreAuthorize("hasRole('transportista')")
-    @PostMapping("/{tramoId}/iniciar")
-    public ResponseEntity<Tramo> iniciarTramo(@PathVariable("tramoId") Integer tramoId) {
-        log.info("POST /api/tramos/{}/iniciar - Iniciando tramo", tramoId);
+    @PostMapping("/rutas/{rutaId}/tramos/{tramoId}/iniciar")
+    public ResponseEntity<Tramo> iniciarTramo(@PathVariable("rutaId") Integer rutaId, @PathVariable("tramoId") Integer tramoId) {
+        log.info("POST /api/tramos/rutas/{}/tramos/{}/iniciar - Iniciando tramo", rutaId, tramoId);
         try {
-            Tramo actualizado = tramoService.iniciarTramo(tramoId);
+            Tramo actualizado = tramoService.iniciarTramo(rutaId, tramoId);
             return ResponseEntity.ok(actualizado);
         } catch (RuntimeException e) {
-            log.error("Error al iniciar tramo {}: {}", tramoId, e.getMessage());
+            log.error("Error al iniciar tramo {} de ruta {}: {}", tramoId, rutaId, e.getMessage());
             return ResponseEntity.notFound().build();
         }
     }
@@ -123,17 +123,18 @@ public class TramoController {
      * - Permite calcular tiempo real y costos de estadía en depósitos
      */
     @PreAuthorize("hasRole('transportista')")
-    @PostMapping("/{tramoId}/finalizar")
-    public ResponseEntity<Tramo> finalizarTramo(@PathVariable("tramoId") Integer tramoId) {
-        log.info("POST /api/tramos/{}/finalizar - Finalizando tramo", tramoId);
+    @PostMapping("/rutas/{rutaId}/tramos/{tramoId}/finalizar")
+    public ResponseEntity<Tramo> finalizarTramo(@PathVariable("rutaId") Integer rutaId, @PathVariable("tramoId") Integer tramoId) {
+        log.info("POST /api/tramos/rutas/{}/tramos/{}/finalizar - Finalizando tramo", rutaId, tramoId);
         try {
-            Tramo actualizado = tramoService.finalizarTramo(tramoId);
+            Tramo actualizado = tramoService.finalizarTramo(rutaId, tramoId);
             return ResponseEntity.ok(actualizado);
         } catch (RuntimeException e) {
-            log.error("Error al finalizar tramo {}: {}", tramoId, e.getMessage());
+            log.error("Error al finalizar tramo {} de ruta {}: {}", tramoId, rutaId, e.getMessage());
             return ResponseEntity.notFound().build();
         }
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable("id") Integer id) {
