@@ -65,11 +65,41 @@ public class SolicitudController {
     @PreAuthorize("hasRole('cliente')")
     @GetMapping("/cliente")
     public ResponseEntity<List<Solicitud>> obtenerPorCliente(
-            @RequestParam Integer tipoDoc,
-            @RequestParam Long numDoc) {
+            @RequestParam("tipoDoc") Integer tipoDoc,
+            @RequestParam("numDoc") Long numDoc) {
         log.info("GET /api/solicitudes/cliente - Obteniendo solicitudes del cliente: {} - {}", tipoDoc, numDoc);
         List<Solicitud> solicitudes = solicitudService.obtenerPorCliente(tipoDoc, numDoc);
         return ResponseEntity.ok(solicitudes);
+    }
+
+    /**
+     * Endpoint adicional: Consultar el estado actual de un contenedor para un cliente
+     * URL: GET /api/solicitudes/cliente/contenedor/{idContenedor}?tipoDoc=..&numDoc=..
+     */
+    @PreAuthorize("hasRole('cliente')")
+    @GetMapping("/cliente/contenedor/{idContenedor}")
+    public ResponseEntity<Solicitud> obtenerEstadoContenedorPorCliente(
+            @PathVariable("idContenedor") Integer idContenedor,
+            @RequestParam("tipoDoc") Integer tipoDoc,
+            @RequestParam("numDoc") Long numDoc) {
+        log.info("GET /api/solicitudes/cliente/contenedor/{} - Cliente {}-{} consulta estado del contenedor", idContenedor, tipoDoc, numDoc);
+        return solicitudService.obtenerEstadoContenedorParaCliente(idContenedor, tipoDoc, numDoc)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    /**
+     * Consultar todos los contenedores relacionados a un cliente y su estado más reciente
+     * URL: GET /api/solicitudes/cliente/contenedores?tipoDoc=..&numDoc=..
+     */
+    @PreAuthorize("hasRole('cliente')")
+    @GetMapping("/cliente/contenedores")
+    public ResponseEntity<List<Solicitud>> obtenerContenedoresPorCliente(
+            @RequestParam("tipoDoc") Integer tipoDoc,
+            @RequestParam("numDoc") Long numDoc) {
+        log.info("GET /api/solicitudes/cliente/contenedores - Cliente {}-{} solicita listado de contenedores", tipoDoc, numDoc);
+        List<Solicitud> contenedores = solicitudService.obtenerContenedoresPorClienteConEstado(tipoDoc, numDoc);
+        return ResponseEntity.ok(contenedores);
     }
 
     /**

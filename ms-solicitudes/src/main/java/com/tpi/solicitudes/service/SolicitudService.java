@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,5 +61,37 @@ public class SolicitudService {
                     return solicitudRepository.save(solicitud);
                 })
                 .orElseThrow(() -> new RuntimeException("Solicitud no encontrada con id: " + solicitudId));
+    }
+
+    // Obtener el estado actual de un contenedor para un cliente (una sola solicitud más reciente)
+    public Optional<Solicitud> obtenerEstadoContenedorParaCliente(Integer idContenedor, Integer tipoDoc, Long numDoc) {
+        log.info("Obteniendo estado del contenedor {} para cliente {} - {}", idContenedor, tipoDoc, numDoc);
+        return solicitudRepository.findTopByIdContenedorAndTipoDocClienteAndNumDocClienteOrderByFechaHoraInicioDesc(
+                idContenedor, tipoDoc, numDoc);
+    }
+
+    // Modificado: obtener todos los contenedores relacionados a un cliente con su solicitud más reciente
+    public List<Solicitud> obtenerContenedoresPorClienteConEstado(Integer tipoDoc, Long numDoc) {
+        log.info("Obteniendo contenedores y estado más reciente para cliente {} - {}", tipoDoc, numDoc);
+        // Usar existing repository method (sin orden) y ordenar en memoria por fechaHoraInicio desc
+        List<Solicitud> solicitudes = solicitudRepository.findByTipoDocClienteAndNumDocCliente(tipoDoc, numDoc);
+
+        solicitudes.sort((a, b) -> {
+            if (a.getFechaHoraInicio() == null && b.getFechaHoraInicio() == null) return 0;
+            if (a.getFechaHoraInicio() == null) return 1;
+            if (b.getFechaHoraInicio() == null) return -1;
+            return b.getFechaHoraInicio().compareTo(a.getFechaHoraInicio()); // desc
+        });
+
+        // Mantener un map por idContenedor con la primera (más reciente) aparición, guardando la Solicitud completa
+        Map<Integer, Solicitud> latestByContenedor = new LinkedHashMap<>();
+        for (Solicitud s : solicitudes) {
+            Integer idCont = s.getIdContenedor();
+            if (!latestByContenedor.containsKey(idCont)) {
+                latestByContenedor.put(idCont, s);
+            }
+        }
+
+        return new ArrayList<>(latestByContenedor.values());
     }
 }
