@@ -136,16 +136,12 @@ public class SolicitudController {
      * - Asocia una ruta previamente calculada a una solicitud específica
      */
     @PreAuthorize("hasRole('operador')")
-    @PutMapping("/{solicitudId}/asignar-ruta")
+    @PutMapping("/{solicitudId}/ruta/{rutaId}")
     public ResponseEntity<Solicitud> asignarRuta(
             @PathVariable("solicitudId") Integer solicitudId,
-            @RequestBody java.util.Map<String, Integer> request) {
-        log.info("PUT /api/solicitudes/{}/asignar-ruta - Asignando ruta", solicitudId);
+            @PathVariable("rutaId") Integer rutaId) {
+        log.info("PUT /api/solicitudes/{}/ruta/{} - Asignando ruta", solicitudId, rutaId);
         try {
-            Integer rutaId = request.get("rutaId");
-            if (rutaId == null) {
-                return ResponseEntity.badRequest().build();
-            }
             Solicitud actualizada = solicitudService.asignarRuta(solicitudId, rutaId);
             return ResponseEntity.ok(actualizada);
         } catch (RuntimeException e) {

@@ -73,8 +73,8 @@ public class SolicitudService {
     // Modificado: obtener todos los contenedores relacionados a un cliente con su solicitud más reciente
     public List<Solicitud> obtenerContenedoresPorClienteConEstado(Integer tipoDoc, Long numDoc) {
         log.info("Obteniendo contenedores y estado más reciente para cliente {} - {}", tipoDoc, numDoc);
-        // Usar existing repository method (sin orden) y ordenar en memoria por fechaHoraInicio desc
-        List<Solicitud> solicitudes = solicitudRepository.findByTipoDocClienteAndNumDocCliente(tipoDoc, numDoc);
+        // Usar el método del repositorio que ya devuelve ordenado por fechaHoraInicio desc
+        List<Solicitud> solicitudes = solicitudRepository.findByTipoDocClienteAndNumDocClienteOrderByFechaHoraInicioDesc(tipoDoc, numDoc);
 
         solicitudes.sort((a, b) -> {
             if (a.getFechaHoraInicio() == null && b.getFechaHoraInicio() == null) return 0;

@@ -75,4 +75,12 @@ public class ContenedorController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PreAuthorize("hasRole('operador')")
+    @GetMapping("/pendientes")
+    public ResponseEntity<List<Contenedor>> obtenerPendientes() {
+        log.info("GET /api/contenedores/pendientes - Obteniendo contenedores pendientes (sin parámetros)");
+        List<Contenedor> pendientes = contenedorService.obtenerPendientes();
+        return ResponseEntity.ok(pendientes);
+    }
 }
