@@ -39,6 +39,10 @@ public class Tarifa {
     @Column(name = "precio_tramo", nullable = false, precision = 10, scale = 2)
     private BigDecimal precioTramo;
 
+    // Nuevo campo: precio por día de estadía en depósitos
+    @Column(name = "precio_estadia_dia", nullable = false, precision = 10, scale = 2)
+    private BigDecimal precioEstadiaDia;
+
     @Enumerated(EnumType.STRING)
     @Transient
     private TipoTarifa tipoTarifa;

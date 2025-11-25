@@ -38,6 +38,10 @@ public class TarifaDto {
     @DecimalMin(value = "0.01", message = "El precio del tramo debe ser mayor a 0")
     private BigDecimal precioTramo;
 
+    @NotNull(message = "El precio por día de estadía es obligatorio")
+    @DecimalMin(value = "0.00", message = "El precio por día de estadía no puede ser negativo")
+    private BigDecimal precioEstadiaDia;
+
     private String tipoTarifa;
     private String modalidadCalculo;
     private Boolean vigente;

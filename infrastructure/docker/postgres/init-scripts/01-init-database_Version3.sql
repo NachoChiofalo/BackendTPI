@@ -210,6 +210,8 @@ CREATE TABLE Tarifa (
     fecha_vigencia_inicio DATE NOT NULL,
     fecha_vigencia_fin DATE NOT NULL,
     precio_tramo DECIMAL(10,2) NOT NULL,
+    -- Nuevo campo: precio por día de estadía en depósitos
+    precio_estadia_dia DECIMAL(10,2) NOT NULL DEFAULT 0,
     PRIMARY KEY (tarifa_id)
 );
 

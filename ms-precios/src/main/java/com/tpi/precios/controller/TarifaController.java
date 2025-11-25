@@ -174,6 +174,7 @@ public class TarifaController {
                 .fechaVigenciaInicio(tarifa.getFechaVigenciaInicio())
                 .fechaVigenciaFin(tarifa.getFechaVigenciaFin())
                 .precioTramo(tarifa.getPrecioTramo())
+                .precioEstadiaDia(tarifa.getPrecioEstadiaDia())
                 .tipoTarifa(tarifa.getTipoTarifa() != null ? tarifa.getTipoTarifa().name() : null)
                 .modalidadCalculo(tarifa.getModalidadCalculo() != null ? tarifa.getModalidadCalculo().name() : null)
                 .vigente(tarifa.esVigente())
@@ -189,6 +190,7 @@ public class TarifaController {
                 .fechaVigenciaInicio(dto.getFechaVigenciaInicio())
                 .fechaVigenciaFin(dto.getFechaVigenciaFin())
                 .precioTramo(dto.getPrecioTramo())
+                .precioEstadiaDia(dto.getPrecioEstadiaDia())
                 .tipoTarifa(dto.getTipoTarifa() != null ? Tarifa.TipoTarifa.valueOf(dto.getTipoTarifa()) : null)
                 .modalidadCalculo(dto.getModalidadCalculo() != null ? Tarifa.ModalidadCalculo.valueOf(dto.getModalidadCalculo()) : null)
                 .build();

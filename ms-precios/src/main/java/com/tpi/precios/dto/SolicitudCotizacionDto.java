@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -34,4 +35,7 @@ public class SolicitudCotizacionDto {
     // Información del cliente
     private Integer tipoDocCliente;
     private Long numDocCliente;
+
+    // Lista de tramos (depósitos) intermedios: puede ser vacía o null
+    private List<TramoDto> tramos;
 }
