@@ -56,7 +56,7 @@ logging:
 
 # Configuración OSRM
 osrm:
-  base-url: http://localhost:5000
+  base-url: ${OSRM_URL:http://tpi-osrm:5000}
   profile: driving
   connection-timeout: 5000
   read-timeout: 10000
@@ -86,4 +86,3 @@ springdoc:
     - group: 'localizaciones-api'
       paths-to-match: '/api/localizaciones/**'
       packages-to-scan: 'com.tpi.localizaciones.controller'
-

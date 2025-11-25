@@ -9,47 +9,57 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.time.Duration;
+
 /**
  * INTEGRACIÓN CON API EXTERNA: OSRM (Open Source Routing Machine)
  * 
  * Servicio que integra con OSRM para calcular distancias y duraciones reales entre dos puntos.
- * OSRM es una alternativa open-source a Google Maps Directions API.
- * 
- * Configuración:
- * - osrm.base-url: URL del servidor OSRM (por defecto http://localhost:5000)
- * 
- * Uso:
- * - Recibe coordenadas en formato "longitud,latitud" (orden OSRM)
- * - Retorna distancia en kilómetros y duración estimada
- * - Utilizado para cumplir con el cálculo de recorridos entre origen-depósito-destino
  */
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class GeoService {
 
-    @Value("${osrm.base-url:http://localhost:5000}")
+    // El valor puede venir de application.properties (osrm.base-url) o de la variable de entorno OSRM_URL
+    @Value("${osrm.base-url:${OSRM_URL:http://tpi-osrm:5000}}")
     private String osrmBaseUrl;
 
     private final ObjectMapper mapper = new ObjectMapper();
 
+    // WebClient inyectado y configurado en WebClientConfig
+    private final WebClient osrmWebClient;
+
     public DistanciaDTO calcularDistancia(String origen, String destino) throws Exception {
-        // Origen y destino vienen en formato lat,long
         String origenTrim = origen.trim();
         String destinoTrim = destino.trim();
-        String url = osrmBaseUrl + "/route/v1/driving/" + origenTrim + ";" + destinoTrim + "?overview=false";
+        String coords = origenTrim + ";" + destinoTrim;
+
+        log.debug("Preparando llamada a OSRM baseUrl={} coords={}", osrmBaseUrl, coords);
 
         String body;
         try {
-            body = WebClient.create()
+            long start = System.nanoTime();
+            body = osrmWebClient
                     .get()
-                    .uri(url)
+                    .uri(uriBuilder -> uriBuilder
+                            .path("/route/v1/driving/{coords}")
+                            .queryParam("overview", "false")
+                            .build(coords))
                     .retrieve()
                     .bodyToMono(String.class)
-                    .block();
+                    .block(Duration.ofSeconds(15));
+            long elapsedMs = (System.nanoTime() - start) / 1_000_000;
+            log.debug("Respuesta de OSRM recibida en {} ms", elapsedMs);
         } catch (Exception e) {
-            log.error("Error llamando a OSRM: {}", e.getMessage());
+            // Loguear la excepción completa para facilitar diagnóstico (incluye ClosedChannelException si ocurre)
+            log.error("Error llamando a OSRM (baseUrl={}, coords={}): {}", osrmBaseUrl, coords, e.getMessage(), e);
             throw new RuntimeException("Error consultando OSRM", e);
+        }
+
+        if (body == null) {
+            log.error("Respuesta vacía de OSRM para coords={}", coords);
+            throw new RuntimeException("Respuesta vacía de OSRM");
         }
 
         JsonNode root = mapper.readTree(body);

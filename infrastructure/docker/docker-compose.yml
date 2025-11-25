@@ -61,7 +61,9 @@ services:
 #      - tpi-network
 
   osrm:
-    image: ghcr.io/project-osrm/osrm-backend:latest
+    build:
+      context: ./osrm
+      dockerfile: Dockerfile
     #platform: linux/arm64
     container_name: tpi-osrm
     ports:
@@ -71,11 +73,11 @@ services:
     command: osrm-routed --algorithm mld /data/argentina-251112.osrm
 
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5000/route/v1/driving/-64.18105,-31.4135;-60.6985,-32.9471?overview=false"]
+      test: ["CMD", "curl", "-sf", "http://127.0.0.1:5000/route/v1/driving/-64.18105,-31.4135;-60.6985,-32.9471?overview=false", "-o", "/dev/null"]
       interval: 30s
       timeout: 10s
-      retries: 3
-      start_period: 10s
+      retries: 10
+      start_period: 600s
     networks:
       - tpi-network
 
@@ -121,11 +123,14 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://tpi-postgres:5432/tpi_logistica
       - SPRING_DATASOURCE_USERNAME=tpi_user
       - SPRING_DATASOURCE_PASSWORD=tpi_pass
+      - OSRM_URL=http://tpi-osrm:5000
       - TZ=UTC
     depends_on:
       postgres:
         condition: service_healthy
       api-gateway:
+        condition: service_healthy
+      osrm:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8087/actuator/health"]
@@ -255,4 +260,3 @@ volumes:
 networks:
   tpi-network:
     driver: bridge
-

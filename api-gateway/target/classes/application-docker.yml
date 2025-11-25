@@ -1,0 +1,55 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: api-gateway
+
+  # Configuración de Spring Cloud Gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+      routes: []
+      default-filters:
+        - name: Retry
+          args:
+            retries: 3
+            statuses: BAD_GATEWAY,SERVICE_UNAVAILABLE
+            methods: GET,POST,PUT,DELETE
+
+  # Configuración de Security OAuth2 (JWT) para Docker
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://tpi-keycloak:8080/realms/TPI-BACKEND
+          jwk-set-uri: http://tpi-keycloak:8080/realms/TPI-BACKEND/protocol/openid-connect/certs
+
+# URLs de los microservicios para Docker (usando nombres de contenedor)
+microservices:
+  flotas:
+    url: http://tpi-ms-flotas:8081
+  solicitudes:
+    url: http://tpi-ms-solicitudes:8084
+  rutas:
+    url: http://tpi-ms-rutas:8085
+  precios:
+    url: http://tpi-ms-precios:8083
+  localizaciones:
+    url: http://tpi-ms-localizaciones:8087
+
+# Configuración de Circuit Breaker (Resilience4j)
+resilience4j:
+  circuitbreaker:
+    instances:
+      flotas-circuit-breaker:
+        register-health-indicator: true
+        sliding-window-size: 10
+
+# Configuración de logging
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty: INFO
