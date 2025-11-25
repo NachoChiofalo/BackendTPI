@@ -71,4 +71,32 @@ public class ClienteService {
             throw new RuntimeException("Cliente no encontrado");
         }
     }
+
+    @Transactional
+    public Cliente guardarSiNoExiste(Integer tipoDocClienteId, Long numDocCliente, Cliente clienteACrear) {
+        log.info("guardarSiNoExiste: {} - {}", tipoDocClienteId, numDocCliente);
+        Optional<Cliente> existente = clienteRepository.findByTipoDocClienteIdAndNumDocCliente(tipoDocClienteId, numDocCliente);
+        if (existente.isPresent()) {
+            log.info("Cliente ya existe: {}-{}", tipoDocClienteId, numDocCliente);
+            return existente.get();
+        }
+
+        if (clienteACrear == null) {
+            throw new RuntimeException("Datos insuficientes para crear cliente");
+        }
+
+        // Validar nombres/apellidos antes de crear
+        if (clienteACrear.getNombres() == null || clienteACrear.getNombres().trim().isEmpty()
+                || clienteACrear.getApellidos() == null || clienteACrear.getApellidos().trim().isEmpty()) {
+            log.warn("Intento de crear cliente sin nombres/apellidos: {} - {}", tipoDocClienteId, numDocCliente);
+            // Permitimos creación con placeholders para no bloquear flujo; pero registramos la advertencia
+            clienteACrear.setNombres(clienteACrear.getNombres() == null ? "SIN_NOMBRE" : clienteACrear.getNombres());
+            clienteACrear.setApellidos(clienteACrear.getApellidos() == null ? "SIN_APELLIDO" : clienteACrear.getApellidos());
+        }
+
+        clienteACrear.setTipoDocClienteId(tipoDocClienteId);
+        clienteACrear.setNumDocCliente(numDocCliente);
+        log.info("Cliente no existente: creando nuevo cliente {} {}", clienteACrear.getNombres(), clienteACrear.getApellidos());
+        return clienteRepository.save(clienteACrear);
+    }
 }

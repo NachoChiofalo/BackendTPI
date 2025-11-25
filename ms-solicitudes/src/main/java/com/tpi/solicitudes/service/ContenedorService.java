@@ -121,4 +121,36 @@ public class ContenedorService {
 
         return dtos;
     }
+
+    @Transactional
+    public Contenedor guardarSiNoExiste(Integer idContenedor, Contenedor contenedorACrear) {
+        log.info("guardarSiNoExiste contenedor idOpt={}", idContenedor);
+        if (idContenedor != null) {
+            Optional<Contenedor> existente = contenedorRepository.findById(idContenedor);
+            if (existente.isPresent()) return existente.get();
+            // si no existe, crearlo usando id proporcionado
+        }
+
+        // Si no se provee id o no existía, crear nuevo contenedor.
+        if (contenedorACrear == null) {
+            throw new RuntimeException("Datos insuficientes para crear contenedor");
+        }
+
+        // Si id no fue provisto, generar uno consultando el max id actual (riesgo de race condition)
+        if (contenedorACrear.getIdContenedor() == null) {
+            Optional<Contenedor> top = contenedorRepository.findTopByOrderByIdContenedorDesc();
+            int newId = top.map(c -> c.getIdContenedor() + 1).orElse(1);
+            contenedorACrear.setIdContenedor(newId);
+        }
+
+        if (contenedorACrear.getIdEstadoContenedor() == null) {
+            contenedorACrear.setIdEstadoContenedor(1); // 1 = Disponible por defecto
+        }
+
+        if (contenedorACrear.getPesoKg() == null || contenedorACrear.getVolumenM3() == null) {
+            throw new RuntimeException("Peso y volumen del contenedor son obligatorios para creación");
+        }
+
+        return contenedorRepository.save(contenedorACrear);
+    }
 }

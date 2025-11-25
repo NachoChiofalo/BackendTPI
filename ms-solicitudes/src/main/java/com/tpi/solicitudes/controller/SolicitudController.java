@@ -1,6 +1,7 @@
 package com.tpi.solicitudes.controller;
 
 import com.tpi.solicitudes.dto.SeguimientoDto;
+import com.tpi.solicitudes.dto.SolicitudCrearDto;
 import com.tpi.solicitudes.entity.Solicitud;
 import com.tpi.solicitudes.service.SeguimientoService;
 import com.tpi.solicitudes.service.SolicitudService;
@@ -47,10 +48,10 @@ public class SolicitudController {
      */
     @PreAuthorize("hasRole('cliente')")
     @PostMapping
-    public ResponseEntity<Solicitud> crear(@Valid @RequestBody Solicitud solicitud) {
+    public ResponseEntity<Solicitud> crear(@Valid @RequestBody SolicitudCrearDto solicitudDto) {
         log.info("POST /api/solicitudes - Creando nueva solicitud");
         try {
-            Solicitud solicitudGuardada = solicitudService.crear(solicitud);
+            Solicitud solicitudGuardada = solicitudService.crearConDetalles(solicitudDto);
             return ResponseEntity.status(HttpStatus.CREATED).body(solicitudGuardada);
         } catch (Exception e) {
             log.error("Error al crear solicitud: {}", e.getMessage());
