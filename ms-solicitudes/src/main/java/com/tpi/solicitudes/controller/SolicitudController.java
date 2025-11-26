@@ -151,6 +151,23 @@ public class SolicitudController {
         }
     }
 
+    /**
+     * FINALIZAR SOLICITUD (Operador)
+     * - Permite marcar una solicitud como finalizada y registrar los cálculos correspondientes
+     */
+    @PreAuthorize("hasRole('operador')")
+    @PostMapping("/{id}/finalizar")
+    public ResponseEntity<Solicitud> finalizarSolicitud(@PathVariable("id") Integer id) {
+        log.info("POST /api/solicitudes/{}/finalizar - Finalizando solicitud", id);
+        try {
+            Solicitud actualizada = solicitudService.finalizarYRegistrarCalculos(id);
+            return ResponseEntity.ok(actualizada);
+        } catch (RuntimeException e) {
+            log.error("Error finalizando solicitud {}: {}", id, e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     @GetMapping("/health")
     public ResponseEntity<String> health() {
         return ResponseEntity.ok("Solicitudes service is running");

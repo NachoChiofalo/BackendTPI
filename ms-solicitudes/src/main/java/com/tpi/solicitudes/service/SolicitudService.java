@@ -9,7 +9,15 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.ResourceAccessException;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
 import java.util.Optional;
@@ -139,6 +147,111 @@ public class SolicitudService {
                     return solicitudRepository.save(solicitud);
                 })
                 .orElseThrow(() -> new RuntimeException("Solicitud no encontrada con id: " + solicitudId));
+    }
+
+    /**
+     * Finaliza la solicitud y registra el tiempo real y costo real.
+     * Implementación mínima y síncrona: llama a ms-localizaciones para obtener coords y distancia
+     * y a ms-precios para calcular el precio. No crea archivos nuevos.
+     */
+    @Transactional
+    public Solicitud finalizarYRegistrarCalculos(Integer solicitudId) {
+        log.info("Finalizando solicitud {} y registrando cálculos reales (modo simple)", solicitudId);
+
+        Solicitud solicitud = solicitudRepository.findById(solicitudId)
+                .orElseThrow(() -> new RuntimeException("Solicitud no encontrada: " + solicitudId));
+
+        // Obtener contenedor para peso/volumen
+        Contenedor contenedor = contenedorService.obtenerPorId(solicitud.getIdContenedor())
+                .orElseThrow(() -> new RuntimeException("Contenedor no encontrado: " + solicitud.getIdContenedor()));
+
+        // RestTemplate local con timeouts cortos
+        SimpleClientHttpRequestFactory rf = new SimpleClientHttpRequestFactory();
+        rf.setConnectTimeout(5000);
+        rf.setReadTimeout(10000);
+        RestTemplate rt = new RestTemplate(rf);
+
+        // URLs ajustadas a la configuración de docker-compose
+        String msLocalBase = "http://ms-localizaciones:8087";
+        String msPreciosBase = "http://ms-precios:8083";
+
+        try {
+            // 1) Intentar obtener coordenadas y distancia desde ms-localizaciones (opcional)
+            Double kilometros = null;
+            String duracionTexto = null;
+            try {
+                @SuppressWarnings("unchecked")
+                Map<String, Object> origen = rt.getForObject(msLocalBase + "/api/ubicaciones/{id}", Map.class, solicitud.getIdUbicacionOrigen());
+                @SuppressWarnings("unchecked")
+                Map<String, Object> destino = rt.getForObject(msLocalBase + "/api/ubicaciones/{id}", Map.class, solicitud.getIdUbicacionDestino());
+
+                if (origen != null && destino != null) {
+                    String origenCoords = Objects.toString(origen.get("longitud"), "") + "," + Objects.toString(origen.get("latitud"), "");
+                    String destinoCoords = Objects.toString(destino.get("longitud"), "") + "," + Objects.toString(destino.get("latitud"), "");
+
+                    @SuppressWarnings("unchecked")
+                    Map<String, Object> distanciaResp = rt.getForObject(msLocalBase + "/api/distancia?origen={o}&destino={d}", Map.class, origenCoords, destinoCoords);
+
+                    if (distanciaResp != null) {
+                        Object kmObj = distanciaResp.get("kilometros");
+                        if (kmObj instanceof Number) kilometros = ((Number) kmObj).doubleValue();
+                        else if (kmObj != null) kilometros = Double.parseDouble(String.valueOf(kmObj));
+                        duracionTexto = distanciaResp.get("duracionTexto") != null ? String.valueOf(distanciaResp.get("duracionTexto")) : null;
+                    }
+                } else {
+                    log.warn("ms-localizaciones devolvió ubicaciones nulas para ids {} -> {}", solicitud.getIdUbicacionOrigen(), solicitud.getIdUbicacionDestino());
+                }
+            } catch (ResourceAccessException rae) {
+                // Fallback: ms-localizaciones no disponible (Connection refused), seguir con ms-precios
+                log.warn("ms-localizaciones no disponible (fallback): {}. Se continuará llamando a ms-precios para cálculo estimado", rae.getMessage());
+            }
+
+             // 3) Llamar a ms-precios para calcular el costo real usando /api/cotizaciones/calcular
+             Map<String, Object> payload = new HashMap<>();
+             payload.put("ubicacionOrigenId", solicitud.getIdUbicacionOrigen());
+             payload.put("ubicacionDestinoId", solicitud.getIdUbicacionDestino());
+             payload.put("pesoKg", contenedor.getPesoKg());
+             payload.put("volumenM3", contenedor.getVolumenM3());
+             payload.put("tipoServicio", null);
+             payload.put("esUrgente", false);
+             payload.put("observaciones", solicitud.getTextoAdicional());
+             payload.put("tipoDocCliente", solicitud.getTipoDocCliente());
+             payload.put("numDocCliente", solicitud.getNumDocCliente());
+
+             HttpHeaders headers = new HttpHeaders();
+             headers.setContentType(MediaType.APPLICATION_JSON);
+             HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(payload, headers);
+
+             @SuppressWarnings("unchecked")
+             Map<String, Object> precioResp = rt.postForObject(msPreciosBase + "/api/cotizaciones/calcular", requestEntity, Map.class);
+
+             BigDecimal precioFinal = null;
+             if (precioResp != null && precioResp.get("precioFinal") != null) {
+                 precioFinal = new BigDecimal(String.valueOf(precioResp.get("precioFinal")));
+             }
+
+             // 4) Guardar en la entidad solicitud: costoReal y marcar fechas (uso LocalDate por el modelo actual)
+             if (precioFinal != null) {
+                 solicitud.setCostoReal(precioFinal);
+             }
+
+             // Fecha inicio si no estaba y fecha fin en el mismo día (modelo usa LocalDate)
+             LocalDate hoy = LocalDate.now();
+             if (solicitud.getFechaHoraInicio() == null) solicitud.setFechaHoraInicio(hoy);
+             solicitud.setFechaHoraFin(hoy);
+
+             // Actualizar estado a entregada (4)
+             solicitud.setEstadoSolicitud(4);
+
+             Solicitud guardada = solicitudRepository.save(solicitud);
+
+             log.info("Solicitud {} actualizada: costoReal={} km={} duracion={}", solicitudId, precioFinal, kilometros, duracionTexto);
+             return guardada;
+
+         } catch (Exception e) {
+             log.error("Error finalizando solicitud {}: {}", solicitudId, e.getMessage(), e);
+             throw new RuntimeException("No se pudo finalizar y registrar cálculos: " + e.getMessage(), e);
+         }
     }
 
     // Obtener el estado actual de un contenedor para un cliente (una sola solicitud más reciente)
