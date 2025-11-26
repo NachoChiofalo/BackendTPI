@@ -21,7 +21,7 @@ public class ContenedorController {
 
     private final ContenedorService contenedorService;
 
-    @PreAuthorize("hasRole('cliente')")
+
     @GetMapping
     public ResponseEntity<List<Contenedor>> obtenerTodos() {
         log.info("GET /api/contenedores - Obteniendo todos los contenedores");

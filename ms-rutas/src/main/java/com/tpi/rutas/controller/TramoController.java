@@ -51,6 +51,7 @@ public class TramoController {
         return ResponseEntity.ok(tramoService.obtenerPorTransportista(transportistaId));
     }
 
+    @PreAuthorize("hasRole('transportista')")
     @PostMapping
     public ResponseEntity<Tramo> crear(@Valid @RequestBody Tramo tramo) {
         log.info("POST /api/tramos - Creando tramo ID: {}", tramo.getTramoId());
@@ -63,6 +64,7 @@ public class TramoController {
         }
     }
 
+    @PreAuthorize("hasRole('transportista')")
     @PutMapping("/{id}")
     public ResponseEntity<Tramo> actualizar(@PathVariable("id") Integer id, @Valid @RequestBody Tramo tramo) {
         log.info("PUT /api/tramos/{} - Actualizando", id);
@@ -136,6 +138,7 @@ public class TramoController {
     }
 
 
+    @PreAuthorize("hasRole('operador')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable("id") Integer id) {
         log.info("DELETE /api/tramos/{} - Eliminando", id);

@@ -114,6 +114,7 @@ public class RutaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PostMapping
     public ResponseEntity<Ruta> crear(@Valid @RequestBody Ruta ruta) {
         log.info("POST /api/rutas - Creando ruta con ID: {}", ruta.getRutaId());
@@ -126,6 +127,7 @@ public class RutaController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PutMapping("/{id}")
     public ResponseEntity<Ruta> actualizar(@PathVariable("id") Integer id, @Valid @RequestBody Ruta ruta) {
         log.info("PUT /api/rutas/{} - Actualizando", id);
@@ -193,6 +195,7 @@ public class RutaController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable("id") Integer id) {
         log.info("DELETE /api/rutas/{} - Eliminando", id);

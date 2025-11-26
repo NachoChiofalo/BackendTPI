@@ -26,8 +26,10 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/TPI-BACKEND
-          jwk-set-uri: http://localhost:8080/realms/TPI-BACKEND/protocol/openid-connect/certs
+          # Usar la URL provista por la variable de entorno KEYCLOAK_AUTH_SERVER_URL cuando esté disponible
+          # (desde Docker Compose se provee KEYCLOAK_AUTH_SERVER_URL=http://tpi-keycloak:8080)
+          issuer-uri: "${KEYCLOAK_AUTH_SERVER_URL:http://tpi-keycloak:8080}/realms/TPI-BACKEND"
+          jwk-set-uri: "${KEYCLOAK_AUTH_SERVER_URL:http://tpi-keycloak:8080}/realms/TPI-BACKEND/protocol/openid-connect/certs"
 
 # URLs de los microservicios (configuración estática)
 microservices:
@@ -111,6 +113,8 @@ logging:
     org.springframework.cloud.gateway: DEBUG
     com.tpi.gateway: INFO
     reactor.netty: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: TRACE
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
@@ -139,4 +143,3 @@ springdoc:
         name: Precios API
       - url: http://localhost:8087/v3/api-docs
         name: Localizaciones API
-

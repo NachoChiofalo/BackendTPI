@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
@@ -36,6 +37,7 @@ public class ClienteController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PostMapping
     public ResponseEntity<Cliente> crear(@Valid @RequestBody Cliente cliente) {
         log.info("POST /api/clientes - Creando cliente: {} {}", cliente.getNombres(), cliente.getApellidos());
@@ -48,6 +50,7 @@ public class ClienteController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PutMapping("/{tipoDocClienteId}/{numDocCliente}")
     public ResponseEntity<Cliente> actualizar(
             @PathVariable("tipoDocClienteId") Integer tipoDocClienteId,
@@ -63,6 +66,7 @@ public class ClienteController {
         }
     }
 
+    @PreAuthorize("hasRole('operador')")
     @DeleteMapping("/{tipoDocClienteId}/{numDocCliente}")
     public ResponseEntity<Void> eliminar(
             @PathVariable("tipoDocClienteId") Integer tipoDocClienteId,

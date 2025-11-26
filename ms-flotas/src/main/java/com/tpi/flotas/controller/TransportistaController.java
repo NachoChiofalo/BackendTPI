@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
@@ -44,6 +45,7 @@ public class TransportistaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PostMapping
     public ResponseEntity<Transportista> crear(@Valid @RequestBody TransportistaDto transportistaDto) {
         log.info("POST /api/transportistas - Creando nuevo transportista");
@@ -58,6 +60,7 @@ public class TransportistaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(transportistaGuardado);
     }
 
+    @PreAuthorize("hasRole('operador')")
     @PutMapping("/{id}")
     public ResponseEntity<Transportista> actualizar(@PathVariable("id") Integer id,
                                                    @Valid @RequestBody TransportistaDto transportistaDto) {

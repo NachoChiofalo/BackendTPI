@@ -6,6 +6,7 @@ import com.tpi.precios.service.CalculoPrecioService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
@@ -25,6 +26,7 @@ public class CotizacionController {
      * - Calcula estadía en depósitos (diferencia entre fechas de entrada/salida)
      * - Registra cálculo de tiempo real y costo real al finalizar
      */
+    @PreAuthorize("hasAnyRole('cliente', 'transportista', 'operador')")
     @PostMapping("/calcular")
     public ResponseEntity<CalculoPrecioDto> calcularPrecio(@Valid @RequestBody SolicitudCotizacionDto solicitud) {
         log.info("POST /api/cotizaciones/calcular - Calculando precio para cotización");
@@ -40,6 +42,7 @@ public class CotizacionController {
         }
     }
 
+    @PreAuthorize("hasAnyRole('cliente', 'transportista', 'operador')")
     @PostMapping("/calcular-con-tarifa")
     public ResponseEntity<CalculoPrecioDto> calcularPrecioConTarifa(@Valid @RequestBody CalculoPrecioDto calculoDto) {
         log.info("POST /api/cotizaciones/calcular-con-tarifa - Calculando precio con tarifa específica");

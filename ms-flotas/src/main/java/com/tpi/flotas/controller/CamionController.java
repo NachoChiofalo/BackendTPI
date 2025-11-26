@@ -143,6 +143,7 @@ public class CamionController {
     }
 
     // Nuevo endpoint para asignar un camión a un tramo (usa la lógica SQL en CamionService)
+    @PreAuthorize("hasRole('operador')")
     @PostMapping("/asignar")
     public ResponseEntity<Map<String, Object>> asignarCamionATramo(
             @RequestParam("tramoId") Integer tramoId,
