@@ -24,6 +24,7 @@ public class TarifaController {
 
     private final TarifaService tarifaService;
 
+    @PreAuthorize("hasAnyRole('cliente', 'transportista', 'operador')")
     @GetMapping
     public ResponseEntity<List<TarifaDto>> obtenerTodas() {
         log.info("GET /api/tarifas - Obteniendo todas las tarifas");
@@ -34,6 +35,7 @@ public class TarifaController {
         return ResponseEntity.ok(tarifasDto);
     }
 
+    @PreAuthorize("hasAnyRole('cliente', 'transportista', 'operador')")
     @GetMapping("/vigentes")
     public ResponseEntity<List<TarifaDto>> obtenerVigentes() {
         log.info("GET /api/tarifas/vigentes - Obteniendo tarifas vigentes");
@@ -44,6 +46,7 @@ public class TarifaController {
         return ResponseEntity.ok(tarifasDto);
     }
 
+    @PreAuthorize("hasAnyRole('cliente', 'transportista', 'operador')")
     @GetMapping("/vigente-actual")
     public ResponseEntity<TarifaDto> obtenerVigenteActual() {
         log.info("GET /api/tarifas/vigente-actual - Obteniendo tarifa vigente más reciente");
@@ -60,6 +63,7 @@ public class TarifaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PreAuthorize("hasAnyRole('cliente', 'transportista', 'operador')")
     @GetMapping("/vigentes-en")
     public ResponseEntity<List<TarifaDto>> obtenerVigentesEn(@RequestParam String fecha) {
         log.info("GET /api/tarifas/vigentes-en?fecha={} - Obteniendo tarifas vigentes en fecha", fecha);
@@ -76,6 +80,7 @@ public class TarifaController {
         }
     }
 
+    @PreAuthorize("hasAnyRole('cliente', 'transportista', 'operador')")
     @GetMapping("/por-rango")
     public ResponseEntity<List<TarifaDto>> obtenerPorRangoFechas(
             @RequestParam String fechaInicio,
@@ -95,6 +100,7 @@ public class TarifaController {
         }
     }
 
+    @PreAuthorize("hasAnyRole('cliente', 'transportista', 'operador')")
     @GetMapping("/vencen-proximamente")
     public ResponseEntity<List<TarifaDto>> obtenerQueVencenProximamente(
             @RequestParam(defaultValue = "30") int dias) {
@@ -106,6 +112,7 @@ public class TarifaController {
         return ResponseEntity.ok(tarifasDto);
     }
 
+    @PreAuthorize("hasAnyRole('cliente', 'transportista', 'operador')")
     @GetMapping("/futuras")
     public ResponseEntity<List<TarifaDto>> obtenerFuturas() {
         log.info("GET /api/tarifas/futuras - Obteniendo tarifas futuras");

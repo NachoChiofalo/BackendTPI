@@ -121,14 +121,6 @@ public class SecurityConfig {
                 .pathMatchers("/api/solicitudes/health").permitAll()
 
                 // Rutas de tarifas - endpoints básicos de lectura (GET)
-                .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/tarifas").permitAll()
-                .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/tarifas/vigentes").permitAll()
-                .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/tarifas/vigente-actual").permitAll()
-                .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/tarifas/{id}").permitAll()
-                .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/tarifas/vigentes-en").permitAll()
-                .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/tarifas/por-rango").permitAll()
-                .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/tarifas/vencen-proximamente").permitAll()
-                .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/tarifas/futuras").permitAll()
 
                 // Rutas de tramos - endpoints básicos de lectura (GET)
                 .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/tramos").permitAll()
@@ -139,8 +131,7 @@ public class SecurityConfig {
                 .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/ubicaciones").permitAll()
                 .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/ubicaciones/count").permitAll()
 
-                    //GeoController OSRM
-                    .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/distancia").permitAll()
+
 
 
 
