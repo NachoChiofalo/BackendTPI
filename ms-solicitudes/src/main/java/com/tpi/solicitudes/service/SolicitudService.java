@@ -97,7 +97,7 @@ public class SolicitudService {
                 .numDocCliente(clientePersistido.getNumDocCliente())
                 .estadoSolicitud(1) // 1 = BORRADOR
                 .idContenedor(contPersistido.getIdContenedor())
-                .idRuta(dto.getIdRuta() != null ? dto.getIdRuta() : 0)
+                .idRuta(dto.getIdRuta())
                 .idUbicacionOrigen(dto.getIdUbicacionOrigen())
                 .idUbicacionDestino(dto.getIdUbicacionDestino())
                 .costoEstimado(null)

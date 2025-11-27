@@ -38,7 +38,7 @@ public class Solicitud {
     @Column(name = "id_contenedor", nullable = false)
     private Integer idContenedor;
 
-    @Column(name = "id_ruta", nullable = false)
+    @Column(name = "id_ruta", nullable = true)
     private Integer idRuta;
 
     @Column(name = "id_ubicacion_origen", nullable = false)

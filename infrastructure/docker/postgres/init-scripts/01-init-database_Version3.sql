@@ -181,9 +181,9 @@ CREATE TABLE Tramo (
     ubicacion_destino_id INTEGER NOT NULL,
     costo_aproximado DECIMAL(10,2),
     costo_real DECIMAL(10,2),
-    fecha_hora_inicio DATE NOT NULL,
-    fecha_hora_fin DATE,
-    fecha_hora_estimada_fin DATE,
+    fecha_hora_inicio TIMESTAMP NOT NULL,
+    fecha_hora_fin TIMESTAMP,
+    fecha_hora_estimada_fin TIMESTAMP,
     PRIMARY KEY (tramo_id)
 );
 
@@ -193,8 +193,8 @@ CREATE TABLE Tramo (
 CREATE TABLE HistorialEstadoTramo (
     historial_tramo_id INTEGER NOT NULL,
     estado_tramo_id INTEGER NOT NULL,
-    fecha_inicio DATE NOT NULL,
-    fecha_fin DATE,
+    fecha_inicio TIMESTAMP NOT NULL,
+    fecha_fin TIMESTAMP,
     tramo_id INTEGER NOT NULL,
     PRIMARY KEY (historial_tramo_id)
 );
@@ -256,14 +256,14 @@ CREATE TABLE Solicitud (
     num_doc_cliente BIGINT NOT NULL,
     estado_solicitud INTEGER NOT NULL,
     id_contenedor INTEGER NOT NULL,
-    id_ruta INTEGER NOT NULL,
+    id_ruta INTEGER, -- Ahora puede ser NULL (no NOT NULL)
     id_ubicacion_origen INTEGER NOT NULL,
     id_ubicacion_destino INTEGER NOT NULL,
     costo_estimado DECIMAL(10,2),
     costo_real DECIMAL(10,2),
-    fecha_hora_fin DATE,
-    fecha_hora_estimada_fin DATE,
-    fecha_hora_inicio DATE,
+    fecha_hora_fin TIMESTAMP,
+    fecha_hora_estimada_fin TIMESTAMP,
+    fecha_hora_inicio TIMESTAMP,
     texto_adicional VARCHAR(100),
     PRIMARY KEY (solicitud_id)
 );
@@ -275,7 +275,7 @@ CREATE TABLE HistorialEstadoContenedor (
     historial_contenedor_id SERIAL PRIMARY KEY,
     id_estado_contenedor INTEGER NOT NULL,
     id_contenedor INTEGER,
-    fecha_inicio DATE NOT NULL
+    fecha_inicio TIMESTAMP NOT NULL
 );
 
 
@@ -563,11 +563,11 @@ INSERT INTO Ruta (ruta_id, cantidad_tramos, cantidad_depositos) VALUES
 
 -- Insertar Solicitud
 INSERT INTO Solicitud (solicitud_id, tipo_doc_cliente, num_doc_cliente, estado_solicitud, id_contenedor, id_ruta, id_ubicacion_origen, id_ubicacion_destino, costo_estimado, costo_real, fecha_hora_fin, fecha_hora_estimada_fin, fecha_hora_inicio, texto_adicional) VALUES
-(1, 1, 12345678, 3, 1, 1, 1, 3, 15000.00, NULL, NULL, '2024-11-15', '2024-11-10', 'Mercadería frágil - manipular con cuidado'),
-(2, 2, 30123456789, 4, 2, 2, 3, 5, 22500.00, 21800.00, NULL, '2024-11-12', '2024-11-08', 'Carga industrial pesada'),
-(3, 1, 23456789, 5, 3, 3, 2, 4, 8500.00, 8200.00, '2024-11-05', '2024-11-05', '2024-11-03', 'Entrega urgente completada'),
-(4, 1, 34567890, 1, 4, 4, 4, 7, 28000.00, NULL, NULL, '2024-11-20', NULL, 'Solicitud de transporte interprovincial'),
-(5, 2, 30234567890, 2, 5, 5, 5, 6, 12000.00, NULL, NULL, '2024-11-18', '2024-11-11', 'Productos perecederos - refrigeración requerida');
+(1, 1, 12345678, 3, 1, 1, 1, 3, 15000.00, NULL, NULL, '2024-11-15 10:30:00', '2024-11-10 08:00:00', 'Mercadería frágil - manipular con cuidado'),
+(2, 2, 30123456789, 4, 2, 2, 3, 5, 22500.00, 21800.00, NULL, '2024-11-12 09:00:00', '2024-11-08 07:45:00', 'Carga industrial pesada'),
+(3, 1, 23456789, 5, 3, 3, 2, 4, 8500.00, 8200.00, '2024-11-05 18:15:00', '2024-11-05 18:00:00', '2024-11-03 16:30:00', 'Entrega urgente completada'),
+(4, 1, 34567890, 1, 4, 4, 4, 7, 28000.00, NULL, NULL, '2024-11-20 14:00:00', NULL, 'Solicitud de transporte interprovincial'),
+(5, 2, 30234567890, 2, 5, 5, 5, 6, 12000.00, NULL, NULL, '2024-11-18 11:00:00', '2024-11-11 09:30:00', 'Productos perecederos - refrigeración requerida');
 
 -- Insertar EstadoTramo
 INSERT INTO EstadoTramo (estado_tramo_id, nombre, descripcion) VALUES
@@ -580,35 +580,35 @@ INSERT INTO EstadoTramo (estado_tramo_id, nombre, descripcion) VALUES
 
 -- Insertar Tramo
 INSERT INTO Tramo (tramo_id, ruta_id, tipo_tramo_id, dominio, ubicacion_origen_id, transportista_id, ubicacion_destino_id, costo_aproximado, costo_real, fecha_hora_inicio, fecha_hora_fin, fecha_hora_estimada_fin) VALUES
-(1, 1, 3, 'ABC123', 1, 1, 2, 8000.00, 7800.00, '2024-11-10', '2024-11-10', '2024-11-10'),
-(2, 1, 3, 'ABC123', 2, 1, 3, 7000.00, NULL, '2024-11-11', NULL, '2024-11-11'),
-(3, 2, 4, 'DEF456', 3, 2, 1, 12000.00, 11500.00, '2024-11-08', '2024-11-09', '2024-11-09'),
-(4, 2, 2, 'DEF456', 1, 2, 4, 6500.00, NULL, '2024-11-10', NULL, '2024-11-10'),
-(5, 2, 3, 'DEF456', 4, 2, 5, 8000.00, NULL, '2024-11-11', NULL, '2024-11-12'),
-(6, 3, 5, 'MNO345', 2, 5, 4, 8500.00, 8200.00, '2024-11-03', '2024-11-05', '2024-11-05'),
-(7, 4, 1, 'JKL012', 4, 4, 6, 15000.00, NULL, '2024-11-15', NULL, '2024-11-16'),
-(8, 5, 2, 'GHI789', 5, 3, 6, 12000.00, NULL, '2024-11-11', NULL, '2024-11-13');
+(1, 1, 3, 'ABC123', 1, 1, 2, 8000.00, 7800.00, '2024-11-10 08:00:00', '2024-11-10 10:00:00', '2024-11-10 09:30:00'),
+(2, 1, 3, 'ABC123', 2, 1, 3, 7000.00, NULL, '2024-11-11 08:00:00', NULL, '2024-11-11 09:00:00'),
+(3, 2, 4, 'DEF456', 3, 2, 1, 12000.00, 11500.00, '2024-11-08 07:00:00', '2024-11-09 09:00:00', '2024-11-09 08:30:00'),
+(4, 2, 2, 'DEF456', 1, 2, 4, 6500.00, NULL, '2024-11-10 07:30:00', NULL, '2024-11-10 08:30:00'),
+(5, 2, 3, 'DEF456', 4, 2, 5, 8000.00, NULL, '2024-11-11 08:00:00', NULL, '2024-11-12 09:00:00'),
+(6, 3, 5, 'MNO345', 2, 5, 4, 8500.00, 8200.00, '2024-11-03 14:00:00', '2024-11-05 10:00:00', '2024-11-05 09:30:00'),
+(7, 4, 1, 'JKL012', 4, 4, 6, 15000.00, NULL, '2024-11-15 08:00:00', NULL, '2024-11-16 09:00:00'),
+(8, 5, 2, 'GHI789', 5, 3, 6, 12000.00, NULL, '2024-11-11 08:00:00', NULL, '2024-11-13 09:00:00');
 
 -- Insertar HistorialEstadoContenedor
 INSERT INTO HistorialEstadoContenedor (id_estado_contenedor, id_contenedor, fecha_inicio) VALUES
-(1, 1, '2024-11-01'),
-(2, 2, '2024-11-08'),
-(3, 2, '2024-11-08'),
-(4, 3, '2024-11-03'),
-(1, 4, '2024-11-01'),
-(2, 5, '2024-11-11');
+(1, 1, '2024-11-01 10:00:00'),
+(2, 2, '2024-11-08 09:00:00'),
+(3, 2, '2024-11-08 09:00:00'),
+(4, 3, '2024-11-03 10:00:00'),
+(1, 4, '2024-11-01 10:00:00'),
+(2, 5, '2024-11-11 09:00:00');
 
 -- Insertar HistorialEstadoTramo
 INSERT INTO HistorialEstadoTramo (historial_tramo_id, estado_tramo_id, fecha_inicio, fecha_fin, tramo_id) VALUES
-(1, 1, '2024-11-09', '2024-11-10', 1),
-(2, 2, '2024-11-10', '2024-11-10', 1),
-(3, 3, '2024-11-10', NULL, 1),
-(4, 1, '2024-11-10', '2024-11-11', 2),
-(5, 2, '2024-11-11', NULL, 2),
-(6, 3, '2024-11-03', '2024-11-05', 6),
-(7, 1, '2024-11-08', '2024-11-08', 3),
-(8, 2, '2024-11-08', '2024-11-09', 3),
-(9, 3, '2024-11-09', NULL, 3);
+(1, 1, '2024-11-09 10:00:00', '2024-11-10 10:00:00', 1),
+(2, 2, '2024-11-10 10:00:00', '2024-11-10 10:00:00', 1),
+(3, 3, '2024-11-10 10:00:00', NULL, 1),
+(4, 1, '2024-11-10 10:00:00', '2024-11-11 10:00:00', 2),
+(5, 2, '2024-11-11 10:00:00', NULL, 2),
+(6, 3, '2024-11-03 10:00:00', '2024-11-05 10:00:00', 6),
+(7, 1, '2024-11-08 10:00:00', '2024-11-08 10:00:00', 3),
+(8, 2, '2024-11-08 10:00:00', '2024-11-09 10:00:00', 3),
+(9, 3, '2024-11-09 10:00:00', NULL, 3);
 
 -- ================================================
 -- ÍNDICES PARA OPTIMIZACIÓN
