@@ -4,6 +4,7 @@ import com.tpi.localizaciones.dto.DistanciaDTO;
 import com.tpi.localizaciones.service.GeoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +34,7 @@ public class GeoController {
 
     private final GeoService geoService;
 
+    @PreAuthorize("hasAnyRole('cliente', 'transportista', 'operador')")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public DistanciaDTO obtenerDistancia(
             @RequestParam("origen") String origen,
