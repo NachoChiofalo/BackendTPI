@@ -17,7 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.List;
 import java.util.Optional;
@@ -97,7 +97,7 @@ public class SolicitudService {
                 .numDocCliente(clientePersistido.getNumDocCliente())
                 .estadoSolicitud(1) // 1 = BORRADOR
                 .idContenedor(contPersistido.getIdContenedor())
-                .idRuta(dto.getIdRuta() != null ? dto.getIdRuta() : 0)
+                .idRuta(dto.getIdRuta())
                 .idUbicacionOrigen(dto.getIdUbicacionOrigen())
                 .idUbicacionDestino(dto.getIdUbicacionDestino())
                 .costoEstimado(null)
@@ -230,15 +230,15 @@ public class SolicitudService {
                  precioFinal = new BigDecimal(String.valueOf(precioResp.get("precioFinal")));
              }
 
-             // 4) Guardar en la entidad solicitud: costoReal y marcar fechas (uso LocalDate por el modelo actual)
+             // 4) Guardar en la entidad solicitud: costoReal y marcar fechas (uso LocalDateTime ahora)
              if (precioFinal != null) {
                  solicitud.setCostoReal(precioFinal);
              }
 
-             // Fecha inicio si no estaba y fecha fin en el mismo día (modelo usa LocalDate)
-             LocalDate hoy = LocalDate.now();
-             if (solicitud.getFechaHoraInicio() == null) solicitud.setFechaHoraInicio(hoy);
-             solicitud.setFechaHoraFin(hoy);
+             // Fecha inicio si no estaba y fecha fin ahora
+             LocalDateTime ahora = LocalDateTime.now();
+             if (solicitud.getFechaHoraInicio() == null) solicitud.setFechaHoraInicio(ahora);
+             solicitud.setFechaHoraFin(ahora);
 
              // Actualizar estado a entregada (4)
              solicitud.setEstadoSolicitud(4);
