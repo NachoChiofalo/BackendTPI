@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,11 +59,14 @@ public class SeguimientoService {
                     .build());
         }
 
-        // Ordenar historial por fecha
+        // Ordenar historial por fecha (LocalDateTime)
         historial.sort((h1, h2) -> {
-            if (h1.getFecha() == null) return 1;
-            if (h2.getFecha() == null) return -1;
-            return h1.getFecha().compareTo(h2.getFecha());
+            LocalDateTime f1 = h1.getFecha();
+            LocalDateTime f2 = h2.getFecha();
+            if (f1 == null && f2 == null) return 0;
+            if (f1 == null) return 1;
+            if (f2 == null) return -1;
+            return f1.compareTo(f2);
         });
 
         String estadoActual = determinarEstadoActual(solicitud, historial);

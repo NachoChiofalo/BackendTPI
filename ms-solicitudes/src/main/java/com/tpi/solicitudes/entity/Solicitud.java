@@ -1,5 +1,6 @@
 package com.tpi.solicitudes.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Entidad Solicitud - Representa las solicitudes de transporte de contenedores
@@ -53,13 +54,16 @@ public class Solicitud {
     private BigDecimal costoReal;
 
     @Column(name = "fecha_hora_fin")
-    private LocalDate fechaHoraFin;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime fechaHoraFin;
 
     @Column(name = "fecha_hora_estimada_fin")
-    private LocalDate fechaHoraEstimadaFin;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime fechaHoraEstimadaFin;
 
     @Column(name = "fecha_hora_inicio")
-    private LocalDate fechaHoraInicio;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime fechaHoraInicio;
 
     @Column(name = "texto_adicional", length = 100)
     private String textoAdicional;
