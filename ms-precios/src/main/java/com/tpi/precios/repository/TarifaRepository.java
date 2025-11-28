@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface TarifaRepository extends JpaRepository<Tarifa, Integer> {
@@ -21,9 +20,9 @@ public interface TarifaRepository extends JpaRepository<Tarifa, Integer> {
     @Query("SELECT t FROM Tarifa t WHERE CURRENT_DATE BETWEEN t.fechaVigenciaInicio AND t.fechaVigenciaFin")
     List<Tarifa> findTarifasVigentes();
 
-    // Buscar la tarifa más reciente vigente
+    // Buscar las tarifas vigentes actualmente ordenadas por fecha de inicio descendente (más reciente primero)
     @Query("SELECT t FROM Tarifa t WHERE CURRENT_DATE BETWEEN t.fechaVigenciaInicio AND t.fechaVigenciaFin ORDER BY t.fechaVigenciaInicio DESC")
-    Optional<Tarifa> findTarifaVigenteMasReciente();
+    List<Tarifa> findTarifasVigentesOrdenadasPorInicioDesc();
 
     // Buscar tarifas por rango de fechas
     @Query("SELECT t FROM Tarifa t WHERE t.fechaVigenciaInicio >= :fechaInicio AND t.fechaVigenciaFin <= :fechaFin")

@@ -83,11 +83,33 @@ public class TramoController {
      * - Valida disponibilidad y capacidad del camión
      */
     @PreAuthorize("hasRole('operador')")
-    @PutMapping("/{tramoId}/asignar-camion")
+    @PutMapping("/rutas/{rutaId}/tramos/{tramoId}/asignar-camion")
     public ResponseEntity<Tramo> asignarCamion(
+            @PathVariable("rutaId") Integer rutaId,
             @PathVariable("tramoId") Integer tramoId,
             @RequestBody Map<String, String> request) {
-        log.info("PUT /api/tramos/{}/asignar-camion - Asignando camión", tramoId);
+        log.info("PUT /api/tramos/rutas/{}/tramos/{}/asignar-camion - Asignando camión", rutaId, tramoId);
+        try {
+            String dominio = request.get("dominio");
+            if (dominio == null || dominio.isEmpty()) {
+                return ResponseEntity.badRequest().build();
+            }
+            Tramo actualizado = tramoService.asignarCamion(rutaId, tramoId, dominio);
+            return ResponseEntity.ok(actualizado);
+        } catch (RuntimeException e) {
+            log.error("Error al asignar camión al tramo {} de la ruta {}: {}", tramoId, rutaId, e.getMessage());
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    // Endpoint antiguo por compatibilidad: mantiene la funcionalidad previa (sin validar ruta)
+    @Deprecated
+    @PreAuthorize("hasRole('operador')")
+    @PutMapping("/{tramoId}/asignar-camion")
+    public ResponseEntity<Tramo> asignarCamionCompat(
+            @PathVariable("tramoId") Integer tramoId,
+            @RequestBody Map<String, String> request) {
+        log.info("PUT /api/tramos/{}/asignar-camion (compat) - Asignando camión sin validar ruta", tramoId);
         try {
             String dominio = request.get("dominio");
             if (dominio == null || dominio.isEmpty()) {

@@ -36,7 +36,13 @@ public class TarifaService {
 
     public Optional<Tarifa> obtenerTarifaVigenteMasReciente() {
         log.info("Obteniendo tarifa vigente más reciente");
-        return tarifaRepository.findTarifaVigenteMasReciente();
+        List<Tarifa> vigentes = tarifaRepository.findTarifasVigentesOrdenadasPorInicioDesc();
+        if (vigentes == null || vigentes.isEmpty()) return Optional.empty();
+        if (vigentes.size() > 1) {
+            log.warn("Se encontraron {} tarifas vigentes; se utilizará la más reciente con fechaInicio={} (tarifaId={})",
+                    vigentes.size(), vigentes.get(0).getFechaVigenciaInicio(), vigentes.get(0).getTarifaId());
+        }
+        return Optional.of(vigentes.get(0));
     }
 
     public List<Tarifa> obtenerTarifasVigentesEn(LocalDate fecha) {

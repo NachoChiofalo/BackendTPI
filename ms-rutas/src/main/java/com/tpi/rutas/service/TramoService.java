@@ -86,6 +86,18 @@ public class TramoService {
                 .orElseThrow(() -> new RuntimeException("Tramo no encontrado con id: " + tramoId));
     }
 
+    // Nuevo método: asignar con validación explícita de rutaId + tramoId
+    @Transactional
+    public Tramo asignarCamion(Integer rutaId, Integer tramoId, String dominio) {
+        log.info("Asignando camión {} al tramo {} de la ruta {}", dominio, tramoId, rutaId);
+        return tramoRepository.findByTramoIdAndRutaId(tramoId, rutaId)
+                .map(tramo -> {
+                    tramo.setDominio(dominio);
+                    return tramoRepository.save(tramo);
+                })
+                .orElseThrow(() -> new RuntimeException("Tramo no encontrado con id: " + tramoId + " para la ruta: " + rutaId));
+    }
+
     /**
      * REGLA DE NEGOCIO 7 (parte 1): Determinar el inicio de un tramo
      * Los tramos deben registrar fechas estimadas y reales para calcular el desempeño del servicio

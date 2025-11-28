@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -222,8 +223,18 @@ public class SolicitudService {
              headers.setContentType(MediaType.APPLICATION_JSON);
              HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(payload, headers);
 
+             // Manejar errores 4xx de ms-precios (por ejemplo: no hay tarifas vigentes -> RuntimeException en el servicio)
              @SuppressWarnings("unchecked")
-             Map<String, Object> precioResp = rt.postForObject(msPreciosBase + "/api/cotizaciones/calcular", requestEntity, Map.class);
+             Map<String, Object> precioResp = null;
+             try {
+                 precioResp = rt.postForObject(msPreciosBase + "/api/cotizaciones/calcular", requestEntity, Map.class);
+             } catch (HttpClientErrorException hce) {
+                 // ms-precios devolvió 4xx (ej. 400 cuando no hay tarifas vigentes). No abortar la finalización; solo loggear y continuar con precio null.
+                 String body = "";
+                 try { body = hce.getResponseBodyAsString(); } catch (Exception ex) { /* ignore */ }
+                 log.warn("ms-precios respondió con error {}: {} - cuerpo='{}' - se hará fallback sin costoReal", hce.getStatusCode(), hce.getMessage(), body);
+                 precioResp = null;
+             }
 
              BigDecimal precioFinal = null;
              if (precioResp != null && precioResp.get("precioFinal") != null) {
