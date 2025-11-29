@@ -58,8 +58,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
 
             String token = authHeader.substring(7);
 
-            // Aquí se podría agregar validación adicional del JWT
-            // Por ahora, solo verificamos que el token no esté vacío
+
             if (token.trim().isEmpty()) {
                 return handleUnauthorized(exchange, "Token vacío");
             }
