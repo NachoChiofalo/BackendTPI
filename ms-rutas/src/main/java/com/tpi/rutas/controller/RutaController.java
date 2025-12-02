@@ -127,6 +127,22 @@ public class RutaController {
         }
     }
 
+    /**
+     * Endpoint interno para uso entre microservicios - Sin autenticación
+     * Permite a otros microservicios crear rutas automáticamente
+     */
+    @PostMapping("/interno")
+    public ResponseEntity<Ruta> crearInterno(@RequestBody Ruta ruta) {
+        log.info("POST /api/rutas/interno - Creando ruta con ID: {} (llamada interna)", ruta.getRutaId());
+        try {
+            Ruta guardada = rutaService.guardar(ruta);
+            return ResponseEntity.status(HttpStatus.CREATED).body(guardada);
+        } catch (Exception e) {
+            log.error("Error al crear ruta: {}", e.getMessage());
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
     @PreAuthorize("hasRole('operador')")
     @PutMapping("/{id}")
     public ResponseEntity<Ruta> actualizar(@PathVariable("id") Integer id, @Valid @RequestBody Ruta ruta) {

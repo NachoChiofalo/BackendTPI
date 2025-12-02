@@ -213,6 +213,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://tpi-postgres:5432/tpi_logistica
       - SPRING_DATASOURCE_USERNAME=tpi_user
       - SPRING_DATASOURCE_PASSWORD=tpi_pass
+      - MS_LOCALIZACIONES_URL=http://tpi-ms-localizaciones:8087
+      - MS_RUTAS_URL=http://tpi-ms-rutas:8085
       - TZ=UTC
     depends_on:
       postgres:

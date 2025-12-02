@@ -4,6 +4,7 @@ D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-solicitudes\src\main\java\
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-solicitudes\src\main\java\com\tpi\solicitudes\repository\ClienteRepository.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-solicitudes\src\main\java\com\tpi\solicitudes\dto\SeguimientoDto.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-solicitudes\src\main\java\com\tpi\solicitudes\dto\SolicitudDto.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-solicitudes\src\main\java\com\tpi\solicitudes\dto\TramoCrearDto.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-solicitudes\src\main\java\com\tpi\solicitudes\entity\ClienteId.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-solicitudes\src\main\java\com\tpi\solicitudes\dto\ClienteDto.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-solicitudes\src\main\java\com\tpi\solicitudes\repository\SolicitudRepository.java

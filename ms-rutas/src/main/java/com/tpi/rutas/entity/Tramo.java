@@ -31,7 +31,7 @@ public class Tramo {
     @Column(name = "tipo_tramo_id", nullable = false)
     private Integer tipoTramoId;
 
-    @Column(name = "dominio", nullable = false, length = 7)
+    @Column(name = "dominio", nullable = true, length = 7)  // Permite null para tramos sin camión asignado
     private String dominio;
 
     @Column(name = "ubicacion_origen_id", nullable = false)

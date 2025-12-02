@@ -64,6 +64,22 @@ public class TramoController {
         }
     }
 
+    /**
+     * Endpoint interno para uso entre microservicios - Sin autenticación
+     * Permite a otros microservicios crear tramos automáticamente
+     */
+    @PostMapping("/interno")
+    public ResponseEntity<Tramo> crearInterno(@RequestBody Tramo tramo) {
+        log.info("POST /api/tramos/interno - Creando tramo ID: {} (llamada interna)", tramo.getTramoId());
+        try {
+            Tramo guardado = tramoService.guardar(tramo);
+            return ResponseEntity.status(HttpStatus.CREATED).body(guardado);
+        } catch (Exception e) {
+            log.error("Error al crear tramo: {}", e.getMessage());
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
     @PreAuthorize("hasRole('transportista')")
     @PutMapping("/{id}")
     public ResponseEntity<Tramo> actualizar(@PathVariable("id") Integer id, @Valid @RequestBody Tramo tramo) {
