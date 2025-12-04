@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Entidad Tramo - Representa cada segmento individual de una ruta
@@ -31,13 +31,13 @@ public class Tramo {
     @Column(name = "tipo_tramo_id", nullable = false)
     private Integer tipoTramoId;
 
-    @Column(name = "dominio", nullable = true, length = 7)  // Permite null para tramos sin camión asignado
+    @Column(name = "dominio", length = 7)  // Permite null para tramos sin camión asignado
     private String dominio;
 
     @Column(name = "ubicacion_origen_id", nullable = false)
     private Integer ubicacionOrigenId;
 
-    @Column(name = "transportista_id", nullable = false)
+    @Column(name = "transportista_id")  // Permite null hasta que se asigne manualmente
     private Integer transportistaId;
 
     @Column(name = "ubicacion_destino_id", nullable = false)
@@ -49,14 +49,14 @@ public class Tramo {
     @Column(name = "costo_real", precision = 10, scale = 2)
     private BigDecimal costoReal;
 
-    @Column(name = "fecha_hora_inicio", nullable = false)
-    private LocalDate fechaHoraInicio;
+    @Column(name = "fecha_hora_inicio")
+    private LocalDateTime fechaHoraInicio;
 
     @Column(name = "fecha_hora_fin")
-    private LocalDate fechaHoraFin;
+    private LocalDateTime fechaHoraFin;
 
     @Column(name = "fecha_hora_estimada_fin")
-    private LocalDate fechaHoraEstimadaFin;
+    private LocalDateTime fechaHoraEstimadaFin;
 }
 
 

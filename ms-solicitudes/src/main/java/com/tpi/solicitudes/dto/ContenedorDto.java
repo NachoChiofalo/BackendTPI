@@ -14,26 +14,19 @@ import java.math.BigDecimal;
 @Builder
 public class ContenedorDto {
 
-    @NotBlank
-    @Size(max = 50)
-    private String identificacion;
+    private Integer idContenedor;
+
+    private Integer idEstadoContenedor;
+
+    private String nombreEstado;
 
     @NotNull
-    private BigDecimal peso;
+    private BigDecimal volumenM3;
 
     @NotNull
-    private BigDecimal volumen;
+    private BigDecimal pesoKg;
 
-    @Size(max = 200)
-    private String descripcion;
-
-    private String estado;
-
-    private String tipoContenedor;
-
-    private Long clienteId;
-
-    private BigDecimal ubicacionActualLatitud;
-    private BigDecimal ubicacionActualLongitud;
-    private String ubicacionDescripcion;
+    // Información del cliente asociado a través de la solicitud
+    private Integer tipoDocCliente;
+    private Long numDocCliente;
 }

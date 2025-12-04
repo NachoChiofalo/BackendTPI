@@ -5,6 +5,7 @@ com\tpi\flotas\dto\CamionDto.class
 com\tpi\flotas\entity\Camion$CamionBuilder.class
 com\tpi\flotas\dto\TransportistaDto.class
 com\tpi\flotas\dto\TransportistaDto$TransportistaDtoBuilder.class
+com\tpi\flotas\dto\TransportistaDto$TransportistaInfoDto.class
 com\tpi\flotas\controller\TransportistaController.class
 com\tpi\flotas\dto\CamionDto$CamionDtoBuilder.class
 com\tpi\flotas\controller\CamionController.class
@@ -14,3 +15,4 @@ com\tpi\flotas\entity\Transportista$TransportistaBuilder.class
 com\tpi\flotas\repository\TransportistaRepository.class
 com\tpi\flotas\config\SwaggerConfig.class
 com\tpi\flotas\entity\Camion.class
+com\tpi\flotas\dto\TransportistaDto$TransportistaInfoDto$TransportistaInfoDtoBuilder.class

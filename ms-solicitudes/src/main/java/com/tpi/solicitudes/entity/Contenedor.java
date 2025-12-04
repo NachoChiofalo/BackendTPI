@@ -27,6 +27,10 @@ public class Contenedor {
     @Column(name = "id_estado_contenedor", nullable = false)
     private Integer idEstadoContenedor;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_estado_contenedor", insertable = false, updatable = false)
+    private EstadoContenedor estadoContenedor;
+
     @Column(name = "volumen_m3", nullable = false, precision = 10, scale = 2)
     private BigDecimal volumenM3;
 

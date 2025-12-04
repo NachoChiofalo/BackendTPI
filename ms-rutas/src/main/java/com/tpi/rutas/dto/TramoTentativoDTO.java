@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -20,10 +20,10 @@ public class TramoTentativoDTO {
     private Integer ubicacionOrigenId;
     private Integer ubicacionDestinoId;
     private Integer transportistaId;
+    private BigDecimal distanciaKm;
     private BigDecimal costoAproximado;
-    private BigDecimal costoReal;
-    private LocalDate fechaHoraInicio;
-    private LocalDate fechaHoraEstimadaFin;
-    private LocalDate fechaHoraFin;
+    private LocalDateTime fechaHoraInicio;
+    private LocalDateTime fechaHoraEstimadaFin;
+    private LocalDateTime fechaHoraFin;
 }
 

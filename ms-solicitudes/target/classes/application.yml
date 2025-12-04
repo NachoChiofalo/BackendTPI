@@ -9,6 +9,7 @@ spring:
     exclude:
       - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
       - org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration
 
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/tpi_logistica?TimeZone=UTC}
@@ -49,6 +50,11 @@ logging:
   level:
     com.tpi.solicitudes: DEBUG
     org.hibernate.SQL: DEBUG
+
+# Configuración de microservicios
+rutas:
+  service:
+    url: ${RUTAS_SERVICE_URL:http://ms-rutas:8085}
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 # Configuración de Swagger/OpenAPI

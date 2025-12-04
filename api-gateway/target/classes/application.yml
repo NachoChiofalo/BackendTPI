@@ -36,7 +36,7 @@ microservices:
   flotas:
     url: http://localhost:8081
   solicitudes:
-    url: http://localhost:8084
+    url: ${MICROSERVICES_SOLICITUDES_URL:http://localhost:8084}
   rutas:
     url: http://localhost:8085
   precios:

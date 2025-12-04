@@ -175,13 +175,13 @@ CREATE TABLE Tramo (
     tramo_id INTEGER NOT NULL,
     ruta_id INTEGER NOT NULL,
     tipo_tramo_id INTEGER NOT NULL,
-    dominio VARCHAR(7) NOT NULL,
+    dominio VARCHAR(7),
     ubicacion_origen_id INTEGER NOT NULL,
     transportista_id INTEGER NOT NULL,
     ubicacion_destino_id INTEGER NOT NULL,
     costo_aproximado DECIMAL(10,2),
     costo_real DECIMAL(10,2),
-    fecha_hora_inicio TIMESTAMP NOT NULL,
+    fecha_hora_inicio TIMESTAMP,
     fecha_hora_fin TIMESTAMP,
     fecha_hora_estimada_fin TIMESTAMP,
     PRIMARY KEY (tramo_id)
@@ -506,17 +506,16 @@ INSERT INTO Usuario (usuario_id, username, password, id_cliente, tipo_usuario_id
 
 -- Insertar TipoTramo
 INSERT INTO TipoTramo (tipo_tramo_id, nombre, descripcion) VALUES
-(1, 'Urbano', 'Tramo dentro de la ciudad'),
-(2, 'Interurbano', 'Tramo entre ciudades cercanas'),
-(3, 'Interprovincial', 'Tramo entre provincias'),
-(4, 'Con Depósito', 'Tramo que incluye parada en depósito'),
-(5, 'Directo', 'Tramo directo sin paradas intermedias');
+	(1, 'Origen-Destino', 'Tramo directo entre origen y destino'),
+	(2, 'Origen-Deposito', 'Tramo desde origen a depósito'),
+	(3, 'Deposito-Deposito', 'Tramo entre dos depósitos'),
+	(4, 'Deposito-Destino', 'Tramo desde depósito a destino'),
 
 -- Insertar Tarifa
 INSERT INTO Tarifa (tarifa_id, precio_combustible_litro, precio_km_kg, precio_km_m3, fecha_vigencia_inicio, fecha_vigencia_fin, precio_tramo) VALUES
-(1, 150.50, 2.75, 1.85, '2024-01-01', '2024-12-31', 5000.00),
-(2, 155.75, 2.80, 1.90, '2024-07-01', '2024-12-31', 5200.00),
-(3, 148.25, 2.70, 1.80, '2024-01-01', '2024-06-30', 4800.00);
+	(1, 150.50, 2.75, 1.85, '2024-01-01', '2024-12-31', 5000.00),
+	(2, 155.75, 2.80, 1.90, '2024-07-01', '2024-12-31', 5200.00),
+	(3, 148.25, 2.70, 1.80, '2024-01-01', '2026-06-30', 4800.00);
 
 -- Insertar Camion
 INSERT INTO Camion (dominio, disponible, capacidad_peso, capacidad_volumen, costo_base_km, consumo_promedio) VALUES
@@ -528,28 +527,21 @@ INSERT INTO Camion (dominio, disponible, capacidad_peso, capacidad_volumen, cost
 
 -- Insertar EstadoSolicitud
 INSERT INTO EstadoSolicitud (id_estado_solicitud, nombre, texto_adicional) VALUES
-(1, 'Pendiente', 'Solicitud recibida, pendiente de procesamiento'),
-(2, 'En Proceso', 'Solicitud siendo procesada y asignada'),
-(3, 'Asignada', 'Solicitud asignada a transportista y vehículo'),
-(4, 'En Tránsito', 'Carga en movimiento hacia destino'),
-(5, 'Entregada', 'Carga entregada exitosamente'),
-(6, 'Cancelada', 'Solicitud cancelada por el cliente'),
-(7, 'Rechazada', 'Solicitud rechazada por falta de recursos');
+(1, 'Creada', 'Solicitud creada'),
+(2, 'En Proceso', 'Solicitud en proceso'),
+(3, 'Finalizada', 'Solicitud finalizada exitosamente');
 
 -- Insertar EstadoContenedor
 INSERT INTO EstadoContenedor (id_estado_contenedor, nombre, texto_adicional) VALUES
-(1, 'Disponible', 'Contenedor libre para nueva carga'),
-(2, 'Cargando', 'Contenedor en proceso de carga'),
-(3, 'Cargado', 'Contenedor completamente cargado'),
-(4, 'En Tránsito', 'Contenedor en movimiento'),
-(5, 'Descargando', 'Contenedor en proceso de descarga'),
-(6, 'Mantenimiento', 'Contenedor fuera de servicio por mantenimiento');
+(1, 'Creado', 'Contenedor creado'),
+(2, 'En viaje', 'Contenedor en tránsito'),
+(3, 'Entregado', 'Contenedor entregado'),
 
 -- Insertar Contenedor
 INSERT INTO Contenedor (id_contenedor, id_estado_contenedor, volumen_m3, peso_kg) VALUES
 (1, 1, 15.50, 2500.00),
 (2, 3, 22.75, 4800.00),
-(3, 4, 18.30, 3200.00),
+(3, 3, 18.30, 3200.00),
 (4, 1, 28.60, 1800.00),
 (5, 2, 12.45, 5500.00);
 
@@ -564,19 +556,16 @@ INSERT INTO Ruta (ruta_id, cantidad_tramos, cantidad_depositos) VALUES
 -- Insertar Solicitud
 INSERT INTO Solicitud (solicitud_id, tipo_doc_cliente, num_doc_cliente, estado_solicitud, id_contenedor, id_ruta, id_ubicacion_origen, id_ubicacion_destino, costo_estimado, costo_real, fecha_hora_fin, fecha_hora_estimada_fin, fecha_hora_inicio, texto_adicional) VALUES
 (1, 1, 12345678, 3, 1, 1, 1, 3, 15000.00, NULL, NULL, '2024-11-15 10:30:00', '2024-11-10 08:00:00', 'Mercadería frágil - manipular con cuidado'),
-(2, 2, 30123456789, 4, 2, 2, 3, 5, 22500.00, 21800.00, NULL, '2024-11-12 09:00:00', '2024-11-08 07:45:00', 'Carga industrial pesada'),
-(3, 1, 23456789, 5, 3, 3, 2, 4, 8500.00, 8200.00, '2024-11-05 18:15:00', '2024-11-05 18:00:00', '2024-11-03 16:30:00', 'Entrega urgente completada'),
+(2, 2, 30123456789, 3, 2, 2, 3, 5, 22500.00, 21800.00, NULL, '2024-11-12 09:00:00', '2024-11-08 07:45:00', 'Carga industrial pesada'),
+(3, 1, 23456789, 3, 3, 3, 2, 4, 8500.00, 8200.00, '2024-11-05 18:15:00', '2024-11-05 18:00:00', '2024-11-03 16:30:00', 'Entrega urgente completada'),
 (4, 1, 34567890, 1, 4, 4, 4, 7, 28000.00, NULL, NULL, '2024-11-20 14:00:00', NULL, 'Solicitud de transporte interprovincial'),
 (5, 2, 30234567890, 2, 5, 5, 5, 6, 12000.00, NULL, NULL, '2024-11-18 11:00:00', '2024-11-11 09:30:00', 'Productos perecederos - refrigeración requerida');
 
 -- Insertar EstadoTramo
 INSERT INTO EstadoTramo (estado_tramo_id, nombre, descripcion) VALUES
-(1, 'Planificado', 'Tramo planificado pero no iniciado'),
+(1, 'Creado', 'Tramo creado'),
 (2, 'En Curso', 'Tramo actualmente en ejecución'),
 (3, 'Completado', 'Tramo finalizado exitosamente'),
-(4, 'Pausado', 'Tramo temporalmente pausado'),
-(5, 'Cancelado', 'Tramo cancelado'),
-(6, 'Con Demora', 'Tramo con retraso respecto a lo planificado');
 
 -- Insertar Tramo
 INSERT INTO Tramo (tramo_id, ruta_id, tipo_tramo_id, dominio, ubicacion_origen_id, transportista_id, ubicacion_destino_id, costo_aproximado, costo_real, fecha_hora_inicio, fecha_hora_fin, fecha_hora_estimada_fin) VALUES
@@ -594,7 +583,7 @@ INSERT INTO HistorialEstadoContenedor (id_estado_contenedor, id_contenedor, fech
 (1, 1, '2024-11-01 10:00:00'),
 (2, 2, '2024-11-08 09:00:00'),
 (3, 2, '2024-11-08 09:00:00'),
-(4, 3, '2024-11-03 10:00:00'),
+(3, 3, '2024-11-03 10:00:00'),
 (1, 4, '2024-11-01 10:00:00'),
 (2, 5, '2024-11-11 09:00:00');
 

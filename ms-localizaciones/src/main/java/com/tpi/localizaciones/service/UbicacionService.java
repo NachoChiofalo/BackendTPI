@@ -48,7 +48,13 @@ public class UbicacionService {
                     nuevaUbicacion.setLatitud(String.valueOf(latitud));
                     nuevaUbicacion.setLongitud(String.valueOf(longitud));
                     nuevaUbicacion.setCiudad("Desconocida"); // Valor por defecto requerido
-                    nuevaUbicacion.setNombre("Ubicación generada automáticamente");
+                    nuevaUbicacion.setNombre("Ubicación auto-generada"); // Máximo 30 caracteres
+                    // Acortar dirección para evitar exceder 50 caracteres
+                    String direccion = latitud + "," + longitud;
+                    if (direccion.length() > 50) {
+                        direccion = direccion.substring(0, 47) + "...";
+                    }
+                    nuevaUbicacion.setDireccion(direccion);
                     return ubicacionRepository.save(nuevaUbicacion);
                 });
     }

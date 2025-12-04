@@ -60,25 +60,31 @@ public class RutaController {
             List<Tramo> tramos = tramoService.obtenerPorRuta(rutaId);
 
             List<TramoTentativoDTO> tramosDto = tramos.stream()
-                    .map(t -> TramoTentativoDTO.builder()
-                            .tramoId(t.getTramoId())
-                            .rutaId(t.getRutaId())
-                            .orden(null)
-                            .dominio(t.getDominio())
-                            .ubicacionOrigenId(t.getUbicacionOrigenId())
-                            .ubicacionDestinoId(t.getUbicacionDestinoId())
-                            .transportistaId(t.getTransportistaId())
-                            .costoAproximado(t.getCostoAproximado())
-                            .costoReal(t.getCostoReal())
-                            .fechaHoraInicio(t.getFechaHoraInicio())
-                            .fechaHoraEstimadaFin(t.getFechaHoraEstimadaFin())
-                            .fechaHoraFin(t.getFechaHoraFin())
-                            .build())
+                    .map(t -> {
+                        // Calcular distancia y costo para cada tramo
+                        BigDecimal distancia = calculoRutaService.calcularDistanciaAleatoria();
+                        BigDecimal costo = calculoRutaService.calcularCostoAproximado(distancia);
+
+                        return TramoTentativoDTO.builder()
+                                .tramoId(t.getTramoId())
+                                .rutaId(t.getRutaId())
+                                .orden(null)
+                                .dominio(t.getDominio())
+                                .ubicacionOrigenId(t.getUbicacionOrigenId())
+                                .ubicacionDestinoId(t.getUbicacionDestinoId())
+                                .transportistaId(t.getTransportistaId())
+                                .distanciaKm(distancia)
+                                .costoAproximado(costo)
+                                .fechaHoraInicio(t.getFechaHoraInicio())
+                                .fechaHoraEstimadaFin(t.getFechaHoraEstimadaFin())
+                                .fechaHoraFin(t.getFechaHoraFin())
+                                .build();
+                    })
                     .collect(Collectors.toList());
 
-            // costo estimado base: sum(costoAproximado)
-            BigDecimal costoTramos = tramos.stream()
-                    .map(Tramo::getCostoAproximado)
+            // costo estimado base: sum de costos calculados de los tramos
+            BigDecimal costoTramos = tramosDto.stream()
+                    .map(TramoTentativoDTO::getCostoAproximado)
                     .filter(c -> c != null)
                     .reduce(BigDecimal.ZERO, BigDecimal::add);
 
@@ -87,8 +93,13 @@ public class RutaController {
 
             BigDecimal costoEstimadoTotal = costoTramos.add(costoEstadia);
 
-            // tiempo estimado: usar distanciaTotal del request y cantidadDepositos de la ruta
-            BigDecimal tiempoEstimadoHoras = calculoRutaService.calcularTiempoEstimado(distanciaTotal, ruta.getCantidadDepositos());
+            // tiempo estimado: usar distanciaTotal calculada de los tramos y cantidadDepositos de la ruta
+            BigDecimal distanciaTotalCalculada = tramosDto.stream()
+                    .map(TramoTentativoDTO::getDistanciaKm)
+                    .filter(d -> d != null)
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+            BigDecimal tiempoEstimadoHoras = calculoRutaService.calcularTiempoEstimado(distanciaTotalCalculada, ruta.getCantidadDepositos());
 
             return RutaTentativaDTO.builder()
                     .rutaId(rutaId)

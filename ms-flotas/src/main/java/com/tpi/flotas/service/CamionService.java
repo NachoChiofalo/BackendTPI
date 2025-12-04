@@ -98,15 +98,24 @@ public class CamionService {
 
     @Transactional
     public void cambiarDisponibilidad(String dominio, Boolean disponible) {
+        log.info("=== INICIANDO cambiarDisponibilidad en CamionService ===");
         log.info("Cambiando disponibilidad del camión {} a: {}", dominio, disponible);
+
         camionRepository.findById(dominio)
                 .ifPresentOrElse(
                     camion -> {
+                        log.info("🚛 Camión encontrado: {} - Disponibilidad actual: {}", dominio, camion.getDisponible());
                         camion.setDisponible(disponible);
-                        camionRepository.save(camion);
+                        Camion camionGuardado = camionRepository.save(camion);
+                        log.info("✅ Camión {} guardado con nueva disponibilidad: {}", dominio, camionGuardado.getDisponible());
                     },
-                    () -> { throw new RuntimeException("Camión no encontrado con dominio: " + dominio); }
+                    () -> {
+                        log.error("❌ Camión no encontrado con dominio: {}", dominio);
+                        throw new RuntimeException("Camión no encontrado con dominio: " + dominio);
+                    }
                 );
+
+        log.info("=== FIN cambiarDisponibilidad en CamionService ===");
     }
 
     @Transactional

@@ -18,7 +18,7 @@ public class TramoCrearDto {
     private Integer tramoId;
     private Integer rutaId;
     private Integer tipoTramoId;
-    private String dominio; // "SIN_ASG" para tramos sin camión asignado
+    private String dominio; // null para tramos sin camión asignado
     private Integer ubicacionOrigenId;
     private Integer transportistaId;
     private Integer ubicacionDestinoId;

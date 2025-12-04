@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +19,7 @@ import java.util.List;
 public class CalculoRutaService {
 
     private final TramoRepository tramoRepository;
+    private final Random random = new Random();
 
     /**
      * REGLA DE NEGOCIO 2: Calcular costo por estadía en depósitos
@@ -101,16 +103,16 @@ public class CalculoRutaService {
         
         List<Tramo> tramos = tramoRepository.findByRutaId(rutaId);
         
-        LocalDate fechaInicio = tramos.stream()
+        LocalDateTime fechaInicio = tramos.stream()
                 .map(Tramo::getFechaHoraInicio)
                 .filter(fecha -> fecha != null)
-                .min(LocalDate::compareTo)
+                .min(LocalDateTime::compareTo)
                 .orElse(null);
         
-        LocalDate fechaFin = tramos.stream()
+        LocalDateTime fechaFin = tramos.stream()
                 .map(Tramo::getFechaHoraFin)
                 .filter(fecha -> fecha != null)
-                .max(LocalDate::compareTo)
+                .max(LocalDateTime::compareTo)
                 .orElse(null);
         
         if (fechaInicio != null && fechaFin != null) {
@@ -148,5 +150,33 @@ public class CalculoRutaService {
                 costoTramos, costoEstadia, costoTotal);
         
         return costoTotal;
+    }
+
+    /**
+     * Calcula una distancia aleatoria para un tramo (entre 50 y 500 km)
+     *
+     * @return Distancia en kilómetros
+     */
+    public BigDecimal calcularDistanciaAleatoria() {
+        double distancia = 50 + (random.nextDouble() * 450); // Entre 50 y 500 km
+        return BigDecimal.valueOf(distancia).setScale(2, RoundingMode.HALF_UP);
+    }
+
+    /**
+     * Calcula un costo aproximado basado en la distancia
+     * Usa una tarifa base de $50 por km más un componente aleatorio
+     *
+     * @param distanciaKm Distancia en kilómetros
+     * @return Costo aproximado
+     */
+    public BigDecimal calcularCostoAproximado(BigDecimal distanciaKm) {
+        BigDecimal tarifaBasePorKm = new BigDecimal("50");
+        BigDecimal costoBase = distanciaKm.multiply(tarifaBasePorKm);
+
+        // Agregar variación aleatoria del ±20%
+        double variacion = 0.8 + (random.nextDouble() * 0.4); // Entre 0.8 y 1.2
+        BigDecimal costoFinal = costoBase.multiply(BigDecimal.valueOf(variacion));
+
+        return costoFinal.setScale(2, RoundingMode.HALF_UP);
     }
 }

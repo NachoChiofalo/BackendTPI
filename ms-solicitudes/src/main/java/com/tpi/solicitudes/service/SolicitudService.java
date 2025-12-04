@@ -21,7 +21,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.List;
@@ -36,6 +36,7 @@ public class SolicitudService {
     private final SolicitudRepository solicitudRepository;
     private final ClienteService clienteService;
     private final ContenedorService contenedorService;
+    private final SecureRandom random = new SecureRandom();
 
     public List<Solicitud> obtenerTodos() {
         log.info("Obteniendo todas las solicitudes");
@@ -89,7 +90,9 @@ public class SolicitudService {
         if (contInfo.getIdContenedor() != null) contEntidad.setIdContenedor(contInfo.getIdContenedor());
         if (contInfo.getPeso() != null) contEntidad.setPesoKg(contInfo.getPeso());
         if (contInfo.getVolumen() != null) contEntidad.setVolumenM3(contInfo.getVolumen());
-        if (contInfo.getIdEstadoContenedor() != null) contEntidad.setIdEstadoContenedor(contInfo.getIdEstadoContenedor());
+
+        // Establecer estado "Creado" (ID = 1) cuando se crea la solicitud
+        contEntidad.setIdEstadoContenedor(1); // 1 = "Creado"
 
         Contenedor contPersistido = contenedorService.guardarSiNoExiste(contInfo.getIdContenedor(), contEntidad);
 
@@ -106,26 +109,30 @@ public class SolicitudService {
         // Aquí asumimos que la tabla no tiene generación automática; usar el max id + 1 como heurística.
         Integer newSolicitudId = generateNewSolicitudId();
 
+        // Calcular valores aleatorios
+        BigDecimal costoEstimado = calcularCostoEstimadoAleatorio();
+        LocalDateTime fechaHoraEstimadaFin = calcularFechaHoraEstimadaFinAleatoria();
+
         Solicitud solicitud = Solicitud.builder()
                 .solicitudId(newSolicitudId)
                 .tipoDocCliente(clientePersistido.getTipoDocClienteId())
                 .numDocCliente(clientePersistido.getNumDocCliente())
-                .estadoSolicitud(1) // 1 = BORRADOR
+                .estadoSolicitud(1) // 1 = Creada
                 .idContenedor(contPersistido.getIdContenedor())
                 .idRuta(rutaId)
                 .idUbicacionOrigen(idUbicacionOrigen)
                 .idUbicacionDestino(idUbicacionDestino)
-                .costoEstimado(null)
+                .costoEstimado(costoEstimado)
                 .costoReal(null)
                 .fechaHoraInicio(null)
-                .fechaHoraEstimadaFin(null)
+                .fechaHoraEstimadaFin(fechaHoraEstimadaFin)
                 .fechaHoraFin(null)
                 .textoAdicional(dto.getObservaciones())
                 .build();
 
         Solicitud guardada = solicitudRepository.save(solicitud);
-        log.info("Solicitud creada con id {} asociada al cliente {}-{} y contenedor {}, ruta {}",
-                guardada.getSolicitudId(), guardada.getTipoDocCliente(), guardada.getNumDocCliente(), guardada.getIdContenedor(), rutaId);
+        log.info("Solicitud creada con id {} asociada al cliente {}-{} y contenedor {}, ruta {}, costo estimado: {}, fecha estimada fin: {}",
+                guardada.getSolicitudId(), guardada.getTipoDocCliente(), guardada.getNumDocCliente(), guardada.getIdContenedor(), rutaId, costoEstimado, fechaHoraEstimadaFin);
         return guardada;
     }
 
@@ -143,15 +150,30 @@ public class SolicitudService {
     private Integer obtenerOCrearUbicacionPorCoordenadas(Double latitud, Double longitud) {
         log.info("Obteniendo o creando ubicación para coordenadas: lat={}, lon={}", latitud, longitud);
 
+        // Validaciones básicas
+        if (latitud == null || longitud == null) {
+            throw new RuntimeException("Latitud y longitud son requeridas");
+        }
+
+        if (latitud < -90 || latitud > 90) {
+            throw new RuntimeException("Latitud debe estar entre -90 y 90 grados");
+        }
+
+        if (longitud < -180 || longitud > 180) {
+            throw new RuntimeException("Longitud debe estar entre -180 y 180 grados");
+        }
+
         SimpleClientHttpRequestFactory rf = new SimpleClientHttpRequestFactory();
-        rf.setConnectTimeout(5000);
-        rf.setReadTimeout(10000);
+        rf.setConnectTimeout(10000); // Aumentar timeout
+        rf.setReadTimeout(15000);
         RestTemplate rt = new RestTemplate(rf);
 
         String msLocalBase = System.getenv().getOrDefault("MS_LOCALIZACIONES_URL", "http://localhost:8087");
+        log.info("Conectando con microservicio de localizaciones en: {}", msLocalBase);
 
         try {
             String url = msLocalBase + "/api/ubicaciones/por-coordenadas";
+            log.info("URL del endpoint: {}", url);
 
             // Crear el DTO con las coordenadas
             Map<String, Double> coordenadas = new HashMap<>();
@@ -161,23 +183,54 @@ public class SolicitudService {
             // Configurar headers para enviar JSON
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
             HttpEntity<Map<String, Double>> request = new HttpEntity<>(coordenadas, headers);
 
+            log.info("Enviando payload: {}", coordenadas);
+
             @SuppressWarnings("unchecked")
             ResponseEntity<Map> response = rt.exchange(url, HttpMethod.POST, request, Map.class);
+
+            log.info("Respuesta del microservicio: status={}, body={}", response.getStatusCode(), response.getBody());
+
             Map<String, Object> ubicacion = response.getBody();
 
-            if (ubicacion == null || ubicacion.get("ubicacionId") == null) {
-                throw new RuntimeException("No se pudo obtener/crear la ubicación para las coordenadas proporcionadas");
+            if (ubicacion == null) {
+                throw new RuntimeException("Respuesta vacía del microservicio de localizaciones");
             }
 
-            Integer ubicacionId = (Integer) ubicacion.get("ubicacionId");
-            log.info("Ubicación obtenida/creada con ID: {}", ubicacionId);
+            Object ubicacionIdObj = ubicacion.get("ubicacionId");
+            if (ubicacionIdObj == null) {
+                log.error("Respuesta del microservicio no contiene ubicacionId. Contenido: {}", ubicacion);
+                throw new RuntimeException("La respuesta del microservicio no contiene ubicacionId válido");
+            }
+
+            Integer ubicacionId;
+            if (ubicacionIdObj instanceof Number) {
+                ubicacionId = ((Number) ubicacionIdObj).intValue();
+            } else {
+                try {
+                    ubicacionId = Integer.parseInt(ubicacionIdObj.toString());
+                } catch (NumberFormatException e) {
+                    throw new RuntimeException("El ubicacionId recibido no es válido: " + ubicacionIdObj);
+                }
+            }
+
+            log.info("Ubicación obtenida/creada exitosamente con ID: {}", ubicacionId);
             return ubicacionId;
 
+        } catch (HttpClientErrorException e) {
+            log.error("Error HTTP del microservicio de localizaciones: status={}, body={}",
+                     e.getStatusCode(), e.getResponseBodyAsString());
+            throw new RuntimeException("Error del microservicio de localizaciones (" + e.getStatusCode() + "): " +
+                                     e.getResponseBodyAsString());
+        } catch (ResourceAccessException e) {
+            log.error("Error de conectividad con microservicio de localizaciones: {}", e.getMessage());
+            throw new RuntimeException("No se pudo conectar con el microservicio de localizaciones. " +
+                                     "Verifica que esté ejecutándose en: " + msLocalBase);
         } catch (Exception e) {
-            log.error("Error obteniendo/creando ubicación por coordenadas: {}", e.getMessage(), e);
+            log.error("Error inesperado obteniendo/creando ubicación: {}", e.getMessage(), e);
             throw new RuntimeException("Error procesando ubicación: " + e.getMessage(), e);
         }
     }
@@ -563,10 +616,10 @@ public class SolicitudService {
                     .dominio(null) // Valor por defecto para tramos sin camión asignado
                     .ubicacionOrigenId(origenId)
                     .ubicacionDestinoId(destinoId)
-                    .transportistaId(1) // Valor por defecto
+                    .transportistaId(null) // Se asignará manualmente por tramo
                     .costoAproximado(distanciaKm != null ? BigDecimal.valueOf(distanciaKm) : BigDecimal.ZERO)
                     .costoReal(null)
-                    .fechaHoraInicio(LocalDate.now().toString()) // Formato ISO: yyyy-MM-dd
+                    .fechaHoraInicio(null) // Se establecerá cuando se inicie el tramo explícitamente
                     .fechaHoraFin(null)
                     .fechaHoraEstimadaFin(null)
                     .build();
@@ -646,9 +699,9 @@ public class SolicitudService {
 
     public List<Solicitud> obtenerPendientes() {
         log.info("Obteniendo solicitudes pendientes");
-        // Estados: 1=borrador, 2=programada, 3=en tránsito, 4=entregada
-        // Pendientes son las que no están entregadas (estado != 4)
-        return solicitudRepository.findByEstadoSolicitudNot(4);
+        // Estados: 1=Creada, 2=En Proceso, 3=Finalizada
+        // Pendientes son las que no están finalizadas (estado != 3)
+        return solicitudRepository.findByEstadoSolicitudNot(3);
     }
 
     public List<Solicitud> obtenerPorUbicacionDestino(Integer ubicacionId) {
@@ -768,12 +821,19 @@ public class SolicitudService {
              if (solicitud.getFechaHoraInicio() == null) solicitud.setFechaHoraInicio(ahora);
              solicitud.setFechaHoraFin(ahora);
 
-             // Actualizar estado a entregada (4)
-             solicitud.setEstadoSolicitud(4);
+             // Actualizar estado a finalizada (3)
+             solicitud.setEstadoSolicitud(3);
 
              Solicitud guardada = solicitudRepository.save(solicitud);
 
-             log.info("Solicitud {} actualizada: costoReal={} km={} duracion={}", solicitudId, precioFinal, kilometros, duracionTexto);
+             // Actualizar el contenedor asociado a estado 3 "Entregado"
+             log.info("Actualizando contenedor {} a estado 3 (Entregado) para solicitud finalizada {}", solicitud.getIdContenedor(), solicitudId);
+             contenedor.setIdEstadoContenedor(3); // 3 = "Entregado"
+             contenedorService.guardar(contenedor);
+             log.info("Contenedor {} actualizado a estado 'Entregado' exitosamente", solicitud.getIdContenedor());
+
+             log.info("Solicitud {} finalizada: costoReal={} km={} duracion={}, contenedor {} actualizado a 'Entregado'",
+                     solicitudId, precioFinal, kilometros, duracionTexto, solicitud.getIdContenedor());
              return guardada;
 
          } catch (Exception e) {
@@ -812,5 +872,42 @@ public class SolicitudService {
         }
 
         return new ArrayList<>(latestByContenedor.values());
+    }
+
+    /**
+     * Calcula un costo estimado aleatorio entre 10,000 y 500,000 pesos
+     */
+    private BigDecimal calcularCostoEstimadoAleatorio() {
+        // Generar un costo entre 10,000 y 500,000 pesos
+        int costoMin = 10000;
+        int costoMax = 500000;
+        int costo = random.nextInt(costoMax - costoMin + 1) + costoMin;
+
+        log.info("Costo estimado calculado aleatoriamente: {}", costo);
+        return BigDecimal.valueOf(costo);
+    }
+
+    /**
+     * Calcula una fecha y hora estimada de fin aleatoria entre 1 y 30 días desde ahora
+     */
+    private LocalDateTime calcularFechaHoraEstimadaFinAleatoria() {
+        // Generar una fecha entre 1 y 30 días en el futuro
+        int diasMin = 1;
+        int diasMax = 30;
+        int dias = random.nextInt(diasMax - diasMin + 1) + diasMin;
+
+        // Agregar horas aleatorias (0-23) y minutos aleatorios (0-59)
+        int horas = random.nextInt(24);
+        int minutos = random.nextInt(60);
+
+        LocalDateTime fechaEstimada = LocalDateTime.now()
+                .plusDays(dias)
+                .withHour(horas)
+                .withMinute(minutos)
+                .withSecond(0)
+                .withNano(0);
+
+        log.info("Fecha hora estimada fin calculada aleatoriamente: {}", fechaEstimada);
+        return fechaEstimada;
     }
 }

@@ -119,6 +119,9 @@ public class SecurityConfig {
                 .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/solicitudes").permitAll()
                 .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/solicitudes/{id}").permitAll()
                 .pathMatchers("/api/solicitudes/health").permitAll()
+                // Rutas de solicitudes - endpoints de escritura (POST)
+                .pathMatchers(org.springframework.http.HttpMethod.POST, "/api/solicitudes").permitAll()
+                .pathMatchers(org.springframework.http.HttpMethod.POST, "/api/solicitudes/test").permitAll()
 
                 // Rutas de tarifas - endpoints básicos de lectura (GET)
 
@@ -130,6 +133,8 @@ public class SecurityConfig {
                 // Rutas de ubicaciones - endpoints básicos de lectura (GET)
                 .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/ubicaciones").permitAll()
                 .pathMatchers(org.springframework.http.HttpMethod.GET, "/api/ubicaciones/count").permitAll()
+                // Rutas de ubicaciones - endpoint para crear por coordenadas (POST)
+                .pathMatchers(org.springframework.http.HttpMethod.POST, "/api/ubicaciones/por-coordenadas").permitAll()
 
 
 
