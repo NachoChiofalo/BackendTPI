@@ -1,5 +1,9 @@
 server:
   port: 8085
+  tomcat:
+    connection-timeout: 120s
+    keep-alive-timeout: 120s
+    max-keep-alive-requests: 100
 
 spring:
   application:
@@ -52,6 +56,10 @@ flotas:
   service:
     url: ${FLOTAS_SERVICE_URL:http://ms-flotas:8081}
 
+localizaciones:
+  service:
+    url: ${MS_LOCALIZACIONES_URL:http://tpi-ms-localizaciones:8087}
+
 eureka:
   client:
     enabled: false
@@ -64,8 +72,14 @@ feign:
   client:
     config:
       default:
-        connectTimeout: 5000
-        readTimeout: 5000
+        connectTimeout: 10000
+        readTimeout: 60000
+
+# Configuración de RestTemplate timeouts
+http:
+  client:
+    connection-timeout: 10000
+    read-timeout: 60000
 
 management:
   endpoints:

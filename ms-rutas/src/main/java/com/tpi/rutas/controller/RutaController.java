@@ -1,11 +1,13 @@
 package com.tpi.rutas.controller;
 
+import com.tpi.rutas.dto.CoordenadasDTO;
 import com.tpi.rutas.dto.RutaTentativaDTO;
 import com.tpi.rutas.dto.TramoTentativoDTO;
 import com.tpi.rutas.entity.Ruta;
 import com.tpi.rutas.entity.Tramo;
 import com.tpi.rutas.service.CalculoRutaService;
 import com.tpi.rutas.service.RutaService;
+import com.tpi.rutas.service.RutaTentativaService;
 import com.tpi.rutas.service.TramoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +34,7 @@ public class RutaController {
     private final RutaService rutaService;
     private final CalculoRutaService calculoRutaService;
     private final TramoService tramoService;
+    private final RutaTentativaService rutaTentativaService;
 
     @GetMapping
     public ResponseEntity<List<Ruta>> obtenerTodos() {
@@ -41,80 +44,38 @@ public class RutaController {
 
     /**
      * REQUERIMIENTO FUNCIONAL 3: Consultar rutas tentativas con todos los tramos sugeridos y el tiempo y costo estimados (Operador)
-     * - Permite visualizar las opciones de rutas disponibles antes de asignarlas
-     * - Implementación devuelve rutas con tramos y cálculos estimados
+     * - Recibe coordenadas de origen y destino
+     * - Calcula rutas alternativas utilizando la misma lógica que la creación de solicitudes
+     * - Considera depósitos intermedios según las reglas de negocio
+     * - Devuelve exactamente 3 opciones de rutas tentativas
      */
     @PreAuthorize("hasRole('operador')")
-    @GetMapping("/tentativas")
-    public ResponseEntity<List<RutaTentativaDTO>> obtenerRutasTentativas(
-            @RequestParam(name = "distanciaTotal", required = false, defaultValue = "0") BigDecimal distanciaTotal,
-            @RequestParam(name = "costoPorDiaDeposito", required = false, defaultValue = "100") BigDecimal costoPorDiaDeposito) {
-        log.info("GET /api/rutas/tentativas - Obteniendo rutas tentativas (distancia={}, costoDia={})",
-                distanciaTotal, costoPorDiaDeposito);
+    @PostMapping("/tentativas")
+    public ResponseEntity<List<RutaTentativaDTO>> obtenerRutasTentativas(@Valid @RequestBody CoordenadasDTO coordenadas) {
+        log.info("POST /api/rutas/tentativas - Generando rutas tentativas para origen ({},{}) -> destino ({},{})",
+                coordenadas.getLatitudOrigen(), coordenadas.getLongitudOrigen(),
+                coordenadas.getLatitudDestino(), coordenadas.getLongitudDestino());
 
-        List<Ruta> rutas = rutaService.obtenerTodos();
+        try {
+            List<RutaTentativaDTO> rutasTentativas = rutaTentativaService.generarRutasTentativas(
+                    coordenadas.getLatitudOrigen(),
+                    coordenadas.getLongitudOrigen(),
+                    coordenadas.getLatitudDestino(),
+                    coordenadas.getLongitudDestino()
+            );
 
-        List<RutaTentativaDTO> resultado = rutas.stream().map(ruta -> {
-            Integer rutaId = ruta.getRutaId();
-            // obtener tramos de la ruta
-            List<Tramo> tramos = tramoService.obtenerPorRuta(rutaId);
+            if (rutasTentativas.isEmpty()) {
+                log.warn("No se pudieron generar rutas tentativas para las coordenadas proporcionadas");
+                return ResponseEntity.noContent().build();
+            }
 
-            List<TramoTentativoDTO> tramosDto = tramos.stream()
-                    .map(t -> {
-                        // Calcular distancia y costo para cada tramo
-                        BigDecimal distancia = calculoRutaService.calcularDistanciaAleatoria();
-                        BigDecimal costo = calculoRutaService.calcularCostoAproximado(distancia);
+            log.info("Se generaron {} rutas tentativas exitosamente", rutasTentativas.size());
+            return ResponseEntity.ok(rutasTentativas);
 
-                        return TramoTentativoDTO.builder()
-                                .tramoId(t.getTramoId())
-                                .rutaId(t.getRutaId())
-                                .orden(null)
-                                .dominio(t.getDominio())
-                                .ubicacionOrigenId(t.getUbicacionOrigenId())
-                                .ubicacionDestinoId(t.getUbicacionDestinoId())
-                                .transportistaId(t.getTransportistaId())
-                                .distanciaKm(distancia)
-                                .costoAproximado(costo)
-                                .fechaHoraInicio(t.getFechaHoraInicio())
-                                .fechaHoraEstimadaFin(t.getFechaHoraEstimadaFin())
-                                .fechaHoraFin(t.getFechaHoraFin())
-                                .build();
-                    })
-                    .collect(Collectors.toList());
-
-            // costo estimado base: sum de costos calculados de los tramos
-            BigDecimal costoTramos = tramosDto.stream()
-                    .map(TramoTentativoDTO::getCostoAproximado)
-                    .filter(c -> c != null)
-                    .reduce(BigDecimal.ZERO, BigDecimal::add);
-
-            // costo de estadía calculado por servicio
-            BigDecimal costoEstadia = calculoRutaService.calcularCostoEstadia(rutaId, costoPorDiaDeposito);
-
-            BigDecimal costoEstimadoTotal = costoTramos.add(costoEstadia);
-
-            // tiempo estimado: usar distanciaTotal calculada de los tramos y cantidadDepositos de la ruta
-            BigDecimal distanciaTotalCalculada = tramosDto.stream()
-                    .map(TramoTentativoDTO::getDistanciaKm)
-                    .filter(d -> d != null)
-                    .reduce(BigDecimal.ZERO, BigDecimal::add);
-
-            BigDecimal tiempoEstimadoHoras = calculoRutaService.calcularTiempoEstimado(distanciaTotalCalculada, ruta.getCantidadDepositos());
-
-            return RutaTentativaDTO.builder()
-                    .rutaId(rutaId)
-                    .cantidadTramos(ruta.getCantidadTramos())
-                    .cantidadDepositos(ruta.getCantidadDepositos())
-                    .tramos(tramosDto)
-                    .tiempoEstimadoHoras(tiempoEstimadoHoras)
-                    .costoEstimadoTotal(costoEstimadoTotal)
-                    .build();
-        }).collect(Collectors.toList());
-
-        if (resultado.isEmpty()) {
-            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            log.error("Error generando rutas tentativas: {}", e.getMessage(), e);
+            return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(resultado);
     }
 
     @GetMapping("/{id}")

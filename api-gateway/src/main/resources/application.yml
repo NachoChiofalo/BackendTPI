@@ -20,6 +20,14 @@ spring:
             retries: 3
             statuses: BAD_GATEWAY,SERVICE_UNAVAILABLE
             methods: GET,POST,PUT,DELETE
+      httpclient:
+        response-timeout: 60s
+        connect-timeout: 10000
+        pool:
+          max-idle-time: 30s
+          max-life-time: 60s
+      httpserver:
+        max-header-size: 16KB
 
   # Configuración de Security OAuth2 (JWT)
   security:
@@ -72,9 +80,9 @@ resilience4j:
         minimum-number-of-calls: 5
         permitted-number-of-calls-in-half-open-state: 3
         wait-duration-in-open-state: 30s
-        failure-rate-threshold: 50
-        slow-call-rate-threshold: 50
-        slow-call-duration-threshold: 2s
+        failure-rate-threshold: 70
+        slow-call-rate-threshold: 70
+        slow-call-duration-threshold: 120s
       precios-circuit-breaker:
         register-health-indicator: true
         sliding-window-size: 10

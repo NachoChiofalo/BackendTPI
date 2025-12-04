@@ -183,11 +183,14 @@ services:
       - SPRING_DATASOURCE_USERNAME=tpi_user
       - SPRING_DATASOURCE_PASSWORD=tpi_pass
       - OSRM_URL=http://tpi-osrm:5000
+      - MS_LOCALIZACIONES_URL=http://tpi-ms-localizaciones:8087
       - TZ=UTC
     depends_on:
       postgres:
         condition: service_healthy
       api-gateway:
+        condition: service_healthy
+      ms-localizaciones:
         condition: service_healthy
 #      osrm:
 #        condition: service_healthy
@@ -220,6 +223,8 @@ services:
       postgres:
         condition: service_healthy
       api-gateway:
+        condition: service_healthy
+      ms-localizaciones:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8084/actuator/health"]
