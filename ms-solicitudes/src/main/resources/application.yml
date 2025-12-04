@@ -54,7 +54,7 @@ logging:
 # Configuración de microservicios
 rutas:
   service:
-    url: ${RUTAS_SERVICE_URL:http://ms-rutas:8085}
+    url: ${RUTAS_SERVICE_URL:http://localhost:8085}
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 # Configuración de Swagger/OpenAPI

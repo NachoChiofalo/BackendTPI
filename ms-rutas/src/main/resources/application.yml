@@ -46,11 +46,11 @@ spring:
 # Configuración de microservicios
 solicitudes:
   service:
-    url: ${SOLICITUDES_SERVICE_URL:http://ms-solicitudes:8084}
+    url: ${SOLICITUDES_SERVICE_URL:http://localhost:8084}
 
 flotas:
   service:
-    url: ${FLOTAS_SERVICE_URL:http://ms-flotas:8081}
+    url: ${FLOTAS_SERVICE_URL:http://localhost:8081}
 
 eureka:
   client:
