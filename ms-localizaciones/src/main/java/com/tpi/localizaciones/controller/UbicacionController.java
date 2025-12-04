@@ -1,5 +1,6 @@
 package com.tpi.localizaciones.controller;
 
+import com.tpi.localizaciones.dto.CoordenadasDto;
 import com.tpi.localizaciones.entity.Ubicacion;
 import com.tpi.localizaciones.service.UbicacionService;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +40,25 @@ public class UbicacionController {
         return ubicacionService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    /**
+     * Endpoint interno para buscar o crear ubicación por coordenadas
+     */
+    @PostMapping("/por-coordenadas")
+    public ResponseEntity<Ubicacion> findOrCreateByCoordinates(@RequestBody CoordenadasDto coordenadas) {
+        log.info("POST /api/ubicaciones/por-coordenadas - Buscando/creando ubicación lat={}, lon={}",
+                 coordenadas.getLatitud(), coordenadas.getLongitud());
+        try {
+            Ubicacion ubicacion = ubicacionService.findOrCreateByCoordinates(
+                coordenadas.getLatitud(),
+                coordenadas.getLongitud()
+            );
+            return ResponseEntity.ok(ubicacion);
+        } catch (Exception e) {
+            log.error("Error al buscar/crear ubicación por coordenadas: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     /**

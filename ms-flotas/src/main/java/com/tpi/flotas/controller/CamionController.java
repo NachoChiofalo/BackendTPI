@@ -165,4 +165,33 @@ public class CamionController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
         }
     }
+
+    // Endpoint para cambiar la disponibilidad de un camión
+    @PreAuthorize("hasRole('operador')")
+    @PostMapping("/{dominio}/disponibilidad")
+    public ResponseEntity<Map<String, String>> cambiarDisponibilidad(
+            @PathVariable("dominio") String dominio,
+            @RequestParam("disponible") Boolean disponible) {
+
+        log.info("=== RECIBIDA PETICIÓN cambiarDisponibilidad ===");
+        log.info("POST /api/camiones/{}/disponibilidad - Cambiando disponibilidad a: {}", dominio, disponible);
+
+        try {
+            log.info("🔧 Llamando a camionService.cambiarDisponibilidad({}, {})", dominio, disponible);
+            camionService.cambiarDisponibilidad(dominio, disponible);
+
+            Map<String, String> response = new java.util.HashMap<>();
+            response.put("message", "Disponibilidad del camión " + dominio + " actualizada a " + disponible);
+            response.put("dominio", dominio);
+            response.put("disponible", disponible.toString());
+
+            log.info("✅ Disponibilidad actualizada exitosamente - Respuesta: {}", response);
+            return ResponseEntity.ok(response);
+        } catch (RuntimeException e) {
+            log.error("❌ Error al cambiar disponibilidad del camión {}: {}", dominio, e.getMessage(), e);
+            Map<String, String> response = new java.util.HashMap<>();
+            response.put("error", e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        }
+    }
 }

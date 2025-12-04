@@ -1,5 +1,9 @@
 server:
   port: 8085
+  tomcat:
+    connection-timeout: 120s
+    keep-alive-timeout: 120s
+    max-keep-alive-requests: 100
 
 spring:
   application:
@@ -17,8 +21,6 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
 
   jpa:
-    hibernate:
-      ddl-auto: none
     show-sql: true
     properties:
       hibernate:
@@ -27,6 +29,8 @@ spring:
         jdbc:
           time_zone: UTC
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
 
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/tpi_logistica}
@@ -43,6 +47,19 @@ spring:
   flyway:
     enabled: false
 
+# Configuración de microservicios
+solicitudes:
+  service:
+    url: ${SOLICITUDES_SERVICE_URL:http://ms-solicitudes:8084}
+
+flotas:
+  service:
+    url: ${FLOTAS_SERVICE_URL:http://ms-flotas:8081}
+
+localizaciones:
+  service:
+    url: ${MS_LOCALIZACIONES_URL:http://tpi-ms-localizaciones:8087}
+
 eureka:
   client:
     enabled: false
@@ -55,8 +72,14 @@ feign:
   client:
     config:
       default:
-        connectTimeout: 5000
-        readTimeout: 5000
+        connectTimeout: 10000
+        readTimeout: 60000
+
+# Configuración de RestTemplate timeouts
+http:
+  client:
+    connection-timeout: 10000
+    read-timeout: 60000
 
 management:
   endpoints:

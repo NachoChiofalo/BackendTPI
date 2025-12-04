@@ -32,10 +32,16 @@ public class SolicitudCrearDto {
     private String observaciones;
 
     @NotNull
-    private Integer idUbicacionOrigen;
+    private Double latitudOrigen;
 
     @NotNull
-    private Integer idUbicacionDestino;
+    private Double longitudOrigen;
+
+    @NotNull
+    private Double latitudDestino;
+
+    @NotNull
+    private Double longitudDestino;
 
     private Integer idRuta;
 

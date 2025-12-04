@@ -1,8 +1,10 @@
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\service\DepositoService.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\service\GeoService.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\entity\Ubicacion.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\config\WebClientConfig.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\controller\UbicacionController.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\entity\Deposito.java
+D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\dto\CoordenadasDto.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\LocalizacionesApplication.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\dto\DistanciaDTO.java
 D:\UTN\Backend\2025\TPI\tpi-backend-logistica-2025\ms-localizaciones\src\main\java\com\tpi\localizaciones\service\UbicacionService.java

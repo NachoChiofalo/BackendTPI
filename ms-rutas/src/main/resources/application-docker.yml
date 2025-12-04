@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://tpi-postgres:5432/tpi_logistica}
+    username: ${SPRING_DATASOURCE_USERNAME:tpi_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:tpi_pass}
+
+# Configuración de microservicios para Docker
+solicitudes:
+  service:
+    url: ${SOLICITUDES_SERVICE_URL:http://tpi-ms-solicitudes:8084}
+
+flotas:
+  service:
+    url: ${FLOTAS_SERVICE_URL:http://tpi-ms-flotas:8081}
+
+localizaciones:
+  service:
+    url: ${MS_LOCALIZACIONES_URL:http://tpi-ms-localizaciones:8087}
+
+# Configuración OSRM
+osrm:
+  url: ${OSRM_URL:http://tpi-osrm:5000}
+
+logging:
+  level:
+    com.tpi.rutas: INFO
+    org.springframework.web: INFO
+    org.hibernate.SQL: WARN
+    org.hibernate.type.descriptor.sql.BasicBinder: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

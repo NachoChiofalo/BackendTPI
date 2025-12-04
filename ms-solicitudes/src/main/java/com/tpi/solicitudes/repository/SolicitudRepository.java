@@ -19,4 +19,13 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Integer> {
 
     // Nuevo: obtener todas las solicitudes de un cliente ordenadas por fecha de inicio descendente
     List<Solicitud> findByTipoDocClienteAndNumDocClienteOrderByFechaHoraInicioDesc(Integer tipoDoc, Long numDoc);
+
+    // Obtener la solicitud asociada a un contenedor específico
+    Optional<Solicitud> findByIdContenedor(Integer idContenedor);
+
+    // Obtener solicitudes asociadas a una ruta específica
+    List<Solicitud> findByIdRuta(Integer idRuta);
+
+    // Obtener la primera solicitud por rutaId (para validaciones de capacidad)
+    Optional<Solicitud> findFirstByIdRuta(Integer idRuta);
 }

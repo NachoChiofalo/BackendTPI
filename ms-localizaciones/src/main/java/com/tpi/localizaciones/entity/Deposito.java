@@ -18,7 +18,7 @@ public class Deposito {
     @Column(name = "deposito_id")
     private Integer depositoId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ubicacion_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Ubicacion ubicacion;
