@@ -229,4 +229,15 @@ public class SolicitudController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    /**
+     * Obtiene una solicitud por su rutaId - Usado para validaciones de capacidad
+     */
+    @GetMapping("/por-ruta/{rutaId}")
+    public ResponseEntity<Solicitud> obtenerPorRuta(@PathVariable("rutaId") Integer rutaId) {
+        log.info("GET /api/solicitudes/por-ruta/{} - Obteniendo solicitud por rutaId", rutaId);
+        return solicitudService.obtenerPorRuta(rutaId)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }

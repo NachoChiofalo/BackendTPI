@@ -1,5 +1,8 @@
 package com.tpi.rutas.service;
 
+import com.tpi.rutas.dto.CamionDTO;
+import com.tpi.rutas.dto.ContenedorDTO;
+import com.tpi.rutas.dto.SolicitudDTO;
 import com.tpi.rutas.entity.Tramo;
 import com.tpi.rutas.exception.TramoValidationException;
 import com.tpi.rutas.repository.TramoRepository;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -105,6 +109,30 @@ public class TramoService {
                             "El dominio del camión no puede estar vacío");
                     }
 
+                    // NUEVA VALIDACIÓN: Verificar capacidad si el tramo tiene rutaId
+                    if (tramo.getRutaId() != null) {
+                        try {
+                            log.info("🔍 Iniciando validación de capacidad del camión {} para el tramo {} de la ruta {}",
+                                    dominio.trim(), tramoId, tramo.getRutaId());
+
+                            // Obtener información del camión
+                            CamionDTO camion = obtenerInformacionCamion(dominio.trim());
+
+                            // Obtener la solicitud asociada a la ruta
+                            SolicitudDTO solicitud = obtenerSolicitudPorRuta(tramo.getRutaId());
+
+                            // Obtener información del contenedor
+                            ContenedorDTO contenedor = obtenerInformacionContenedor(solicitud.getIdContenedor());
+
+                            // Validar capacidades
+                            validarCapacidadCamionContenedor(camion, contenedor, tramo.getRutaId(), tramoId);
+                        } catch (Exception e) {
+                            log.warn("⚠️ No se pudo validar la capacidad para el tramo {} (método legacy): {}", tramoId, e.getMessage());
+                            // En el método legacy, registramos el warning pero no impedimos la asignación
+                            // para mantener compatibilidad hacia atrás
+                        }
+                    }
+
                     tramo.setDominio(dominio.trim());
                     Tramo tramoGuardado = tramoRepository.save(tramo);
 
@@ -133,6 +161,21 @@ public class TramoService {
                         throw new TramoValidationException("DOMINIO_INVALIDO",
                             "El dominio del camión no puede estar vacío");
                     }
+
+                    // NUEVA VALIDACIÓN: Verificar que el camión puede transportar el contenedor
+                    log.info("🔍 Iniciando validación de capacidad del camión {} para la ruta {}", dominio.trim(), rutaId);
+
+                    // Obtener información del camión
+                    CamionDTO camion = obtenerInformacionCamion(dominio.trim());
+
+                    // Obtener la solicitud asociada a la ruta
+                    SolicitudDTO solicitud = obtenerSolicitudPorRuta(rutaId);
+
+                    // Obtener información del contenedor
+                    ContenedorDTO contenedor = obtenerInformacionContenedor(solicitud.getIdContenedor());
+
+                    // Validar capacidades
+                    validarCapacidadCamionContenedor(camion, contenedor, rutaId, tramoId);
 
                     tramo.setDominio(dominio.trim());
                     Tramo tramoGuardado = tramoRepository.save(tramo);
@@ -379,6 +422,157 @@ public class TramoService {
             log.error("Error al notificar finalización de tramo {} ruta {}: {}", tramoId, rutaId, e.getMessage());
             // No interrumpir el flujo principal si falla la notificación
         }
+    }
+
+    /**
+     * Obtiene la información de un camión desde el microservicio de flotas
+     */
+    private CamionDTO obtenerInformacionCamion(String dominio) {
+        try {
+            String url = flotasServiceUrl + "/api/camiones/" + dominio;
+            log.info("Obteniendo información del camión {} desde URL: {}", dominio, url);
+
+            // Usar Map para obtener la respuesta como JSON genérico y luego mapearlo
+            ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
+
+            if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
+                log.info("Información del camión {} obtenida exitosamente", dominio);
+                Map<String, Object> camionData = response.getBody();
+
+                // Mapear manualmente los datos al DTO
+                CamionDTO camionDTO = CamionDTO.builder()
+                    .dominio((String) camionData.get("dominio"))
+                    .disponible((Boolean) camionData.get("disponible"))
+                    .capacidadPeso(new BigDecimal(camionData.get("capacidadPeso").toString()))
+                    .capacidadVolumen(new BigDecimal(camionData.get("capacidadVolumen").toString()))
+                    .costoBaseKm(new BigDecimal(camionData.get("costoBaseKm").toString()))
+                    .consumoPromedio(new BigDecimal(camionData.get("consumoPromedio").toString()))
+                    .build();
+
+                return camionDTO;
+            } else {
+                log.error("Error al obtener información del camión {}: Status {}", dominio, response.getStatusCode());
+                throw new TramoValidationException("CAMION_NO_ENCONTRADO",
+                    "No se pudo obtener la información del camión con dominio: " + dominio);
+            }
+        } catch (Exception e) {
+            log.error("Error al comunicarse con el servicio de flotas para el camión {}: {}", dominio, e.getMessage());
+            throw new TramoValidationException("ERROR_SERVICIO_FLOTAS",
+                "No se pudo comunicar con el servicio de flotas para obtener la información del camión: " + dominio);
+        }
+    }
+
+    /**
+     * Obtiene la solicitud asociada a una ruta desde el microservicio de solicitudes
+     */
+    private SolicitudDTO obtenerSolicitudPorRuta(Integer rutaId) {
+        try {
+            String url = solicitudesServiceUrl + "/api/solicitudes/por-ruta/" + rutaId;
+            log.info("Obteniendo solicitud de la ruta {} desde URL: {}", rutaId, url);
+
+            // Usar Map para obtener la respuesta como JSON genérico y luego mapearlo
+            ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
+
+            if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
+                log.info("Solicitud de la ruta {} obtenida exitosamente", rutaId);
+                Map<String, Object> solicitudData = response.getBody();
+
+                // Mapear manualmente los datos al DTO
+                SolicitudDTO solicitudDTO = SolicitudDTO.builder()
+                    .solicitudId((Integer) solicitudData.get("solicitudId"))
+                    .idContenedor((Integer) solicitudData.get("idContenedor"))
+                    .idRuta((Integer) solicitudData.get("idRuta"))
+                    .tipoDocCliente((Integer) solicitudData.get("tipoDocCliente"))
+                    .numDocCliente(Long.valueOf(solicitudData.get("numDocCliente").toString()))
+                    .estadoSolicitud((Integer) solicitudData.get("estadoSolicitud"))
+                    .idUbicacionOrigen((Integer) solicitudData.get("idUbicacionOrigen"))
+                    .idUbicacionDestino((Integer) solicitudData.get("idUbicacionDestino"))
+                    .build();
+
+                return solicitudDTO;
+            } else {
+                log.error("Error al obtener solicitud de la ruta {}: Status {}", rutaId, response.getStatusCode());
+                throw new TramoValidationException("SOLICITUD_NO_ENCONTRADA",
+                    "No se encontró una solicitud asociada a la ruta: " + rutaId);
+            }
+        } catch (Exception e) {
+            log.error("Error al comunicarse con el servicio de solicitudes para la ruta {}: {}", rutaId, e.getMessage());
+            throw new TramoValidationException("ERROR_SERVICIO_SOLICITUDES",
+                "No se pudo comunicar con el servicio de solicitudes para obtener la solicitud de la ruta: " + rutaId);
+        }
+    }
+
+    /**
+     * Obtiene la información de un contenedor desde el microservicio de solicitudes
+     */
+    private ContenedorDTO obtenerInformacionContenedor(Integer idContenedor) {
+        try {
+            String url = solicitudesServiceUrl + "/api/contenedores/interno/" + idContenedor;
+            log.info("Obteniendo información del contenedor {} desde URL: {}", idContenedor, url);
+
+            // Usar Map para obtener la respuesta como JSON genérico y luego mapearlo
+            ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
+
+            if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
+                log.info("Información del contenedor {} obtenida exitosamente", idContenedor);
+                Map<String, Object> contenedorData = response.getBody();
+
+                // Mapear manualmente los datos al DTO
+                ContenedorDTO contenedorDTO = ContenedorDTO.builder()
+                    .idContenedor((Integer) contenedorData.get("idContenedor"))
+                    .pesoKg(new BigDecimal(contenedorData.get("pesoKg").toString()))
+                    .volumenM3(new BigDecimal(contenedorData.get("volumenM3").toString()))
+                    .idEstadoContenedor((Integer) contenedorData.get("idEstadoContenedor"))
+                    .build();
+
+                return contenedorDTO;
+            } else {
+                log.error("Error al obtener información del contenedor {}: Status {}", idContenedor, response.getStatusCode());
+                throw new TramoValidationException("CONTENEDOR_NO_ENCONTRADO",
+                    "No se pudo obtener la información del contenedor con ID: " + idContenedor);
+            }
+        } catch (Exception e) {
+            log.error("Error al comunicarse con el servicio de solicitudes para el contenedor {}: {}", idContenedor, e.getMessage());
+            throw new TramoValidationException("ERROR_SERVICIO_SOLICITUDES",
+                "No se pudo comunicar con el servicio de solicitudes para obtener la información del contenedor: " + idContenedor);
+        }
+    }
+
+    /**
+     * Valida que el contenedor no supere las capacidades del camión
+     */
+    private void validarCapacidadCamionContenedor(CamionDTO camion, ContenedorDTO contenedor, Integer rutaId, Integer tramoId) {
+        log.info("Validando capacidad del camión {} para el contenedor {} en tramo {} de ruta {}",
+                camion.getDominio(), contenedor.getIdContenedor(), tramoId, rutaId);
+
+        // Validar peso
+        if (contenedor.getPesoKg().compareTo(camion.getCapacidadPeso()) > 0) {
+            String mensaje = String.format(
+                "El contenedor %d excede la capacidad de peso del camión %s. Peso del contenedor: %.2f kg, Capacidad del camión: %.2f kg",
+                contenedor.getIdContenedor(),
+                camion.getDominio(),
+                contenedor.getPesoKg(),
+                camion.getCapacidadPeso()
+            );
+            log.error(mensaje);
+            throw new TramoValidationException("CAPACIDAD_PESO_EXCEDIDA", mensaje);
+        }
+
+        // Validar volumen
+        if (contenedor.getVolumenM3().compareTo(camion.getCapacidadVolumen()) > 0) {
+            String mensaje = String.format(
+                "El contenedor %d excede la capacidad de volumen del camión %s. Volumen del contenedor: %.2f m³, Capacidad del camión: %.2f m³",
+                contenedor.getIdContenedor(),
+                camion.getDominio(),
+                contenedor.getVolumenM3(),
+                camion.getCapacidadVolumen()
+            );
+            log.error(mensaje);
+            throw new TramoValidationException("CAPACIDAD_VOLUMEN_EXCEDIDA", mensaje);
+        }
+
+        log.info("✅ Validación de capacidad exitosa. Camión {} puede transportar el contenedor {}",
+                camion.getDominio(), contenedor.getIdContenedor());
     }
 
     /**

@@ -910,4 +910,12 @@ public class SolicitudService {
         log.info("Fecha hora estimada fin calculada aleatoriamente: {}", fechaEstimada);
         return fechaEstimada;
     }
+
+    /**
+     * Obtiene una solicitud por su rutaId
+     */
+    public Optional<Solicitud> obtenerPorRuta(Integer rutaId) {
+        log.info("Obteniendo solicitud por rutaId: {}", rutaId);
+        return solicitudRepository.findFirstByIdRuta(rutaId);
+    }
 }

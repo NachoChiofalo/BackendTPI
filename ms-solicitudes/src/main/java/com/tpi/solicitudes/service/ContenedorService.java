@@ -251,7 +251,7 @@ public class ContenedorService {
     private ContenedorDetalladoDto.TramoDto mapearTramoDto(Map<String, Object> tramo) {
         return ContenedorDetalladoDto.TramoDto.builder()
                 .tramoId(getIntegerFromMap(tramo, "tramoId"))
-                .kilometros(getBigDecimalFromMap(tramo, "kilometros"))
+                .kilometros(getBigDecimalFromMap(tramo, "distancia"))  // Corregido: usar 'distancia' en lugar de 'kilometros'
                 .fechaHoraInicio(getStringFromMap(tramo, "fechaHoraInicio"))
                 .fechaHoraFin(getStringFromMap(tramo, "fechaHoraFin"))
                 .build();

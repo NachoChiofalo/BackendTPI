@@ -59,6 +59,18 @@ public class ContenedorController {
         }
     }
 
+    /**
+     * Endpoint interno para obtener información básica de un contenedor
+     * Usado por otros microservicios para validaciones (sin requerir autenticación de cliente)
+     */
+    @GetMapping("/interno/{id}")
+    public ResponseEntity<Contenedor> obtenerPorIdInterno(@PathVariable("id") Integer id) {
+        log.info("GET /api/contenedores/interno/{} - Obteniendo contenedor para validaciones internas", id);
+        return contenedorService.obtenerPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PreAuthorize("hasRole('operador')")
     @PostMapping
     public ResponseEntity<Contenedor> crear(@Valid @RequestBody Contenedor contenedor) {

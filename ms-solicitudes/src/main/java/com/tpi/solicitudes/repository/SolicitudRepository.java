@@ -25,4 +25,7 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Integer> {
 
     // Obtener solicitudes asociadas a una ruta específica
     List<Solicitud> findByIdRuta(Integer idRuta);
+
+    // Obtener la primera solicitud por rutaId (para validaciones de capacidad)
+    Optional<Solicitud> findFirstByIdRuta(Integer idRuta);
 }
